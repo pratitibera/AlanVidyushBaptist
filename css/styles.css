@@ -1,41 +1,36 @@
 /* Globacl classes */
-
+.w-70{
+	width: 70%;
+}
+.w-80{
+	width: 80%;
+}
 .w-100 {
 	width: 100%;
 }
 
-/* Navbar */
-
-.navbar-brand {
-	color: #fff;
-	font-weight: 600;
-	padding: 10px 0px 10px 0px;
+.fo-20{
 	font-size: 20px;
-	letter-spacing: .15em;
 }
 
-.owner-name {
-	color: #fff;
-	font-weight: 600;
-	padding: 10px 0px 10px 0px;
+.fo-30{
+	font-size: 30px;
+}
+.fo-40{
 	font-size: 40px;
-	letter-spacing: .15em;
-}
-.navbar-nav .active{
-	color: #FFE972;
-}
-.nav-item {
-	padding: 5px 30px 0px 30px;
 }
 
-.nav-item a {
-	color: #fff;
-	font-size: 17px;
-	text-transform: uppercase;
+.fo-55{
+	font-size: 55px;
+}
+.fw-600{
 	font-weight: 600;
 }
+.fw-800{
+	font-weight: 800;
+}
 
-.nav-item a:hover {
+.bco{
 	color: #FFE972;
 }
 
@@ -44,48 +39,6 @@
 	background-color: #FFE972;
 	color: #000;
 	font-weight: 600;
-}
-
-
-/* Site title and background*/
-
-.site-title {
-	margin-top: 50px;
-	background: url('http://alanvidyushbaptist.com/wp-content/uploads/2020/11/1-1.jpg');
-	background-size: cover;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-}
-
-.site-title .site-background {
-	padding-top: 15rem;
-	padding-right: 25rem;
-	text-align: center;
-	color: #fff;
-}
-
-.site-title h1, .site-title h3 {
-	margin: .3rem;
-}
-
-/* Companies row */
-
-.companies {
-	box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
-	transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-}
-
-.companies .col-sm-3,
-.companies .col-sm-4 {
-	height: 95px;
-	display: flex;
-	justify-content: center;
-}
-
-.companies img {
-	max-height: 95px;
-	margin: auto;
 }
 
 /* Floating whatsapp con */
@@ -104,4 +57,97 @@
 	width: 70px;
 	height: 70px;
 	border-radius: 50%;
+}
+
+/* Navbar */
+
+.navbar-brand {
+	color: #fff;
+	font-weight: 600;
+	padding: 10px 0px 10px 0px;
+	font-size: 20px;
+	letter-spacing: .15em;
+}
+
+.owner-name {
+	color: #fff;
+	font-weight: 600;
+	/* padding: 0px 0px 10px 0px; */
+	font-size: 56px;
+	letter-spacing: .1em;
+}
+.navbar-nav .active{
+	color: #FFE972;
+}
+.nav-item {
+	padding: 0px 30px 0px 30px;
+}
+
+.nav-item a {
+	color: #fff;
+	font-size: 17px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+
+.nav-item a:hover {
+	color: #FFE972;
+}
+
+
+/* Site title and background*/
+
+.site-title {
+	margin-top: 100px;
+	background: url('https://static.wixstatic.com/media/bf92a9_b098f40afa8b41688bb9351576236a94~mv2_d_3348_1382_s_2.png/v1/fill/w_1374,h_721,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_b098f40afa8b41688bb9351576236a94~mv2_d_3348_1382_s_2.webp');
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.site-title .site-background {
+	padding-top: 8rem;
+	/* padding-right: 25rem; */
+	text-align: center;
+	color: #fff;
+}
+
+/* collabs row */
+
+.collabs .col-sm-4, .collabs .col-4 {
+	height: 95px;
+	display: flex;
+	justify-content: center;
+}
+
+.collabs img {
+	max-height: 85px;
+	margin: auto;
+}
+
+/* About section begins */
+.about-section{
+	border-top: 6px solid #FFE972;
+	background: url('https://media.istockphoto.com/photos/milky-way-picture-id1085287936?b=1&k=20&m=1085287936&s=170667a&w=0&h=JcGOcj303DmVlqdUSt9gXhW1v5O6HMCEsY5snHPuEiQ=');
+	background-size: cover;
+	/* height: 100vh; */
+	display: flex;
+	justify-content: center;
+}
+.about-container{
+	padding: 0px 40px 40px 40px;
+	background: rgba(0, 0, 0, 0.5); 
+	margin-top: 90px;
+	border: 2px solid #000;
+}
+
+.about-container img{
+	border-radius: 50%; 
+	border: 2px solid #FFE972
+}
+.about-quote{
+	border-left: 4px solid #FFE972; 
+	padding-left: 35px; 
+	margin-left: 35px
 }

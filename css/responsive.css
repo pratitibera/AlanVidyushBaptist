@@ -1,15 +1,34 @@
-@media only screen and (max-width: 520px) {
+@media only screen and (min-width: 577px) {
+	.site-title .site-background .text-left{
+		padding-left: 100px;
+	}
+
+}
+@media only screen and (max-width: 576px) {
 	.site-title {
 		height: 30vh;
+		margin-top: 67px;
 	}
 	.site-title .site-background {
-		padding-top: 4rem;
-		padding-right: 8rem;
+		padding-top: 1.5rem;
 	}
-	.site-title .site-background h3 {
-		font-size: 12px;
+	.about-container{
+		padding: 0px 20px 20px 20px;
+		margin-top: 45px;
 	}
-	.site-title .site-background h1 {
-		font-size: 16px;
+	.about-quote{
+		margin-left: 0px
+	}
+	.mfo-25{
+		font-size: 25px!important;
+	}
+	.mfo-13{
+		font-size: 13px!important;
+	}
+	.mfo-11{
+		font-size: 11px!important;
+	}
+	.mow-90{
+		width: 90%!important;
 	}
 }
