@@ -1,0 +1,15 @@
+@media only screen and (max-width: 520px) {
+	.site-title {
+		height: 30vh;
+	}
+	.site-title .site-background {
+		padding-top: 4rem;
+		padding-right: 8rem;
+	}
+	.site-title .site-background h3 {
+		font-size: 12px;
+	}
+	.site-title .site-background h1 {
+		font-size: 16px;
+	}
+}
