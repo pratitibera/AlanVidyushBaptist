@@ -2,6 +2,10 @@
 	.site-title .site-background .text-left{
 		padding-left: 100px;
 	}
+	.accomplishments{
+		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 1250px, #000000 1400px, #ffffff 5000px); 
+		padding-top: 60px
+	}
 	.accomplishments .container-fluid{
 		padding: 0px 200px;
 	}
@@ -33,6 +37,10 @@
 	}
 	.about-quote{
 		margin-left: 0px
+	}
+	.accomplishments{
+		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 2000px, #000000 2700px, #ffffff); 
+		padding-top: 60px
 	}
 	.blog-body{
 		padding: 20px 32px 20px 32px;
