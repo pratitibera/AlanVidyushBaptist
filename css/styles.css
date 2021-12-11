@@ -2,6 +2,10 @@
 .text-purple{
 	color: #3E205A;
 }
+ul{
+	list-style-type: none;
+}
+
 .w-70{
 	width: 70%;
 }
@@ -138,7 +142,7 @@
 }
 
 .site-title .site-background {
-	padding-top: 8rem;
+	padding-top: 2rem;
 	/* padding-right: 25rem; */
 	text-align: center;
 	color: #fff;
