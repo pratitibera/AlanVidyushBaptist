@@ -305,7 +305,7 @@ section .container .owl-nav{
 
 .owl-nav .owl-prev .owl-nav-prev,
 .owl-nav .owl-next .owl-nav-next{
-    color: var(--text-gray);
+    color: #fff;
     background: transparent;
     font-size: 2rem;
 }
