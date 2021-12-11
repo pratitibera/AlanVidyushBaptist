@@ -221,6 +221,15 @@ footer hr{
 	border-bottom: 1px solid #FFE972; 
 	max-width: 200px
 }
+footer{
+	position: relative;
+}
+footer .move-up{
+    position: absolute;
+    right: 4%;
+    bottom: 25%;
+    cursor: pointer;
+}
 
 .footer-bg{
 	background-image: url('https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'); background-attachment: fixed;
