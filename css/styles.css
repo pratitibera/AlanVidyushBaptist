@@ -124,7 +124,7 @@
 
 .site-title {
 	margin-top: 100px;
-	background: url('https://static.wixstatic.com/media/bf92a9_b098f40afa8b41688bb9351576236a94~mv2_d_3348_1382_s_2.png/v1/fill/w_1374,h_721,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_b098f40afa8b41688bb9351576236a94~mv2_d_3348_1382_s_2.webp');
+	background: url('../img/cover_image.jpg');
 	background-size: cover;
 	height: 100vh;
 	display: flex;
