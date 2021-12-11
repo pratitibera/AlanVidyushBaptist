@@ -9,12 +9,12 @@
 			margin: 0;
 			padding: 0;
 			font-family: sans-serif;
-			background: black;
+			
 		}
 		section{
 			position: relative;
 			width: 100%;
-			height: 60vh;
+			height: 100vh;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -27,7 +27,11 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: linear-gradient(#6827b0, #ff0081, #33ccff, #ff99cc, #003366);
+			/* background-color: #eee; */
+background-image:         linear-gradient(top, #fff 0%, #eee 300px); /* W3C */
+background-image:    -moz-linear-gradient(top, #fff 0%, #eee 300px); /* FF3.6+ */
+background-image: -webkit-linear-gradient(top, #fff 0%, #eee 100px, #000 400px, #fff 600px); /* Chrome10+,Safari5.1+ */
+			/* background: linear-gradient(#6827b0, #ff0081, #33ccff, #ff99cc, #003366); */
 			border-radius: 0 0 50% 50%/0 0 100% 100%;
 			transform: scaleX(1.5);
 		}
