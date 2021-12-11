@@ -19,8 +19,14 @@
 	.about-quote{
 		margin-left: 0px
 	}
+	.blog-body{
+		padding: 20px 32px 20px 32px;
+	}
 	.mfo-35{
 		font-size: 35px!important;
+	}
+	.mfo-32{
+		font-size: 32px!important;
 	}
 	.mfo-25{
 		font-size: 25px!important;
