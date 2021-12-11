@@ -13,7 +13,6 @@ const responsive = {
     }
 }
 
-
 $(document).ready(function () {
      // click to scroll top
     $('.move-up span').click(function () {

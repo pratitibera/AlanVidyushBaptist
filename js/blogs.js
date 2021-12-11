@@ -33,7 +33,7 @@ function showBlogs(){
 	console.log(blogsData);
 	var blogsSection = document.getElementById('blogsSection');
 	for(i = 0; i < blogsData.length; i++){
-		blogsSection.innerHTML += `<div class="p-3">
+		blogsSection.innerHTML += `<div class="p-3" data-aos="fade-right" data-aos-delay="110">
                      <div class="card p-0">
                         <a href=${blogsData[i]['link']}>
                            <div class="blog-image">
