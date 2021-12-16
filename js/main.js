@@ -26,5 +26,7 @@ $(document).ready(function () {
 });
 
 $(".navbar-nav > li").click(function(){
-  $(".collapse").collapse('hide');
+    $(".navbar-nav > li > a").removeClass('active');
+    $(this).children('a').addClass('active');
+    $(".collapse").collapse('hide');
 });

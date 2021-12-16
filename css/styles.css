@@ -263,12 +263,11 @@ footer .move-up{
 }
 
 .footer-bg{
-	background-image: url('https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'); background-attachment: fixed;
-    background-size: cover; 
+	/* background-image: url('https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'); background-attachment: fixed;
+    background-size: cover;  */
     position: relative;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background-position: 50% 50%;
-    background-size: cover; 
     height: 60vh
 }
 .footer-bg .text-white{
