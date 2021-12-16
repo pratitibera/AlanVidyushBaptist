@@ -24,3 +24,7 @@ $(document).ready(function () {
     // AOS Instance
     AOS.init();
 });
+
+$(".navbar-nav > li").click(function(){
+  $(".collapse").collapse('hide');
+});

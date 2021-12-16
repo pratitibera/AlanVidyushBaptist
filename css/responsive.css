@@ -42,6 +42,9 @@
 		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 2400px, #000000 2700px, #ffffff); 
 		padding-top: 60px
 	}
+	.blog-section {
+	    padding-top: 60px;
+	}
 	.blog-body{
 		padding: 20px 32px 20px 32px;
 	}

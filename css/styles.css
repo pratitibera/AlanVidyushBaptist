@@ -183,7 +183,7 @@ ul{
 	justify-content: center;
 }
 .about-container{
-	padding: 0px 40px 40px 40px;
+	padding: 10px 40px 40px 40px;
 	background: rgba(0, 0, 0, 0.5); 
 	margin-top: 90px;
 	border: 2px solid #000;
@@ -206,9 +206,12 @@ ul{
 }
 
 /* Blogs */
+.blog-section{
+	padding-top: 125px;
+}
 .blog-section hr{
 	border-bottom: 3px solid #e6ce4c; 
-	max-width: 200px
+	max-width: 200px;
 }
 .blog-section .card{
 	border-radius: 3px;
