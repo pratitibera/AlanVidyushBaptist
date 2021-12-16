@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@600&family=Montserrat:wght@300&family=Open+Sans+Condensed:wght@700&display=swap');
+
+/* Font families */
+.exo{
+	font-family: 'Exo', sans-serif;
+}
+.mont{
+	font-family: 'Montserrat', sans-serif;
+}
+.opensans{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+
 /* Globacl classes */
 .text-purple{
 	color: #3E205A;
@@ -122,7 +136,7 @@ ul{
 	color: #fff;
 	font-size: 17px;
 	text-transform: uppercase;
-	font-weight: 600;
+	/* font-weight: 600; */
 }
 
 .nav-item a:hover {
