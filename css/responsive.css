@@ -3,7 +3,7 @@
 		padding-left: 100px;
 	}
 	.accomplishments{
-		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 1200px, #000000 1650px, #ffffff 2000px, #3E205A 3200px); 
+		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 1200px, #000000 1650px, #d4cfcf 2300px, #3E205A 3000px, #000000 3200px); 
 		padding-top: 60px
 	}
 	.accomplishments .container-fluid{
@@ -39,7 +39,7 @@
 		margin-left: 0px
 	}
 	.accomplishments{
-		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 2400px, #000000 2700px, #ffffff); 
+		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 2400px, #000000 2700px, #ffffff 4000px, #3E205A 4500px, #000000 4700px); 
 		padding-top: 60px
 	}
 	.blog-section {

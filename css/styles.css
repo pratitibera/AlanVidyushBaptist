@@ -83,7 +83,9 @@ ul{
 	color: #777777;
 	line-height: 1.35em;
 }
-
+.text-purple{
+	color: #472966;
+}
 .website-button {
 	padding: 5px 20px;
 	background-color: #FFE972;

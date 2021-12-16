@@ -43,7 +43,7 @@ function showBlogs(){
                         <div class="blog-body">
                            <div class="fo-21 fw-700">${blogsData[i]['heading']}</div>
                            <div class="fo-14 txtco mt-3 fw-400">${blogsData[i]['description']}</div>
-                           <div class="fo-12 fw-600 bco mt-4">READ MORE >></div>
+                           <div class="fo-12 fw-600 text-purple mt-4">READ MORE >></div>
                         </div>
                         <div class="blog-footer fo-12">${blogsData[i]['date']}</div>
                      </div>  
