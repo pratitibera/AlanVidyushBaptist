@@ -83,7 +83,7 @@ ul{
 }
 
 .bco{
-	color: #FFE972;
+	color: #FFE972!important;
 }
 
 .txtco{
@@ -101,6 +101,25 @@ ul{
 }
 .bg-grey{
 	background-color: #f1f1f1;
+}
+
+.animatedButton{
+	animation: bounce 3s linear infinite;
+}
+
+@keyframes bounce{
+    20%,50%,80%,to{
+        transform: translateY(0);
+    }
+    40%{
+        transform: translateY(-30px);
+    }
+    70%{
+        transform: translateY(-15px);
+    }
+    90%{
+        transform: translateY(-4px);
+    }
 }
 
 /* Floating whatsapp con */
@@ -137,6 +156,7 @@ ul{
 	font-size: 56px;
 	letter-spacing: .1em;
 }
+
 .navbar-nav .active{
 	color: #FFE972;
 }
@@ -155,6 +175,45 @@ ul{
 	color: #FFE972;
 }
 
+/* 3-bars and cross icon animation */
+.menu-btn__burger {
+  width: 25px;
+  height: 3px;
+  background: #FFE972;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255,101,47,.2);
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: #FFE972;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255,101,47,.2);
+  transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+  transform: translateY(-9px);
+}
+.menu-btn__burger::after {
+  transform: translateY(9px);
+}
+
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
 
 /* Site title and background*/
 
@@ -215,8 +274,8 @@ ul{
 	margin-left: 35px
 }
 
-/* Accomplishments */
-.accomplishments hr{
+/* Associations */
+.associations hr{
 	border-bottom: 3px solid #fff; 
 	max-width: 200px
 }
@@ -238,6 +297,10 @@ ul{
 
 .blog-image{
 	position: relative;
+	height: 225px;
+}
+.blog-image img{
+	height: 225px;
 }
 
 .blog-image:after{

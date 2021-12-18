@@ -1,27 +1,27 @@
 var blogsData = [
   {
-    "image": "https://secureservercdn.net/160.153.137.99/i1m.462.myftpupload.com/wp-content/uploads/2021/04/Website-Creative-300x146.jpg",
+    "image": "https://www.linkpicture.com/q/blog1.png",
     "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
     "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
     "date": "May 4, 2021"
   },
   {
-    "image": "https://secureservercdn.net/160.153.137.99/i1m.462.myftpupload.com/wp-content/uploads/2021/03/Website-Creative-1-300x146.jpg",
+    "image": "https://www.linkpicture.com/q/blog2.png",
     "heading": "Bnlo Zuban Cancery – Is Pan Masala Harmful for Health?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
     "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
     "date": "May 4, 2021"
   },
   {
-    "image": "https://secureservercdn.net/160.153.137.99/i1m.462.myftpupload.com/wp-content/uploads/2021/04/Website-Creative-300x146.jpg",
+    "image": "https://www.linkpicture.com/q/blog3.png",
     "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
     "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
     "date": "May 4, 2021"
   },
   {
-    "image": "https://secureservercdn.net/160.153.137.99/i1m.462.myftpupload.com/wp-content/uploads/2021/04/Website-Creative-300x146.jpg",
+    "image": "https://www.linkpicture.com/q/blog4.png",
     "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
     "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",

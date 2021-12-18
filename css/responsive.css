@@ -1,5 +1,5 @@
 @media only screen and (min-width: 1401px) {
-	.accomplishments{
+	.associations{
 		background: linear-gradient(#3E205A 100px, #324a80 1100px, #bd1114 1800px, #000000 2150px, #857979 3400px, #3E205A 3800px, #000000 4100px); 
 		padding-top: 60px
 	}
@@ -11,11 +11,11 @@
 	.mb-9{
 		margin-bottom: 9rem!important;
 	}
-	.accomplishments{
+	.associations{
 		background: linear-gradient(#3E205A 100px, #324a80 1100px, #bd1114 1800px, #000000 2400px, #857979 3800px, #3E205A 4000px, #000000 4250px); 
 		padding-top: 60px
 	}
-	.accomplishments .container-fluid{
+	.associations .container-fluid{
 		padding: 0px 50px;
 	}
 
@@ -50,7 +50,7 @@
 	.mb-9{
 		margin-bottom: 4rem!important;
 	}
-	.accomplishments{
+	.associations{
 		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 3200px, #000000 3850px, #857979, #3E205A 6200px, #000000 6300px); 
 		padding-top: 60px
 	}
@@ -92,5 +92,18 @@
 	}
 	.mlh-19{
 		line-height: 1.9em;
+	}
+	.navbar-nav{
+		padding-bottom: 30px;
+	    border-bottom: 1px solid #fff;
+	}
+	/* .navbar-collapse{
+		height: 90vh;
+	} */
+	.navExtras{
+		padding: 30px;
+	}
+	.navExtras div{
+		color: #8c8989;
 	}
 }

@@ -174,7 +174,7 @@ a {
 }
 
 a:hover {
-	text-decoration: underline
+	text-decoration: none
 }
 
 a:not([href]):not([class]) {
@@ -4622,8 +4622,8 @@ input[type=submit].btn-block {
 
 .navbar-toggler-icon {
 	display: inline-block;
-	width: 1.5em;
-	height: 1.5em;
+	/* width: 1.5em;
+	height: 1.5em; */
 	vertical-align: middle;
 	content: "";
 	background: no-repeat center center;
