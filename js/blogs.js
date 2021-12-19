@@ -7,7 +7,7 @@ var blogsData = [
     "date": "May 4, 2021"
   },
   {
-    "image": "https://www.linkpicture.com/q/blog2.png",
+    "image": "https://www.linkpicture.com/q/blog4.png",
     "heading": "Bnlo Zuban Cancery – Is Pan Masala Harmful for Health?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
     "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
@@ -21,7 +21,7 @@ var blogsData = [
     "date": "May 4, 2021"
   },
   {
-    "image": "https://www.linkpicture.com/q/blog4.png",
+    "image": "https://www.linkpicture.com/q/blog2.png",
     "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
     "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
