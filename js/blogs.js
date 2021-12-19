@@ -61,3 +61,20 @@ function showBlogs(){
         responsive: responsive
     });
 }
+
+
+function prevBlog(){
+    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
+    if(v < 1){
+      v = 5;
+    }
+    document.getElementById('s' + v).checked = true;
+  }
+
+  function nextBlog(){
+    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
+    if(v > 5){
+      v = 1;
+    }
+    document.getElementById('s' + v).checked = true;
+  }

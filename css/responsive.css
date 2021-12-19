@@ -1,35 +1,75 @@
 @media only screen and (min-width: 1401px) {
-	.associations{
-		background: linear-gradient(#3E205A 100px, #324a80 1100px, #bd1114 1800px, #000000 2150px, #857979 3400px, #3E205A 3800px, #000000 4100px); 
+	.associations {
+		background: linear-gradient(#3E205A 100px, #324a80 1100px, #bd1114 1800px, #000000 2150px, #857979 3400px, #3E205A 3800px, #000000 4100px);
 		padding-top: 150px
 	}
 }
+
 @media only screen and (min-width: 577px) {
-	.site-title .site-background .text-left{
+	.site-title .site-background .text-left {
 		padding-left: 100px;
 	}
-	.mb-9{
+	.mb-9 {
 		margin-bottom: 9rem!important;
 	}
-	.associations{
-		background: linear-gradient(#3E205A 100px, #324a80 1200px, #bd1114 1900px, #000000 2600px, #857979 4000px, #3E205A 4200px, #000000 4450px); 
+	.associations {
+		background: linear-gradient(#3E205A 100px, #324a80 1200px, #bd1114 1900px, #000000 2600px, #857979 4000px, #3E205A 4200px, #000000 4450px);
 		padding-top: 150px
 	}
-	.associations .container-fluid{
+	.associations .container-fluid {
 		padding: 0px 50px;
 	}
-	.navbar-nav i{
+	.navbar-nav i {
 		display: none;
 	}
-
 }
+
 @media only screen and (max-width: 576px) {
-	.whatsapp_icon{
+	/* Global classes for mobile */
+	.mfo-35 {
+		font-size: 35px!important;
+	}
+	.mfo-32 {
+		font-size: 32px!important;
+	}
+	.mfo-25 {
+		font-size: 25px!important;
+	}
+	.mfo-20 {
+		font-size: 20px;
+	}
+	.mfo-17 {
+		font-size: 17px!important;
+	}
+	.mfo-16 {
+		font-size: 16px!important;
+	}
+	.mfo-14 {
+		font-size: 14px!important;
+	}
+	.mfo-13 {
+		font-size: 13px!important;
+	}
+	.mfo-12 {
+		font-size: 12px!important;
+	}
+	.mfo-11 {
+		font-size: 11px!important;
+	}
+	.mow-90 {
+		width: 90%!important;
+	}
+	.mlh-19 {
+		line-height: 1.9em;
+	}
+
+	/* Custom classes begins */
+	.whatsapp_icon {
 		font-size: 50px;
 	}
 	.whatsapp_icon img {
-	    width: 50px;
-	    height: 50px;
+		width: 50px;
+		height: 50px;
 	}
 	.navbar-brand {
 		padding: 10px 0px 10px 30px;
@@ -43,70 +83,50 @@
 	.site-title .site-background {
 		padding-top: 3.5rem;
 	}
-	.about-container{
+	.about-container {
 		padding: 0px 20px 20px 20px;
 		margin-top: 45px;
 	}
-	.about-quote{
+	.about-quote {
 		margin-left: 0px
 	}
-	.mb-9{
+	.mb-9 {
 		margin-bottom: 4rem!important;
 	}
-	.associations{
-		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 3200px, #000000 3850px, #857979, #3E205A 6200px, #000000 6300px); 
+	.associations {
+		background: linear-gradient(#3E205A 50px, #324a80, #bd1114 3200px, #000000 3850px, #857979, #3E205A 6200px, #000000 6300px);
 		padding-top: 60px
 	}
 	.blog-section {
-	    padding-top: 60px;
+		padding-top: 60px;
 	}
-	.blog-body{
+	.blog-body {
 		padding: 20px 32px 20px 32px;
 	}
-	.mfo-35{
-		font-size: 35px!important;
+	#blogSlider{
+		height: 60vh;
 	}
-	.mfo-32{
-		font-size: 32px!important;
+	#blogSlider label {
+		width: 50%;
 	}
-	.mfo-25{
-		font-size: 25px!important;
+	.blogcardimage {
+		height: 125px;
 	}
-	.mfo-20{
-		font-size: 20px;
+	.blog-body {
+		padding: 20px 16px 10px 16px;
+		line-height: 1em;
 	}
-	.mfo-17{
-		font-size: 17px!important;
+	.blog-footer {
+		padding: 8px 16px;
 	}
-	.mfo-16{
-		font-size: 16px!important;
-	}
-	.mfo-13{
-		font-size: 13px!important;
-	}
-	.mfo-12{
-		font-size: 12px!important;
-	}
-	.mfo-11{
-		font-size: 11px!important;
-	}
-	.mow-90{
-		width: 90%!important;
-	}
-	.mlh-19{
-		line-height: 1.9em;
-	}
-	.navbar-nav{
+	.navbar-nav {
 		padding-bottom: 30px;
-	    border-bottom: 1px solid #fff;
+		border-bottom: 1px solid #fff;
 	}
-	/* .navbar-collapse{
-		height: 90vh;
-	} */
-	.navExtras{
+	.navExtras {
 		padding: 30px;
 	}
-	.navExtras div{
+	.navExtras div {
 		color: #8c8989;
 	}
 }
