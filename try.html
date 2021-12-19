@@ -1,29 +1,40 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>bounce demo</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-  <style>
-  #toggle {
-    width: 100px;
-    height: 100px;
-    background: #ccc;
-  }
-  </style>
-  <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-</head>
-<body>
- 
-<p>Click anywhere to toggle the box.</p>
-<div id="toggle"></div>
- 
-<script>
-$( document ).click(function() {
-  $( "#toggle" ).toggle( "bounce", { times: 3 }, "slow" );
-});
-</script>
- 
-</body>
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Search searchbox</title>
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+         *{
+         box-sizing: border-searchbox;
+         }
+         .searchbox{
+         width: 500px;
+         height: 50px;
+         background-color: white;
+         border-radius: 30px;
+         display: flex;
+         align-items: center;
+         padding: 20px;
+         }
+         .searchbox > i {
+         font-size: 20px;
+         color: #777;
+         }
+         .searchbox > input{
+         flex: 1;
+         height: 40px;
+         border: none;
+         outline: none;
+         font-size: 18px;
+         padding-left: 10px;
+         }
+      </style>
+   </head>
+   <body style="background: black;">
+      <div class="searchbox">
+         <i class="fa fa-search" aria-hidden="true"></i>
+         <input type="text" name="">
+      </div>
+   </body>
 </html>
