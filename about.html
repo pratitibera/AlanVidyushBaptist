@@ -12,6 +12,13 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <style>
+         @media only screen and (max-width: 576px){
+            .site-title {
+               height: 36vh;
+            }
+         }
+      </style>
    </head>
    <body>
       <!---Floating button of whatsapp --->
@@ -22,102 +29,160 @@
       </div>
       <!---Topmost navbar begins-->
       <nav class="navbar navbar-expand-md bg-dark fixed-top">
-         <a class="navbar-brand d-block d-md-none" href="#">ALAN BAPTIST</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-         <span class="navbar-toggler-icon d-flex bco"><i class="fas fa-bars m-auto"></i></span>
-         </button>
+         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
+         <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <div class="menu-btn__burger"></div>
+         </div>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <div class="row d-none d-sm-flex">
                <div class="col-sm-3"></div>
                <div class="col-sm-6">
-                  <div class="owner-name text-center opensans">ALAN BAPTIST</div>
+                  <div class="owner-name text-center opensans">
+                     <a href="index.html" class="text-white">ALAN BAPTIST</a>
+                  </div>
                </div>
                <div class="col-sm-3 m-auto">
-                  <button class="btn website-button float-right">CONSULT</button>
+                  <button class="btn website-button float-right fo-17">CONSULT</button>
                </div>
             </div>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav pt-5 pt-sm-0">
                <li class="nav-item ml-sm-auto">
-                  <a class="nav-link active exo" href="#home">HOME</a>
+                  <a class="nav-link exo" href="#about">
+                     <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link exo" href="#about">ABOUT ALAN</a>
+                  <a class="nav-link exo" href="#success">
+                     <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link exo" href="#blogs">BLOGS</a>
+                  <a class="nav-link exo" href="#blogs">
+                     <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+                  </a>
                </li>
                <li class="nav-item mr-sm-auto">
-                  <a class="nav-link exo" href="#contact">CONTACT</a>
+                  <a class="nav-link exo" href="#contact">
+                     <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+                  </a>
                </li>
-               <li class="nav-item d-block d-sm-none">
-                  <button class="btn website-button mt-1 mb-1">CONSULT</button>
+               <li class="nav-item d-block d-sm-none text-center">
+                  <button class="btn website-button mt-4 mb-1 ml-4 fo-17">CONSULT</button>
                </li>
             </ul>
+            <div class="navExtras d-block d-sm-none">
+               <div class="pb-2">Associates</div>
+               <div class="pb-2">Search</div>
+            </div>
+            <div class="searchbox d-flex d-sm-none">
+               <i class="fa fa-search"></i>
+               <input type="text" name="" placeholder="Search...">
+            </div>
+            <div class="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
+               <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+               <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+               <i class="fab fa-instagram text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+               <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+               <i class="fas fa-envelope text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
+               <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+               </a>
+            </div>
          </div>
       </nav>
       <!---Topmost navbar ends--->
       <!--- Cover image and text on landing --->
-      <section class="site-title" id="home">
-         <div class="site-background w-100" data-aos="fade-up" data-aos-delay="100">
-            <div class="row m-0" style="height: 80vh">
-               <div class="col-8 col-sm-6 text-left d-flex m-auto justify-content-center">
-                  <div class="font-italic fo-30 mfo-16">Alan Baptist's notable achievements</div>
-               </div>
-               <div class="col-4 col-sm-6"></div>
-            </div>
-         </div>
+      <section class="site-title">
+         <div class="site-background w-100" data-aos="fade-up" data-aos-delay="100"></div>
       </section>
       <!--- Landing section ends --->
-
-      <section class="bg-grey">
-         <div class="container achievements">
-            <div class="fo-26 fw-600 mont">Achievements in the field of Nutrition</div>
-            <hr>
-            <div style="padding: 30px 90px">
-               <div class="card p-0 bg-grey mb-3" style="box-shadow: -5px -4px 3px 0px rgb(255 255 255 / 43%), 5px 4px 3px 0px rgb(88 88 88 / 43%); border: none; border-left: 4px solid #000">
-                  <div class="row m-0">
-                     <div class="col-sm-10 m-auto pl-5 mont">
-                        Studied the PN Level 1 Course at Precision Nutrition(Canada)
-                     </div>
-                     <div class="col-sm-2 p-0">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" style="width: 100%;">
-                     </div>
+      <!--- About section begins ---->
+      <section>
+         <div class="container-fluid p-0 pt-5 p-sm-5">
+            <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Nutrition</div>
+            <div class="aboutpage-container">
+               <div class="row m-0">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1573247318242-1da549d9924f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied the PN Level 1 Course at Precision Nutrition(Canada)
                   </div>
                </div>
-               <div class="card p-0 bg-grey mb-3" style="box-shadow: -5px -4px 3px 0px rgb(255 255 255 / 43%), 5px 4px 3px 0px rgb(88 88 88 / 43%); border: none; border-left: 4px solid #000">
-                  <div class="row m-0">
-                     <div class="col-sm-10 m-auto pl-5 mont">
-                        Studied the MNU Course at Mac Nutrition Uni(United Kingdom)
-                     </div>
-                     <div class="col-sm-2 p-0">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" style="width: 100%;">
-                     </div>
+               <div class="row m-0 d-flex flex-row-reverse">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1627486209135-95aac9ca6109?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGVkdWNhdGlvbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied the MNU Course at Mac Nutrition Uni(United Kingdom)
                   </div>
                </div>
-               <div class="card p-0 bg-grey mb-3" style="box-shadow: -5px -4px 3px 0px rgb(255 255 255 / 43%), 5px 4px 3px 0px rgb(88 88 88 / 43%); border: none; border-left: 4px solid #000">
-                  <div class="row m-0">
-                     <div class="col-sm-10 m-auto pl-5 mont">
-                        Studied Certified Sports Nutrition Coach(CSNC) at the National Academy of Sports Medicine(NASM)
-                     </div>
-                     <div class="col-sm-2 p-0">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" style="width: 100%;">
-                     </div>
+               <div class="row m-0">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1630459314129-6ec8a087fe4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGVkdWNhdGlvbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied Certified Sports Nutrition Coach(CSNC) at the National Academy of Sports Medicine(NASM)
                   </div>
                </div>
-               <div class="card p-0 bg-grey mb-3" style="box-shadow: -5px -4px 3px 0px rgb(255 255 255 / 43%), 5px 4px 3px 0px rgb(88 88 88 / 43%); border: none; border-left: 4px solid #000">
-                  <div class="row m-0">
-                     <div class="col-sm-10 m-auto pl-5 mont">
-                        Studied Sports Nutritionist Specialist at the National Exercise & Sports Trainers Association(NESTA)
-                     </div>
-                     <div class="col-sm-2 p-0">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" style="width: 100%;">
-                     </div>
+               <div class="row m-0 d-flex flex-row-reverse">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1624567644499-c9df255d150b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied Sports Nutritionist Specialist at the National Exercise & Sports Trainers Association(NESTA)
                   </div>
                </div>
-
+            </div>
+            <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Nutrition</div>
+            <div class="aboutpage-container">
+               <div class="row m-0">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1573247318242-1da549d9924f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied the PN Level 1 Course at Precision Nutrition(Canada)
+                  </div>
+               </div>
+               <div class="row m-0 d-flex flex-row-reverse">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1627486209135-95aac9ca6109?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGVkdWNhdGlvbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied the MNU Course at Mac Nutrition Uni(United Kingdom)
+                  </div>
+               </div>
+               <div class="row m-0">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1630459314129-6ec8a087fe4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGVkdWNhdGlvbnxlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied Certified Sports Nutrition Coach(CSNC) at the National Academy of Sports Medicine(NASM)
+                  </div>
+               </div>
+            </div>
+            <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Nutrition</div>
+            <div class="aboutpage-container">
+               <div class="row m-0">
+                  <div class="col-2 col-sm-3">
+                     <img src="https://images.unsplash.com/photo-1573247318242-1da549d9924f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWR1Y2F0aW9ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-100">
+                  </div>
+                  <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                     Studied the PN Level 1 Course at Precision Nutrition(Canada)
+                  </div>
+               </div>
             </div>
          </div>
       </section>
+      <!--- About section begins ---->
+
 
       <!--Script files -->
       <script src="js/jquery.js"></script>

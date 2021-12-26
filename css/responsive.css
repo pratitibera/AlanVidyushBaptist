@@ -132,4 +132,13 @@
 	.navExtras div {
 		color: #8c8989;
 	}
+	.aboutpage-container{
+		padding: 15px 10px;
+	}
+	.aboutpage-container .row{
+		margin-bottom: 15px!important;
+	}
+	.aboutpage-container .col-2{
+		padding: 0;
+	}
 }

@@ -121,6 +121,10 @@ ul {
 	line-height: 1.35em;
 }
 
+.bluetext{
+	color: #003153;
+}
+
 .text-purple {
 	color: #472966;
 }
@@ -134,6 +138,11 @@ ul {
 
 .pulsating{
 	box-shadow: -10px 10px 90px #FFE972;
+	animation: pulsating 0.6s linear infinite;
+}
+
+.pulsating_text{
+	color: #FFE972;
 	animation: pulsating 0.6s linear infinite;
 }
 
@@ -476,36 +485,6 @@ ul {
 	transform: translate3d(60%, 0, -200px);
 }
 
-
-/* .blog-section .card {
-	border-radius: 3px;
-	border: 0 solid #818a91;
-	transition: all .25s;
-	box-shadow: 0 0 10px 0 rgb(0 0 0 / 15%);
-}
-
-.blog-image {
-	position: relative;
-	height: 225px;
-}
-
-.blog-image img {
-	height: 225px;
-}
-
-.blogcardimage:after {
-	display: block;
-	content: "";
-	background-image: linear-gradient(0deg, rgba(0, 0, 0, .35), transparent 75%);
-	background-repeat: no-repeat;
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	opacity: 1;
-	transition: all .3s ease-out;
-} */
-
 .blog-body {
 	padding: 40px 32px 20px 32px;
 	line-height: 1.7em;
@@ -569,4 +548,14 @@ footer .move-up {
 	border-bottom: 3px solid #000;
 	max-width: 200px;
 	margin-left: 0;
+}
+
+
+/* About page */
+.aboutpage-container{
+	padding: 25px 300px;
+}
+.aboutpage-container .row:last-child{
+	border-bottom: 1px solid #0a4f80;
+	padding-bottom: 25px;
 }
