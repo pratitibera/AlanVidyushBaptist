@@ -25,6 +25,10 @@ ul {
 	list-style-type: none;
 }
 
+.w-8{
+	width: 8%;
+}
+
 .w-70 {
 	width: 70%;
 }
