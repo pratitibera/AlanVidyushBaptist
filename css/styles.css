@@ -132,6 +132,23 @@ ul {
 	font-weight: 600;
 }
 
+.pulsating{
+	box-shadow: -10px 10px 90px #FFE972;
+	animation: pulsating 0.6s linear infinite;
+}
+
+@keyframes pulsating{
+    0%{
+       transform: scale(1.07);
+    }
+    80%{
+       transform: scale(1.0);
+    }
+    100%{
+       transform: scale(0.8);
+    }
+ }
+
 .bg-grey {
 	background-color: #f1f1f1;
 }

@@ -13,179 +13,35 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <style>
+         body{
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0b1522;
+         }
+         .pulsating{
+            background: #FFE972;
+            box-shadow: -10px 10px 90px #FFE972;
+            animation: pulsating 0.6s linear infinite;
+         }
+         @keyframes pulsating{
+            0%{
+               transform: scale(1.07);
+            }
+            80%{
+               transform: scale(1.0);
+            }
+            100%{
+               transform: scale(0.8);
+            }
+         }
+      </style>
    </head>
-   <style>
-      * {
-      margin: 0;
-      padding: 0;
-      }
-      body {
-      padding: 20px;
-      background: #eee;
-      user-select: none;
-      }
-      [type=radio] {
-      display: none;
-      }
-      #blogSlider {
-      height: 35vw;
-      position: relative;
-      perspective: 1000px;
-      transform-style: preserve-3d;
-      }
-      #blogSlider label {
-      margin: auto;
-      width: 50%;
-      height: 100%;
-      border-radius: 16px;
-      position: absolute;
-      left: 0; right: 0;
-      cursor: pointer;
-      transition: transform 0.4s ease;
-      background-color: rgb(38, 35, 55);
-      --tw-shadow: 0 14px 40px -10px rgba(0,0,0,.35) !important;
-      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
-      }
-      img{
-      /* position: absolute;
-      -webkit-mask: linear-gradient(rgb(0, 0, 0) 30%, rgba(0, 0, 0, 0)); */
-      border-radius: 16px;
-      }
-      #s1:checked ~ #slide4, #s2:checked ~ #slide5,
-      #s3:checked ~ #slide1, #s4:checked ~ #slide2,
-      #s5:checked ~ #slide3 {
-      box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
-      transform: translate3d(-50%,0,-200px);
-      }
-      #s1:checked ~ #slide5, #s2:checked ~ #slide1,
-      #s3:checked ~ #slide2, #s4:checked ~ #slide3,
-      #s5:checked ~ #slide4 {
-      box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
-      transform: translate3d(-25%,0,-100px);
-      }
-      #s1:checked ~ #slide1, #s2:checked ~ #slide2,
-      #s3:checked ~ #slide3, #s4:checked ~ #slide4,
-      #s5:checked ~ #slide5 {
-      box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19);
-      transform: translate3d(0,0,0);
-      }
-      #s1:checked ~ #slide2, #s2:checked ~ #slide3,
-      #s3:checked ~ #slide4, #s4:checked ~ #slide5,
-      #s5:checked ~ #slide1 {
-      box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
-      transform: translate3d(25%,0,-100px);
-      }
-      #s1:checked ~ #slide3, #s2:checked ~ #slide4,
-      #s3:checked ~ #slide5, #s4:checked ~ #slide1,
-      #s5:checked ~ #slide2 {
-      box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
-      transform: translate3d(50%,0,-200px);
-      }
-      @media only screen and (max-width: 500px) {
-      #blogSlider label {
-      width: 60%;
-      height: 160%;
-      }
-      }
-      .cardimage{
-      height: 180px;
-      }
-   </style>
    <body>
-      <section id="blogSlider">
-         <input type="radio" name="blogSlider" id="s1">
-         <input type="radio" name="blogSlider" id="s2">
-         <input type="radio" name="blogSlider" id="s3" checked>
-         <input type="radio" name="blogSlider" id="s4">
-         <input type="radio" name="blogSlider" id="s5">
-         <label for="s1" id="slide1">
-            <div class="cardimage">
-               <img src="img1.jpg" height="100%" width="100%">
-            </div>
-            <div>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-               consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-               cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </div>
-         </label>
-         <label for="s2" id="slide2">
-            <div class="cardimage">
-               <img src="img2.jpg" height="100%" width="100%">
-            </div>
-            <div>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-               consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-               cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </div>
-         </label>
-         <label for="s3" id="slide3">
-            <div class="cardimage">
-               <img src="img3.jpg" height="100%" width="100%">
-            </div>
-            <div>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-               consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-               cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </div>
-         </label>
-         <label for="s4" id="slide4">
-            <div class="cardimage">
-               <img src="img4.jpg" height="100%" width="100%">
-            </div>
-            <div>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-               consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-               cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </div>
-         </label>
-         <label for="s5" id="slide5">
-            <div class="cardimage">
-               <img src="img5.jpg" height="100%" width="100%">
-            </div>
-            <div>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-               tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-               quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-               consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-               cillum dolore eu fugiat nulla pariatur. Excepteur sint occa
-            </div>
-         </label>
-      </section>
-      <div class="text-center mt-5">
-         <i class="fas fa-long-arrow-alt-left" onclick="prev()"></i>
-         <i class="fas fa-long-arrow-alt-right" onclick="next()"></i>
-      </div>
-      <!--Script files -->
-      <script src="js/jquery.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/owl.carousel.min.js"></script>
-      <script src="js/aos.js"></script>
-      <script src="js/main.js"></script>
-      <script src="js/blogs.js"></script>
-      <script>
-  function prev(){
-    console.log('lo');
-    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
-    console.log(v);
-    if(v < 1){
-      v = 5;
-    }
-    document.getElementById('s' + v).checked = true;
-  }
-
-  function next(){
-    console.log('lo');
-    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
-    console.log(v);
-    if(v > 5){
-      v = 1;
-    }
-    document.getElementById('s' + v).checked = true;
-  }
-</script>
-
+      <div class="pulsating">READ MORE</div>
    </body>
 </html>
