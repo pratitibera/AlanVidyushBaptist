@@ -3,6 +3,9 @@
 		background: linear-gradient(#3E205A 100px, #324a80 1100px, #bd1114 1800px, #000000 2150px, #857979 3400px, #3E205A 3800px, #000000 4100px);
 		padding-top: 150px
 	}
+	.aboutpage-container {
+	padding: 25px 450px;
+}
 }
 
 @media only screen and (min-width: 577px) {
@@ -22,6 +25,9 @@
 	.navbar-nav img {
 		display: none;
 	}
+	.aboutpage-container {
+	padding: 25px 250px;
+}
 	.blogContentContainer {
 		padding: 30px 150px;
 	}
