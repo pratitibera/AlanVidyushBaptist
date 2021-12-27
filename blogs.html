@@ -163,7 +163,8 @@
       <script>
          var distance = $('.blogContents').offset().top;
           $(window).scroll(function() {
-              if ( $(this).scrollTop() >= distance-64) {
+            if(screen.width < 577){
+               if ( $(this).scrollTop() >= distance-64) {
                   $("#sticky").removeClass("sticky");
                   $("#sticky").addClass("fixedSticky");
                   $("nav").css("display", "none");
@@ -172,6 +173,7 @@
                   $("#sticky").addClass("sticky");
                   $("nav").css("display", "flex");
               }
+            }
           });
       </script>
    </body>
