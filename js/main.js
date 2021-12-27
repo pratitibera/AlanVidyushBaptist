@@ -43,6 +43,14 @@ $(".navbar-nav > li").click(function(){
     $(".navbar-nav > li > a").removeClass('active');
     $(this).children('a').addClass('active');
     $(".collapse").collapse('hide');
+
+    if(!menuOpen) {
+        menuBtn.classList.add('open');
+        menuOpen = true;
+    } else {
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+    }
 });
 
 $(".collapseContents2 > li").click(function(){
