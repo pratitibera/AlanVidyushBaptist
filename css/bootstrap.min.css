@@ -5715,12 +5715,16 @@ a.badge-dark:focus {
 .progress {
 	display: -ms-flexbox;
 	display: flex;
-	height: 1rem;
-	overflow: hidden;
+	height: 5px;
+	position: fixed; 
+	top: 0px; 
+	left: 0px; 
+	right: 0px
+	/* overflow: hidden;
 	line-height: 0;
 	font-size: .75rem;
 	background-color: #e9ecef;
-	border-radius: .25rem
+	border-radius: .25rem */
 }
 
 .progress-bar {
@@ -5731,10 +5735,9 @@ a.badge-dark:focus {
 	-ms-flex-pack: center;
 	justify-content: center;
 	overflow: hidden;
-	color: #fff;
 	text-align: center;
 	white-space: nowrap;
-	background-color: #007bff;
+	background-color: #FFE972;
 	transition: width .6s ease
 }
 
