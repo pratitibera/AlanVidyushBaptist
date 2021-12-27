@@ -22,6 +22,12 @@
 	.navbar-nav img {
 		display: none;
 	}
+	.blogContentContainer {
+		padding: 30px 150px;
+	}
+	#accordion .row {
+		border-bottom: 1px solid #000;
+	}
 }
 
 @media only screen and (max-width: 576px) {
@@ -35,10 +41,13 @@
 	.mfo-25 {
 		font-size: 25px!important;
 	}
+	.mfo-22 {
+		font-size: 22px!important;
+	}
 	.mfo-20 {
 		font-size: 20px;
 	}
-	.mfo-18{
+	.mfo-18 {
 		font-size: 18px;
 	}
 	.mfo-17 {
@@ -62,10 +71,12 @@
 	.mow-90 {
 		width: 90%!important;
 	}
+	.mow-40 {
+		width: 40%!important;
+	}
 	.mlh-19 {
 		line-height: 1.9em;
 	}
-
 	/* Custom classes begins */
 	.whatsapp_icon {
 		font-size: 50px;
@@ -106,7 +117,7 @@
 	.blog-body {
 		padding: 20px 32px 20px 32px;
 	}
-	#blogSlider{
+	#blogSlider {
 		height: 60vh;
 	}
 	#blogSlider label {
@@ -132,13 +143,29 @@
 	.navExtras div {
 		color: #8c8989;
 	}
-	.aboutpage-container{
+	.aboutpage-container {
 		padding: 15px 10px;
 	}
-	.aboutpage-container .row{
+	.aboutpage-container .row {
 		margin-bottom: 15px!important;
 	}
-	.aboutpage-container .col-2{
+	.aboutpage-container .col-2 {
 		padding: 0;
+	}
+	/* Blogs page*/
+	.blogImageContainer {
+		max-width: 100%;
+		margin-top: 95px;
+	}
+	.blogHeading {
+		font-size: 25px;
+		line-height: 1.4em;
+		padding: 0px 15px;
+	}
+	.blogContent {
+		font-size: 17px!important;
+	}
+	.sticky {
+		box-shadow: 0px 10px 12px 0px rgb(0 0 0 / 15%);
 	}
 }

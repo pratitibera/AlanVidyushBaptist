@@ -25,8 +25,12 @@ ul {
 	list-style-type: none;
 }
 
-.w-8{
+.w-8 {
 	width: 8%;
+}
+
+.w-10 {
+	width: 10%;
 }
 
 .w-70 {
@@ -56,8 +60,13 @@ ul {
 .fo-14 {
 	font-size: 14px;
 }
-.fo-17{
+
+.fo-17 {
 	font-size: 17px;
+}
+
+.fo-18 {
+	font-size: 18px;
 }
 
 .fo-20 {
@@ -81,7 +90,7 @@ ul {
 }
 
 .fo-30 {
-	font-size: 30px;
+	font-size: 30px!important;
 }
 
 .fo-40 {
@@ -121,7 +130,7 @@ ul {
 	line-height: 1.35em;
 }
 
-.bluetext{
+.bluetext {
 	color: #003153;
 }
 
@@ -136,27 +145,27 @@ ul {
 	font-weight: 600;
 }
 
-.pulsating{
+.pulsating {
 	box-shadow: -10px 10px 90px #FFE972;
 	animation: pulsating 0.6s linear infinite;
 }
 
-.pulsating_text{
+.pulsating_text {
 	color: #FFE972;
 	animation: pulsating 0.6s linear infinite;
 }
 
-@keyframes pulsating{
-    0%{
-       transform: scale(1.07);
-    }
-    80%{
-       transform: scale(1.0);
-    }
-    100%{
-       transform: scale(0.8);
-    }
- }
+@keyframes pulsating {
+	0% {
+		transform: scale(1.07);
+	}
+	80% {
+		transform: scale(1.0);
+	}
+	100% {
+		transform: scale(0.8);
+	}
+}
 
 .bg-grey {
 	background-color: #f1f1f1;
@@ -552,10 +561,94 @@ footer .move-up {
 
 
 /* About page */
-.aboutpage-container{
+
+.aboutpage-container {
 	padding: 25px 300px;
 }
-.aboutpage-container .row:last-child{
+
+.aboutpage-container .row:last-child {
 	border-bottom: 1px solid #0a4f80;
 	padding-bottom: 25px;
+}
+
+
+/* Blogs page */
+
+.blogImageContainer {
+	max-width: 65%;
+	box-shadow: -9px 25px 37px -10px rgb(0 0 0 / 44%);
+	margin: auto;
+	margin-top: 175px;
+}
+
+.blogImageContainer img {
+	width: 100%;
+	height: auto;
+	margin: auto;
+}
+
+.blogWriter {
+	text-align: center;
+	padding: 60px 60px 30px 60px;
+}
+
+.blogWriter img {
+	border-radius: 50%;
+}
+
+.blogWriter div {
+	color: #1a1a1a;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 2.9px;
+	margin-bottom: 2px;
+}
+
+.blogHeading {
+	color: #1a1a1a;
+	font-family: "Roboto", Sans-serif;
+	font-size: 39px;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 0.1em;
+}
+
+.blogBorder {
+	border-top: none!important;
+	border-bottom: 4px solid #e8ce3f;
+	padding-top: 40px;
+	max-width: 200px
+}
+
+.blogDate {
+	color: #525252;
+	font-family: Karla;
+	letter-spacing: .15em;
+}
+
+.blogContent {
+	font-size: 20px;
+	line-height: 2em;
+	font-family: Karla;
+	color: #333333;
+	text-align: justify;
+}
+
+.sticky {
+	position: sticky;
+	top: 160px;
+	padding: 10px;
+	font-size: 13px;
+}
+
+.fixedSticky {
+	background: white;
+	position: fixed;
+	top: 0px;
+	padding: 10px;
+	font-size: 13px;
+	z-index: 9999;
+	width: 100%;
+	left: 0;
+	box-shadow: 0px 10px 12px 0px rgb(0 0 0 / 15%);
 }
