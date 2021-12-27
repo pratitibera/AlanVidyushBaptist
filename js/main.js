@@ -44,3 +44,7 @@ $(".navbar-nav > li").click(function(){
     $(this).children('a').addClass('active');
     $(".collapse").collapse('hide');
 });
+
+$(".collapseContents2 > li").click(function(){
+    $("#collapseContents2").collapse('hide');
+});

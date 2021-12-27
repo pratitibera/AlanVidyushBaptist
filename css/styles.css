@@ -40,7 +40,9 @@ ul {
 .w-80 {
 	width: 80%;
 }
-
+.w-90{
+	width: 90%;
+}
 .w-100 {
 	width: 100%;
 }
@@ -592,11 +594,16 @@ footer .move-up {
 	padding: 60px 60px 30px 60px;
 }
 
+.blogWriter .row{
+	padding: 0px 300px;
+}
 .blogWriter img {
+	width: 300px;
+	height: 300px;
 	border-radius: 50%;
 }
 
-.blogWriter div {
+.blogWriter .row .fw-700 {
 	color: #1a1a1a;
 	font-size: 18px;
 	text-transform: uppercase;
@@ -634,21 +641,12 @@ footer .move-up {
 	text-align: justify;
 }
 
+#accordion a{
+	color: #000;
+}
 .sticky {
 	position: sticky;
 	top: 160px;
 	padding: 10px;
 	font-size: 13px;
-}
-
-.fixedSticky {
-	background: white;
-	position: fixed;
-	top: 0px;
-	padding: 10px;
-	font-size: 13px;
-	z-index: 9999;
-	width: 100%;
-	left: 0;
-	box-shadow: 0px 10px 12px 0px rgb(0 0 0 / 15%);
 }
