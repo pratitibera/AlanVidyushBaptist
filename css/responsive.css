@@ -154,6 +154,11 @@
 	}
 	.aboutpage-container .col-2 {
 		padding: 0;
+		height: 70px!important;
+	}
+	.aboutpage-container .row .col-2 img{
+		max-height: 70px!important;
+		margin: auto;
 	}
 	/* Blogs page*/
 	.blogImageContainer {
