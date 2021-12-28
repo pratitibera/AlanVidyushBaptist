@@ -16,9 +16,23 @@
          nav{
          box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 31%);
          }
+         .footer-bg{
+            height: 20vh!important;
+         }
+         .move-up{
+            bottom: 35%!important;
+         }
+         @media only screen and (max-width: 576px){
+            .footer-bg{
+               height: 5vh!important;
+            }
+            .move-up{
+               bottom: 55%!important;
+            }
+         }
       </style>
    </head>
-   <body>
+   <body onload="manageBlogs();">
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon">
          <a href="https://wa.me/919836143134?text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make.">
@@ -105,34 +119,34 @@
                   <div class="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">Contents</div>
                   <div class="col-2 col-sm-2 text-center p-0 m-auto">
                      <a data-toggle="collapse" href="#collapseContents2">
-                     <i class="fas fa-chevron-down bco"></i>
+                     <i class="fas fa-chevron-down bco fo-24" onclick="toggleContents(this)"></i>
                      </a>
                   </div>
                </div>
-               <div id="collapseContents2" class="collapse show" data-parent="#accordion">
+               <div id="collapseContents2" class="collapse" data-parent="#accordion">
                   <div class="pt-2">
                      <ul class="pl-2 collapseContents2">
-                        <li class="fo-13">
+                        <li class="fo-16">
                            <a href="#topic1">
                               <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Fully Vegan Diet
                            </a>
                         </li>
-                        <li class="fo-13">
+                        <li class="fo-16">
                            <a href="#topic2">
                               <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Custom Plan
                            </a>
                         </li>
-                        <li class="fo-13">
+                        <li class="fo-16">
                            <a href="#topic3">
                               <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Overcoming Doubt
                            </a>
                         </li>
-                        <li class="fo-13">
+                        <li class="fo-16">
                            <a href="#topic4">
                               <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Online Consultation
                            </a>
                         </li>
-                        <li class="fo-13">
+                        <li class="fo-16">
                            <a href="#topic5">
                               <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Dr.Sandeep’s Testimonial
                            </a>
@@ -170,44 +184,44 @@
       </div>
       <div class="blogHeading text-center mt-5">Vegan Doctor Sandeep’s 6 Month Transformation </div>
       <hr class="blogBorder">
-      <!-- <div class="fo-13 mt-5 text-center blogDate">March 28, 2021</div> -->
+      <div class="fo-13 mt-5 text-center blogDate">March 28, 2021</div>
       <div class="blogContentContainer">
          <div class="row m-0 flex-sm-row-reverse">
             <div class="col-sm-3 blogContents p-0 mt-4 mt-sm-0">
-               <div class="sticky" id="sticky">
+               <div class="sticky stickyContents" id="sticky">
                   <div id="accordion">
                      <div class="row m-0 p-2 pb-sm-3">
                         <div class="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">Contents</div>
                         <div class="col-2 col-sm-2 text-center p-0 m-auto">
                            <a data-toggle="collapse" href="#collapseContents1">
-                           <i class="fas fa-chevron-down bco"></i>
+                           <i class="fas fa-chevron-down bco fo-24" onclick="toggleContents(this)" id="toggleDesktopContent"></i>
                            </a>
                         </div>
                      </div>
-                     <div id="collapseContents1" class="collapse show" data-parent="#accordion">
+                     <div id="collapseContents1" class="collapse" data-parent="#accordion">
                         <div class="pt-2">
                            <ul class="pl-2">
-                              <li class="fo-13">
+                              <li class="fo-16">
                                  <a href="#topic1">
                                     <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Fully Vegan Diet
                                  </a>
                               </li>
-                              <li class="fo-13">
+                              <li class="fo-16">
                                  <a href="#topic2">
                                     <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Custom Plan
                                  </a>
                               </li>
-                              <li class="fo-13">
+                              <li class="fo-16">
                                  <a href="#topic3">
                                     <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Overcoming Doubt
                                  </a>
                               </li>
-                              <li class="fo-13">
+                              <li class="fo-16">
                                  <a href="#topic4">
                                     <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Online Consultation
                                  </a>
                               </li>
-                              <li class="fo-13">
+                              <li class="fo-16">
                                  <a href="#topic5">
                                     <i class="fas fa-long-arrow-alt-right mr-2 bco fw-600"></i>Dr.Sandeep’s Testimonial
                                  </a>
@@ -218,7 +232,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-sm-9 mt-5 mt-sm-0">
+            <div class="col-sm-8 mt-5 mt-sm-0">
                <div class="blogContent">
                   Dr. Sandeep Gupta is an eye specialist who went from fat to shredded in 6 months under my guidance while following a fully vegan diet. He saw my own transformation pictures on Instagram and decided to reach out for an online consultation. 
                </div>
@@ -300,9 +314,77 @@
                   They're not just trainers but also act as great friends”.
                </div>
             </div>
+            <div class="col-sm-1">
+               <div class="sticky" id="sticky">
+                  <div class="row d-flex d-sm-block mt-3 mt-sm-0">
+                     <div class="col-1 d-block d-sm-none"></div>
+                     <div class="col-2 text-center mb-5">
+                        <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+                           <i class="fab fa-facebook-f fw-600 fo-26 text-dark"></i>
+                        </a>
+                     </div>
+                     <div class="col-2 text-center mb-5">
+                        <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+                           <i class="fab fa-instagram text-dark fw-600 fo-26"></i>
+                        </a>
+                     </div>
+                     <div class="col-2 text-center mb-5">
+                        <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+                           <i class="fab fa-linkedin-in text-dark fw-600 fo-26"></i>
+                        </a>
+                     </div>
+                     <div class="col-2 text-center mb-5">
+                        <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+                           <i class="fas fa-envelope text-dark fw-600 fo-26"></i>
+                        </a>
+                     </div>
+                     <div class="col-2 text-center mb-5">
+                        <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
+                           <i class="fab fa-whatsapp text-dark fw-600 fo-26"></i>
+                        </a>
+                     </div>
+                     <div class="col-1 d-block d-sm-none"></div>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
       <!---Blog section ends --->
+      <!---Footer section begins --->
+         <footer id="contact">
+            <div class="footer-bg overflow-hidden">
+               <div class="footer-img-container w-100">
+                  <img src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp" class="w-100">
+               </div>
+            </div>
+            <div class="text-center bg-dark pb-4">
+               <div class="text-white fo-24 fw-600 mfo-16">CONTACT ALAN BAPTIST</div>
+               <hr>
+               <div class="row justify-content-center m-0 mt-3">
+                  <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+                  <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+                  <i class="fab fa-instagram text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+                  <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+                  <i class="fas fa-envelope text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
+                  <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+                  </a>
+               </div>
+               <div class="mt-2 text-white mfo-13">&copy; 2021 Alan Baptist | Website Design by <span class="bco">"Pratiti Bera"</span></div>
+               <div class="text-white mfo-13">Front End Design Conceptualizer <span class="bco">"Hritavash Saha"</span></div>
+            </div>
+            <div class="move-up" data-aos="fade-up" data-aos-delay="1800">
+               <span><i class="fas fa-arrow-up fa-2x bco fw-800"></i></span>
+            </div>
+         </footer>
+         <!---Footer section ends --->
       <!--Script files -->
       <script src="js/jquery.js"></script>
       <script src="js/bootstrap.min.js"></script>
@@ -310,33 +392,5 @@
       <script src="js/aos.js"></script>
       <script src="js/main.js"></script>
       <script src="js/blogs.js"></script>
-      <script>
-         document.getElementById("navItems").style.display = "contents";
-         document.getElementById("contentItems").style.display = "none";
-         
-         var distance = $('.blogContents').offset().top;
-         $(window).scroll(function() {
-            if(screen.width < 577){
-               if ( $(this).scrollTop() >= distance) {
-                  document.getElementById("navItems").style.display = "none";
-                  document.getElementById("contentItems").style.display = "block";
-                  document.getElementById("contentItems").style.width = "100%";
-                  $("nav").removeClass("bg-dark");
-                  $("nav").addClass("bg-white");
-               } else {
-                  document.getElementById("navItems").style.display = "contents";
-                  document.getElementById("contentItems").style.display = "none";
-                  $("nav").removeClass("bg-white");
-                  $("nav").addClass("bg-dark");
-               }
-            }
-         });
-
-         window.addEventListener("scroll", () => {
-            let scrollPercentRounded = Math.round((window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100);
-            console.log(scrollPercentRounded);
-            document.getElementById('blogContentProgress').style.width = scrollPercentRounded + "%";
-         });
-      </script>
    </body>
 </html>
