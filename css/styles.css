@@ -14,6 +14,7 @@
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
+
 /* Globacl classes */
 
 .text-purple {
@@ -31,9 +32,11 @@ ul {
 .w-10 {
 	width: 10%;
 }
-.w-30{
+
+.w-30 {
 	width: 30%;
 }
+
 .w-70 {
 	width: 70%;
 }
@@ -41,9 +44,11 @@ ul {
 .w-80 {
 	width: 80%;
 }
-.w-90{
+
+.w-90 {
 	width: 90%;
 }
+
 .w-100 {
 	width: 100%;
 }
@@ -63,9 +68,11 @@ ul {
 .fo-14 {
 	font-size: 14px;
 }
-.fo-16{
+
+.fo-16 {
 	font-size: 16px;
 }
+
 .fo-17 {
 	font-size: 17px;
 }
@@ -97,9 +104,11 @@ ul {
 .fo-30 {
 	font-size: 30px!important;
 }
-.fo-34{
+
+.fo-34 {
 	font-size: 34px;
 }
+
 .fo-40 {
 	font-size: 40px;
 }
@@ -205,42 +214,43 @@ ul {
 }
 
 #overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2;
-  cursor: pointer;
+	position: fixed;
+	display: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+	cursor: pointer;
 }
+
 
 /* For collapsible login sidebar on all pages */
 
 .menuSidebar {
-  background: #000000;
-  padding: 35px;
-  position: fixed;
-  z-index: 99999;
-  height: 100vh;
-  width: 360px;
-  top: 0;
-  left: -400px;
-  transition: all 0.6s ease;
+	background: #000000;
+	padding: 35px;
+	position: fixed;
+	z-index: 99999;
+	height: 100vh;
+	width: 360px;
+	top: 0;
+	left: -400px;
+	transition: all 0.6s ease;
 }
 
 .close-menuSidebar {
-  display: block;
-  width: 100%;
-  font-size: 25px;
-  text-align: right;
+	display: block;
+	width: 100%;
+	font-size: 25px;
+	text-align: right;
 }
 
 .navToggle {
-  left: 0;
+	left: 0;
 }
 
 
@@ -264,10 +274,11 @@ ul {
 
 /* Navbar */
 
-#navItems{
+#navItems {
 	display: contents;
 }
-#contentItems{
+
+#contentItems {
 	display: none;
 }
 
@@ -287,7 +298,7 @@ ul {
 	letter-spacing: .1em;
 }
 
-.navbar-nav .active,
+nav .navbar-nav .active,
 .navbar-brand:hover,
 .owner-name a:hover {
 	color: #FFE972!important;
@@ -308,13 +319,16 @@ ul {
 	color: #FFE972;
 }
 
-.navbar-collapse.show{
+nav .navbar-collapse.show {
 	height: 100vh;
 }
-#sidebar-nav{
+
+#sidebar-nav {
 	padding-bottom: 30px;
 	border-bottom: 1px solid #fff;
 }
+
+
 /* 3-bars and cross icon animation */
 
 .menu-btn__burger {
@@ -388,9 +402,11 @@ ul {
 	padding-left: 10px;
 	background-color: #FFE972;
 }
-.searchbox>input::placeholder{
+
+.searchbox>input::placeholder {
 	color: #000;
 }
+
 
 /* Site title and background*/
 
@@ -626,18 +642,21 @@ footer .move-up {
 
 /* About page */
 
-.aboutpage-container .row .col-sm-3{
+.aboutpage-container .row .col-sm-3 {
 	height: 130px;
 	display: flex;
 	justify-content: center;
 }
-.aboutpage-container .row .col-sm-3 a{
+
+.aboutpage-container .row .col-sm-3 a {
 	margin: auto;
 }
-.aboutpage-container .row .col-sm-3 img{
+
+.aboutpage-container .row .col-sm-3 img {
 	max-height: 130px;
 	margin: auto;
 }
+
 .aboutpage-container .row:last-child {
 	border-bottom: 1px solid #0a4f80;
 	padding-bottom: 25px;
@@ -664,9 +683,10 @@ footer .move-up {
 	padding: 60px 60px 30px 60px;
 }
 
-.blogWriter .row{
+.blogWriter .row {
 	padding: 0px 300px;
 }
+
 .blogWriter img {
 	width: 300px;
 	height: 300px;
@@ -710,9 +730,10 @@ footer .move-up {
 	text-align: justify;
 }
 
-#accordion a{
+#accordion a {
 	color: #000;
 }
+
 .sticky {
 	position: sticky;
 	top: 160px;
@@ -720,22 +741,60 @@ footer .move-up {
 	font-size: 13px;
 }
 
-/* Partners */
 
+/* Partners */
 
 .partners-section .row hr {
 	border-bottom: 1px solid #fff;
 	max-width: 50px
 }
 
+
 /* Testimonials */
-.testimonialsImage{
+
+.testimonialsImage {
 	margin-top: -65px
 }
-.testimonialsImage img{
+
+.testimonialsImage img {
 	border-radius: 50%;
 }
+
 .testimonials hr {
 	border-bottom: 2px solid #000;
 	max-width: 100px
+}
+
+
+/* All blogs page */
+
+#collapsibleBlogCategories .col-sm-2 {
+	color: #fff;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	text-align: center;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#collapsibleBlogCategories .active {
+	background-color: #FFE972;
+	color: #000;
+}
+
+.imageOverlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	color: #ffffff;
+	flex-direction: column;
+	justify-content: center;
+	opacity: 1;
+	transition: opacity 0.25s;
+	/* display: flex; */
+	padding-top: 70px;
 }

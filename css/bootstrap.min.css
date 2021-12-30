@@ -4671,7 +4671,7 @@ input[type=submit].btn-block {
 	}
 	.navbar-expand-sm .navbar-collapse {
 		display: -ms-flexbox!important;
-		display: flex!important;
+		display: block!important;
 		-ms-flex-preferred-size: auto;
 		flex-basis: auto
 	}
