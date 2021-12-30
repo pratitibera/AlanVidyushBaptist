@@ -22,7 +22,7 @@
 	.associations .container-fluid {
 		padding: 0px 50px;
 	}
-	.navbar-nav img {
+	#header-nav img {
 		display: none;
 	}
 	.aboutpage-container {

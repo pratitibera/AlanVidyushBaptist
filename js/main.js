@@ -45,6 +45,14 @@ $(".navbar-nav > li").click(function(){
     $(this).children('a').addClass('active');
     $(".collapse").collapse('hide');
 
+    // for sidebar
+    document.querySelector(".menuSidebar").classList.remove("navToggle");
+    document.querySelector(".header-nav").classList.add("d-flex");
+    document.querySelector(".header-nav").classList.remove("d-none");
+    document.querySelector(".header-consult").classList.add("d-block");
+    document.querySelector(".header-consult").classList.remove("d-none");
+    overlay.style.display = "none";
+
 
     // To handle the bar and cross icon at the same time
     if(!menuOpen) {
@@ -99,3 +107,35 @@ function manageBlogs(){
         toggleContents(document.getElementById('toggleDesktopContent'));
      }
 }
+
+// For collapsible login sidebar
+var collapsibleSidebar = document.getElementById("collapsibleSidebar");
+var close_collapsibleSidebar = document.getElementById("close_collapsibleSidebar");
+var overlay = document.getElementById("overlay");
+
+collapsibleSidebar.addEventListener("click", function () {
+    document.querySelector(".menuSidebar").classList.add("navToggle");
+    document.querySelector(".header-nav").classList.add("d-none");
+    document.querySelector(".header-nav").classList.remove("d-flex");
+    document.querySelector(".header-consult").classList.add("d-none");
+    document.querySelector(".header-consult").classList.remove("d-block");
+    overlay.style.display = "block";
+ });
+
+close_collapsibleSidebar.addEventListener("click", function () {
+    document.querySelector(".menuSidebar").classList.remove("navToggle");
+    document.querySelector(".header-nav").classList.add("d-flex");
+    document.querySelector(".header-nav").classList.remove("d-none");
+    document.querySelector(".header-consult").classList.add("d-block");
+    document.querySelector(".header-consult").classList.remove("d-none");
+    overlay.style.display = "none";
+});
+
+overlay.addEventListener("click", () => {
+    document.querySelector(".menuSidebar").classList.remove("navToggle");
+    document.querySelector(".header-nav").classList.add("d-flex");
+    document.querySelector(".header-nav").classList.remove("d-none");
+    document.querySelector(".header-consult").classList.add("d-block");
+    document.querySelector(".header-consult").classList.remove("d-none");
+    overlay.style.display = "none";
+});
