@@ -14,7 +14,6 @@
 	font-family: 'Open Sans Condensed', sans-serif;
 }
 
-
 /* Globacl classes */
 
 .text-purple {
@@ -257,7 +256,9 @@ ul {
 	color: #FFE972;
 }
 
-
+.navbar-collapse.show{
+	height: 100vh;
+}
 /* 3-bars and cross icon animation */
 
 .menu-btn__burger {
@@ -311,15 +312,15 @@ ul {
 
 .searchbox {
 	height: 40px;
-	background-color: white;
-	border-radius: 30px;
+	background-color: #FFE972;
+	/* border-radius: 30px; */
 	align-items: center;
 	padding: 10px 20px;
 }
 
 .searchbox>i {
 	font-size: 17px;
-	color: #777;
+	color: #000;
 }
 
 .searchbox>input {
@@ -329,8 +330,11 @@ ul {
 	outline: none;
 	font-size: 15px;
 	padding-left: 10px;
+	background-color: #FFE972;
 }
-
+.searchbox>input::placeholder{
+	color: #000;
+}
 
 /* Site title and background*/
 
