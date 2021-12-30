@@ -23,7 +23,7 @@ const responsive = {
         items: 2
     },
     960: {
-        items: 3
+        items: 4
     }
 }
 
@@ -106,8 +106,33 @@ function manageBlogs(){
         $("#collapseContents1").addClass("show");
         toggleContents(document.getElementById('toggleDesktopContent'));
      }
+
+     $('#blogsSection').owlCarousel({
+        loop: true,
+        autoplay: true,
+        // autoplayTimeout: 3000,
+        autoPlaySpeed : 1000,
+        autoplayHoverPause:true,
+        dots: false,
+        nav: true,
+        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+        responsive: responsive
+    });
 }
 
+function displayPortfolio(){
+    $('#blogsSection').owlCarousel({
+        loop: true,
+        autoplay: true,
+        // autoplayTimeout: 3000,
+        autoPlaySpeed : 1000,
+        autoplayHoverPause:true,
+        dots: false,
+        nav: true,
+        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+        responsive: responsive
+    });
+}
 // For collapsible login sidebar
 var collapsibleSidebar = document.getElementById("collapsibleSidebar");
 var close_collapsibleSidebar = document.getElementById("close_collapsibleSidebar");

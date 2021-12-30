@@ -14,6 +14,9 @@
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
       <style>
+         #blogsSection{
+            margin-top: 125px;
+         }
          .footer-bg{
             height: 20vh!important;
          }
@@ -21,6 +24,9 @@
             bottom: 35%!important;
          }
          @media only screen and (max-width: 576px){
+            #blogsSection{
+               margin-top: 66px;
+            }
             .footer-bg{
                height: 5vh!important;
             }
@@ -30,7 +36,7 @@
          }
       </style>
    </head>
-   <body>
+   <body onload="displayPortfolio();">
       <div id="overlay"></div>
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon">
@@ -40,27 +46,27 @@
       </div>
       <div class="menuSidebar">
          <span class="close-menuSidebar">
-            <i class="fa fa-times cursorPointer bco" id="close_collapsibleSidebar"> </i>
+         <i class="fa fa-times cursorPointer bco" id="close_collapsibleSidebar"> </i>
          </span>
          <ul class="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
             <li class="nav-item ml-sm-auto">
                <a class="nav-link exo" href="#about">
-                  <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+               <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
                </a>
             </li>
             <li class="nav-item">
                <a class="nav-link exo" href="#success">
-                  <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+               <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
                </a>
             </li>
             <li class="nav-item">
                <a class="nav-link exo" href="#blogs">
-                  <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+               <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
                </a>
             </li>
             <li class="nav-item mr-sm-auto">
                <a class="nav-link exo" href="#contact">
-                  <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+               <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
                </a>
             </li>
             <li class="nav-item text-center">
@@ -120,22 +126,22 @@
             <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
                <li class="nav-item ml-sm-auto">
                   <a class="nav-link exo" href="#about">
-                     <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+                  <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
                   </a>
                </li>
                <li class="nav-item">
                   <a class="nav-link exo" href="#success">
-                     <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+                  <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
                   </a>
                </li>
                <li class="nav-item">
                   <a class="nav-link exo" href="#blogs">
-                     <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+                  <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
                   </a>
                </li>
                <li class="nav-item mr-sm-auto">
                   <a class="nav-link exo" href="#contact">
-                     <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+                  <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
                   </a>
                </li>
                <li class="nav-item d-block d-sm-none text-center">
@@ -174,131 +180,73 @@
          </div>
       </nav>
       <!---Topmost navbar ends--->
-      <!--- Partners page cover starts--->
-      <section>
-         <div class="partners-cover text-center">
-            <img src="https://media.self.com/photos/5e385cdfb7ea8d0009212cdb/8:3/w_1280,c_limit/00_heros-contributors.jpg" class="w-100">
-         </div>
-         <div class="fo-34 text-dark text-center fw-700 p-4 mfo-24">MEET MY PARTNERS</div>
-      </section>
-      <!--- Partners page cover ends--->
-      <!--- Partners start --->
-      <section class="partners-section">
-         <div class="row m-0 d-flex flex-row-reverse">
-            <div class="col-sm-8 p-0 bg-grey text-center">
-               <img src="https://media.self.com/photos/59c2cc6afc8e5e1e83b2ee1c/4:3/w_767,c_limit/louise-green-bigfitgirl-01.jpg" class="w-70">
-            </div>
-            <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-               <div class="m-auto">
-                  <div class="fo-26 text-white fw-600">Body-positive wellness advice.</div>
-                  <hr>
-                  <div class="fo-13 text-white">Fitness</div>
+      <!--- Portfolio features starts-->
+      <div class="owl-carousel" id="blogsSection">
+         <div class="p-0">
+            <div class="card p-0">
+               <img src="https://images.unsplash.com/photo-1485727749690-d091e8284ef3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+            </div>  
+         </div> 
+         <div class="p-0">
+            <div class="card p-0">
+               <img src="https://images.unsplash.com/photo-1594737625992-ef391874b13e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+            </div>  
+         </div> 
+         <div class="p-0">
+            <div class="card p-0">
+               <img src="https://images.unsplash.com/photo-1594737626072-90dc274bc2bd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+            </div>  
+         </div>  
+         <div class="p-0">
+            <div class="card p-0">
+               <img src="https://images.unsplash.com/photo-1554244933-d876deb6b2ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+            </div>  
+         </div> 
+         <div class="p-0">
+            <div class="card p-0">
+               <img src="https://images.unsplash.com/photo-1592981004873-51d6ebadf5e1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fGZpdG5lc3N8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" class="w-100">
+            </div>  
+         </div>  
+      </div>
+      <div class="owl-navigation">
+         <span class="owl-nav-prev mr-2"><i class="fas fa-long-arrow-alt-left"></i></span>
+         <span class="owl-nav-next ml-2"><i class="fas fa-long-arrow-alt-right"></i></span>
+      </div>
+      <!--- Portfolio features ends-->
+      <!--- Testimonials start -->
+      <div class="row m-0 mt-5 testimonials">
+         <div class="col-sm-4 mb-5">
+            <div class="bg-grey p-4">
+               <div class="text-center testimonialsImage">
+                  <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-30">
                </div>
+               <div class="text-center fo-24 fw-600">John Doe</div>
+               <div class="fo-15"><span class="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<span class="fo-22 fw-800">"</span></div>
+               <hr>
             </div>
          </div>
-         <div class="row m-0">
-            <div class="col-sm-8 p-0 text-center">
-               <img src="https://media.self.com/photos/5e73ddbd49417000091e1481/2:1/w_854,c_limit/contributors_shauna_720.jpg" class="w-70">
-            </div>
-            <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-               <div class="m-auto">
-                  <div class="fo-26 text-white fw-600">Body-positive wellness advice.</div>
-                  <hr>
-                  <div class="fo-13 text-white">Fitness</div>
+         <div class="col-sm-4 mb-5">
+            <div class="bg-grey p-4">
+               <div class="text-center testimonialsImage">
+                  <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-30">
                </div>
+               <div class="text-center fo-24 fw-600">John Doe</div>
+               <div class="fo-15"><span class="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<span class="fo-22 fw-800">"</span></div>
+               <hr>
             </div>
          </div>
-         <div class="row m-0 d-flex flex-row-reverse">
-            <div class="col-sm-8 p-0 bg-grey text-center">
-               <img src="https://media.self.com/photos/59c2cc6afc8e5e1e83b2ee1c/4:3/w_767,c_limit/louise-green-bigfitgirl-01.jpg" class="w-70">
-            </div>
-            <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-               <div class="m-auto">
-                  <div class="fo-26 text-white fw-600">Body-positive wellness advice.</div>
-                  <hr>
-                  <div class="fo-13 text-white">Fitness</div>
+         <div class="col-sm-4 mb-5">
+            <div class="bg-grey p-4">
+               <div class="text-center testimonialsImage">
+                  <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-30">
                </div>
+               <div class="text-center fo-24 fw-600">John Doe</div>
+               <div class="fo-15"><span class="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<span class="fo-22 fw-800">"</span></div>
+               <hr>
             </div>
          </div>
-         <div class="row m-0">
-            <div class="col-sm-8 p-0 text-center">
-               <img src="https://media.self.com/photos/5e73ddbd49417000091e1481/2:1/w_854,c_limit/contributors_shauna_720.jpg" class="w-70">
-            </div>
-            <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-               <div class="m-auto">
-                  <div class="fo-26 text-white fw-600">Body-positive wellness advice.</div>
-                  <hr>
-                  <div class="fo-13 text-white">Fitness</div>
-               </div>
-            </div>
-         </div>
-         <div class="row m-0 d-flex flex-row-reverse">
-            <div class="col-sm-8 p-0 bg-grey text-center">
-               <img src="https://media.self.com/photos/59c2cc6afc8e5e1e83b2ee1c/4:3/w_767,c_limit/louise-green-bigfitgirl-01.jpg" class="w-70">
-            </div>
-            <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-               <div class="m-auto">
-                  <div class="fo-26 text-white fw-600">Body-positive wellness advice.</div>
-                  <hr>
-                  <div class="fo-13 text-white">Fitness</div>
-               </div>
-            </div>
-         </div>
-         <div class="row m-0">
-            <div class="col-sm-8 p-0 text-center">
-               <img src="https://media.self.com/photos/5e73ddbd49417000091e1481/2:1/w_854,c_limit/contributors_shauna_720.jpg" class="w-70">
-            </div>
-            <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-               <div class="m-auto">
-                  <div class="fo-26 text-white fw-600">Body-positive wellness advice.</div>
-                  <hr>
-                  <div class="fo-13 text-white">Fitness</div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!--- Partners end --->
-      <!--Latest blog features start--->
-      <section class="partners-section2">
-         <div class="text-dark fo-30 p-5 text-center fw-700">THE LATEST FROM OUR PARTNERS</div>
-         <div class="row m-0 mt-3">
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-         </div>
-         <div class="text-center mt-5 mb-5">
-            <button class="btn website-button bg-dark text-white">LOAD MORE</button>
-         </div>
-      </section>
-      <!--Latest blog features end--->
-
+      </div>
+      <!--- Testimonials end -->
       <!---Footer section begins --->
       <footer id="contact">
          <div class="footer-bg overflow-hidden">

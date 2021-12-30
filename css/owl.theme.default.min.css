@@ -1,6 +1,6 @@
 .owl-nav .owl-prev .owl-nav-prev,
 .owl-nav .owl-next .owl-nav-next{
-    color: #fff;
+    color: #000;
     background: transparent;
     font-size: 2rem;
 }
@@ -13,7 +13,9 @@
 .owl-theme .owl-nav [class*='owl-']{
     outline: none;
 }
-
+.owl-nav {
+    text-align: center;
+}
 
 
 /**

@@ -33,11 +33,71 @@
       </style>
    </head>
    <body>
+      <div id="overlay"></div>
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon">
          <a href="https://wa.me/919836143134?text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make.">
          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png">
          </a>
+      </div>
+      <div class="menuSidebar">
+         <span class="close-menuSidebar">
+            <i class="fa fa-times cursorPointer bco" id="close_collapsibleSidebar"> </i>
+         </span>
+         <ul class="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
+            <li class="nav-item ml-sm-auto">
+               <a class="nav-link exo" href="#about">
+                  <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link exo" href="#success">
+                  <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link exo" href="#blogs">
+                  <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+               </a>
+            </li>
+            <li class="nav-item mr-sm-auto">
+               <a class="nav-link exo" href="#contact">
+                  <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+               </a>
+            </li>
+            <li class="nav-item text-center">
+               <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
+            </li>
+         </ul>
+         <div class="navExtras">
+            <div class="pt-3 pl-5">
+               <a href="partners.html" class="text-white">Partners</a>
+            </div>
+            <div class="pt-2 pl-5">
+               <a href="#" class="text-white">Portfolio</a>
+            </div>
+         </div>
+         <div class="searchbox mt-5">
+            <i class="fa fa-search"></i>
+            <input type="text" name="" placeholder="Search...">
+         </div>
+         <div class="row m-0 mt-5 justify-content-center mb-4">
+            <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+            <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+            <i class="fab fa-instagram text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+            <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+            <i class="fas fa-envelope text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
+            <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+            </a>
+         </div>
       </div>
       <!---Topmost navbar begins-->
       <nav class="navbar navbar-expand-md bg-dark fixed-top">
@@ -47,17 +107,19 @@
          </div>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <div class="row d-none d-sm-flex">
-               <div class="col-sm-3"></div>
+               <div class="col-sm-3 m-auto">
+                  <i class="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar"></i>
+               </div>
                <div class="col-sm-6">
                   <div class="owner-name text-center opensans">
                      <a href="index.html" class="text-white">ALAN BAPTIST</a>
                   </div>
                </div>
                <div class="col-sm-3 m-auto">
-                  <button class="btn website-button float-right fo-17">CONSULT</button>
+                  <button class="btn website-button float-right fo-17 header-consult">CONSULT</button>
                </div>
             </div>
-            <ul class="navbar-nav pt-5 pt-sm-0">
+            <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
                <li class="nav-item ml-sm-auto">
                   <a class="nav-link exo" href="#about">
                      <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
@@ -79,12 +141,16 @@
                   </a>
                </li>
                <li class="nav-item d-block d-sm-none text-center">
-                  <button class="btn website-button mt-4 mb-1 ml-4 fo-17">CONSULT</button>
+                  <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
                </li>
             </ul>
             <div class="navExtras d-block d-sm-none">
-               <div class="pb-2">Associates</div>
-               <div class="pb-2">Search</div>
+               <div class="pb-2">
+                  <a href="partners.html">Partners</a>
+               </div>
+               <div class="pb-2">
+                  <a href="#">Portfolio</a>
+               </div>
             </div>
             <div class="searchbox d-flex d-sm-none">
                <i class="fa fa-search"></i>
