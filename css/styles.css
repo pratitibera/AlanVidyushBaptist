@@ -278,8 +278,10 @@ ul {
 	letter-spacing: .1em;
 }
 
-.navbar-nav .active {
-	color: #FFE972;
+.navbar-nav .active,
+.navbar-brand:hover,
+.owner-name a:hover {
+	color: #FFE972!important;
 }
 
 .nav-item {
