@@ -262,6 +262,13 @@ ul {
 
 /* Navbar */
 
+#navItems{
+	display: contents;
+}
+#contentItems{
+	display: none;
+}
+
 .navbar-brand {
 	color: #fff;
 	font-weight: 600;
@@ -695,7 +702,7 @@ footer .move-up {
 }
 
 .blogContent {
-	line-height: 2em;
+	line-height: 1.25em;
 	font-family: Karla;
 	color: #333333;
 	text-align: justify;
