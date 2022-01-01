@@ -163,7 +163,7 @@ function manageBlogs() {
 function displayPortfolio() {
     $('#portfolioSection').owlCarousel({
         loop: true,
-        autoplay: true,
+        autoplay: false,
         // autoplayTimeout: 3000,
         autoPlaySpeed: 1000,
         autoplayHoverPause: true,
