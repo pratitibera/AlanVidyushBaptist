@@ -610,7 +610,7 @@ footer .move-up {
 	position: relative;
 	/* background-repeat: no-repeat; */
 	background-position: 50% 50%;
-	height: 60vh
+	height: 50vh;
 }
 
 .footer-bg .text-white {
@@ -797,4 +797,42 @@ footer .move-up {
 	transition: opacity 0.25s;
 	/* display: flex; */
 	padding-top: 70px;
+}
+
+/* Services page */
+.services-banner{
+	background-image: url(https://www.nmami.in/wp-content/themes/nmami/images/rowbg1.png);
+	background-repeat: no-repeat;
+    background-size: cover!important;
+    background-position: 0px 0px;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+    margin-top: 142px;
+}
+.services-banner h1 {
+   font-family: 'Antonio'!important;
+   font-style: normal;
+   text-align: center;
+   font-size: 45px;
+   text-transform: capitalize;
+   font-weight: 700;
+   color: #fff;
+   padding-bottom: 15px;
+   padding-top: 75px;
+}
+.services-banner::after {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   content: "";
+   background: #0d4e46;
+   opacity: .6;
+   z-index: -1;
+}
+.services-list{
+	padding: 80px 100px;
+	background-color: #f9f9f8;
 }

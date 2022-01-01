@@ -269,4 +269,16 @@
 		background-color: #FFE972;
 		color: #000!important;
 	}
+	/*Services page */
+	.services-banner{
+		height: 140px;
+		margin-top: 66px;
+	}
+	.services-banner h1 {
+	    padding-top: 47px;
+	    font-size: 25px;
+	}
+	.services-list{
+		padding: 15px 10px;
+	}
 }
