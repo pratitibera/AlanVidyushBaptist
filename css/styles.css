@@ -417,7 +417,7 @@ nav .navbar-collapse.show {
 .searchbox {
 	height: 40px;
 	background-color: #FFE972;
-	/* border-radius: 30px; */
+	border-radius: 30px;
 	align-items: center;
 	padding: 5px 20px;
 }
