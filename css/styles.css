@@ -1041,6 +1041,9 @@ footer .move-up {
 .pco{
 	color: #FFE972;
 }
+.pricing-section-mobile{
+	font-family: 'Roboto Slab', serif;
+}
 .pricing-section-desktop{
 	padding: 40px 175px 20px 175px;
 	font-family: 'Roboto Slab', serif;
@@ -1053,7 +1056,7 @@ footer .move-up {
 	padding: 10px 15px;
 	text-align: center;
 }
-.pricing-section button{
+.pricing-section .text-center button{
 	margin: 15px 0px 10px 0px;
     font-family: "Roboto Slab", Sans-serif;
     font-size: 15px;

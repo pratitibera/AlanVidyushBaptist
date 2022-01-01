@@ -308,4 +308,12 @@
 		margin: auto;
 		/* box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.22), 0 4px 8px rgba(0, 0, 0, 0.06) !important; */
 	}
+	.pricing-cover{
+		margin-top: 66px;
+	}
+	.pricing-landing div{
+		left: 20%;
+		right: 20%;
+		top: 45%;
+	}
 }

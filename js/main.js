@@ -163,7 +163,7 @@ function manageBlogs() {
 function displayPortfolio() {
     $('#portfolioSection').owlCarousel({
         loop: true,
-        autoplay: false,
+        autoplay: true,
         // autoplayTimeout: 3000,
         autoPlaySpeed: 1000,
         autoplayHoverPause: true,
@@ -182,6 +182,28 @@ function displayPortfolio() {
             },
             960: {
                 items: 3
+            }
+        }
+    });
+}
+
+
+function showPricing(){
+    $('#pricingCarousel').owlCarousel({
+        loop: true,
+        autoplay: true,
+        // autoplayTimeout: 3000,
+        autoPlaySpeed: 1000,
+        autoplayHoverPause: true,
+        dots: false,
+        nav: true,
+        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+        responsive: {
+            0: {
+                items: 1
+            },
+            320: {
+                items: 1
             }
         }
     });
