@@ -208,3 +208,7 @@ function showPricing(){
         }
     });
 }
+
+function readMoreBlogs(){
+    $(".partners-section2 .col-6").removeClass('d-none');
+}

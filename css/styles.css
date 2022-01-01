@@ -281,8 +281,6 @@ ul {
 }
 .whatsapp_icon div{
 	margin: auto;
-	 background: #fff;
-	 color: #000!important;
 	 font-weight: 700;
 	 padding: 6px 25px;
 	 border-radius: 8px;
@@ -292,16 +290,20 @@ ul {
 	 position: relative;
 }
 .whatsapp_icon span{
-	color: #fff;
-   position: absolute;
+	position: absolute;
    left: 123px;
    font-size: 30px;
    top: 11px;
    width: 0;
    height: 0;
     border-top: 7px solid transparent;
-    border-left: 14px solid #fff;
     border-bottom: 7px solid transparent;
+}
+.borde-dark{
+	border-left: 14px solid #000;
+}
+.borde-white{
+	border-left: 14px solid #fff;
 }
 
 /* Navbar */
@@ -748,7 +750,10 @@ footer .move-up {
 	padding-top: 40px;
 	max-width: 200px
 }
-
+.shareBorder{
+	border-bottom: 3px solid #FFE972;
+	max-width: 100px
+}
 .blogDate {
 	color: #525252;
 	font-family: Karla;

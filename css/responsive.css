@@ -22,8 +22,14 @@
 	.associations .container-fluid {
 		padding: 0px 50px;
 	}
-	#header-nav img {
+	/* #header-nav img {
 		display: none;
+	} */
+	#header-nav{
+		padding: 0px 180px;
+	}
+	#header-nav img{
+		width: 13%!important;
 	}
 	.aboutpage-container {
 		padding: 25px 250px;
@@ -252,6 +258,14 @@
 	}
 	.stickyContents {
 		box-shadow: 0px 10px 12px 0px rgb(0 0 0 / 15%);
+	}
+	.blogShareIcons .col-2{
+		padding: 0px 1px;
+	}
+	.blogShareIcons i{
+		background: #FFE972;
+    padding: 14px;
+    border-radius: 50%;
 	}
 	/* Partners */
 	.partners-cover {
