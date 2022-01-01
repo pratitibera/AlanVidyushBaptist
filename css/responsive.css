@@ -67,7 +67,7 @@
 		padding: 0px 100px;
 	}
 	#portfolioSection .card{
-		height: 500px;
+		/* height: 500px; */
 		display: flex;
 		justify-content: center;
 		border: none;
