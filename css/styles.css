@@ -56,7 +56,9 @@ ul {
 .vh-85 {
 	height: 85vh;
 }
-
+.fo-6{
+	font-size: 6px;
+}
 .fo-12 {
 	font-size: 12px;
 }
@@ -277,7 +279,25 @@ ul {
 	width: 70px;
 	height: 70px;
 }
-
+.whatsapp_icon div{
+	margin: auto;
+	 background: #fff;
+	 color: #000!important;
+	 font-weight: 700;
+	 padding: 6px 25px;
+	 border-radius: 8px;
+	 margin-top: 55px;
+	 margin-right: 13px;
+	 width: 124px;
+	 position: relative;
+}
+.whatsapp_icon i{
+	color: #fff;
+   position: absolute;
+   left: 123px;
+   font-size: 30px;
+   top: 3px;
+}
 
 /* Navbar */
 
