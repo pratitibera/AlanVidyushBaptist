@@ -120,7 +120,9 @@ ul {
 .fo-55 {
 	font-size: 55px;
 }
-
+.fo-65{
+	font-size: 65px;
+}
 .fw-400 {
 	font-weight: 400;
 }
@@ -184,7 +186,7 @@ ul {
 }
 
 .bg-grey {
-	background-color: #f1f1f1;
+	background-color: #eeeeee;
 }
 
 .cursorPointer {
@@ -234,7 +236,7 @@ ul {
 	background: #000000;
 	padding: 35px;
 	position: fixed;
-	z-index: 99999;
+	z-index: 999999;
 	height: 100vh;
 	width: 360px;
 	top: 0;
@@ -834,7 +836,7 @@ footer .move-up {
 }
 .services-list{
 	padding: 80px 100px;
-	background-color: #f9f9f8;
+	background-color: #eeeeee;
 }
 
 .single-service-item {
@@ -951,7 +953,7 @@ footer .move-up {
 }
 
 .single-service-item .text-holder-1 .inner {
-pp   display: table;
+	display: table;
    width: 100%;
    height: 100%;
 }
@@ -988,4 +990,38 @@ pp   display: table;
 .thm-btn:hover {
    background: #ffffff;
    color: #333;
+}
+/* Pricing section */
+.pricing-cover{
+	background-image: url(http://elementnutri.com/wp-content/uploads/2019/04/Image-4.jpg);
+   background-position: center center;
+   background-size: cover; 
+   margin-top: 142px;
+   box-shadow: 0px 0px 34px 0px rgb(107 107 107 / 50%);
+   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s; 
+   position: relative; 
+   background-attachment: fixed;
+}
+.pricing-landing-image{
+	background-color: rgba(0,0,0,0.75);
+   opacity: 0.8;
+   transition: background 0.3s, border-radius 0.3s, opacity 0.3s; 
+   height: 100%;
+   width: 100%;
+   top: 0;
+   left: 0;
+   position: absolute;
+}
+.pricing-landing{
+	height: 78vh;
+}
+.pricing-landing div{
+	position: absolute;
+	left: 40%;
+	right: 40%;
+	top: 35%;
+}
+.pricing-section{
+	background-color: #eeeeee;
+	height: 100vh;
 }

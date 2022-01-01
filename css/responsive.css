@@ -66,6 +66,9 @@
 	#collapsibleBlogCategories {
 		padding: 0px 100px;
 	}
+	#portfolioSection{
+		margin-top: 142px;
+	}
 }
 
 @media only screen and (max-width: 576px) {
