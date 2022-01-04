@@ -226,3 +226,15 @@ function showPricing(){
 function readMoreBlogs(){
     $(".partners-section2 .col-6").removeClass('d-none');
 }
+
+const searches = document.querySelectorAll('.searches');
+searches.forEach(el => el.addEventListener('keyup', event => {
+  if (event.keyCode === 13) {
+        document.location.href = "searchedBlogs.html?search=" + el.value;
+    }
+}));
+
+function search(id){
+    var keyword = document.getElementById(id + 'i').value;
+    document.location.href = "searchedBlogs.html?search=" + keyword;
+}

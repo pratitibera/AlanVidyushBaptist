@@ -18,7 +18,9 @@
 	}
 
 /* Globacl classes */
-
+.fa-search{
+	cursor: pointer;
+}
 input:focus{
 	border-top: none;
 	outline: none;
