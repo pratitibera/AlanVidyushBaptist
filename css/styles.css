@@ -17,6 +17,11 @@
 
 /* Globacl classes */
 
+input:focus{
+	border-top: none;
+	outline: none;
+}
+
 .text-purple {
 	color: #3E205A;
 }
@@ -192,10 +197,16 @@ ul {
 	}
 }
 
+.bg-theme{
+	background-color: #FFE972;
+}
+
 .bg-grey {
 	background-color: #eeeeee;
 }
-
+.bg-gray{
+	background-color: gray;
+}
 .cursorPointer {
 	cursor: pointer;
 }
@@ -306,6 +317,9 @@ ul {
 	border-left: 14px solid #fff;
 }
 
+.borde-gray{
+	border-left: 14px solid gray;
+}
 /* Navbar */
 
 #navItems {
@@ -1097,4 +1111,72 @@ footer .move-up {
     padding: 12px 25px;
     font-weight: 600;
     transform: .3s;
+}
+
+/* Checkout */
+.input-data{
+  height: 40px;
+  width: 100%;
+  position: relative;
+}
+.input-data input{
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid #eeeeee;
+}
+.input-data input:focus ~ label,
+.input-data input:valid ~ label{
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #000000;
+}
+.input-data label{
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #000000;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.input-data .underline{
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+}
+.input-data .underline:before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #000000;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.input-data input:focus ~ .underline:before,
+.input-data input:valid ~ .underline:before{
+  transform: scaleX(1);
+}
+.couponsection input{
+	border: 1px solid #eee;
+   padding: 12px 12px;
+}
+.couponsection button{
+	padding-top: 12px;
+	padding-bottom: 12px;
+}
+.checkoutfooter{
+	background: #fff;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   padding: 5px;
+   box-shadow: 0 -1px 4px 0 #0000004d;
+}
+.checkoutfooter button{
+	padding-top: 12px;
+	padding-bottom: 12px;
 }

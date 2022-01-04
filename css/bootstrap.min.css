@@ -6133,8 +6133,8 @@ a.badge-dark:focus {
 	font-weight: 700;
 	line-height: 1;
 	color: #000;
-	text-shadow: 0 1px 0 #fff;
-	opacity: .5
+	/* text-shadow: 0 1px 0 #fff;
+	opacity: .5 */
 }
 
 .close:hover {
@@ -6218,7 +6218,7 @@ a.close.disabled {
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 1050;
+	z-index: 10050;
 	display: none;
 	width: 100%;
 	height: 100%;
@@ -6352,7 +6352,7 @@ a.close.disabled {
 	-ms-flex-pack: justify;
 	justify-content: space-between;
 	padding: 1rem 1rem;
-	border-bottom: 1px solid #dee2e6;
+	/* border-bottom: 1px solid #dee2e6; */
 	border-top-left-radius: calc(.3rem - 1px);
 	border-top-right-radius: calc(.3rem - 1px)
 }
@@ -8344,7 +8344,7 @@ button.bg-dark:hover {
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 99999
+	z-index: 9999
 }
 
 .fixed-bottom {

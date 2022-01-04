@@ -25,6 +25,9 @@
 	/* #header-nav img {
 		display: none;
 	} */
+	.nav-link{
+		text-align: center;
+	}
 	#header-nav{
 		padding: 0px 180px;
 	}
