@@ -1,0 +1,6 @@
+.cursor-pointer{
+    cursor: pointer;
+}
+.bg-dark, .btn-dark{
+    background-color: #000000!important;
+}

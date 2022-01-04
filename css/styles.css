@@ -542,7 +542,9 @@ nav .navbar-collapse.show {
 	border-bottom: 3px solid #e6ce4c;
 	max-width: 200px;
 }
-
+#blogsSection img{
+	height: 500px;
+}
 [type=radio] {
 	display: none;
 }

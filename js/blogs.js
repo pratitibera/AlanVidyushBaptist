@@ -1,33 +1,13 @@
-var blogsData = [
-  {
-    "image": "https://www.linkpicture.com/q/blog1.png",
-    "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
-    "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
-    "date": "May 4, 2021"
-  },
-  {
-    "image": "https://www.linkpicture.com/q/blog4.png",
-    "heading": "Bnlo Zuban Cancery – Is Pan Masala Harmful for Health?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
-    "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
-    "date": "May 4, 2021"
-  },
-  {
-    "image": "https://www.linkpicture.com/q/blog3.png",
-    "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
-    "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
-    "date": "May 4, 2021"
-  },
-  {
-    "image": "https://www.linkpicture.com/q/blog2.png",
-    "heading": "Bolo Zuban Cancery – Is Pan Masala Harmful for Health?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m dolor sit amet, consectetur adipisicing.",
-    "link": "https://elementnutri.com/education/is-pan-masala-harmful-for-health/",
-    "date": "May 4, 2021"
+function getAllBlogs(){
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
   }
-]
+}
 
 function showBlogs(){
 	console.log(blogsData);
