@@ -13,7 +13,9 @@
 .opensans {
 	font-family: 'Open Sans Condensed', sans-serif;
 }
-
+.blogContent.fw-600 {
+		padding-top: 50px;
+	}
 
 /* Globacl classes */
 
@@ -717,7 +719,7 @@ footer .move-up {
 	max-width: 65%;
 	box-shadow: -9px 25px 37px -10px rgb(0 0 0 / 44%);
 	margin: auto;
-	margin-top: 175px;
+	/* margin-top: 175px; */
 }
 
 .blogImageContainer img {
