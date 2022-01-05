@@ -115,65 +115,6 @@ function toggleContents(x) {
     x.classList.toggle("fa-chevron-up");
 }
 
-function manageBlogs() {
-    document.getElementById("navItems").style.display = "contents";
-    document.getElementById("contentItems").style.display = "none";
-
-    var distance = $('.blogContents').offset().top;
-    $(window).scroll(function () {
-        if (screen.width < 577) {
-            if ($(this).scrollTop() >= distance) {
-                document.getElementById("navItems").style.display = "none";
-                document.getElementById("contentItems").style.display = "block";
-                document.getElementById("contentItems").style.width = "100%";
-                $("nav").removeClass("bg-dark");
-                $("nav").addClass("bg-white");
-            } else {
-                document.getElementById("navItems").style.display = "contents";
-                document.getElementById("contentItems").style.display = "none";
-                $("nav").removeClass("bg-white");
-                $("nav").addClass("bg-dark");
-            }
-        }
-    });
-
-    window.addEventListener("scroll", () => {
-        let scrollPercentRounded = Math.round((window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100);
-        document.getElementById('blogContentProgress').style.width = scrollPercentRounded + "%";
-    });
-
-    if (screen.width >= 577) {
-        $("#collapseContents1").addClass("show");
-        toggleContents(document.getElementById('toggleDesktopContent'));
-    }
-
-    $('#blogsSection').owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoWidth:true,
-        // autoplayTimeout: 3000,
-        autoPlaySpeed: 1000,
-        autoplayHoverPause: true,
-        dots: false,
-        nav: true,
-        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
-        responsive: {
-            0: {
-                items: 1
-            },
-            320: {
-                items: 1
-            },
-            560: {
-                items: 2
-            },
-            960: {
-                items: 6
-            }
-        }
-    });
-}
-
 function displayPortfolio() {
     $('#portfolioSection').owlCarousel({
         loop: true,

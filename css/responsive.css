@@ -236,6 +236,9 @@
 		margin: auto;
 	}
 	/* Blogs page*/
+	#blogsSection img {
+	    height: 310px;
+	}
 	.blogImageContainer {
 		max-width: 100%;
 		margin-top: 95px;
