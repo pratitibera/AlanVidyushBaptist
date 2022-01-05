@@ -2,17 +2,17 @@ var limit = 6;
 var index = 0;
 
 function manageBlogs() {
-  // var url = document.location.href,
-  //   params = url.split("?")[1].split("&"),
-  //   data = {},
-  //   tmp;
-  // for (var i = 0, l = params.length; i < l; i++) {
-  //   tmp = params[i].split("=");
-  //   data[tmp[0]] = tmp[1];
-  //   blog_id = data["id"];
-  // }
+  var url = document.location.href,
+    params = url.split("?")[1].split("&"),
+    data = {},
+    tmp;
+  for (var i = 0, l = params.length; i < l; i++) {
+    tmp = params[i].split("=");
+    data[tmp[0]] = tmp[1];
+    blog_id = data["id"];
+  }
 
-  // displaySingleBlog(blog_id);
+  displaySingleBlog(blog_id);
   document.getElementById("navItems").style.display = "contents";
   document.getElementById("contentItems").style.display = "none";
 
@@ -43,31 +43,6 @@ function manageBlogs() {
     $("#collapseContents1").addClass("show");
     toggleContents(document.getElementById('toggleDesktopContent'));
   }
-
-  $('#blogsSection').owlCarousel({
-    loop: true,
-    autoplay: true,
-    autoWidth: true,
-    autoPlaySpeed: 1000,
-    autoplayHoverPause: true,
-    dots: false,
-    nav: true,
-    navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
-    responsive: {
-      0: {
-        items: 1
-      },
-      320: {
-        items: 1
-      },
-      560: {
-        items: 2
-      },
-      960: {
-        items: 6
-      }
-    }
-  });
 }
 
 function displaySingleBlog(blog_id) {
@@ -78,22 +53,18 @@ function displaySingleBlog(blog_id) {
   request.onload = function () {
     var data = JSON.parse(this.response);
     console.log(data);
-    if(error in data){
-      console.log("Error");
-    }
-    else{
-      // Contents 
+    // Contents 
     var contentList1 = document.getElementById('contentList1');
     var contentList2 = document.getElementById('contentList2');
-    for(i = 0; i < data['content'].length; i++){
+    for (i = 0; i < data['content'].length; i++) {
       contentList1.innerHTML += `<li class="fo-16">
-                           <a href="#${data['contentList1'][i]['id']}">
-                              <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['contentList1'][i]['title']}
+                           <a href="#${data['content'][i]['id']}">
+                              <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['content'][i]['title']}
                            </a>
                         </li>`;
       contentList2.innerHTML += `<li class="fo-16">
-                           <a href="#${data['contentList1'][i]['id']}">
-                              <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['contentList1'][i]['title']}
+                           <a href="#${data['content'][i]['id']}">
+                              <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['content'][i]['title']}
                            </a>
                         </li>`;
     }
@@ -106,50 +77,42 @@ function displaySingleBlog(blog_id) {
     // Blog date
     document.getElementById('blogdate').append(data['blogdate']);
 
+    // Blog content
+    document.getElementById('blogContent').innerHTML = data['body'];
+
     // Gallery
-    var blogsSection = document.createElement('div');
-    blogsSection.setAttribute('class', 'owl-carousel mt-sm-5');
-    blogsSection.setAttribute('id', 'blogsSection');
-    for(i = 0; i < data['gallery'].length; i++){
+    var blogsSection = document.getElementById('blogsSection');
+    for (i = 0; i < data['gallery'].length; i++) {
       blogsSection.innerHTML += `<div class="p-2">
                      <div class="card p-0">
                         <img src=${data['gallery'][i]['image']} class="w-100">
                      </div>  
                   </div> `
-
-      $('#blogsSection').owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoWidth: true,
-        autoPlaySpeed: 1000,
-        autoplayHoverPause: true,
-        dots: false,
-        nav: true,
-        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
-        responsive: {
-          0: {
-            items: 1
-          },
-          320: {
-            items: 1
-          },
-          560: {
-            items: 2
-          },
-          960: {
-            items: 6
-          }
+    }
+    $('#blogsSection').owlCarousel({
+      loop: true,
+      autoplay: true,
+      autoWidth: true,
+      autoPlaySpeed: 1000,
+      autoplayHoverPause: true,
+      dots: false,
+      nav: true,
+      navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+      responsive: {
+        0: {
+          items: 1
+        },
+        320: {
+          items: 1
+        },
+        560: {
+          items: 2
+        },
+        960: {
+          items: 6
         }
-      });
-    }
-    // Blog content
-    document.getElementById('blogContent').innerHTML = data['body'];
-    document.getElementById('blogContent').innerHTML += blogsSection;
-    document.getElementById('blogContent').innerHTML += `<div class="owl-navigation">
-                  <span class="owl-nav-prev mr-2"><i class="fas fa-long-arrow-alt-left"></i></span>
-                  <span class="owl-nav-next ml-2"><i class="fas fa-long-arrow-alt-right"></i></span>
-               </div>`;
-    }
+      }
+    });
   }
 }
 
