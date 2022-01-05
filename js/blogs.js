@@ -53,66 +53,70 @@ function displaySingleBlog(blog_id) {
   request.onload = function () {
     var data = JSON.parse(this.response);
     console.log(data);
-    // Contents 
-    var contentList1 = document.getElementById('contentList1');
-    var contentList2 = document.getElementById('contentList2');
-    for (i = 0; i < data['content'].length; i++) {
-      contentList1.innerHTML += `<li class="fo-16">
+    try {
+      // Contents 
+      var contentList1 = document.getElementById('contentList1');
+      var contentList2 = document.getElementById('contentList2');
+      for (i = 0; i < data['content'].length; i++) {
+        contentList1.innerHTML += `<li class="fo-16">
                            <a href="#${data['content'][i]['id']}">
                               <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['content'][i]['title']}
                            </a>
                         </li>`;
-      contentList2.innerHTML += `<li class="fo-16">
+        contentList2.innerHTML += `<li class="fo-16">
                            <a href="#${data['content'][i]['id']}">
                               <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['content'][i]['title']}
                            </a>
                         </li>`;
-    }
-    // Header image
-    document.getElementById('blogImageContainer').src = data['headerImage']['image'];
-    //Client info
-    document.getElementById('blogWriter').innerHTML = data['client'];
-    // Blog heading
-    document.getElementById('blogHeading').append(data['title']);
-    // Blog date
-    document.getElementById('blogdate').append(data['blogdate']);
+      }
+      // Header image
+      document.getElementById('blogImageContainer').src = data['headerImage']['image'];
+      //Client info
+      document.getElementById('blogWriter').innerHTML = data['client'];
+      // Blog heading
+      document.getElementById('blogHeading').append(data['title']);
+      // Blog date
+      document.getElementById('blogdate').append(data['blogdate']);
 
-    // Blog content
-    document.getElementById('blogContent').innerHTML = data['body'];
+      // Blog content
+      document.getElementById('blogContent').innerHTML = data['body'];
 
-    // Gallery
-    var blogsSection = document.getElementById('blogsSection');
-    for (i = 0; i < data['gallery'].length; i++) {
-      blogsSection.innerHTML += `<div class="p-2">
+      // Gallery
+      var blogsSection = document.getElementById('blogsSection');
+      for (i = 0; i < data['gallery'].length; i++) {
+        blogsSection.innerHTML += `<div class="p-2">
                      <div class="card p-0">
                         <img src=${data['gallery'][i]['image']} class="w-100">
                      </div>  
                   </div> `
-    }
-    $('#blogsSection').owlCarousel({
-      loop: true,
-      autoplay: true,
-      autoWidth: true,
-      autoPlaySpeed: 1000,
-      autoplayHoverPause: true,
-      dots: false,
-      nav: true,
-      navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
-      responsive: {
-        0: {
-          items: 1
-        },
-        320: {
-          items: 1
-        },
-        560: {
-          items: 2
-        },
-        960: {
-          items: 6
-        }
       }
-    });
+      $('#blogsSection').owlCarousel({
+        loop: true,
+        autoplay: true,
+        // autoWidth: true,
+        autoPlaySpeed: 1000,
+        autoplayHoverPause: true,
+        dots: false,
+        nav: true,
+        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+        responsive: {
+          0: {
+            items: 1
+          },
+          320: {
+            items: 1
+          },
+          560: {
+            items: 2
+          },
+          960: {
+            items: 3
+          }
+        }
+      });
+    } catch {
+      console.log("Error");
+    }
   }
 }
 
