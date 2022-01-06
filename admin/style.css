@@ -5,3 +5,31 @@
     background-color: #000000!important;
     color: #fff;
 }
+th,td{
+    text-align: center;
+}
+
+#readmorebutton p {
+   color: #000;
+    position: relative;
+    display: inline-block;
+    margin: 50px 100px;
+}
+
+#readmorebutton p:before {
+    content: "";
+    border: 1px solid #000;
+    position: absolute;
+    width: 50%;
+    top: 16px;
+    left: -95px;
+}
+
+#readmorebutton p:after {
+    content: "";
+    border: 1px solid #000;
+    width: 50%;
+    position: absolute;
+    top: 16px;
+    right: -95px;
+}

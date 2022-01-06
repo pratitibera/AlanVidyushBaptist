@@ -4,8 +4,20 @@ var urlSet = {
         url: baseUrl + "/api/v1/blogs/",
         method: "GET",
     },
+    get_featuredblogApi: {
+        url: baseUrl + "/api/v1/blogs/featured",
+        method: "GET",
+    },
     post_blogApi: {
         url: baseUrl + "/api/v1/blogs/",
         method: "POST",
+    },
+    add_blog_to_featuredApi: {
+        url: baseUrl + "/api/v1/admin/featuredBlog/",
+        method: "PATCH",
+    },
+    delete_blog_from_featuredApi: {
+        url: baseUrl + "/api/v1/admin/featuredBlog/",
+        method: "DELETE",
     },
 };

@@ -162,14 +162,19 @@ function getAllBlogs() {
   request.onload = function () {
     var data = JSON.parse(this.response);
     console.log(data);
-    index = data.length;
-    var displayAllBlogs = document.getElementById('displayAllBlogs');
-    for (i = 0; i < data.length; i++) {
-      displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
-               <img src="${data[i]['headerImage']['image']}" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
-            </a></div>`
+    if(data.length > 0){
+      index = data.length;
+      var displayAllBlogs = document.getElementById('displayAllBlogs');
+      for (i = 0; i < data.length; i++) {
+        displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
+                 <img src="${data[i]['headerImage']['image']}" class="w-100">
+                 <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
+                 <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
+              </a></div>`
+      }
+    }
+    else{
+      document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
     }
   }
 }

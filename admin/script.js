@@ -39,13 +39,13 @@ function getBlogCategory() {
 }
 
 function getBlogSubcategory(val) {
-	var index = val.split('_')[1];
+	var indexx = val.split('_')[1];
 	var blogsubcategory_select = document.getElementById('blogsubcategory');
 	blogsubcategory_select.innerHTML = "";
-	for (i = 0; i < blogCatandSub[index]['subcategory'].length; i++) {
+	for (i = 0; i < blogCatandSub[indexx]['subcategory'].length; i++) {
 		var subcat_option = document.createElement('option');
-		subcat_option.value = blogCatandSub[index]['subcategory'][i];
-		subcat_option.append(blogCatandSub[index]['subcategory'][i]);
+		subcat_option.value = blogCatandSub[indexx]['subcategory'][i];
+		subcat_option.append(blogCatandSub[indexx]['subcategory'][i]);
 		blogsubcategory_select.append(subcat_option);
 	}
 }
@@ -163,5 +163,73 @@ function addBlog() {
 		}
 	} else {
 		alert("Please fill all details")
+	}
+}
+
+var index = 0;
+var limit = 6;
+
+function getAllBlogs(){
+	var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if(data.length > 0){
+    	index = data.length;
+	    var allBlogs = document.getElementById('allBlogs');
+	    for (i = 0; i < data.length; i++) {
+	    	if(data[i]['featured'] == true){
+	    		allBlogs.innerHTML += `<tr>
+	                      <td>${data[i]['title']}</td>
+	                      <td><button class="btn btn-dark" id="delete_${data[i]['_id']}" onclick="handleFeatures(this.id)">DELETE FROM FEATURED</button></td>
+	                    </tr>`;
+	    	}
+	    	else{
+	    		allBlogs.innerHTML += `<tr>
+	                      <td>${data[i]['title']}</td>
+	                      <td><button class="btn btn-dark" id="add_${data[i]['_id']}" onclick="handleFeatures(this.id)">ADD TO FEATURED</button></td>
+	                    </tr>`;
+	    	}
+	    }
+    }
+    else{
+      document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+    }
+  }
+}
+
+function handleFeatures(id){
+	if(id.split('_')[0] == "add"){
+		var request = new XMLHttpRequest();
+		  request.open(urlSet.add_blog_to_featuredApi.method, urlSet.add_blog_to_featuredApi.url + id.split('_')[1], true);
+		  request.setRequestHeader("Accept", "application/json");
+		  request.send();
+		  request.onload = function () {
+		    var data = JSON.parse(this.response);
+		    console.log(data);
+		    if(data['message'] == "Blog added to Featured"){
+		    	alert("Blog added to Featured");
+		    }
+		    document.getElementById(id).setAttribute('id', 'delete_' + id.split('_')[1]);
+		    document.getElementById('delete_' + id.split('_')[1]).innerHTML = "DELETE FROM FEATURED";
+		}
+	}
+	else{
+		var request = new XMLHttpRequest();
+		  request.open(urlSet.delete_blog_from_featuredApi.method, urlSet.delete_blog_from_featuredApi.url + id.split('_')[1], true);
+		  request.setRequestHeader("Accept", "application/json");
+		  request.send();
+		  request.onload = function () {
+		    var data = JSON.parse(this.response);
+		    console.log(data);
+		    if(data['message'] == "Blog removed from Featured"){
+		    	alert("Blog removed from Featured");
+		    }
+		    document.getElementById(id).setAttribute('id', 'add_' + id.split('_')[1]);
+		    document.getElementById('add_' + id.split('_')[1]).innerHTML = "ADD TO FEATURED";
+		}
 	}
 }
