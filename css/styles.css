@@ -168,7 +168,10 @@ ul {
 .text-purple {
 	color: #472966;
 }
-
+.min-height{
+	min-height: 45vh;
+	margin-top: 175px;
+}
 .website-button {
 	padding: 5px 20px;
 	background-color: #FFE972;
@@ -533,6 +536,9 @@ nav .navbar-collapse.show {
 
 /* Blogs */
 
+#blogAvailable, #blogNotAvailable{
+	display: none;
+}
 .blog-section {
 	padding-top: 125px;
 }
@@ -720,7 +726,6 @@ footer .move-up {
 	max-width: 65%;
 	box-shadow: -9px 25px 37px -10px rgb(0 0 0 / 44%);
 	margin: auto;
-	margin-top: 175px;
 }
 
 .blogImageContainer img {
@@ -824,10 +829,9 @@ footer .move-up {
 
 /* All blogs page */
 
-#collapsibleBlogCategories .col-sm-2 {
+#collapsibleBlogCategories .row div {
 	color: #fff;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding: 10px 18px;
 	text-align: center;
 	font-weight: 600;
 	cursor: pointer;
@@ -835,7 +839,7 @@ footer .move-up {
 
 #collapsibleBlogCategories .active {
 	background-color: #FFE972;
-	color: #000;
+	color: #000!important;
 }
 
 .imageOverlay {

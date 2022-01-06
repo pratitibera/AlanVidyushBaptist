@@ -93,7 +93,7 @@ function displaySingleBlog(blog_id) {
       $('#blogsSection').owlCarousel({
         loop: true,
         autoplay: true,
-        // autoWidth: true,
+        autoWidth: true,
         autoPlaySpeed: 1000,
         autoplayHoverPause: true,
         dots: false,
@@ -101,20 +101,25 @@ function displaySingleBlog(blog_id) {
         navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
         responsive: {
           0: {
-            items: 1
+            items: 1,
+            autoWidth:false 
           },
-          320: {
-            items: 1
-          },
-          560: {
-            items: 2
-          },
+          // 320: {
+          //   items: 1
+          // },
+          // 560: {
+          //   items: 2
+          // },
           960: {
             items: 3
           }
         }
       });
+      document.getElementById('blogAvailable').style.display = "block";
+      document.getElementById('blogNotAvailable').style.display = "none";
     } catch {
+      document.getElementById('blogAvailable').style.display = "none";
+      document.getElementById('blogNotAvailable').style.display = "block";
       console.log("Error");
     }
   }
@@ -161,7 +166,7 @@ function getAllBlogs() {
     var displayAllBlogs = document.getElementById('displayAllBlogs');
     for (i = 0; i < data.length; i++) {
       displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
-               <img src="${data[i]['image']}" class="w-100">
+               <img src="${data[i]['headerImage']['image']}" class="w-100">
                <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
                <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
             </a></div>`

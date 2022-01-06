@@ -75,6 +75,9 @@
 	#collapsibleBlogCategories {
 		padding: 0px 100px;
 	}
+	#collapsibleBlogCategories .row{
+		justify-content: space-between;
+	}
 	#portfolioSection .card{
 		height: 500px;
 		display: flex;
@@ -239,9 +242,11 @@
 	#blogsSection img {
 	    height: 310px;
 	}
+	.min-height{
+		margin-top: 95px;
+	}
 	.blogImageContainer {
 		max-width: 100%;
-		margin-top: 95px;
 	}
 	.blogHeading {
 		font-size: 25px;

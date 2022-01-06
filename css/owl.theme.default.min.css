@@ -1,3 +1,16 @@
+.owl-stage {
+display: -webkit-box;
+display: -moz-box;
+display: -ms-box;
+display: box;
+}
+.owl-carousel
+
+.owl-item img {
+width: auto !important;
+}
+
+
 .owl-nav .owl-prev .owl-nav-prev,
 .owl-nav .owl-next .owl-nav-next{
     color: #000;

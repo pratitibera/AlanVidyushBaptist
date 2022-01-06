@@ -102,11 +102,11 @@ $(".collapseContents2 > li").click(function () {
     $("#collapseContents2").collapse('hide');
 });
 
-$("#collapsibleBlogCategories .col-sm-2").click(function () {
+$("#collapsibleBlogCategories .row > div").click(function () {
     // To collapse contents in mobile view when some blog category is selected / clicked
     toggleContents(document.getElementById('handleBlogCategories'));
     $("#collapsibleBlogCategories").collapse('hide');
-    $("#collapsibleBlogCategories .col-sm-2").removeClass("active mo-active");
+    $("#collapsibleBlogCategories .row > div").removeClass("active mo-active");
     $(this).addClass("active mo-active");
 });
 
