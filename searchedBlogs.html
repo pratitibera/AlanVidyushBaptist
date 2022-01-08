@@ -20,9 +20,6 @@
          .move-up{
             bottom: 35%!important;
          }
-         .partners-section2{
-            padding-top: 150px;
-         }
          @media only screen and (max-width: 576px){
             .footer-bg{
                height: 5vh!important;
@@ -188,42 +185,16 @@
       </nav>
       <!---Topmost navbar ends--->
       <!--Latest blog features start--->
-      <section class="partners-section2">
-         <div class="text-dark fo-30 p-5 text-center fw-700">Searched results of "Fitness"</div>
-         <div class="row m-0 mt-3">
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
-            </div>
-            <div class="col-6 col-sm-4 mb-4">
-               <img src="https://media.self.com/photos/61b3a6beeaf2efbd51e0619c/4:3/w_426/AdobeStock_426612372.jpeg" class="w-100">
-               <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">8 Ways to Make Exercising During the Holidays About Joy—Not Guilt</div>
-               <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">Here’s how you can protect your peace.</div>
+      <section class="partners-section2 min-height">
+         <div id="blogAvailable">
+            <div class="text-dark fo-30 p-5 text-center fw-700" id="searched_keyword">Searched results of</div>
+            <div class="row m-0 mt-3" id="displayAllBlogs"></div>
+            <div class="text-center mt-5 mb-5" id="readmorebutton">
+               <button class="btn website-button bg-dark text-white" onclick="();">READ MORE</button>
             </div>
          </div>
-         <div class="text-center mt-5 mb-5">
-            <button class="btn website-button bg-dark text-white">READ MORE</button>
+         <div id="blogNotAvailable">
+            <div class="text-center fw-600 fo-24 mb-4 mt-5">Sorry, we couldn't find any results.</div>
          </div>
       </section>
       <!--Latest blog features end--->
@@ -278,5 +249,6 @@
       <script src="js/aos.js"></script>
       <script src="js/main.js"></script>
       <script src="js/blogs.js"></script>
+      <script src="js/search.js"></script>
    </body>
 </html>
