@@ -20,4 +20,16 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/featuredBlog/",
         method: "DELETE",
     },
+    addServiceApi: {
+        url: baseUrl + "/api/v1/admin/service",
+        method: "POST",
+    },
+    viewOffersApi: {
+        url: baseUrl + "/api/v1/admin/",
+        method: "GET",
+    },
+    editOffersApi: {
+        url: baseUrl + "/api/v1/admin/offer/",
+        method: "PATCH",
+    },
 };

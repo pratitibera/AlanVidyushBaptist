@@ -26,6 +26,9 @@
                   <a class="nav-link" href="#editblogs">Edit blogs</a>
                </li>
                <li class="nav-item">
+                  <a class="nav-link" href="#addServices">Add services</a>
+               </li>
+               <li class="nav-item">
                   <a class="nav-link" href="#editpricing">Edit service pricing</a>
                </li>
             </ul>
@@ -64,11 +67,11 @@
                <input type="text" class="form-control" id="blogsummary">
             </div>
             <div class="form-group">
-               <label for="sel1">Select blog category:</label>
+               <label>Select blog category:</label>
                <select class="form-control" id="blogcategory" onchange="getBlogSubcategory(this.value);"></select>
             </div>
             <div class="form-group">
-               <label for="sel1">Select blog subcategory:</label>
+               <label>Select blog subcategory:</label>
                <select class="form-control" id="blogsubcategory"></select>
             </div>
             <div class="form-group">
@@ -97,15 +100,13 @@
       <section id="editblogs">
          <div class="container">
             <h3 class="mb-5">EDIT BLOGS</h3>
-         </div>
-         <div class="container">
             <div class="table-responsive">
                <table class="table table-bordered">
                   <thead>
-                    <tr>
-                      <th>Blog Title</th>
-                      <th></th>
-                    </tr>
+                     <tr>
+                        <th>Blog Title</th>
+                        <th></th>
+                     </tr>
                   </thead>
                   <tbody id="allBlogs"></tbody>
                </table>
@@ -116,51 +117,148 @@
          </div>
       </section>
       <hr>
-      <section id="editpricing">
+      <section id="addServices">
          <div class="container">
             <h3 class="mb-5">ADD SERVICE PRICING</h3>
             <div class="form-group">
-               <label for="sel1">Select service:</label>
-               <select class="form-control" id="">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
+               <label>Select service:</label>
+               <select class="form-control" id="servicelist" onchange="getService('servicelist','subservicelist');">
+                  <option value="Weight Loss">Weight Loss</option>
+                  <option value="Muscle Gain">Muscle Gain</option>
+                  <option value="Sports Performance Guidance">Sports Performance Guidance</option>
+                  <option value="Therapy & Education">Therapy & Education</option>
+                  <option value="Gym Services">Gym Services</option>
+                  <option value="Financial Services">Financial Services</option>
+               </select>
+            </div>
+            <div class="form-group">
+               <label>Select subservice:</label>
+               <select class="form-control" id="subservicelist" onchange="getSubservice('subservicelist');">
+                  <option value="Nutrition + Fitness Guidance">Nutrition + Fitness Guidance</option>
+                  <option value="Nutrition Guidance Only">Nutrition Guidance Only</option>
                </select>
             </div>
             <div class="form-group">
                <label>Enter plan duration in the format: (3 Months)</label>
-               <input type="text" class="form-control" id="">
+               <input type="text" class="form-control" id="duration">
             </div>
             <div class="form-group">
                <label>Enter actual plan price:</label>
-               <input type="text" class="form-control" id="">
+               <input type="text" class="form-control" id="actual_price">
             </div>
             <div class="form-group">
                <label>Enter discounted plan price:</label>
-               <input type="text" class="form-control" id="">
+               <input type="text" class="form-control" id="discounted_price">
             </div>
             <div class="form-group">
                <label>Add plan features: (Maximum 6)</label>
-               <div id="" class="row m-0"></div>
+               <div id="planfeaturelist" class="row m-0"></div>
                <div class="row m-0 mt-3">
-                  <input type="text" class="form-control w-50" id="">
-                  <button class="btn btn-dark ml-4" onclick="">ADD</button>
+                  <input type="text" class="form-control w-50" id="planfeature">
+                  <button class="btn btn-dark ml-4" onclick="addplanfeature();">ADD</button>
                </div>
             </div>
             <div class="form-group">
-               <label for="sel1">Recommended?</label>
-               <select class="form-control" id="">
+               <label>Recommended?</label>
+               <select class="form-control" id="recommendation">
                   <option value="0">No</option>
                   <option value="1">Yes</option>
                </select>
             </div>
          </div>
          <div class="text-center mt-5 mb-5">
-            <button class="btn btn-dark w-25" onclick="">ADD PRICE CHART</button>
+            <button class="btn btn-dark w-25" onclick="addService();">ADD PRICE CHART</button>
          </div>
       </section>
+      <hr>
+      <section id="editpricing" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">EDIT SERVICES AND THEIR PRICING</h3>
+            <div class="form-group">
+               <label>Select service:</label>
+               <select class="form-control" id="servicelist2" onchange="getService('servicelist2','subservicelist2');">
+                  <option value="Weight Loss">Weight Loss</option>
+                  <option value="Muscle Gain">Muscle Gain</option>
+                  <option value="Sports Performance Guidance">Sports Performance Guidance</option>
+                  <option value="Therapy & Education">Therapy & Education</option>
+                  <option value="Gym Services">Gym Services</option>
+                  <option value="Financial Services">Financial Services</option>
+               </select>
+            </div>
+            <div class="form-group">
+               <label>Select subservice:</label>
+               <select class="form-control" id="subservicelist2" onchange="getSubservice('subservicelist2');">
+                  <option value="Nutrition + Fitness Guidance">Nutrition + Fitness Guidance</option>
+                  <option value="Nutrition Guidance Only">Nutrition Guidance Only</option>
+               </select>
+            </div>
+            <div class="text-center mt-5 mb-5">
+               <button class="btn btn-dark w-25" onclick="viewOffers();">VIEW OFFERS</button>
+            </div>
+            <div class="table-responsive" id="offerdetails_table">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Offer duration</th>
+                        <th>Actual Price</th>
+                        <th>Discounted Price</th>
+                        <th>Features</th>
+                        <th>Recommended</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="offerdetails"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
+      <div class="modal" id="editPricingDetails">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header bg-dark">
+                  <h4 class="modal-title text-white">EDIT OFFER</h4>
+                  <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body">
+                  <div class="form-group">
+                     <label>Edit plan duration in the format: (3 Months)</label>
+                     <input type="text" class="form-control" id="edit_duration">
+                  </div>
+                  <div class="form-group">
+                     <label>Edit actual plan price:</label>
+                     <input type="text" class="form-control" id="edit_actual_price">
+                  </div>
+                  <div class="form-group">
+                     <label>Edit discounted plan price:</label>
+                     <input type="text" class="form-control" id="edit_discounted_price">
+                  </div>
+                  <div class="form-group">
+                     <label>Add plan features: (Maximum 6)</label>
+                     <div id="editplanfeaturelist" class="row m-0"></div>
+                     <div class="row m-0 mt-3">
+                        <input type="text" class="form-control w-50" id="editplanfeature">
+                        <button class="btn btn-dark ml-4" onclick="editplanfeature();">ADD</button>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label>Recommended?</label>
+                     <select class="form-control" id="editrecommendation">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                     </select>
+                  </div>
+               </div>
+               <!-- Modal footer -->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-dark" onclick="saveOffer();">SAVE</button>
+               </div>
+            </div>
+         </div>
+      </div>
       <script src="urls.js" defer></script>
-      <script src="script.js"></script>
+      <script src="blogs.js"></script>
+      <script src="services.js"></script>
    </body>
 </html>

@@ -33,3 +33,7 @@ th,td{
     top: 16px;
     right: -95px;
 }
+
+#offerdetails_table{
+    display: none;
+}
