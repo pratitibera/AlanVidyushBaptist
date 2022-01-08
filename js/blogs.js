@@ -102,7 +102,7 @@ function displaySingleBlog(blog_id) {
         responsive: {
           0: {
             items: 1,
-            autoWidth:false 
+            autoWidth: false
           },
           // 320: {
           //   items: 1
@@ -162,17 +162,16 @@ function getAllBlogs() {
   request.onload = function () {
     var data = JSON.parse(this.response);
     console.log(data);
-    if(data.length > 0){
+    if (data.length > 0) {
       index = data.length;
       displayBlogs(data);
-    }
-    else{
+    } else {
       document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
     }
   }
 }
 
-function displayBlogs(data){
+function displayBlogs(data) {
   var displayAllBlogs = document.getElementById('displayAllBlogs');
   for (i = 0; i < data.length; i++) {
     displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
@@ -198,4 +197,146 @@ function nextBlog() {
     v = 1;
   }
   document.getElementById('s' + v).checked = true;
+}
+
+var category;
+var subcategory;
+
+function getBlogCategoryWise(cat) {
+  limit = 6;
+  index = 0;
+  category = cat;
+  document.getElementById('displayAllBlogs').innerHTML = "";
+  document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getCategorisedBlogs();">READ MORE</button>`;
+  if (category == 1 || category == 0) {
+    document.getElementById('blogPage_heading').innerHTML = "Blogs";
+    document.getElementById('category_heading').innerHTML = "Blogs";
+    getAllBlogs();
+  } else {
+    getCategorisedBlogs();
+  }
+}
+
+function getCategorisedBlogs() {
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit + "&category=" + category, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if (index == 0) {
+      document.getElementById('blogPage_heading').innerHTML = category;
+    }
+
+    if (data.length > 0) {
+      if (index == 0) {
+        document.getElementById('category_heading').innerHTML = "Blogs on " + category;
+      }
+      index = data.length;
+      displayBlogs(data);
+    } else {
+      if (index > 0) {
+        document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+      } else {
+        document.getElementById('category_heading').innerHTML = "";
+        document.getElementById('readmorebutton').innerHTML = "";
+      }
+    }
+  }
+}
+
+function categoryDetail() {
+  document.location.href = "category.html?category=" + category;
+}
+
+
+var blogCatandSub = {
+  "Fitness": ["Weight Loss", "Muscle Gain", "Body Recomposition", "Sports Performance", "Fitness Modelling", "Fitness Myths"],
+  "Nutrition": ["Weight Loss", "Weight Gain", "Nutrition Concepts", "Recipes", "Nutrition Myths"],
+  "Education": ["Career", "Skills"],
+  "Psychology": ["Sex", "Relationships", "Communication", "Psych Concepts", "Philosophy", "Spirituality"],
+  "Finance": ["Taxation", "Investment", "Business", "Commerce", "Economics"]
+}
+
+function getAllCategoryBlogs() {
+  try {
+    var url = document.location.href,
+      params = url.split("?")[1].split("&"),
+      data = {},
+      tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+      tmp = params[i].split("=");
+      data[tmp[0]] = tmp[1];
+      category = data["category"];
+    }
+  } catch {
+    category = "Fitness";
+  }
+
+  getCategorisedBlogs();
+
+  var collapsibleBlogCategoriesContainer = document.getElementById('collapsibleBlogCategoriesContainer');
+  collapsibleBlogCategoriesContainer.innerHTML = `<div id="subcategory_0" class="active d-none d-sm-block">TOPICS</div>
+               <div id="subcategory_1" class="mo-active"><i class="fas fa-dumbbell mr-2"></i>ALL</div>`;
+  for (i = 0; i < blogCatandSub[category].length; i++) {
+    collapsibleBlogCategoriesContainer.innerHTML += `<div id="subcategory_${blogCatandSub[category][i]}"><i class="fas fa-dumbbell mr-2"></i>${blogCatandSub[category][i]}</div>`;
+  }
+
+  $("#collapsibleBlogCategoriesContainer > div").click(function () {
+    toggleContents(document.getElementById('handleBlogCategories'));
+    $("#collapsibleBlogCategories").collapse('hide');
+    $("#collapsibleBlogCategories .row > div").removeClass("active mo-active");
+    $(this).addClass("active mo-active");
+    var blog_select_id = this.id;
+    if (blog_select_id.split('_')[0] == 'category') {
+      getBlogCategoryWise(blog_select_id.split('_')[1]);
+    } else {
+      getBlogSubcategoryWise(blog_select_id.split('_')[1]);
+    }
+  });
+}
+
+function getBlogSubcategoryWise(subcat) {
+  limit = 6;
+  index = 0;
+  subcategory = subcat;
+  document.getElementById('displayAllBlogs').innerHTML = "";
+  document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getCategorisedBlogs();">READ MORE</button>`;
+  if (subcategory == 1 || subcategory == 0) {
+    document.getElementById('blogPage_heading').innerHTML = "Blogs";
+    document.getElementById('category_heading').innerHTML = "Blogs";
+    getCategorisedBlogs();
+  } else {
+    getSubcategorisedBlogs();
+  }
+}
+
+function getSubcategorisedBlogs() {
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit + "&category=" + category + "&subcategory=" + subcategory, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if (index == 0) {
+      document.getElementById('blogPage_heading').innerHTML = subcategory;
+    }
+
+    if (data.length > 0) {
+      if (index == 0) {
+        document.getElementById('category_heading').innerHTML = "Blogs on " + subcategory;
+      }
+      index = data.length;
+      displayBlogs(data);
+    } else {
+      if (index > 0) {
+        document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+      } else {
+        document.getElementById('category_heading').innerHTML = "";
+        document.getElementById('readmorebutton').innerHTML = "";
+      }
+    }
+  }
 }

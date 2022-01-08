@@ -108,6 +108,13 @@ $("#collapsibleBlogCategories .row > div").click(function () {
     $("#collapsibleBlogCategories").collapse('hide');
     $("#collapsibleBlogCategories .row > div").removeClass("active mo-active");
     $(this).addClass("active mo-active");
+    var blog_select_id = this.id;
+    if(blog_select_id.split('_')[0] == 'category'){
+        getBlogCategoryWise(blog_select_id.split('_')[1]);
+    }
+    else{
+        getBlogSubcategoryWise(blog_select_id.split('_')[1]);
+    }
 });
 
 function toggleContents(x) {

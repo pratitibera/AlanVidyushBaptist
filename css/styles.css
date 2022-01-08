@@ -498,13 +498,6 @@ nav .navbar-collapse.show {
 	justify-content: center;
 }
 
-.site-title .site-background {
-	padding-top: 5rem;
-	/* padding-right: 25rem; */
-	text-align: center;
-	color: #fff;
-}
-
 
 /* collabs row */
 
@@ -862,6 +855,7 @@ footer .move-up {
 	text-align: center;
 	font-weight: 600;
 	cursor: pointer;
+	text-transform: uppercase;
 }
 
 #collapsibleBlogCategories .active {
