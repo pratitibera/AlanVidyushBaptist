@@ -100,11 +100,11 @@ function addService() {
 			document.getElementById('duration').value = "";
 			document.getElementById('actual_price').value = "";
 			document.getElementById('discounted_price').value = "";
-			// if (data['message'] == "Blog has been added") {
-			// 	alert("Blog successfully added");
-			// } else {
-			// 	alert("Could not add blog");
-			// }
+			if (data['service'] != undefined) {
+				alert("Service successfully added");
+			} else {
+				alert("Could not add service");
+			}
 		}
 	} else {
 		alert("Please fill all details");
@@ -122,52 +122,57 @@ function viewOffers(){
 	request.onload = function () {
 	    offerData = JSON.parse(this.response);
 	    console.log(offerData);
-	    var offerdetails = document.getElementById('offerdetails');
-	    offerdetails.innerHTML = "";
-	    for(i = 0; i < offerData['offers'].length; i++){
-	    	if(offerData['offers'][i]['discounted_price'] == undefined){
-	    		discount = "";
-	    	}
-	    	if(offerData['offers'][i]['recommended'] == true){
-	    		recommend = "Yes";
-	    	}
-	    	else{
-	    		recommend = "No";
-	    	}
-
-	    	var tr = document.createElement('tr');
-	    	var td1 = document.createElement('td');
-	    	td1.innerHTML = offerData['offers'][i]['duration'];
-
-	    	var td2 = document.createElement('td');
-	    	td2.innerHTML = offerData['offers'][i]['price'];
-
-	    	var td3 = document.createElement('td');
-	    	td3.innerHTML = discount;
-
-	    	var td4 = document.createElement('td');
-	    	var td4_ul = document.createElement('ul');
-	    	td4_ul.innerHTML = "";
-	    	for(j = 0; j < offerData['offers'][i]['features'].length; j++){
-            	td4_ul.innerHTML += `<li>${offerData['offers'][i]['features'][j]}</li>`;
-            }
-            td4.append(td4_ul);
-
-            var td5 = document.createElement('td');
-            td5.innerHTML = recommend;
-
-            var td6 = document.createElement('td');
-            td6.innerHTML = `<button class="btn btn-dark" id="${i}_${offerData['offers'][i]['_id']}" onclick="editPricingDetails(this.id);">Edit</button>`;
-
-            tr.append(td1);
-            tr.append(td2);
-            tr.append(td3);
-            tr.append(td4);
-            tr.append(td5);
-            tr.append(td6);
-            offerdetails.append(tr);
+	    if(offerData['error'] == "Service not found"){
+	    	alert("Service not found");
 	    }
-	    document.getElementById('offerdetails_table').style.display = "block";
+	    else{
+	    	var offerdetails = document.getElementById('offerdetails');
+		    offerdetails.innerHTML = "";
+		    for(i = 0; i < offerData['offers'].length; i++){
+		    	if(offerData['offers'][i]['discounted_price'] == undefined){
+		    		var discount = "";
+		    	}
+		    	if(offerData['offers'][i]['recommended'] == true){
+		    		recommend = "Yes";
+		    	}
+		    	else{
+		    		recommend = "No";
+		    	}
+
+		    	var tr = document.createElement('tr');
+		    	var td1 = document.createElement('td');
+		    	td1.innerHTML = offerData['offers'][i]['duration'];
+
+		    	var td2 = document.createElement('td');
+		    	td2.innerHTML = offerData['offers'][i]['price'];
+
+		    	var td3 = document.createElement('td');
+		    	td3.innerHTML = discount;
+
+		    	var td4 = document.createElement('td');
+		    	var td4_ul = document.createElement('ul');
+		    	td4_ul.innerHTML = "";
+		    	for(j = 0; j < offerData['offers'][i]['features'].length; j++){
+	            	td4_ul.innerHTML += `<li>${offerData['offers'][i]['features'][j]}</li>`;
+	            }
+	            td4.append(td4_ul);
+
+	            var td5 = document.createElement('td');
+	            td5.innerHTML = recommend;
+
+	            var td6 = document.createElement('td');
+	            td6.innerHTML = `<button class="btn btn-dark" id="${i}_${offerData['offers'][i]['_id']}" onclick="editPricingDetails(this.id);">Edit</button>`;
+
+	            tr.append(td1);
+	            tr.append(td2);
+	            tr.append(td3);
+	            tr.append(td4);
+	            tr.append(td5);
+	            tr.append(td6);
+	            offerdetails.append(tr);
+		    }
+		    document.getElementById('offerdetails_table').style.display = "block";
+	    }
 	}
 }
 
@@ -244,7 +249,6 @@ function saveOffer(){
 		}
 
 
-		console.log(json);
 		var request = new XMLHttpRequest();
 		request.open(urlSet.editOffersApi.method, urlSet.editOffersApi.url + offerid_to_be_edited, true);
 		request.setRequestHeader("Content-Type", "application/json");
@@ -252,13 +256,13 @@ function saveOffer(){
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
-			$("#editPricingDetails").modal('hide');
-	
-			// if (data['message'] == "Blog has been added") {
-			// 	alert("Blog successfully added");
-			// } else {
-			// 	alert("Could not add blog");
-			// }
+			if(data['_id'] != undefined){
+				$("#editPricingDetails").modal('hide');
+				viewOffers();
+			}
+			else{
+				alert("Could not edit the offer");
+			}
 		}
 	} else {
 		alert("Please fill all details");
