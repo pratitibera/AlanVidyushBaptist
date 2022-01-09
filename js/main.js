@@ -150,31 +150,6 @@ function displayPortfolio() {
 }
 
 
-function showPricing(){
-    $('#pricingCarousel').owlCarousel({
-        loop: true,
-        autoplay: true,
-        // autoplayTimeout: 3000,
-        autoPlaySpeed: 1000,
-        autoplayHoverPause: true,
-        dots: false,
-        nav: true,
-        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
-        responsive: {
-            0: {
-                items: 1
-            },
-            320: {
-                items: 1
-            }
-        }
-    });
-}
-
-function readMoreBlogs(){
-    $(".partners-section2 .col-6").removeClass('d-none');
-}
-
 const searches = document.querySelectorAll('.searches');
 searches.forEach(el => el.addEventListener('keyup', event => {
   if (event.keyCode === 13) {
