@@ -24,6 +24,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/service",
         method: "POST",
     },
+    adminLoginApi: {
+        url: baseUrl + "/api/v1/admin/login",
+        method: "POST",
+    },
     viewOffersApi: {
         url: baseUrl + "/api/v1/admin/",
         method: "GET",
