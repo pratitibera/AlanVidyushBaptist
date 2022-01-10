@@ -106,12 +106,13 @@ function displayOffers(subservice, data){
 		card.append(ul);
 
 		var choose = document.createElement('div');
+		var plan_id = data['subservice'].replaceAll(' ','_') + '#' + data['offers'][j]['duration'].replaceAll(' ', '_') + '#' + data['offers'][j]['price'] + '#' + data['offers'][j]['discounted_price'] + '#' + data['offers'][j]['_id'];
 		choose.innerHTML = `<div class="text-center mt-5">
-                        <button class="btn" data-toggle="modal" data-target="#checkout">CHOOSE PLAN</button>
+                        <button class="btn" onclick="triggerCheckout(this.id);" id=${plan_id}>CHOOSE PLAN</button>
                      </div>`;
         card.append(choose);
 
-        console.log(card);
+        // console.log(card);
 
         if(screen.width < 576){
         	pricing_row_mobile.append(card);
@@ -147,4 +148,23 @@ function displayOffers(subservice, data){
     //            <span class="owl-nav-prev mr-2"><i class="fas fa-long-arrow-alt-left"></i></span>
     //            <span class="owl-nav-next ml-2"><i class="fas fa-long-arrow-alt-right"></i></span>
     //         </div>`;
+}
+
+function triggerCheckout(id){
+	document.getElementById('checkout_service').innerHTML = service_name;
+	id = id.replaceAll('_', ' ');
+	res = id.split('#');
+	document.getElementById('checkout_subservice').innerHTML = res[0];
+	document.getElementById('checkout_duration').innerHTML = res[1];
+
+	if(res[3] == "undefined"){
+		document.getElementById('checkout_price').innerHTML = "₹ " + res[2];
+	}
+	else{
+		document.getElementById('checkout_price').innerHTML = "₹ " + res[3];
+		document.getElementById('checkout_discount').innerHTML = "₹ " + res[2];
+	}
+
+	$("#checkout").modal();
+	console.log(id);
 }
