@@ -1072,6 +1072,9 @@ footer .move-up {
    color: #333;
 }
 /* Pricing section */
+#pricing_heading{
+	text-transform: uppercase;
+}
 .dark-pricing{
 	box-shadow: 0px 0px 10px 0px #000000;
 }

@@ -17,14 +17,18 @@ try{
     data[tmp[0]] = tmp[1];
     service_name = data["service"];
     service_name = service_name.replaceAll('_', ' ');
-    console.log(service_subservice_list[service_name]);
+    document.getElementById('pricing_heading').innerHTML = "Pricing of " + service_name;
     for(i = 0; i < service_subservice_list[service_name].length; i++){
     	getServiceOffers(service_name, service_subservice_list[service_name][i]);
     }
   }
 }
 catch{
-	console.log("error");
+	service_name = "Weight Loss";
+	document.getElementById('pricing_heading').innerHTML = "Pricing of " + service_name;
+    for(i = 0; i < service_subservice_list[service_name].length; i++){
+    	getServiceOffers(service_name, service_subservice_list[service_name][i]);
+    }
 }
 
 
@@ -36,9 +40,9 @@ function getServiceOffers(service, subservice){
 	request.onload = function () {
 	    var data = JSON.parse(this.response);
 	    console.log(data);
-
-	    displayOffers(subservice, data);
-
+	    if(data['offers'].length > 0){
+	    	displayOffers(subservice, data);
+	    }
 	}
 }
 
