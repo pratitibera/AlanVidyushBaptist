@@ -1,3 +1,5 @@
+var carousel_count = 0;
+
 var service_subservice_list = {
 	"Weight Loss": ["Nutrition + Fitness Guidance", "Nutrition Guidance Only"],
 	"Muscle Gain": ["Nutrition + Fitness Guidance", "Nutrition Guidance Only"],
@@ -47,22 +49,12 @@ function getServiceOffers(service, subservice){
 }
 
 function displayOffers(subservice, data){
-	// For desktop
-	var pricing_section_desktop = document.getElementById('pricing-section-desktop');
-	pricing_section_desktop.innerHTML = `<h2 class="fo-40 fw-700 text-center pt-5 mfo-25">We've Got Plans for ${subservice}</h2><hr>`
-	
-	// For mobile
 	var pricing_section_mobile = document.getElementById('pricing-section-mobile');
-	pricing_section_mobile.innerHTML = `<h2 class="fo-40 fw-700 text-center pt-5 mfo-25">We've Got Plans for ${subservice}</h2><hr>`
+	pricing_section_mobile.innerHTML += `<h2 class="fo-40 fw-700 text-center pt-5 mfo-25">We've Got Plans for ${subservice}</h2><hr>`
 	
-	// For desktop
-	var pricing_row = document.createElement('div');
-	pricing_row.setAttribute('class', 'row m-0 pt-5 mb-5');
-
-	// For mobile
 	var pricing_row_mobile = document.createElement('div');
 	pricing_row_mobile.setAttribute('class', 'owl-carousel mt-5');
-	pricing_row_mobile.setAttribute('id', 'pricingCarousel');
+	pricing_row_mobile.setAttribute('id', 'pricingCarousel_' + carousel_count++);
 
 	for(j = 0; j < data['offers'].length; j++){
 		var card = document.createElement('div');
@@ -78,12 +70,13 @@ function displayOffers(subservice, data){
 		duration.innerHTML = data['offers'][j]['duration'];
 		card.append(duration);
 
+		var recommend = document.createElement('div');
+		recommend.setAttribute('class', 'pco fo-20 fw-600 text-center recommend');
+
 		if(data['offers'][j]['recommended'] == true){
-			var recommend = document.createElement('div');
-			recommend.setAttribute('class', 'pco fo-20 fw-600 text-center mb-5');
 			recommend.innerHTML = "Recommended";
-			card.append(recommend);
 		}
+		card.append(recommend);
 
 		var price = document.createElement('div');
 		price.setAttribute('class', 'text-center fw-600 fo-52');
@@ -112,38 +105,28 @@ function displayOffers(subservice, data){
                      </div>`;
         card.append(choose);
 
-        // console.log(card);
-
-        if(screen.width < 576){
-        	pricing_row_mobile.append(card);
-        }
-        else{
-        	var containerr = document.createElement('div');
-	        containerr.setAttribute('class', 'col-sm-4');
-	        containerr.append(card);
-	        pricing_row.append(containerr);
-        }
-        
+        pricing_row_mobile.append(card);
 	}
-	pricing_section_desktop.append(pricing_row);
 	pricing_section_mobile.append(pricing_row_mobile);
-	$('#pricingCarousel').owlCarousel({
-        loop: true,
-        autoplay: true,
-        autoPlaySpeed: 1000,
-        autoplayHoverPause: true,
-        dots: false,
-        nav: true,
-        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
-        responsive: {
-            0: {
-                items: 1
-            },
-            320: {
-                items: 1
-            }
-        }
-    });
+	for(x = 0; x < service_subservice_list[service_name].length; x++){
+		$('#pricingCarousel_' + x).owlCarousel({
+			loop: false,
+	        autoplay: true,
+	        autoPlaySpeed: 1000,
+	        autoplayHoverPause: true,
+	        dots: false,
+	        nav: true,
+	        navText: [$('.owl-navigation .owl-nav-prev'), $('.owl-navigation .owl-nav-next')],
+	        responsive: {
+	            0: {
+	                items: 1
+	            },
+	            556: {
+	                items: 3
+	            }
+	        }
+	    });
+	}
     // pricing_section_mobile.innerHTML += `<div class="owl-navigation text-center p-5">
     //            <span class="owl-nav-prev mr-2"><i class="fas fa-long-arrow-alt-left"></i></span>
     //            <span class="owl-nav-next ml-2"><i class="fas fa-long-arrow-alt-right"></i></span>

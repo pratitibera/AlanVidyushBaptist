@@ -1072,21 +1072,22 @@ footer .move-up {
    color: #333;
 }
 /* Pricing section */
+.recommend{
+	height: 30px;
+}
 #pricing_heading{
 	text-transform: uppercase;
 }
-.dark-pricing{
-	box-shadow: 0px 0px 10px 0px #000000;
-}
+
 .dark-pricing .fw-600{
-	color: #fff!important;
+	color: #fff;
 }
 .dark-pricing li{
 	color: #fff!important;
 }
 .dark-pricing button{
-	color: #000;
-	background-color: #FFE972
+	color: #000!important;
+	background-color: #FFE972!important
 }
 .pricing-cover{
 	background-image: url(http://elementnutri.com/wp-content/uploads/2019/04/Image-4.jpg);
@@ -1128,13 +1129,12 @@ footer .move-up {
 	max-width: 200px
 }
 .pco{
-	color: #FFE972;
+	color: #FFE972!important;
 }
 .pricing-section-mobile{
 	font-family: 'Roboto Slab', serif;
 }
-.pricing-section-desktop{
-	padding: 40px 175px 20px 175px;
+.pricing-section-mobile{
 	font-family: 'Roboto Slab', serif;
 }
 .pricing-section-items li{

@@ -122,12 +122,12 @@ function viewOffers(){
 	request.onload = function () {
 	    offerData = JSON.parse(this.response);
 	    console.log(offerData);
+	    var offerdetails = document.getElementById('offerdetails');
+		offerdetails.innerHTML = "";
 	    if(offerData['error'] == "Service not found"){
 	    	alert("Service not found");
 	    }
 	    else{
-	    	var offerdetails = document.getElementById('offerdetails');
-		    offerdetails.innerHTML = "";
 		    for(i = 0; i < offerData['offers'].length; i++){
 		    	if(offerData['offers'][i]['discounted_price'] == undefined){
 		    		var discount = "";
@@ -163,12 +163,16 @@ function viewOffers(){
 	            var td6 = document.createElement('td');
 	            td6.innerHTML = `<button class="btn btn-dark" id="${i}_${offerData['offers'][i]['_id']}" onclick="editPricingDetails(this.id);">Edit</button>`;
 
+	            var td7 = document.createElement('td');
+	            td7.innerHTML = `<button class="btn btn-dark" id="delete_${offerData['offers'][i]['_id']}" onclick="deletePricingDetails(this.id);">Delete</button>`;
+	            
 	            tr.append(td1);
 	            tr.append(td2);
 	            tr.append(td3);
 	            tr.append(td4);
 	            tr.append(td5);
 	            tr.append(td6);
+	            tr.append(td7);
 	            offerdetails.append(tr);
 		    }
 		    document.getElementById('offerdetails_table').style.display = "block";
@@ -266,5 +270,17 @@ function saveOffer(){
 		}
 	} else {
 		alert("Please fill all details");
+	}
+}
+
+
+function deletePricingDetails(id){
+  var request = new XMLHttpRequest();
+  request.open(urlSet.deleteOffersApi.method, urlSet.deleteOffersApi.url + id.split('_')[1], true);
+  request.setRequestHeader("Accept", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
 	}
 }

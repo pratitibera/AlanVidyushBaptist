@@ -36,4 +36,8 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/offer/",
         method: "PATCH",
     },
+    deleteOffersApi: {
+        url: baseUrl + "/api/v1/admin/offer/",
+        method: "DELETE",
+    },
 };
