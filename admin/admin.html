@@ -31,6 +31,12 @@
                <li class="nav-item">
                   <a class="nav-link" href="#editpricing">Edit service pricing</a>
                </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#addCoupons">Add coupons</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#deleteCoupons">Delete coupons</a>
+               </li>
             </ul>
          </div>
       </nav>
@@ -258,8 +264,47 @@
             </div>
          </div>
       </div>
+      <hr>
+      <section id="addCoupons" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">ADD COUPONS</h3>
+            <div class="form-group">
+               <label>Enter coupon code</label>
+               <input type="text" class="form-control" id="coupon_code">
+            </div>
+            <div class="form-group">
+               <label>Enter discount price</label>
+               <input type="text" class="form-control" id="coupon_discount">
+            </div>
+            <div class="text-center mt-5 mb-5">
+               <button class="btn btn-dark w-25" onclick="addCoupons();">ADD COUPON</button>
+            </div>
+         </div>
+      </section>
+      <hr>
+      <section id="deleteCoupons" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">VIEW COUPONS</h3>
+            <div class="text-center mt-5 mb-5">
+               <button class="btn btn-dark w-25" onclick="viewCoupons();">REFRESH COUPONS</button>
+            </div>
+            <div class="table-responsive" id="display_coupons">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Coupon Code</th>
+                        <th>Coupon Discount</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="coupon_details"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
       <script src="urls.js" defer></script>
       <script src="blogs.js"></script>
       <script src="services.js"></script>
+      <script src="coupons.js"></script>
    </body>
 </html>

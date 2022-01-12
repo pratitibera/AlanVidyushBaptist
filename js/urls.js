@@ -40,4 +40,20 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/offer/",
         method: "DELETE",
     },
+    addCouponsApi: {
+        url: baseUrl + "/api/v1/admin/coupon/",
+        method: "POST",
+    },
+    deleteCouponsApi: {
+        url: baseUrl + "/api/v1/admin/coupon/",
+        method: "DELETE",
+    },
+    paymentApi: {
+        url: baseUrl + "/api/v1/payment/",
+        method: "POST",
+    },
+    applyCouponApi: {
+        url: baseUrl + "/api/v1/payment/applyCoupon",
+        method: "POST",
+    },
 };
