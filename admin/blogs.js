@@ -117,6 +117,7 @@ function addBlog() {
 	var headerimageurl = document.getElementById('headerimageurl').value;
 	var headerimagetitle = document.getElementById('headerimagetitle').value;
 	var client = document.getElementById('client').value;
+	var author = document.getElementById('author').value;
 	var blogtitle = document.getElementById('blogtitle').value;
 	var blogdate = document.getElementById('blogdate').value;
 	var blogcontent = document.getElementById('blogcontent').value;
@@ -134,6 +135,7 @@ function addBlog() {
 		var json = {
 			"date": blogdate,
 			"title": blogtitle,
+			"author": author,
 			"headerImage": {
 				"title": headerimagetitle,
 				"image": headerimageurl

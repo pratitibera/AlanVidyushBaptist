@@ -22,18 +22,29 @@ function addCoupons(){
 }
 
 function viewCoupons(){
-	if(true){
-		document.getElementById('coupon_details').innerHTML += `<tr>
-                        <td>ALAN200</td>
-                        <td>200</td>
-                        <td>
-                           <button class="btn btn-dark" onclick="deleteCoupon();">DELETE</button>
-                        </td>
-                     </tr>`;
-        document.getElementById('display_coupons').style.display = "block";
-	}
-	else{
-		document.getElementById('display_coupons').style.display = "none";
+	var request = new XMLHttpRequest();
+	request.open(urlSet.viewCouponsApi.method, urlSet.viewCouponsApi.url, true);
+	request.setRequestHeader("Content-Type", "application/json");
+	request.send();
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+		document.getElementById('coupon_details').innerHTML = "";
+		if(data.length > 0){
+			for(i = 0; i < data.length; i++){
+				document.getElementById('coupon_details').innerHTML += `<tr>
+	                        <td>${data[i]['code']}</td>
+	                        <td>${data[i]['discount']}</td>
+	                        <td>
+	                           <button class="btn btn-dark" onclick="deleteCoupon(this.id);" id=${data[i]['_id']}>DELETE</button>
+	                        </td>
+	                     </tr>`;
+			}
+	      document.getElementById('display_coupons').style.display = "block";
+		}
+		else{
+			document.getElementById('display_coupons').style.display = "none";
+		}
 	}
 }
 
@@ -47,6 +58,7 @@ function deleteCoupon(id){
 		console.log(data);
 		if(data['message'] == "Coupon Deleted"){
 			alert("Coupon Deleted");
+			viewCoupons();
 		}
 		else{
 			alert("Could not delete coupon");

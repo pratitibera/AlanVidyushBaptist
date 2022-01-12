@@ -411,7 +411,9 @@ nav .navbar-collapse.show {
 	border-bottom: 1px solid #fff;
 }
 
-
+#sidebar-nav .nav-link{
+	font-size: 13px;
+}
 /* 3-bars and cross icon animation */
 
 .menu-btn__burger {
@@ -1079,6 +1081,9 @@ footer .move-up {
    color: #333;
 }
 /* Pricing section */
+#particulars hr{
+	border-bottom: 1px solid rgba(9,9,9,.04);
+}
 .recommend{
 	height: 30px;
 }

@@ -1,4 +1,5 @@
 var carousel_count = 0;
+var cart = []
 
 var service_subservice_list = {
 	"Weight Loss": ["Nutrition + Fitness Guidance", "Nutrition Guidance Only"],
