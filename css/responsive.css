@@ -72,8 +72,13 @@
 	/* #displayAllBlogs .col-6 {
 		border-top: 6px solid #000;
 	} */
-	.partners-section img {
+	/* .partners-section img {
 		height: 350px;
+	} */
+	.mid-border{
+		width: 1px;
+	    height: 160px;
+	    background: #868686;
 	}
 	.partners_latest_blogs_title {
 		padding: 32px 52px 12px 52px;
@@ -303,8 +308,13 @@
 	.partners-cover img {
 		height: 45vh;
 	}
-	.partners-section img {
+	/* .partners-section img {
 		height: 225px;
+	} */
+	.mid-border{
+		width: 1px;
+	    height: 120px;
+	    background: #868686;
 	}
 	.partners_latest_blogs_title {
 		padding: 12px 6px;
