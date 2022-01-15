@@ -17,6 +17,21 @@ function signin(){
 		if(data['error'] == "Username or Password is wrong"){
 			alert("Login failed! Username or Password is wrong.")
 		}
-		else{}
+		else{
+			localStorage.setItem("username", username);
+			document.location.href = "admin.html";
+		}
+	}
+}
+
+function checkLoginStatus(){
+	var token = localStorage.getItem("username");
+	if(token == null){
+		document.location.href = "login.html";
+	}
+	else{
+		getBlogCategory();
+		getBlogSubcategory('Weight Loss_0');
+		getAllBlogs();
 	}
 }

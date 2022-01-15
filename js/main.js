@@ -109,11 +109,11 @@ $("#collapsibleBlogCategories .row > div").click(function () {
     $("#collapsibleBlogCategories .row > div").removeClass("active mo-active");
     $(this).addClass("active mo-active");
     var blog_select_id = this.id;
-    if(blog_select_id.split('_')[0] == 'category'){
-        getBlogCategoryWise(blog_select_id.split('_')[1]);
+    if(blog_select_id.split('_')[1] == '0' || blog_select_id.split('_')[1] == '1'){
+        getAllBlogs();
     }
     else{
-        getBlogSubcategoryWise(blog_select_id.split('_')[1]);
+        document.location.href = "category.html?category=" + blog_select_id.split('_')[1];
     }
 });
 
@@ -160,4 +160,66 @@ searches.forEach(el => el.addEventListener('keyup', event => {
 function search(id){
     var keyword = document.getElementById(id + 'i').value;
     document.location.href = "searchedBlogs.html?search=" + keyword;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Blog section on index page
+function getFeaturedBlogs() {
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_featuredblogApi.method, urlSet.get_featuredblogApi.url + "?index=0&limit=5", true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    var blogSlider = document.getElementById('blogSlider');
+    for (i = 0; i < data.length; i++) {
+      blogSlider.innerHTML += `<label for="s${i}" id="slide${i}">
+                     <div class="blogcardimage">
+                        <a href="blog.html?id=${data[i]['_id']}">
+                           <img src=${data[i]['headerImage']['image']} height="100%" width="100%">
+                        </a>
+                     </div>
+                     <div class="blog-body">
+                        <div class="fo-21 fw-700 mfo-12">${data[i]['title']}</div>
+                        <div class="fo-14 txtco mt-3 fw-400 mfo-11">${data[i]['summary']}</div>
+                        <div class="mt-4">
+                           <a href="blog.html?id=${data[i]['_id']}" class="fo-12 fw-600 bco mfo-11">READ MORE >></a>
+                        </div>
+                     </div>
+                     <div class="blog-footer fo-12 mfo-11">${data[i]['date']}</div>
+                  </label>`
+    }
+  }
+}
+
+function prevBlog() {
+  v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
+  if (v < 1) {
+    v = 5;
+  }
+  document.getElementById('s' + v).checked = true;
+}
+
+function nextBlog() {
+  v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
+  if (v > 5) {
+    v = 1;
+  }
+  document.getElementById('s' + v).checked = true;
 }

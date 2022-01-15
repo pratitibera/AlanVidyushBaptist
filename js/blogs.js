@@ -1,6 +1,228 @@
 var limit = 6;
 var index = 0;
 
+function getAllBlogs(page) {
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if (data.length > 0) {
+      index = data.length;
+      displayBlogs(data, page);
+    } else {
+      document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+    }
+  }
+}
+
+function displayBlogs(data, page) {
+  if(page == 'blog_page'){
+    document.getElementById('blog_page_cover').innerHTML = `<img src="${data[0]['headerImage']['image']}" class="w-100">
+            <div class="imageOverlay">
+               <div class="fo-52 fw-600 text-center mfo-30">${data[0]['title']}</div>
+               <div class="fo-30 fw-600 text-center mt-2 mfo-20">${data[0]['summary']}</div>
+               <div class="text-center mt-5">
+                  <a href="blog.html?id=${data[0]['_id']}">
+                     <button class="btn website-button bg-dark text-white">READ MORE</button>
+                  </a>
+               </div>
+            </div>`
+
+  }
+
+  var displayAllBlogs = document.getElementById('displayAllBlogs');
+  for (i = 0; i < data.length; i++) {
+    displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
+             <img src="${data[i]['headerImage']['image']}" class="w-100">
+             <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
+             <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
+          </a></div>`
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Category.html
+
+var category;
+var subcategory;
+
+var blogCatandSub = {
+  "Fitness": ["Weight Loss", "Muscle Gain", "Body Recomposition", "Sports Performance", "Fitness Modelling", "Fitness Myths"],
+  "Nutrition": ["Weight Loss", "Weight Gain", "Nutrition Concepts", "Recipes", "Nutrition Myths"],
+  "Education": ["Career", "Skills"],
+  "Psychology": ["Sex", "Relationships", "Communication", "Psych Concepts", "Philosophy", "Spirituality"],
+  "Finance": ["Taxation", "Investment", "Business", "Commerce", "Economics"]
+}
+
+function getAllCategoryBlogs() {
+  try {
+    var url = document.location.href,
+      params = url.split("?")[1].split("&"),
+      data = {},
+      tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+      tmp = params[i].split("=");
+      data[tmp[0]] = tmp[1];
+      category = data["category"];
+    }
+  } catch {
+    category = "Fitness";
+  }
+
+  getCategorisedBlogs();
+
+  var collapsibleBlogCategoriesContainer = document.getElementById('collapsibleBlogCategoriesContainer');
+  collapsibleBlogCategoriesContainer.innerHTML = `<div id="subcategory_0" class="active d-none d-sm-block">TOPICS</div>
+               <div id="subcategory_1" class="mo-active"><i class="fas fa-dumbbell mr-2"></i>ALL</div>`;
+  for (i = 0; i < blogCatandSub[category].length; i++) {
+    collapsibleBlogCategoriesContainer.innerHTML += `<div id="subcategory_${blogCatandSub[category][i]}"><i class="fas fa-dumbbell mr-2"></i>${blogCatandSub[category][i]}</div>`;
+  }
+
+  $("#collapsibleBlogCategoriesContainer > div").click(function () {
+    toggleContents(document.getElementById('handleBlogCategories'));
+    $("#collapsibleBlogCategories").collapse('hide');
+    $("#collapsibleBlogCategories .row > div").removeClass("active mo-active");
+    $(this).addClass("active mo-active");
+    var blog_select_id = this.id;
+    subcategory = blog_select_id.split('_')[1];
+    index = 0;
+    limit = 6;
+    document.getElementById('displayAllBlogs').innerHTML = "";
+    if (subcategory == '0' || subcategory == '1') {
+      document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getCategorisedBlogs();">READ MORE</button>`;
+      getCategorisedBlogs();
+      // getBlogCategoryWise(blog_select_id.split('_')[1]);
+    } else {
+      document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getSubcategorisedBlogs();">READ MORE</button>`;
+      getSubcategorisedBlogs();
+    }
+  });
+}
+
+function getCategorisedBlogs() {
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit + "&category=" + category, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if (index == 0) {
+      document.getElementById('blogPage_heading').innerHTML = category;
+      document.getElementById('blog_page_cover').innerHTML = `<img src="${data[0]['headerImage']['image']}" class="w-100">
+            <div class="imageOverlay">
+               <div class="fo-52 fw-600 text-center mfo-30">${data[0]['title']}</div>
+               <div class="fo-30 fw-600 text-center mt-2 mfo-20">${data[0]['summary']}</div>
+               <div class="text-center mt-5">
+                  <a href="blog.html?id=${data[0]['_id']}">
+                     <button class="btn website-button bg-dark text-white">READ MORE</button>
+                  </a>
+               </div>
+            </div>`
+    }
+
+    if (data.length > 0) {
+      if (index == 0) {
+        document.getElementById('category_heading').innerHTML = "Blogs on " + category;
+      }
+      index = data.length;
+      displayBlogs(data);
+    } else {
+      if (index > 0) {
+        document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+      } else {
+        document.getElementById('category_heading').innerHTML = "";
+        document.getElementById('readmorebutton').innerHTML = "";
+      }
+    }
+  }
+}
+
+function getSubcategorisedBlogs() {
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit + "&category=" + category + "&subcategory=" + subcategory, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if (index == 0) {
+      document.getElementById('blogPage_heading').innerHTML = subcategory;
+    }
+
+    if (data.length > 0) {
+      if (index == 0) {
+        document.getElementById('category_heading').innerHTML = "Blogs on " + subcategory;
+      }
+      index = data.length;
+      displayBlogs(data);
+    } else {
+      if (index > 0) {
+        document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+      } else {
+        document.getElementById('category_heading').innerHTML = "";
+        document.getElementById('readmorebutton').innerHTML = "";
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Single blog
 function manageBlogs() {
   var url = document.location.href,
     params = url.split("?")[1].split("&"),
@@ -121,222 +343,6 @@ function displaySingleBlog(blog_id) {
       document.getElementById('blogAvailable').style.display = "none";
       document.getElementById('blogNotAvailable').style.display = "block";
       console.log("Error");
-    }
-  }
-}
-
-function getFeaturedBlogs() {
-  var request = new XMLHttpRequest();
-  request.open(urlSet.get_featuredblogApi.method, urlSet.get_featuredblogApi.url + "?index=0&limit=5", true);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.send();
-  request.onload = function () {
-    var data = JSON.parse(this.response);
-    console.log(data);
-    var blogSlider = document.getElementById('blogSlider');
-    for (i = 0; i < data.length; i++) {
-      blogSlider.innerHTML += `<label for="s${i}" id="slide${i}">
-                     <div class="blogcardimage">
-                        <a href="blog.html?id=${data[i]['_id']}">
-                           <img src=${data[i]['headerImage']['image']} height="100%" width="100%">
-                        </a>
-                     </div>
-                     <div class="blog-body">
-                        <div class="fo-21 fw-700 mfo-12">${data[i]['title']}</div>
-                        <div class="fo-14 txtco mt-3 fw-400 mfo-11">${data[i]['summary']}</div>
-                        <div class="mt-4">
-                           <a href="blog.html?id=${data[i]['_id']}" class="fo-12 fw-600 bco mfo-11">READ MORE >></a>
-                        </div>
-                     </div>
-                     <div class="blog-footer fo-12 mfo-11">${data[i]['date']}</div>
-                  </label>`
-    }
-  }
-}
-
-function getAllBlogs() {
-  var request = new XMLHttpRequest();
-  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit, true);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.send();
-  request.onload = function () {
-    var data = JSON.parse(this.response);
-    console.log(data);
-    if (data.length > 0) {
-      index = data.length;
-      displayBlogs(data);
-    } else {
-      document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
-    }
-  }
-}
-
-function displayBlogs(data) {
-  var displayAllBlogs = document.getElementById('displayAllBlogs');
-  for (i = 0; i < data.length; i++) {
-    displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
-             <img src="${data[i]['headerImage']['image']}" class="w-100">
-             <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
-             <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
-          </a></div>`
-  }
-}
-
-
-function prevBlog() {
-  v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
-  if (v < 1) {
-    v = 5;
-  }
-  document.getElementById('s' + v).checked = true;
-}
-
-function nextBlog() {
-  v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
-  if (v > 5) {
-    v = 1;
-  }
-  document.getElementById('s' + v).checked = true;
-}
-
-var category;
-var subcategory;
-
-function getBlogCategoryWise(cat) {
-  limit = 6;
-  index = 0;
-  category = cat;
-  document.getElementById('displayAllBlogs').innerHTML = "";
-  document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getCategorisedBlogs();">READ MORE</button>`;
-  if (category == 1 || category == 0) {
-    document.getElementById('blogPage_heading').innerHTML = "Blogs";
-    document.getElementById('category_heading').innerHTML = "Blogs";
-    getAllBlogs();
-  } else {
-    getCategorisedBlogs();
-  }
-}
-
-function getCategorisedBlogs() {
-  var request = new XMLHttpRequest();
-  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit + "&category=" + category, true);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.send();
-  request.onload = function () {
-    var data = JSON.parse(this.response);
-    console.log(data);
-    if (index == 0) {
-      document.getElementById('blogPage_heading').innerHTML = category;
-    }
-
-    if (data.length > 0) {
-      if (index == 0) {
-        document.getElementById('category_heading').innerHTML = "Blogs on " + category;
-      }
-      index = data.length;
-      displayBlogs(data);
-    } else {
-      if (index > 0) {
-        document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
-      } else {
-        document.getElementById('category_heading').innerHTML = "";
-        document.getElementById('readmorebutton').innerHTML = "";
-      }
-    }
-  }
-}
-
-function categoryDetail() {
-  document.location.href = "category.html?category=" + category;
-}
-
-
-var blogCatandSub = {
-  "Fitness": ["Weight Loss", "Muscle Gain", "Body Recomposition", "Sports Performance", "Fitness Modelling", "Fitness Myths"],
-  "Nutrition": ["Weight Loss", "Weight Gain", "Nutrition Concepts", "Recipes", "Nutrition Myths"],
-  "Education": ["Career", "Skills"],
-  "Psychology": ["Sex", "Relationships", "Communication", "Psych Concepts", "Philosophy", "Spirituality"],
-  "Finance": ["Taxation", "Investment", "Business", "Commerce", "Economics"]
-}
-
-function getAllCategoryBlogs() {
-  try {
-    var url = document.location.href,
-      params = url.split("?")[1].split("&"),
-      data = {},
-      tmp;
-    for (var i = 0, l = params.length; i < l; i++) {
-      tmp = params[i].split("=");
-      data[tmp[0]] = tmp[1];
-      category = data["category"];
-    }
-  } catch {
-    category = "Fitness";
-  }
-
-  getCategorisedBlogs();
-
-  var collapsibleBlogCategoriesContainer = document.getElementById('collapsibleBlogCategoriesContainer');
-  collapsibleBlogCategoriesContainer.innerHTML = `<div id="subcategory_0" class="active d-none d-sm-block">TOPICS</div>
-               <div id="subcategory_1" class="mo-active"><i class="fas fa-dumbbell mr-2"></i>ALL</div>`;
-  for (i = 0; i < blogCatandSub[category].length; i++) {
-    collapsibleBlogCategoriesContainer.innerHTML += `<div id="subcategory_${blogCatandSub[category][i]}"><i class="fas fa-dumbbell mr-2"></i>${blogCatandSub[category][i]}</div>`;
-  }
-
-  $("#collapsibleBlogCategoriesContainer > div").click(function () {
-    toggleContents(document.getElementById('handleBlogCategories'));
-    $("#collapsibleBlogCategories").collapse('hide');
-    $("#collapsibleBlogCategories .row > div").removeClass("active mo-active");
-    $(this).addClass("active mo-active");
-    var blog_select_id = this.id;
-    if (blog_select_id.split('_')[0] == 'category') {
-      getBlogCategoryWise(blog_select_id.split('_')[1]);
-    } else {
-      getBlogSubcategoryWise(blog_select_id.split('_')[1]);
-    }
-  });
-}
-
-function getBlogSubcategoryWise(subcat) {
-  limit = 6;
-  index = 0;
-  subcategory = subcat;
-  document.getElementById('displayAllBlogs').innerHTML = "";
-  document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getCategorisedBlogs();">READ MORE</button>`;
-  if (subcategory == 1 || subcategory == 0) {
-    document.getElementById('blogPage_heading').innerHTML = "Blogs";
-    document.getElementById('category_heading').innerHTML = "Blogs";
-    getCategorisedBlogs();
-  } else {
-    getSubcategorisedBlogs();
-  }
-}
-
-function getSubcategorisedBlogs() {
-  var request = new XMLHttpRequest();
-  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + index + "&limit=" + limit + "&category=" + category + "&subcategory=" + subcategory, true);
-  request.setRequestHeader("Content-Type", "application/json");
-  request.send();
-  request.onload = function () {
-    var data = JSON.parse(this.response);
-    console.log(data);
-    if (index == 0) {
-      document.getElementById('blogPage_heading').innerHTML = subcategory;
-    }
-
-    if (data.length > 0) {
-      if (index == 0) {
-        document.getElementById('category_heading').innerHTML = "Blogs on " + subcategory;
-      }
-      index = data.length;
-      displayBlogs(data);
-    } else {
-      if (index > 0) {
-        document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
-      } else {
-        document.getElementById('category_heading').innerHTML = "";
-        document.getElementById('readmorebutton').innerHTML = "";
-      }
     }
   }
 }
