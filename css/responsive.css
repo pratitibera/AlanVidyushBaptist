@@ -38,8 +38,11 @@
 	.nav-link{
 		text-align: center;
 	}
-	#header-nav{
-		padding: 0px 180px;
+	.header-nav-pl{
+		padding-left: 160px;
+	}
+	.header-nav-pr{
+		padding-right: 160px;
 	}
 	#header-nav img{
 		width: 13%!important;
@@ -109,7 +112,7 @@
 		transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow, 0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
     
 	}
-	.pricing-section-mobile{
+	.pricing-section-container{
 		padding: 40px 175px 20px 175px;
 	}
 	/* .dark-pricing{
@@ -369,5 +372,8 @@
 		left: 20%;
 		right: 20%;
 		top: 45%;
+	}
+	.cart_count {
+		padding-top: 24px;
 	}
 }

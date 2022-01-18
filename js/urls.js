@@ -24,6 +24,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/featuredBlog/",
         method: "DELETE",
     },
+    getMainServiceApi: {
+        url: baseUrl + "/api/v1/admin/service",
+        method: "GET",
+    },
     addServiceApi: {
         url: baseUrl + "/api/v1/admin/service",
         method: "POST",
@@ -32,7 +36,7 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/login",
         method: "POST",
     },
-    viewOffersApi: {
+    viewServicesApi: {
         url: baseUrl + "/api/v1/admin/",
         method: "GET",
     },
@@ -57,11 +61,11 @@ var urlSet = {
         method: "DELETE",
     },
     paymentApi: {
-        url: baseUrl + "/api/v1/payment/",
-        method: "DELETE",
+        url: baseUrl + "/api/v1/payment/generateReceipt",
+        method: "POST",
     },
     applyCouponApi: {
         url: baseUrl + "/api/v1/payment/applyCoupon",
-        method: "DELETE",
+        method: "POST",
     },
 };

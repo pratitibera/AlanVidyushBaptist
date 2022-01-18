@@ -17,6 +17,9 @@
          nav{
          box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 31%);
          }
+         .fixed-top{
+            z-index: 99999!important;
+         }
          .footer-bg{
             height: 20vh!important;
          }
@@ -33,7 +36,7 @@
          }
       </style>
    </head>
-   <body onload="manageBlogs();">
+   <body onload="getMainServices();">
       <div id="overlay"></div>
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon row">
@@ -205,89 +208,32 @@
          </div>
       </nav>
       <!---Topmost navbar ends--->
-      <section class="min-height">
-         <!---Blog section starts --->
-         <section id="blogAvailable">
-            <div class="blogImageContainer">
-               <img id="blogImageContainer" class="w-100">
-            </div>
-            <div class="blogWriter" id="blogWriter"></div>
-            <div class="blogHeading text-center mt-5" id="blogHeading"></div>
-            <hr class="blogBorder">
-            <div class="fo-13 mt-5 text-center blogDate" id="blogdate"></div>
-            <div class="blogContentContainer">
-               <div class="row m-0 flex-sm-row-reverse">
-                  <div class="col-sm-3 blogContents p-0 mt-4 mt-sm-0">
-                     <div class="sticky stickyContents" id="sticky">
-                        <div id="accordion">
-                           <div class="row m-0 p-2 pb-sm-3">
-                              <div class="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">Contents</div>
-                              <div class="col-2 col-sm-2 text-center p-0 m-auto">
-                                 <a data-toggle="collapse" href="#collapseContents1">
-                                 <i class="fas fa-chevron-down bco fo-24" onclick="toggleContents(this)" id="toggleDesktopContent"></i>
-                                 </a>
-                              </div>
-                           </div>
-                           <div id="collapseContents1" class="collapse" data-parent="#accordion">
-                              <div class="pt-2">
-                                 <ul class="pl-2" id="contentList2"></ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-sm-8 mt-5 mt-sm-0">
-                     <div id="blogContent"></div>
-                     <div class="owl-carousel mt-sm-5" id="blogsSection"></div>
-                     <div class="owl-navigation">
-                        <span class="owl-nav-prev mr-2"><i class="fas fa-long-arrow-alt-left"></i></span>
-                        <span class="owl-nav-next ml-2"><i class="fas fa-long-arrow-alt-right"></i></span>
-                     </div>
-                  </div>
-                  <div class="col-sm-1">
-                     <div class="sticky blogShareIcons" id="sticky">
-                        <div class="d-block d-sm-none text-center fo-20 fw-700 mt-5">Share this inspiring story!</div>
-                        <hr class="shareBorder d-block d-sm-none">
-                        <div class="row d-flex d-sm-block mt-5 mt-sm-0">
-                           <div class="col-1 d-block d-sm-none"></div>
-                           <div class="col-2 text-center mb-5">
-                              <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
-                                 <i class="fab fa-facebook fw-600 fo-26 text-dark mfo-20"></i>
-                              </a>
-                           </div>
-                           <div class="col-2 text-center mb-5">
-                              <a href="https://www.instagram.com/alan_baptist/" target="_blank">
-                                 <i class="fab fa-instagram text-dark fw-600 fo-26 mfo-20"></i>
-                              </a>
-                           </div>
-                           <div class="col-2 text-center mb-5">
-                              <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
-                                 <i class="fab fa-linkedin-in text-dark fw-600 fo-26 mfo-20"></i>
-                              </a>
-                           </div>
-                           <div class="col-2 text-center mb-5">
-                              <a href="https://alan.optimumwellness@gmail.com" target="_blank">
-                                 <i class="fas fa-envelope text-dark fw-600 fo-26 mfo-20"></i>
-                              </a>
-                           </div>
-                           <div class="col-2 text-center mb-5">
-                              <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
-                                 <i class="fab fa-whatsapp text-dark fw-600 fo-26 mfo-20"></i>
-                              </a>
-                           </div>
-                           <div class="col-1 d-block d-sm-none"></div>
-                        </div>
+      <!-- Services header section starts --->
+      <section class="services-banner">
+         <h1>Services</h1>
+      </section>
+      <!-- Services header section ends --->
+      <!-- Services list section starts --->
+      <section class="services-list">
+         <div class="row m-0" id="mainServices_section">
+            <!-- <div class="col-sm-4">
+               <div class="single-service-item" id="" onclick="">
+                  <div class="img-holder">
+                     <figure class="swap-on-hover">
+                        <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
+                        <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
+                     </figure>
+                     <div class="text-holder text-center">
+                        <h3>Weight Loss</h3>
+                        <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
+                        <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
                      </div>
                   </div>
                </div>
-            </div>
-         </section>
-         <!---Blog section ends --->
-         <section id="blogNotAvailable">
-            <div class="text-center fw-600 fo-24 mb-4 mt-5">Sorry, this page isn't available.</div>
-            <div class="text-center">The link you followed may be broken, or the page may have been removed. <a href="index.html" class="bco fw-600"> Go back to Home.</a></div>
-         </section>
+            </div> -->
+         </div>
       </section>
+      <!-- Services list section ends --->
       <!-- The Modal -->
       <div class="modal fade" id="checkout">
          <div class="modal-dialog modal-dialog-centered">
@@ -382,6 +328,7 @@
       <script src="js/urls.js"></script>
       <script src="js/main.js"></script>
       <script src="js/blogs.js"></script>
+      <script src="js/services.js"></script>
       <script src="js/checkout.js"></script>
    </body>
 </html>

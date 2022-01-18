@@ -13,6 +13,7 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       <style>
          nav{
          box-shadow: 0px 0px 14px 0px rgb(0 0 0 / 31%);
@@ -33,7 +34,7 @@
          }
       </style>
    </head>
-   <body>
+   <body onload="getPlans();">
       <div id="overlay"></div>
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon row">
@@ -111,10 +112,15 @@
       </div>
       <!---Topmost navbar begins-->
       <nav class="navbar navbar-expand-md bg-dark fixed-top">
-         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
          <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <div class="menu-btn__burger"></div>
          </div>
+         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
+         <button class="btn d-sm-none" onclick="fetchCart();">
+            <i class="fa fa-shopping-cart fo-30 bco">
+               <sup class="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
+            </i>
+         </button>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <div class="row d-none d-sm-flex">
                <div class="col-sm-3 m-auto">
@@ -127,12 +133,12 @@
                </div>
                <div class="col-sm-3 m-auto">
                   <a href="services.html">
-                  <button class="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
+                     <button class="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
                   </a>
                </div>
             </div>
             <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-               <li class="nav-item ml-sm-auto">
+               <li class="nav-item ml-sm-auto header-nav-pl">
                   <a class="nav-link exo" href="index.html#about">
                   <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
                   </a>
@@ -147,7 +153,7 @@
                   <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
                   </a>
                </li>
-               <li class="nav-item mr-sm-auto">
+               <li class="nav-item mr-sm-auto header-nav-pr">
                   <a class="nav-link exo" href="index.html#contact">
                   <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
                   </a>
@@ -156,6 +162,13 @@
                   <a href="services.html">
                   <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
                   </a>
+               </li>
+               <li class="nav-item text-right pr-0 d-none d-sm-block">
+                  <button class="btn mr-2" onclick="fetchCart();">
+                     <i class="fa fa-shopping-cart fo-30 bco position-relative">
+                        <sup class="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
+                     </i>
+                  </button>
                </li>
             </ul>
             <div class="navExtras d-block d-sm-none">
@@ -201,7 +214,7 @@
          </div>
       </section>
       <section class="pricing-section pt-4">
-         <div class="d-block pricing-section-mobile" id="pricing-section-mobile"></div>
+         <div class="d-block pricing-section-container" id="pricing-section-container"></div>
       </section>
       <!-- Pricing section ends --->
       <!--- Testimonials start -->
@@ -251,48 +264,34 @@
                </div>
                <!-- Modal body -->
                <div class="modal-body pt-4">
-                  <div id="particulars">
-                     <div class="row m-0 mb-2">
-                        <div class="col-3 col-sm-3">
-                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
-                        </div>
-                        <div class="col-6 col-sm-5 p-0">
-                           <div class="fo-16 fw-600 mfo-14" id="checkout_service"></div>
-                           <div class="fo-14 mfo-12" id="checkout_subservice"></div>
-                           <div class="fo-14 mfo-12" id="checkout_duration"></div>
-                        </div>
-                        <div class="col-3 col-sm-4 p-0">
-                           <div class="fo-26 fw-700 text-right mfo-18" id="checkout_price"></div>
-                           <div class="fo-16 text-right mfo-12" style="text-decoration: line-through" id="checkout_discount"></div>
-                        </div>
-                     </div>
-                  </div>
+                  <div id="particulars"></div>
                   <div class="input-data mt-5">
-                     <input type="text" required>
+                     <input type="text" required id="customer_name">
                      <div class="underline"></div>
                      <label>Full Name</label>
                   </div>
                   <div class="input-data mt-5">
-                     <input type="text" required>
+                     <input type="text" required id="customer_email">
                      <div class="underline"></div>
                      <label>Email</label>
                   </div>
                   <div class="input-data mt-5">
-                     <input type="text" required>
+                     <input type="text" required id="customer_mobile">
                      <div class="underline"></div>
                      <label>Contact number</label>
                   </div>
                   <div class="row m-0 couponsection mt-5">
-                     <div class="col-6 col-sm-6 pl-0">
+                     <div class="col-6 col-sm-6 pl-0" id="coupon_status">
                         <input type="text" placeholder="Coupon code" id="coupon_code">
                      </div>
                      <div class="col-6 col-sm-6 pr-0">
-                        <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();">APPLY COUPON</button>
+                        <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();" id="coupon_button">APPLY COUPON</button>
                      </div>
                   </div>
                </div>
-               <div class="checkoutfooter">
-                  <button class="btn website-button w-100 bg-dark text-white">PROCEED TO PAYMENT</button>
+               <div class="checkoutfooter row m-0">
+                  <button class="btn website-button w-50 bg-white text-dark fo-20 fw-800" id="totalbill"></button>
+                  <button class="btn website-button w-50 bg-dark text-white" onclick="checkout();">PROCEED TO PAYMENT</button>
                </div>
             </div>
          </div>

@@ -36,7 +36,7 @@
          }
       </style>
    </head>
-   <body>
+   <body onload="getServices();">
       <div id="overlay"></div>
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon row">
@@ -114,10 +114,15 @@
       </div>
       <!---Topmost navbar begins-->
       <nav class="navbar navbar-expand-md bg-dark fixed-top">
-         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
          <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <div class="menu-btn__burger"></div>
          </div>
+         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
+         <button class="btn d-sm-none" onclick="fetchCart();">
+            <i class="fa fa-shopping-cart fo-30 bco">
+               <sup class="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
+            </i>
+         </button>
          <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <div class="row d-none d-sm-flex">
                <div class="col-sm-3 m-auto">
@@ -135,30 +140,37 @@
                </div>
             </div>
             <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-               <li class="nav-item ml-sm-auto">
+               <li class="nav-item ml-sm-auto header-nav-pl">
                   <a class="nav-link exo" href="index.html#about">
-                     <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+                  <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
                   </a>
                </li>
                <li class="nav-item">
                   <a class="nav-link exo" href="index.html#success">
-                     <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+                  <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
                   </a>
                </li>
                <li class="nav-item">
                   <a class="nav-link exo" href="index.html#blogs">
-                     <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+                  <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
                   </a>
                </li>
-               <li class="nav-item mr-sm-auto">
+               <li class="nav-item mr-sm-auto header-nav-pr">
                   <a class="nav-link exo" href="index.html#contact">
-                     <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+                  <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
                   </a>
                </li>
                <li class="nav-item d-block d-sm-none text-center">
                   <a href="services.html">
-                     <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
+                  <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
                   </a>
+               </li>
+               <li class="nav-item text-right pr-0 d-none d-sm-block">
+                  <button class="btn mr-2" onclick="fetchCart();">
+                     <i class="fa fa-shopping-cart fo-30 bco position-relative">
+                        <sup class="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
+                     </i>
+                  </button>
                </li>
             </ul>
             <div class="navExtras d-block d-sm-none">
@@ -203,112 +215,68 @@
       <!-- Services header section ends --->
       <!-- Services list section starts --->
       <section class="services-list">
-         <div class="row m-0">
-            <div class="col-sm-4">
-               <div class="single-service-item">
-                  <a href="pricing.html?service=Weight_Loss">
-                     <div class="img-holder">
-                        <figure class="swap-on-hover">
-                           <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
-                           <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
-                        </figure>
-                        <div class="text-holder text-center">
-                           <h3>Weight Loss</h3>
-                           <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
-                           <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-                        </div>
+         <div class="row m-0" id="mainServices_section">
+            <!-- <div class="col-sm-4">
+               <div class="single-service-item" id="" onclick="">
+                  <div class="img-holder">
+                     <figure class="swap-on-hover">
+                        <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
+                        <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
+                     </figure>
+                     <div class="text-holder text-center">
+                        <h3>Weight Loss</h3>
+                        <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
+                        <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
                      </div>
-                  </a>
+                  </div>
                </div>
-            </div>
-            <div class="col-sm-4">
-               <div class="single-service-item">
-                  <a href="pricing.html?service=Muscle_Gain">
-                     <div class="img-holder">
-                        <figure class="swap-on-hover">
-                           <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
-                           <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
-                        </figure>
-                        <div class="text-holder text-center">
-                           <h3>Muscle Gain</h3>
-                           <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
-                           <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-                        </div>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="col-sm-4">
-               <div class="single-service-item">
-                  <a href="pricing.html?service=Sports_Performance_Guidance">
-                     <div class="img-holder">
-                        <figure class="swap-on-hover">
-                           <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
-                           <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
-                        </figure>
-                        <div class="text-holder text-center">
-                           <h3>Sports Performance Guidance</h3>
-                           <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
-                           <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-                        </div>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="col-sm-4">
-               <div class="single-service-item">
-                  <a href="pricing.html?service=Therapy_&_Education">
-                     <div class="img-holder">
-                        <figure class="swap-on-hover">
-                           <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
-                           <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
-                        </figure>
-                        <div class="text-holder text-center">
-                           <h3>Therapy & Education</h3>
-                           <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
-                           <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-                        </div>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="col-sm-4">
-               <div class="single-service-item">
-                  <a href="pricing.html?service=Gym_Services">
-                     <div class="img-holder">
-                        <figure class="swap-on-hover">
-                           <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
-                           <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
-                        </figure>
-                        <div class="text-holder text-center">
-                           <h3>Gym Services</h3>
-                           <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
-                           <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-                        </div>
-                     </div>
-                  </a>
-               </div>
-            </div>
-            <div class="col-sm-4">
-               <div class="single-service-item">
-                  <a href="pricing.html?service=Financial_Services">
-                     <div class="img-holder">
-                        <figure class="swap-on-hover">
-                           <img class="swap-on-hover__front-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png">
-                           <img class="swap-on-hover__back-image" src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png">
-                        </figure>
-                        <div class="text-holder text-center">
-                           <h3>Financial Services</h3>
-                           <p>Nutritional coaching to normalise BMI healthily without any side effects.</p>
-                           <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-                        </div>
-                     </div>
-                  </a>
-               </div>
-            </div>
+            </div> -->
          </div>
       </section>
       <!-- Services list section ends --->
+      <!-- The Modal -->
+      <div class="modal fade" id="checkout">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header bg-theme">
+                  <h4 class="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
+                  <button type="button" class="close text-dark fw-800" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body pt-4">
+                  <div id="particulars"></div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_name">
+                     <div class="underline"></div>
+                     <label>Full Name</label>
+                  </div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_email">
+                     <div class="underline"></div>
+                     <label>Email</label>
+                  </div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_mobile">
+                     <div class="underline"></div>
+                     <label>Contact number</label>
+                  </div>
+                  <div class="row m-0 couponsection mt-5">
+                     <div class="col-6 col-sm-6 pl-0" id="coupon_status">
+                        <input type="text" placeholder="Coupon code" id="coupon_code">
+                     </div>
+                     <div class="col-6 col-sm-6 pr-0">
+                        <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();" id="coupon_button">APPLY COUPON</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="checkoutfooter row m-0">
+                  <button class="btn website-button w-50 bg-white text-dark fo-20 fw-800" id="totalbill"></button>
+                  <button class="btn website-button w-50 bg-dark text-white" onclick="checkout();">PROCEED TO PAYMENT</button>
+               </div>
+            </div>
+         </div>
+      </div>
       
       <!---Footer section begins --->
       <footer id="contact">
@@ -358,7 +326,10 @@
       <script src="js/bootstrap.min.js"></script>
       <script src="js/owl.carousel.min.js"></script>
       <script src="js/aos.js"></script>
+      <script src="js/urls.js"></script>
       <script src="js/main.js"></script>
       <script src="js/blogs.js"></script>
+      <script src="js/services.js"></script>
+      <script src="js/checkout.js"></script>
    </body>
 </html>

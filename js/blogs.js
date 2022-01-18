@@ -152,6 +152,7 @@ function getCategorisedBlogs() {
     if (data.length > 0) {
       if (index == 0) {
         document.getElementById('category_heading').innerHTML = "Blogs on " + category;
+        document.getElementById('readmorebutton').innerHTML = `<button class="btn website-button bg-dark text-white" onclick="getCategorisedBlogs();">READ MORE</button>`
       }
       index = data.length;
       displayBlogs(data);

@@ -33,5 +33,6 @@ function checkLoginStatus(){
 		getBlogCategory();
 		getBlogSubcategory('Weight Loss_0');
 		getAllBlogs();
+		getAllServices();
 	}
 }

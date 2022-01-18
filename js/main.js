@@ -223,3 +223,8 @@ function nextBlog() {
   }
   document.getElementById('s' + v).checked = true;
 }
+
+// Cart
+var shopcart = JSON.parse(localStorage.getItem("cart"));
+document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
+document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
