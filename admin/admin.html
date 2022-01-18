@@ -132,21 +132,22 @@
             <h3 class="mb-5">ADD SERVICE PRICING</h3>
             <div class="form-group">
                <label>Select service:</label>
-               <select class="form-control" id="servicelist" onchange="getService('servicelist','subservicelist');">
-                  <option value="Weight Loss">Weight Loss</option>
-                  <option value="Muscle Gain">Muscle Gain</option>
-                  <option value="Sports Performance Guidance">Sports Performance Guidance</option>
-                  <option value="Therapy & Education">Therapy & Education</option>
-                  <option value="Gym Services">Gym Services</option>
-                  <option value="Financial Services">Financial Services</option>
+               <input type="text" class="form-control" id="servicelist">
+            </div>
+            <div class="form-group">
+               <label>Root service?</label>
+               <select class="form-control" id="rootservice">
+                  <option value="0">No</option>
+                  <option value="1">Yes</option>
                </select>
             </div>
             <div class="form-group">
-               <label>Select subservice:</label>
-               <select class="form-control" id="subservicelist" onchange="getSubservice('subservicelist');">
-                  <option value="Nutrition + Fitness Guidance">Nutrition + Fitness Guidance</option>
-                  <option value="Nutrition Guidance Only">Nutrition Guidance Only</option>
-               </select>
+               <label>Add subservice IDs</label>
+               <div id="subserviceids" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-50" id="subservice">
+                  <button class="btn btn-dark ml-4" onclick="addsubservice();">ADD</button>
+               </div>
             </div>
             <div class="form-group">
                <label>Enter plan duration in the format: (3 Months)</label>

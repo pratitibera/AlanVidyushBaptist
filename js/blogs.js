@@ -346,3 +346,74 @@ function displaySingleBlog(blog_id) {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Partner blogs
+var partner_name;
+
+function getAllPartnerBlogs(){
+  try{
+    var url = document.location.href,
+    params = url.split("?")[1].split("&"),
+    data = {},
+    tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+      tmp = params[i].split("=");
+      data[tmp[0]] = tmp[1];
+      partner_name = data["partner"];
+    }
+  }
+  catch{
+    partner_name = "Vivek_Baptist";
+  }
+  partner_name = partner_name.replaceAll('_', ' ');
+  document.getElementById('partner_name').innerHTML = "BLOGS BY " + partner_name.toUpperCase();
+  console.log(partner_name);
+  getBlogsByPartner();
+}
+
+function getBlogsByPartner(){
+  var request = new XMLHttpRequest();
+  request.open(urlSet.get_AuthorblogApi.method, urlSet.get_AuthorblogApi.url + "?index=" + index + "&limit=" + limit + "&author=" + partner_name, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if (data.length > 0) {
+      index = data.length;
+      displayBlogs(data);
+    } else {
+      document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+    }
+  }
+}

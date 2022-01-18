@@ -4,6 +4,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/blogs/",
         method: "GET",
     },
+    get_AuthorblogApi: {
+        url: baseUrl + "/api/v1/blogs/author/",
+        method: "GET",
+    },
     get_featuredblogApi: {
         url: baseUrl + "/api/v1/blogs/featured",
         method: "GET",

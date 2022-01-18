@@ -1,32 +1,7 @@
-var service = "Weight Loss";
-var subservice = "Nutrition + Fitness Guidance";
 var planfeature_list = [];
+var subservice_list = [];
 
-var service_subservice_list = {
-	"Weight Loss": ["Nutrition + Fitness Guidance", "Nutrition Guidance Only"],
-	"Muscle Gain": ["Nutrition + Fitness Guidance", "Nutrition Guidance Only"],
-	"Sports Performance Guidance": ["Nutrition + Fitness Guidance", "Nutrition Guidance Only"],
-	"Therapy & Education": ["Therapy", "Education"],
-	"Gym Services": ["Zest Fitness Studio (Karaya)", "Zest - The Next Level"],
-	"Financial Services": ["Income Tax Return Filing", "GST Return Filing", "TDS Return Filing", "Trade License Creation", "ROC Filing"]
-}
-
-function getService(id1,id2) {
-	service = document.getElementById(id1).value;
-	var subservicelist = document.getElementById(id2);
-	subservicelist.innerHTML = "";
-	for (i = 0; i < service_subservice_list[service].length; i++) {
-		if(i == 0){
-			subservice = service_subservice_list[service][i];
-		}
-		subservicelist.innerHTML += `<option value="${service_subservice_list[service][i]}">${service_subservice_list[service][i]}</option>`;
-	}
-}
-
-function getSubservice(id3) {
-	subservice = document.getElementById(id3).value;
-}
-
+// Plan features
 function display_plan_features() {
 	document.getElementById('planfeaturelist').innerHTML = "";
 	document.getElementById('planfeature').value = "";
@@ -48,7 +23,43 @@ function removePlanFeature(id) {
 	display_plan_features();
 }
 
+
+// Array of subservices
+
+function display_subservices() {
+	document.getElementById('subserviceids').innerHTML = "";
+	document.getElementById('subservice').value = "";
+	for (i = 0; i < subservice_list.length; i++) {
+		document.getElementById('subserviceids').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">${subservice_list[i]}<span class="ml-3 cursor-pointer" id="subservice_${i}" onclick="removesubservice(this.id)">x</span></div>`;
+
+	}
+}
+
+function addsubservice() {
+	var subservice = document.getElementById('subservice').value;
+	subservice_list.push(subservice);
+	display_subservices();
+}
+
+function removesubservice(id) {
+	var id = parseInt(id.split('_')[1]);
+	subservice_list.splice(id, 1);
+	display_subservices();
+}
+
+
+// Adding service
+
 function addService() {
+	var service = document.getElementById('servicelist').value;
+
+	var root = document.getElementById('rootservice').value;
+	if (root == 0) {
+		root = false;
+	} else {
+		root = true;
+	}
+
 	var duration = document.getElementById('duration').value;
 	var actual_price = document.getElementById('actual_price').value;
 	var discounted_price = document.getElementById('discounted_price').value;
@@ -59,12 +70,12 @@ function addService() {
 		recommendation = true;
 	}
 
-
-	if (duration != '' && actual_price != '') {
+	if (service != "" && duration != '' && actual_price != '') {
 		if (discounted_price == "") {
 			var json = {
 				"service": service,
-				"subservice": subservice,
+				"root": root,
+				"subservices": subservice_list,
 				"offers": [{
 					"currency": "INR",
 					"price": parseInt(actual_price),
@@ -76,7 +87,8 @@ function addService() {
 		} else {
 			var json = {
 				"service": service,
-				"subservice": subservice,
+				"root": root,
+				"subservices": subservice_list,
 				"offers": [{
 					"currency": "INR",
 					"price": parseInt(actual_price),
@@ -90,22 +102,22 @@ function addService() {
 
 
 		console.log(json);
-		var request = new XMLHttpRequest();
-		request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
-		request.setRequestHeader("Content-Type", "application/json");
-		request.send(JSON.stringify(json));
-		request.onload = function () {
-			var data = JSON.parse(this.response);
-			console.log(data);
-			document.getElementById('duration').value = "";
-			document.getElementById('actual_price').value = "";
-			document.getElementById('discounted_price').value = "";
-			if (data['service'] != undefined) {
-				alert("Service successfully added");
-			} else {
-				alert("Could not add service");
-			}
-		}
+		// var request = new XMLHttpRequest();
+		// request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
+		// request.setRequestHeader("Content-Type", "application/json");
+		// request.send(JSON.stringify(json));
+		// request.onload = function () {
+		// 	var data = JSON.parse(this.response);
+		// 	console.log(data);
+		// 	document.getElementById('duration').value = "";
+		// 	document.getElementById('actual_price').value = "";
+		// 	document.getElementById('discounted_price').value = "";
+		// 	if (data['service'] != undefined) {
+		// 		alert("Service successfully added");
+		// 	} else {
+		// 		alert("Could not add service");
+		// 	}
+		// }
 	} else {
 		alert("Please fill all details");
 	}
