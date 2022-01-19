@@ -13,7 +13,7 @@
    </head>
    <body onload="checkLoginStatus();">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-         <a class="navbar-brand" href="#">Alan Baptist</a>
+         <!-- <a class="navbar-brand" href="#">Alan Baptist</a> -->
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
          <span class="navbar-toggler-icon"></span>
          </button>
@@ -45,6 +45,12 @@
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="#deleteCoupons">Delete coupons</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#clientinfo">Generate client information</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#blogbody">Generate blog body</a>
                </li>
             </ul>
          </div>
@@ -305,11 +311,79 @@
             </div>
          </div>
       </section>
+      <section id="clientinfo" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">GENERATE CLIENT INFORMATION HTML</h3>
+            <div class="row m-0">
+               <div class="col-sm-6">
+                  <div class="form-group">
+                     <label>Field name:</label>
+                     <input type="text" class="form-control" id="clientField">
+                  </div>
+                  <div class="form-group">
+                     <label>Field data:</label>
+                     <input type="text" class="form-control" id="clientFieldData">
+                  </div>
+                  <button class="btn btn-dark" onclick="addClientInfo();">ADD CLIENT INFO</button>
+                  <div class="form-group mt-4">
+                     <label>Coach image URL 1:</label>
+                     <input type="text" class="form-control" id="coachimg1">
+                  </div>
+                  <div class="form-group">
+                     <label>Coach name 1:</label>
+                     <input type="text" class="form-control" id="coachname1">
+                  </div>
+                  <div class="form-group mt-4">
+                     <label>Coach image URL 2:</label>
+                     <input type="text" class="form-control" id="coachimg2">
+                  </div>
+                  <div class="form-group">
+                     <label>Coach name 2:</label>
+                     <input type="text" class="form-control" id="coachname2">
+                  </div>
+                  <button class="btn btn-dark" onclick="addCoachInfo();">ADD COACH INFO</button>
+               </div>
+               <div class="col-sm-6">
+                  <textarea rows="23" class="w-100" id="clientInfoData"></textarea>
+                  <button class="btn btn-dark mt-3" onclick="copyToClipboard('clientInfoData');">COPY TO CLIPBOARD</button>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="blogbody" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">GENERATE BLOG BODY HTML</h3>
+            <div class="row m-0">
+               <div class="col-sm-6">
+                  <div class="form-group">
+                     <label>Heading:</label>
+                     <input type="text" class="form-control" id="heading">
+                  </div>
+                  <button class="btn btn-dark mb-2" onclick="addHeading();">ADD HEADING</button>
+                  <div class="form-group">
+                     <label>Paragraph:</label>
+                     <input type="text" class="form-control" id="paras">
+                  </div>
+                  <button class="btn btn-dark mb-2" onclick="addParas();">ADD PARAGRAPH</button>
+                  <div class="form-group">
+                     <label>Image URL:</label>
+                     <input type="text" class="form-control" id="imageurl">
+                  </div>
+                  <button class="btn btn-dark mb-2" onclick="addImages();">ADD IMAGES</button>
+               </div>
+               <div class="col-sm-6">
+                  <textarea rows="15" class="w-100" id="blogContentData"></textarea>
+                  <button class="btn btn-dark mt-3" onclick="copyToClipboard('blogContentData');">COPY TO CLIPBOARD</button>
+               </div>
+            </div>
+         </div>
+      </section>
       <script src="urls.js" defer></script>
       <script src="script.js"></script>
       <script src="blogs.js"></script>
       <script src="addservices.js"></script>
       <script src="services.js"></script>
       <script src="coupons.js"></script>
+      <script src="addBlogs.js"></script>
    </body>
 </html>

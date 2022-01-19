@@ -299,7 +299,7 @@ function displaySingleBlog(blog_id) {
       // Blog heading
       document.getElementById('blogHeading').append(data['title']);
       // Blog date
-      document.getElementById('blogdate').append(data['blogdate']);
+      document.getElementById('blogdate').append(data['date']);
 
       // Blog content
       document.getElementById('blogContent').innerHTML = data['body'];

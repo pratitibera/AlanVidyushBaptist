@@ -787,7 +787,9 @@ footer .move-up {
 	height: 300px;
 	border-radius: 50%;
 }
-
+.blogWriter div{
+	text-transform: uppercase;
+}
 .blogWriter .row .fw-700 {
 	color: #1a1a1a;
 	font-size: 18px;

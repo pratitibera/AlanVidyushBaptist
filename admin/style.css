@@ -41,3 +41,7 @@ section{
     min-height: 90vh;
     padding-top: 70px;
 }
+
+#collapsibleNavbar li a{
+    font-size: 14px;
+}
