@@ -115,6 +115,16 @@
 	.pricing-section-container{
 		padding: 40px 175px 20px 175px;
 	}
+	.blogWriter .row.p-150 {
+		padding: 0px 150px;
+	}
+
+	.blogWriter .row.p-300 {
+		padding: 0px 300px;
+	}
+	.blogWriter .row.p-500 {
+		padding: 0px 500px;
+	}
 	/* .dark-pricing{
 		box-shadow: 0px 0px 10px 0px #000000;
 	} */
@@ -285,8 +295,8 @@
 		padding: 0px;
 	}
 	.blogWriter img {
-		width: 140px;
-		height: 140px;
+		/* width: 140px;
+		height: 140px; */
 	}
 	.blogContent.fw-600 {
 		padding-top: 80px;

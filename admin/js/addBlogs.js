@@ -24,7 +24,7 @@ function addClientInfo(){
 		}
 		else{
 			document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12">COACH</div></div>${coachdata}
-			<div class="text-center fw-700 mfo-12 mt-3">${clientField}: ${clientFieldData}</div>`;
+			<div class="text-center fw-700 mfo-12 mt-5">${clientField}: ${clientFieldData}</div>`;
 			coachdata = "";
 			clientHtml = "";
 		}
@@ -41,8 +41,19 @@ function addCoachInfo(){
 	var coachname1 = document.getElementById('coachname1').value;
 	var coachimg2 = document.getElementById('coachimg2').value;
 	var coachname2 = document.getElementById('coachname2').value;
-	if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != ""){
-		coachdata = `<div class="row m-0">
+	var coachimg3 = document.getElementById('coachimg3').value;
+	var coachname3 = document.getElementById('coachname3').value;
+	if(coachimg1 != "" && coachname1 != "" && coachimg2 == "" && coachname2 == "" && coachimg3 == "" && coachname3 == ""){
+		coachdata = `<div class="row m-0 p-500">
+            <div class="col-12 col-sm-12 p-0">
+               <img src="${coachimg1}">
+               <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
+            </div>
+         </div>`;
+        document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
+	}
+	else if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != "" && coachimg3 == "" && coachname3 == ""){
+		coachdata = `<div class="row m-0 p-300">
             <div class="col-6 col-sm-6 p-0">
                <img src="${coachimg1}">
                <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
@@ -52,7 +63,24 @@ function addCoachInfo(){
                <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
             </div>
          </div>`;
-        document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
+      document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
+	}
+	else if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != "" && coachimg3 != "" && coachname3 != ""){
+		coachdata = `<div class="row m-0 p-150">
+            <div class="col-4 col-sm-4 p-0">
+               <img src="${coachimg1}">
+               <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
+            </div>
+            <div class="col-4 col-sm-4 p-0">
+               <img src="${coachimg2}">
+               <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
+            </div>
+            <div class="col-4 col-sm-4 p-0">
+               <img src="${coachimg2}">
+               <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
+            </div>
+         </div>`;
+      document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
 	}
 	else{
 		alert("Enter all fields");
