@@ -1,5 +1,6 @@
 var contentList = [];
 var gallery = [];
+var cover = [];
 var listOfContents = []
 
 var blogCatandSub = [{
@@ -70,6 +71,42 @@ function removeContent(id) {
 	document.getElementById('content').value = "";
 }
 
+function addCoverImage(){
+	var headerimageurl = document.getElementById('headerimageurl').value;
+	var headerimagetitle = document.getElementById('headerimagetitle').value;
+	dic = {
+		"image": headerimageurl,
+		"title": headerimagetitle
+	}
+	cover.push(dic);
+	coverList = {
+		"cover": cover
+	}
+	document.getElementById('headerimageurl').value = "";
+	document.getElementById('headerimagetitle').value = "";
+
+	document.getElementById('headerimageList').innerHTML = "";
+	console.log(coverList['cover']);
+	for (i = 0; i < coverList['cover'].length; i++) {
+		document.getElementById('headerimageList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${coverList['cover'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="cover_${i}" onclick="removeCoverImage(this.id)">x</span></div>
+                     <img src=${coverList['cover'][i]['image']} class="w-100">
+                  </div>`
+	}
+}
+
+function removeCoverImage(id) {
+	var id = parseInt(id.split('_')[1]);
+	coverList['cover'].splice(id, 1);
+	document.getElementById('headerimageList').innerHTML = "";
+	for (i = 0; i < coverList['cover'].length; i++) {
+		document.getElementById('headerimageList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${coverList['cover'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="cover_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <img src=${coverList['cover'][i]['image']} class="w-100">
+                  </div>`
+	}
+}
+
 function addImage() {
 	var gallerytitle = document.getElementById('gallerytitle').value;
 	var galleryimage = document.getElementById('galleryimage').value;
@@ -114,8 +151,8 @@ function addBlog() {
 		listOfContents.push(dic);
 	}
 
-	var headerimageurl = document.getElementById('headerimageurl').value;
-	var headerimagetitle = document.getElementById('headerimagetitle').value;
+	// var headerimageurl = document.getElementById('headerimageurl').value;
+	// var headerimagetitle = document.getElementById('headerimagetitle').value;
 	var client = document.getElementById('client').value;
 	var author = document.getElementById('author').value;
 	var blogtitle = document.getElementById('blogtitle').value;
@@ -131,15 +168,12 @@ function addBlog() {
 	console.log(slug);
 
 
-	if (headerimageurl != '' && headerimagetitle != '' && client != '' && blogtitle != '' && blogdate != '' && blogcontent != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0) {
+	if (headerimagetitle != '' && client != '' && blogtitle != '' && blogdate != '' && blogcontent != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0) {
 		var json = {
 			"date": blogdate,
 			"title": blogtitle,
 			"author": author,
-			"headerImage": {
-				"title": headerimagetitle,
-				"image": headerimageurl
-			},
+			"headerImage": coverList['cover'],
 			"slug": slug,
 			"summary": blogsummary,
 			"body": blogcontent,

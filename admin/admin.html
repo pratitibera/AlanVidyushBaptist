@@ -59,12 +59,13 @@
          <div class="container">
             <h3 class="mb-5">ADD BLOG</h3>
             <div class="form-group">
-               <label>Cover image URL:</label>
-               <input type="text" class="form-control" id="headerimageurl">
-            </div>
-            <div class="form-group">
-               <label>Cover image title:</label>
-               <input type="text" class="form-control" id="headerimagetitle">
+               <label>Cover images:</label>
+               <div id="headerimageList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="headerimagetitle" placeholder="Enter cover image title">
+                  <input type="text" class="form-control w-50 ml-4" id="headerimageurl" placeholder="Enter cover image URL">
+                  <button class="btn btn-dark ml-4" onclick="addCoverImage();">ADD</button>
+               </div>
             </div>
             <div class="form-group">
                <label>Client Information HTML:</label>

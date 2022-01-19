@@ -294,13 +294,13 @@ function displaySingleBlog(blog_id) {
       }
       // Header image
       document.getElementById('blogImageContainer').innerHTML = `<div class="carousel-inner">
-               <div class="carousel-item active">
+               <div class="carousel-item active" data-interval="2000">
                   <img src="https://images.unsplash.com/photo-1561943058-853d2ff38883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="Los Angeles" width="1100" height="500">
                </div>
-               <div class="carousel-item">
+               <div class="carousel-item" data-interval="2000">
                   <img src="https://images.unsplash.com/photo-1561943058-853d2ff38883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="Chicago" width="1100" height="500">
                </div>
-               <div class="carousel-item">
+               <div class="carousel-item" data-interval="2000">
                   <img src="https://images.unsplash.com/photo-1561943058-853d2ff38883?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="New York" width="1100" height="500">
                </div>
             </div>`;
