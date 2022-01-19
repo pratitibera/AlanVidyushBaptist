@@ -125,6 +125,9 @@
 	.blogWriter .row.p-500 {
 		padding: 0px 500px;
 	}
+	.blogImageContainer{
+		margin-top: 160px;
+	}
 	/* .dark-pricing{
 		box-shadow: 0px 0px 10px 0px #000000;
 	} */
@@ -190,6 +193,9 @@
 		line-height: 1.9em;
 	}
 	/* Custom classes begins */
+	.blogImageContainer{
+		margin-top: 70px;
+	}
 	.whatsapp_icon {
 		font-size: 50px;
 	}
