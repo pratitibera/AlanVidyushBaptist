@@ -1,8 +1,13 @@
 // To add main services
 function addMainService() {
 	var mainService = document.getElementById('main_service').value;
+	var main_service_desc = document.getElementById('main_service_desc').value;
+	var main_service_cover = document.getElementById('main_service_cover').value;
+	var main_service_hover = document.getElementById('main_service_hover').value;
 	var json = {
 		"service": mainService,
+		"service_image": [main_service_cover,main_service_hover],
+		"description": main_service_desc,
 		"level": 0,
 		"subservices": [],
 		"offers": []
@@ -16,7 +21,7 @@ function addMainService() {
 		var data = JSON.parse(this.response);
 		console.log(data);
 		document.getElementById('main_service').value = "";
-		if (data['service'] != undefined) {
+		if (data['message'] == "Serivce has been updated") {
 			alert("Main Service successfully added");
 			getAllServices();
 		} else {
@@ -29,9 +34,15 @@ function addMainService() {
 function addService() {
 	var mainService = document.getElementById('selected_main_service').value;
 	var service = document.getElementById('service').value;
+	var service_desc = document.getElementById('service_desc').value;
+	var service_cover = document.getElementById('service_cover').value;
+	var service_hover = document.getElementById('service_hover').value;
+
 	if (service != '') {
 		var json = {
 			"service": mainService,
+			"service_image": [service_cover,service_hover],
+			"description": service_desc,
 			"level": 1,
 			"subservices": [service],
 			"offers": []
@@ -45,7 +56,7 @@ function addService() {
 			var data = JSON.parse(this.response);
 			console.log(data);
 			document.getElementById('service').value = "";
-			if (data['service'] != undefined) {
+			if (data['message'] == "Serivce has been updated") {
 				alert("Service successfully added");
 			} else {
 				alert("Could not add service");
@@ -77,7 +88,19 @@ function getServices() {
 	            <div class="form-group">
 	               <label>Enter sub-service name:</label>
 	               <input type="text" class="form-control" id="subservice">
-	            </div> 
+	            </div>
+	            <div class="form-group">
+	               <label>Enter subservice description:</label>
+	               <input type="text" class="form-control" id="subservice_desc">
+	            </div>  
+	            <div class="form-group">
+	               <label>Enter subservice cover image:</label>
+	               <input type="text" class="form-control" id="subservice_cover">
+	            </div>  
+	            <div class="form-group">
+	               <label>Enter subservice hover image:</label>
+	               <input type="text" class="form-control" id="subservice_hover">
+	            </div>      
 	            <div class="text-center mt-5 mb-5">
 	               <button class="btn btn-dark w-25" onclick="addSubservice();">ADD SUB-SERVICE</button>
 	            </div>`;
@@ -99,10 +122,16 @@ function addSubservice() {
 	var mainService = document.getElementById('selected_main_service2').value;
 	var selected_service = document.getElementById('selected_service').value;
 	var subservice = document.getElementById('subservice').value;
+	var subservice_desc = document.getElementById('subservice_desc').value;
+	var subservice_cover = document.getElementById('subservice_cover').value;
+	var subservice_hover = document.getElementById('subservice_hover').value;
+
 	if (selected_service != '') {
 		if (subservice != '') {
 			var json = {
 				"service": selected_service,
+				"service_image": [subservice_cover,subservice_hover],
+				"description": service_desc,
 				"level": 2,
 				"subservices": [subservice],
 				"offers": []
@@ -116,7 +145,7 @@ function addSubservice() {
 				var data = JSON.parse(this.response);
 				console.log(data);
 				document.getElementById('subservice').value = "";
-				if (data['service'] != undefined) {
+				if (data['message'] == "Serivce has been updated") {
 					alert("Subservice successfully added");
 				} else {
 					alert("Could not add subservice");

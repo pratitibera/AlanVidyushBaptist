@@ -83,6 +83,14 @@ function getPlanServices() {
                   </div>
                </div>
                <div class="form-group">
+                  <label>Add plan feature icons: (Maximum 6)</label>
+                  <div id="planfeatureiconlist" class="row m-0"></div>
+                  <div class="row m-0 mt-3">
+                     <input type="text" class="form-control w-50" id="planfeatureicon">
+                     <button class="btn btn-dark ml-4" onclick="addplanfeatureicons();">ADD</button>
+                  </div>
+               </div>
+               <div class="form-group">
                   <label>Recommended?</label>
                   <select class="form-control" id="recommendation">
                      <option value="0">No</option>
@@ -155,6 +163,14 @@ function getPlanSubservices() {
                   </div>
                </div>
                <div class="form-group">
+                  <label>Add plan feature icons: (Maximum 6)</label>
+                  <div id="planfeatureiconlist" class="row m-0"></div>
+                  <div class="row m-0 mt-3">
+                     <input type="text" class="form-control w-50" id="planfeatureicon">
+                     <button class="btn btn-dark ml-4" onclick="addplanfeatureicons();">ADD</button>
+                  </div>
+               </div>
+               <div class="form-group">
                   <label>Recommended?</label>
                   <select class="form-control" id="recommendation">
                      <option value="0">No</option>
@@ -208,6 +224,14 @@ function getPlanOffers() {
                </div>
             </div>
             <div class="form-group">
+               <label>Add plan feature icons: (Maximum 6)</label>
+               <div id="planfeatureiconlist" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-50" id="planfeatureicon">
+                  <button class="btn btn-dark ml-4" onclick="addplanfeatureicons();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
                <label>Recommended?</label>
                <select class="form-control" id="recommendation">
                   <option value="0">No</option>
@@ -231,6 +255,7 @@ function getPlanOffers() {
 
 
 var planfeature_list = [];
+var planfeatureicon_list = [];
 var planService;
 
 // Plan features
@@ -253,6 +278,30 @@ function removePlanFeature(id) {
 	var id = parseInt(id.split('_')[1]);
 	planfeature_list.splice(id, 1);
 	display_plan_features();
+}
+
+// Plan feature icons
+function display_plan_featureicons() {
+	document.getElementById('planfeatureiconlist').innerHTML = "";
+	document.getElementById('planfeatureicon').value = "";
+	for (i = 0; i < planfeatureicon_list.length; i++) {
+		document.getElementById('planfeatureiconlist').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div><span class="ml-3 float-right cursor-pointer" id="planFeatureicon_${i}" onclick="removePlanFeatureicon(this.id)">x</span></div>
+                     <img src=${planfeatureicon_list[i]} class="w-100">
+                  </div>`;
+	}
+}
+
+function addplanfeatureicons() {
+	var planfeatureicon = document.getElementById('planfeatureicon').value;
+	planfeatureicon_list.push(planfeatureicon);
+	display_plan_featureicons();
+}
+
+function removePlanFeatureicon(id) {
+	var id = parseInt(id.split('_')[1]);
+	planfeatureicon_list.splice(id, 1);
+	display_plan_featureicons();
 }
 
 
@@ -278,7 +327,7 @@ function addPlan() {
 	}
 
 	if (duration != '' && actual_price != '') {
-		if (discounted_price == "" || discounted_price == 0) {
+		if (discounted_price == "" || discounted_price == "0") {
 			var json = {
 				"service": planService,
 				"level": 3,
@@ -289,6 +338,7 @@ function addPlan() {
 					"duration": duration,
 					"recommended": recommendation,
 					"features": planfeature_list,
+					"feature_images": planfeatureicon_list,
 					"in_stock": availability
 				}]
 			}
@@ -304,6 +354,7 @@ function addPlan() {
 					"duration": duration,
 					"recommended": recommendation,
 					"features": planfeature_list,
+					"feature_images": planfeatureicon_list,
 					"in_stock": availability
 				}]
 			}
@@ -689,7 +740,28 @@ function removeEditedPlanFeature(id) {
    edit_plan_features();
 }
 
+function edit_plan_featuresicon() {
+   document.getElementById('editplanfeatureiconlist').innerHTML = "";
+   document.getElementById('editplanfeatureicon').value = "";
+   for (i = 0; i < planfeatureicon_list.length; i++) {
+      document.getElementById('editplanfeaturelisticon').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div><span class="ml-3 float-right cursor-pointer" id="editplanFeatureicon_${i}" onclick="removeEditedPlanFeatureicon(this.id)">x</span></div>
+                     <img src=${planfeatureicon_list[i]} class="w-100">
+                  </div>`;
+   }
+}
 
+function editplanfeatureicon() {
+   var planfeatureicon = document.getElementById('editplanfeatureicon').value;
+   planfeatureicon_list.push(planfeatureicon);
+   edit_plan_featuresicon();
+}
+
+function removeEditedPlanFeatureicon(id) {
+   var id = parseInt(id.split('_')[1]);
+   planfeatureicon_list.splice(id, 1);
+   edit_plan_featuresicon();
+}
 
 
 
@@ -720,13 +792,14 @@ function saveOffer() {
    }
 
    if (duration != '' && actual_price != '') {
-      if (discounted_price == "") {
+      if (discounted_price == "" || discounted_price == "0") {
          var json = {
             "currency": "INR",
             "price": parseInt(actual_price),
             "duration": duration,
             "recommended": recommendation,
             "features": planfeature_list,
+            "feature_images": planfeatureicon_list,
             "in_stock": availability
          }
       } else {
@@ -737,6 +810,7 @@ function saveOffer() {
             "duration": duration,
             "recommended": recommendation,
             "features": planfeature_list,
+            "feature_images": planfeatureicon_list,
             "in_stock": availability
          }
       }

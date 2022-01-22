@@ -40,6 +40,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/",
         method: "GET",
     },
+    editServicesApi: {
+        url: baseUrl + "/api/v1/admin/",
+        method: "PATCH",
+    },
     editOffersApi: {
         url: baseUrl + "/api/v1/admin/offer/",
         method: "PATCH",

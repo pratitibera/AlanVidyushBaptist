@@ -48,7 +48,7 @@ function fetchCart() {
 function applyCoupon() {
 	coupon_code = document.getElementById('coupon_code').value;
 	var json = {
-		"offerId": offerId,
+		"offerIds": offerId,
 		"couponCode": coupon_code
 	}
 	console.log(json);
@@ -59,16 +59,21 @@ function applyCoupon() {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		document.getElementById('coupon_button').innerHTML = "REMOVE COUPON";
-		// document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
-		// document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">${coupon_code} Coupon applied</div>
-		//                       <div class="fo-13 text-dark">Discount: ₹ ${data['discount']}</div>`;
-		//       document.getElementById('totalbill').innerHTML = "TOTAL: ₹ " + data['discounted_price'];
+		if(data['message'] == "Coupon does not exist"){
+			document.getElementById('coupon_status').innerHTML += `<div class="fo-16 text-dark fw-600">Invalid Coupon</div>`;
+		}
+		else{
+			document.getElementById('coupon_button').innerHTML = "REMOVE COUPON";
+			// document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
+			// document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">${coupon_code} Coupon applied</div>
+			//                       <div class="fo-13 text-dark">Discount: ₹ ${data['discount']}</div>`;
+			//       document.getElementById('totalbill').innerHTML = "TOTAL: ₹ " + data['discounted_price'];
 
-		document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
-		document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">ALAN700 Coupon applied</div>
-                        <div class="fo-13 text-dark">Discount: ₹ 700</div>`;
-		document.getElementById('totalbill').innerHTML = "TOTAL: ₹ 2300";
+			document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
+			document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">ALAN700 Coupon applied</div>
+	                        <div class="fo-13 text-dark">Discount: ₹ 700</div>`;
+			document.getElementById('totalbill').innerHTML = "TOTAL: ₹ 2300";
+		}
 	}
 }
 

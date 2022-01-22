@@ -34,7 +34,7 @@ th,td{
     right: -95px;
 }
 
-#offerdetails_table, #display_coupons{
+#offerdetails_table, #display_coupons, #editMainServicesTable, #editServicesTable, #editSubservicesTable{
     display: none;
 }
 section{
