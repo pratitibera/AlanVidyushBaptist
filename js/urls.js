@@ -72,4 +72,8 @@ var urlSet = {
         url: baseUrl + "/api/v1/payment/applyCoupon",
         method: "POST",
     },
+    verifyPaymentApi: {
+        url: baseUrl + "/api/v1/payment/verifyPayment",
+        method: "POST",
+    },
 };
