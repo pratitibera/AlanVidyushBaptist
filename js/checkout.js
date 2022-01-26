@@ -9,7 +9,6 @@ function fetchCart() {
 	totalbill = 0;
 	for (i = 0; i < shopcart.length; i++) {
 		offerId.push(shopcart[i]['id']);
-		totalbill = totalbill + parseInt(shopcart[i]['price']);
 		if (shopcart[i]['discount'] == "undefined") {
 			particulars.innerHTML += `<div class="row m-0 mb-2">
                         <div class="col-3 col-sm-2">
@@ -23,6 +22,7 @@ function fetchCart() {
                            <div class="fo-26 fw-700 text-right mfo-18">₹ ${shopcart[i]['price']}</div>
                         </div>
                      </div>`;
+         totalbill = totalbill + parseInt(shopcart[i]['price']);
 		} else {
 			particulars.innerHTML += `<div class="row m-0 mb-2">
                         <div class="col-3 col-sm-2">
@@ -33,10 +33,11 @@ function fetchCart() {
                            <div class="fo-14 mfo-12">${shopcart[i]['duration']}</div>
                         </div>
                         <div class="col-3 col-sm-4 p-0">
-                           <div class="fo-26 fw-700 text-right mfo-18">₹ ${shopcart[i]['price']}</div>
-                           <div class="fo-16 text-right mfo-12" style="text-decoration: line-through" id="checkout_discount">₹ ${shopcart[i]['discount']}</div>
+                           <div class="fo-26 fw-700 text-right mfo-18">₹ ${shopcart[i]['discount']}</div>
+                           <div class="fo-16 text-right mfo-12" style="text-decoration: line-through" id="checkout_discount">₹ ${shopcart[i]['price']}</div>
                         </div>
                      </div>`;
+         totalbill = totalbill + parseInt(shopcart[i]['discount']);
 		}
 	}
 	document.getElementById('totalbill').innerHTML = "TOTAL: ₹ " + totalbill;
@@ -64,15 +65,15 @@ function applyCoupon() {
 		}
 		else{
 			document.getElementById('coupon_button').innerHTML = "REMOVE COUPON";
-			// document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
-			// document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">${coupon_code} Coupon applied</div>
-			//                       <div class="fo-13 text-dark">Discount: ₹ ${data['discount']}</div>`;
-			//       document.getElementById('totalbill').innerHTML = "TOTAL: ₹ " + data['discounted_price'];
-
 			document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
-			document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">ALAN700 Coupon applied</div>
-	                        <div class="fo-13 text-dark">Discount: ₹ 700</div>`;
-			document.getElementById('totalbill').innerHTML = "TOTAL: ₹ 2300";
+			document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">${coupon_code} Coupon applied</div>
+			                      <div class="fo-13 text-dark">Discount: ₹ ${data['discount']}</div>`;
+			document.getElementById('totalbill').innerHTML = "TOTAL: ₹ " + data['discounted_price'];
+
+			// document.getElementById('coupon_button').setAttribute('onclick', `removeCoupon()`);
+			// document.getElementById('coupon_status').innerHTML = `<div class="fo-16 text-dark fw-600">ALAN700 Coupon applied</div>
+	  //                       <div class="fo-13 text-dark">Discount: ₹ 700</div>`;
+			// document.getElementById('totalbill').innerHTML = "TOTAL: ₹ 2300";
 		}
 	}
 }

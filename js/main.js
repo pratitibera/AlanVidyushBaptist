@@ -225,6 +225,8 @@ function nextBlog() {
 }
 
 // Cart
-var shopcart = JSON.parse(localStorage.getItem("cart"));
+var shopcart = [];
+
+shopcart = JSON.parse(localStorage.getItem("cart"));
 document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
 document.getElementById('cart_count_desktop').innerHTML = shopcart.length;

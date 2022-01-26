@@ -309,6 +309,7 @@ function removePlanFeatureicon(id) {
 // Adding plans
 
 function addPlan() {
+	// planService = document.getElementById('selected_main_service3').value;
 	var duration = document.getElementById('duration').value;
 	var actual_price = document.getElementById('actual_price').value;
 	var discounted_price = document.getElementById('discounted_price').value;
@@ -344,7 +345,7 @@ function addPlan() {
 			}
 		} else {
 			var json = {
-				"service": service,
+				"service": planService,
 				"level": 3,
 				"subservices": [],
 				"offers": [{
@@ -371,8 +372,13 @@ function addPlan() {
 			document.getElementById('duration').value = "";
 			document.getElementById('actual_price').value = "";
 			document.getElementById('discounted_price').value = "";
+			document.getElementById('planfeaturelist').innerHTML = "";
+			document.getElementById('planfeatureiconlist').innerHTML = "";
+			planfeature_list = [];
+			planfeatureicon_list = [];
 			if (data['message'] == "Serivce has been updated") {
 				alert("Plan successfully added");
+				getExistingPlansServices();
 			} else {
 				alert("Could not add plan");
 			}
@@ -487,6 +493,8 @@ function getExistingPlansServices() {
 			planform2.append(input1);
 			getExistingPlanSubservices();
 		} else {
+			var planform2 = document.getElementById('planform2');
+			planform2.innerHTML = "";
 			alert("This service has no data");
 		}
 	}
@@ -687,6 +695,13 @@ function deletePricingDetails(id) {
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
+      if(data['message'] == "Offer Deleted"){
+      	alert("Offer Deleted");
+      	getExistingPlansServices();
+      }
+      else{
+      	alert("Could not delete offer");
+      }
    }
 }
 
