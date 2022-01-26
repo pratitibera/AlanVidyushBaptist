@@ -71,6 +71,12 @@
                <li class="nav-item">
                   <a class="nav-link" href="#blogbody">Generate blog body</a>
                </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#dataInterval">Edit data-interval</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#transactions">All Transactions</a>
+               </li>
             </ul>
          </div>
       </nav>
@@ -339,6 +345,8 @@
                <select class="form-control" id="selected_main_service3" onchange="getPlanServices();"></select>
             </div>
             <div id="planform"></div>
+            <div id="planform2"></div>
+            <div id="planform3"></div>
          </div>
       </section>
       <hr>
@@ -564,6 +572,59 @@
                   <textarea rows="15" class="w-100" id="blogContentData"></textarea>
                   <button class="btn btn-dark mt-3" onclick="copyToClipboard('blogContentData');">COPY TO CLIPBOARD</button>
                </div>
+            </div>
+         </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- Edit data interval --->
+      <section id="dataInterval" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">EDIT DATA INTERVAL</h3>
+            <div class="form-group mt-4">
+               <label>Enter data interval time in ms (1 second = 1000ms):</label>
+               <input type="text" class="form-control" id="edit_data_interval">
+            </div>
+            <div class="text-center mt-5 mb-5">
+               <button class="btn btn-dark w-25" onclick="edit_data_interval();">SAVE DATA INTERVAL</button>
+            </div>
+         </div>
+      </section>
+
+
+      <!-- All transactions --->
+      <section id="transactions" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">MY TRANSACTIONS</h3>
+            <div class="text-center mt-5 mb-5">
+               <button class="btn btn-dark w-25" onclick="viewTransactions();">REFRESH TRANSACTIONS</button>
+            </div>
+            <div class="table-responsive" id="all_transactions">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email ID</th>
+                        <td>List of services</td>
+                        <td>Price</td>
+                     </tr>
+                  </thead>
+                  <tbody id="transaction_details"></tbody>
+               </table>
             </div>
          </div>
       </section>

@@ -52,7 +52,7 @@ function getPlanServices() {
 			var input1select = document.createElement('select');
 			input1select.setAttribute('class', 'form-control');
 			input1select.setAttribute('id', 'selected_service');
-			input1select.setAttribute('onchange', `getPlanSubservices`);
+			input1select.setAttribute('onchange', `getPlanSubservices()`);
 			for (i = 0; i < data['subservices'].length; i++) {
 				input1select.innerHTML += `<option value="${data['subservices'][i]['service']}">${data['subservices'][i]['service']}</option>`;
 			}
@@ -121,7 +121,8 @@ function getPlanSubservices() {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		var planform = document.getElementById('planform');
+		var planform = document.getElementById('planform2');
+		planform.innerHTML = "";
 		if (data['subservices'].length > 0) {
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
@@ -203,6 +204,7 @@ function getPlanOffers() {
 		var data = JSON.parse(this.response);
 		console.log(data);
 		planService = selected_subservice;
+		var planform = document.getElementById('planform3');
 		planform.innerHTML += `<div class="form-group">
                <label>Enter plan duration in the format: (3 Months)</label>
                <input type="text" class="form-control" id="duration">

@@ -26,7 +26,7 @@ function signin(){
 
 function checkLoginStatus(){
 	var token = localStorage.getItem("username");
-	if(token == null){
+	if(token != null){
 		document.location.href = "login.html";
 	}
 	else{

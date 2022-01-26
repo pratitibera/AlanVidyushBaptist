@@ -269,3 +269,17 @@ function handleFeatures(id){
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+// Data interval
+function edit_data_interval(){
+	var data_interval = document.getElementById('edit_data_interval').value;
+}

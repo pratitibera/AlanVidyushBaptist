@@ -61,6 +61,7 @@ function addService() {
 			} else {
 				alert("Could not add service");
 			}
+			location.reload();
 		}
 	} else {
 		alert("Enter service");
@@ -131,7 +132,7 @@ function addSubservice() {
 			var json = {
 				"service": selected_service,
 				"service_image": [subservice_cover,subservice_hover],
-				"description": service_desc,
+				"description": subservice_desc,
 				"level": 2,
 				"subservices": [subservice],
 				"offers": []
