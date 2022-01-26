@@ -380,7 +380,8 @@ function addPlan() {
 			planfeatureicon_list = [];
 			if (data['message'] == "Serivce has been updated") {
 				alert("Plan successfully added");
-				getExistingPlansServices();
+				location.reload();
+				// getExistingPlansServices();
 			} else {
 				alert("Could not add plan");
 			}
@@ -699,7 +700,8 @@ function deletePricingDetails(id) {
       console.log(data);
       if(data['message'] == "Offer Deleted"){
       	alert("Offer Deleted");
-      	getExistingPlansServices();
+      	location.reload();
+      	// getExistingPlansServices();
       }
       else{
       	alert("Could not delete offer");
@@ -842,7 +844,8 @@ function saveOffer() {
          console.log(data);
          if (data['_id'] != undefined) {
             $("#editPricingDetails").modal('hide');
-            getExistingPlanOffers();
+            location.reload();
+            // getExistingPlanOffers();
          } else {
             alert("Could not edit the offer");
          }

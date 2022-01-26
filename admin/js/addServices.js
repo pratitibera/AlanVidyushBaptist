@@ -23,7 +23,7 @@ function addMainService() {
 		document.getElementById('main_service').value = "";
 		if (data['message'] == "Serivce has been updated") {
 			alert("Main Service successfully added");
-			getAllServices();
+			location.reload();
 		} else {
 			alert("Could not add main service");
 		}
@@ -151,6 +151,7 @@ function addSubservice() {
 				} else {
 					alert("Could not add subservice");
 				}
+				location.reload();
 			}
 		} else {
 			alert("Enter a subservice");

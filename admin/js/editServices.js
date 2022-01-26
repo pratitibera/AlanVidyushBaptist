@@ -91,15 +91,17 @@ function editServicesSave(){
 		if(data['message'] == "Service Updated"){
 			$("#editServicesModal").modal('hide');
 			alert("Service Updated");
-			if(editservice_level == 0){
-				editMainServices();
-			}
-			else if(editservice_level == 1){
-				editServices();
-			}
-			else{
-				editSubservices();
-			}
+			location.reload();
+			// getPlanServices();
+			// if(editservice_level == 0){
+			// 	editMainServices();
+			// }
+			// else if(editservice_level == 1){
+			// 	editServices();
+			// }
+			// else{
+			// 	editSubservices();
+			// }
 		}
 		else{
 			alert("Could not update service");

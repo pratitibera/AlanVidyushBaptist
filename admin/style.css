@@ -8,7 +8,9 @@
 th,td{
     text-align: center;
 }
-
+#collapsibleNavbar{
+    justify-content: space-evenly;
+}
 #readmorebutton p {
    color: #000;
     position: relative;
@@ -44,4 +46,6 @@ section{
 
 #collapsibleNavbar li a{
     font-size: 14px;
+    padding-left: 1.35rem;
+    padding-right: 1.35rem;
 }
