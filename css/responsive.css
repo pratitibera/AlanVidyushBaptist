@@ -193,6 +193,10 @@
 		line-height: 1.9em;
 	}
 	/* Custom classes begins */
+    #notification-area .notification {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
 	.blogImageContainer{
 		margin-top: 70px;
 	}

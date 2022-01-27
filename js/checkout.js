@@ -93,7 +93,7 @@ function checkout() {
 
 	if (customer_name != '' && customer_mobile != '' && customer_email != '') {
 		var json = {
-			"offerId": offerId,
+			"offerIds": offerId,
 			"couponCode": coupon_code,
 			"name": customer_name,
 			"phone": customer_mobile,
@@ -114,8 +114,8 @@ function checkout() {
 					"currency": "INR",
 					"name": "ALAN VIDYUSH BAPTIST",
 					"description": "Pay For Your Service",
-					"image": "https://i.ibb.co/ctGstkw/logo.png",
-					"order_id": data['receipt_id'],
+					"image": "https://alanvidyushbaptist.com/assets/logo/Optimal_Wellness_Logo.png",
+					"order_id": data['order_id'],
 					"handler": function (response) {
 						payNowResponse(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_signature, data['receipt_id']);
 						console.log(response);
@@ -126,7 +126,7 @@ function checkout() {
 						"contact": customer_mobile
 					},
 					"notes": {
-						"address": "Putatoe Technologies",
+						"address": "Give an address here",
 					},
 					"theme": {
 						"color": "#000000"
@@ -134,16 +134,16 @@ function checkout() {
 				};
 				var rzp1 = new Razorpay(options);
 				rzp1.on('payment.failed', function (response) {
-					alert("Payment failed due to banks issue");
+					notify("Sorry! Payment failed due to banks issue");
 				});
 				rzp1.open();
 
 			} else {
-				alert("order not created");
+				notify("Sorry! Could not process your request");
 			}
 		}
 	} else {
-		alert("Enter all details");
+		notify("Please enter all details");
 	}
 }
 
@@ -165,11 +165,11 @@ function payNowResponse(razorpay_payment_id, razorpay_order_id, razorpay_signatu
 		var data = JSON.parse(this.response);
 		console.log(data);
 		if(data['message'] == ""){
-			alert("Payment successful");
+			notify("Payment successful");
 			localStorage.clear();
 		}
 		else{
-			alert("Payment unsuccessful");
+			notify("Payment unsuccessful");
 		}
 	}
 }

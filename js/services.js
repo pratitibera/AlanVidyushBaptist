@@ -211,7 +211,7 @@ function addToCart(id) {
 	}
 
 	shopcart.push(cartitem);
-	alert("Added to cart");
+	notify("Service added to cart");
 	localStorage.setItem("cart", JSON.stringify(shopcart));
 
 	shopcart = JSON.parse(localStorage.getItem("cart"));
