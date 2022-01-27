@@ -65,3 +65,15 @@ function deleteCoupon(id){
 		}
 	}
 }
+
+
+function viewTransactions(){
+	var request = new XMLHttpRequest();
+	request.open(urlSet.transactionsApi.method, urlSet.transactionsApi.url, true);
+	request.setRequestHeader("Accept", "application/json");
+	request.send();
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+	}
+}

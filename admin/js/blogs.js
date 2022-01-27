@@ -282,4 +282,21 @@ function handleFeatures(id){
 // Data interval
 function edit_data_interval(){
 	var data_interval = document.getElementById('edit_data_interval').value;
+	var json = {
+	  "data_interval": parseInt(data_interval)
+	}
+	var request = new XMLHttpRequest();
+	request.open(urlSet.data_intervalApi.method, urlSet.data_intervalApi.url, true);
+	request.setRequestHeader("Content-Type", "application/json");
+	request.send(JSON.stringify(json));
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+		if(data['message'] == "Data Interval Updated"){
+			alert("Data Interval Updated");
+		}
+		else{
+			alert("Could not update data interval");
+		}
+	}
 }
