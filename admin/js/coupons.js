@@ -102,7 +102,7 @@ function viewTransactions(){
 			td5.append(ul);
 
 			var td6 = document.createElement('td');
-			td6.append(data[i]['price']);
+			td6.append(data[i]['amount']);
 
 			var tr = document.createElement('tr');
 			tr.append(td1);
