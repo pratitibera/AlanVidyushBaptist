@@ -110,7 +110,7 @@ function checkout() {
 			if (data['receipt_id'] != "") {
 				var options = {
 					"key": "rzp_test_I4CcsfzCypIJie",
-					"amount": data['amount'],
+					"amount": parseInt(data['amount']) * 100,
 					"currency": "INR",
 					"name": "ALAN VIDYUSH BAPTIST",
 					"description": "Pay For Your Service",
@@ -129,7 +129,7 @@ function checkout() {
 						"address": "Give an address here",
 					},
 					"theme": {
-						"color": "#000000"
+						"color": "#8b1ef1"
 					}
 				};
 				var rzp1 = new Razorpay(options);

@@ -29,10 +29,16 @@ function getAllServices() {
 
 
 // To add plans
+var offer_name_1 = "";
+var offer_name_2 = "";
+var offer_name_3 = "";
 
 // After selecting a main service
 function getPlanServices() {
 	var mainService = document.getElementById('selected_main_service3').value;
+	offer_name_1 = mainService;
+	offer_name_2 = "";
+	offer_name_3 = "";
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + mainService, true);
 	request.setRequestHeader("Content-Type", "application/json");
@@ -114,6 +120,8 @@ function getPlanServices() {
 // After selecting a service
 function getPlanSubservices() {
 	var selected_service = document.getElementById('selected_service').value;
+	offer_name_2 = selected_service;
+	offer_name_3 = "";
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + selected_service, true);
 	request.setRequestHeader("Content-Type", "application/json");
@@ -196,6 +204,7 @@ function getPlanSubservices() {
 // After selecting a subservice
 function getPlanOffers() {
 	var selected_subservice = document.getElementById('selected_subservice').value;
+	offer_name_3 = selected_subservice;
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + selected_subservice, true);
 	request.setRequestHeader("Content-Type", "application/json");
@@ -311,7 +320,17 @@ function removePlanFeatureicon(id) {
 // Adding plans
 
 function addPlan() {
-	// planService = document.getElementById('selected_main_service3').value;
+	var offer_name = "";
+	if(offer_name_1 != ""){
+		offer_name = offer_name + offer_name_1;
+	}
+	if(offer_name_2 != ""){
+		offer_name = offer_name + "_" + offer_name_2;
+	}
+	if(offer_name_3 != ""){
+		offer_name = offer_name + "_" + offer_name_3;
+	}
+
 	var duration = document.getElementById('duration').value;
 	var actual_price = document.getElementById('actual_price').value;
 	var discounted_price = document.getElementById('discounted_price').value;
@@ -342,6 +361,7 @@ function addPlan() {
 					"recommended": recommendation,
 					"features": planfeature_list,
 					"feature_images": planfeatureicon_list,
+					"offer_name": offer_name,
 					"in_stock": availability
 				}]
 			}
@@ -358,6 +378,7 @@ function addPlan() {
 					"recommended": recommendation,
 					"features": planfeature_list,
 					"feature_images": planfeatureicon_list,
+					"offer_name": offer_name,
 					"in_stock": availability
 				}]
 			}
@@ -413,6 +434,7 @@ function getExistingPlansServices() {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		offerData = data
 		var offerdetails = document.getElementById('offerdetails');
 		offerdetails.innerHTML = "";
 		if (data['offers'].length > 0) {
@@ -514,6 +536,7 @@ function getExistingPlanSubservices() {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		offerData = data;
 		var offerdetails = document.getElementById('offerdetails');
 		offerdetails.innerHTML = "";
 		if (data['offers'].length > 0) {
@@ -720,6 +743,7 @@ function editPricingDetails(id6) {
    offerid_to_be_edited = offer_to_be_edited['_id'];
    document.getElementById('edit_duration').value = offer_to_be_edited['duration'];
    document.getElementById('edit_actual_price').value = offer_to_be_edited['price'];
+   document.getElementById('edit_offer_name').value = offer_to_be_edited['offer_name'];
    if (offer_to_be_edited['discounted_price'] != undefined) {
       document.getElementById('edit_discounted_price').value = offer_to_be_edited['discounted_price'];
    }
@@ -797,6 +821,8 @@ function saveOffer() {
    var actual_price = document.getElementById('edit_actual_price').value;
    var discounted_price = document.getElementById('edit_discounted_price').value;
    var recommendation = document.getElementById('editrecommendation').value;
+   var offer_name = document.getElementById('edit_offer_name');
+
    if (recommendation == 0) {
       recommendation = false;
    } else {
@@ -819,6 +845,7 @@ function saveOffer() {
             "recommended": recommendation,
             "features": planfeature_list,
             "feature_images": planfeatureicon_list,
+            "offer_name": offer_name,
             "in_stock": availability
          }
       } else {
@@ -830,6 +857,7 @@ function saveOffer() {
             "recommended": recommendation,
             "features": planfeature_list,
             "feature_images": planfeatureicon_list,
+            "offer_name": offer_name,
             "in_stock": availability
          }
       }

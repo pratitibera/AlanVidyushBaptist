@@ -233,8 +233,11 @@ function nextBlog() {
 }
 
 // Cart
-var shopcart = [];
-
-shopcart = JSON.parse(localStorage.getItem("cart"));
-document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
-document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
+if(localStorage.getItem("cart") == null || localStorage.getItem("cart") == undefined){
+    var shopcart = [];
+}
+else{
+    var shopcart = JSON.parse(localStorage.getItem("cart"));
+    document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
+    document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
+}
