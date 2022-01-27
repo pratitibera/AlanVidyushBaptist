@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8081";
+const baseUrl = "https://desolate-retreat-74146.herokuapp.com/ping";
 var urlSet = {
 
     // Blogs
