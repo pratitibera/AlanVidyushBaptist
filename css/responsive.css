@@ -11,6 +11,12 @@
 		text-align: center;
 		color: #fff;
 	}
+	.collabs{
+		margin-top: 85px!important;
+	}
+	.collabs .col-sm-4{
+		margin-bottom: 45px!important;
+	}
 }
 
 @media only screen and (min-width: 577px) {

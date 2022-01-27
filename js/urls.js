@@ -1,4 +1,4 @@
-const baseUrl = "https://desolate-retreat-74146.herokuapp.com/ping";
+const baseUrl = "https://desolate-retreat-74146.herokuapp.com";
 var urlSet = {
 
     // Blogs

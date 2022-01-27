@@ -195,6 +195,7 @@ function addBlog() {
 			console.log(data);
 			if (data['message'] == "Blog has been added") {
 				alert("Blog successfully added");
+				location.reload();
 			} else {
 				alert("Could not add blog");
 			}

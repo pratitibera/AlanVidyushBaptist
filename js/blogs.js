@@ -19,8 +19,8 @@ function getAllBlogs(page) {
 }
 
 function displayBlogs(data, page) {
-  if(page == 'blog_page'){
-    document.getElementById('blog_page_cover').innerHTML = `<img src="${data[0]['headerImage']['image']}" class="w-100">
+  if (page == 'blog_page') {
+    document.getElementById('blog_page_cover').innerHTML = `<img src="${data[0]['headerImage'][0]['image']}" class="w-100">
             <div class="imageOverlay">
                <div class="fo-52 fw-600 text-center mfo-30">${data[0]['title']}</div>
                <div class="fo-30 fw-600 text-center mt-2 mfo-20">${data[0]['summary']}</div>
@@ -36,37 +36,12 @@ function displayBlogs(data, page) {
   var displayAllBlogs = document.getElementById('displayAllBlogs');
   for (i = 0; i < data.length; i++) {
     displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
-             <img src="${data[i]['headerImage']['image']}" class="w-100">
+             <img src="${data[i]['headerImage'][0]['image']}" class="w-100">
              <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
              <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
           </a></div>`
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Category.html
@@ -197,74 +172,54 @@ function getSubcategorisedBlogs() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Single blog
 function manageBlogs() {
-  var url = document.location.href,
-    params = url.split("?")[1].split("&"),
-    data = {},
-    tmp;
-  for (var i = 0, l = params.length; i < l; i++) {
-    tmp = params[i].split("=");
-    data[tmp[0]] = tmp[1];
-    blog_id = data["id"];
-  }
-
-  displaySingleBlog(blog_id);
-  document.getElementById("navItems").style.display = "contents";
-  document.getElementById("contentItems").style.display = "none";
-
-  var distance = $('.blogContents').offset().top;
-  $(window).scroll(function () {
-    if (screen.width < 577) {
-      if ($(this).scrollTop() >= distance) {
-        document.getElementById("navItems").style.display = "none";
-        document.getElementById("contentItems").style.display = "block";
-        document.getElementById("contentItems").style.width = "100%";
-        $("nav").removeClass("bg-dark");
-        $("nav").addClass("bg-white");
-      } else {
-        document.getElementById("navItems").style.display = "contents";
-        document.getElementById("contentItems").style.display = "none";
-        $("nav").removeClass("bg-white");
-        $("nav").addClass("bg-dark");
-      }
+  try {
+    var url = document.location.href,
+      params = url.split("?")[1].split("&"),
+      data = {},
+      tmp;
+    for (var i = 0, l = params.length; i < l; i++) {
+      tmp = params[i].split("=");
+      data[tmp[0]] = tmp[1];
+      blog_id = data["id"];
     }
-  });
 
-  window.addEventListener("scroll", () => {
-    let scrollPercentRounded = Math.round((window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100);
-    document.getElementById('blogContentProgress').style.width = scrollPercentRounded + "%";
-  });
+    displaySingleBlog(blog_id);
+    document.getElementById("navItems").style.display = "contents";
+    document.getElementById("contentItems").style.display = "none";
 
-  if (screen.width >= 577) {
-    $("#collapseContents1").addClass("show");
-    toggleContents(document.getElementById('toggleDesktopContent'));
+    var distance = $('.blogContents').offset().top;
+    $(window).scroll(function () {
+      if (screen.width < 577) {
+        if ($(this).scrollTop() >= distance) {
+          document.getElementById("navItems").style.display = "none";
+          document.getElementById("contentItems").style.display = "block";
+          document.getElementById("contentItems").style.width = "100%";
+          $("nav").removeClass("bg-dark");
+          $("nav").addClass("bg-white");
+        } else {
+          document.getElementById("navItems").style.display = "contents";
+          document.getElementById("contentItems").style.display = "none";
+          $("nav").removeClass("bg-white");
+          $("nav").addClass("bg-dark");
+        }
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      let scrollPercentRounded = Math.round((window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100);
+      document.getElementById('blogContentProgress').style.width = scrollPercentRounded + "%";
+    });
+
+    if (screen.width >= 577) {
+      $("#collapseContents1").addClass("show");
+      toggleContents(document.getElementById('toggleDesktopContent'));
+    }
+  } catch {
+    document.getElementById('blogAvailable').style.display = "none";
+    document.getElementById('blogNotAvailable').style.display = "block";
+    console.log("Error");
   }
 }
 
@@ -294,15 +249,14 @@ function displaySingleBlog(blog_id) {
       }
       // Header image
 
-      for(m = 0; m <data['headerImage'].length; m++){
-        if(m == 0){
+      for (m = 0; m < data['headerImage'].length; m++) {
+        if (m == 0) {
           document.getElementById('blogImageContainer').innerHTML += `<div class="carousel-item active" data-interval="${data['data_interval']}">
-                        <img src="${data['headerImage'][m['image']]}" alt="${data['headerImage'][m['title']]}" width="1100" height="500">
+                        <img src="${data['headerImage'][m]['image']}" alt="${data['headerImage'][m]['title']}" width="1100" height="500">
                      </div>`;
-        }
-        else{
+        } else {
           document.getElementById('blogImageContainer').innerHTML += `<div class="carousel-item" data-interval="${data['data_interval']}">
-                        <img src="${data['headerImage'][m['image']]}" alt="${data['headerImage'][m['title']]}" width="1100" height="500">
+                        <img src="${data['headerImage'][m]['image']}" alt="${data['headerImage'][m]['title']}" width="1100" height="500">
                      </div>`;
         }
       }
@@ -339,12 +293,6 @@ function displaySingleBlog(blog_id) {
             items: 1,
             autoWidth: false
           },
-          // 320: {
-          //   items: 1
-          // },
-          // 560: {
-          //   items: 2
-          // },
           960: {
             items: 3
           }
@@ -361,51 +309,21 @@ function displaySingleBlog(blog_id) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Partner blogs
 var partner_name;
 
-function getAllPartnerBlogs(){
-  try{
+function getAllPartnerBlogs() {
+  try {
     var url = document.location.href,
-    params = url.split("?")[1].split("&"),
-    data = {},
-    tmp;
+      params = url.split("?")[1].split("&"),
+      data = {},
+      tmp;
     for (var i = 0, l = params.length; i < l; i++) {
       tmp = params[i].split("=");
       data[tmp[0]] = tmp[1];
       partner_name = data["partner"];
     }
-  }
-  catch{
+  } catch {
     partner_name = "Vivek_Baptist";
   }
   partner_name = partner_name.replaceAll('_', ' ');
@@ -414,7 +332,7 @@ function getAllPartnerBlogs(){
   getBlogsByPartner();
 }
 
-function getBlogsByPartner(){
+function getBlogsByPartner() {
   var request = new XMLHttpRequest();
   request.open(urlSet.get_AuthorblogApi.method, urlSet.get_AuthorblogApi.url + "?index=" + index + "&limit=" + limit + "&author=" + partner_name, true);
   request.setRequestHeader("Content-Type", "application/json");
