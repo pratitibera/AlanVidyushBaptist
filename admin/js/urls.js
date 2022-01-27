@@ -131,7 +131,7 @@ var urlSet = {
     // Admin transactions
 
     transactionsApi: { // View all transactions
-        url: baseUrl + "/api/v1/admin/transactions",
+        url: baseUrl + "/api/v1/admin/transactions?status=Successful",
         method: "GET",
     },
 };

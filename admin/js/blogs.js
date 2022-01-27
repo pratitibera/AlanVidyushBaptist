@@ -161,6 +161,7 @@ function addBlog() {
 	var blogsummary = document.getElementById('blogsummary').value;
 	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
 	var blogsubcategory = document.getElementById('blogsubcategory').value;
+	var blogtarget = document.getElementById('blogtarget').value;
 
 	var slug = blogtitle.replace(/[^a-zA-Z0-9 ]/g, "");
 	var slug = slug.replaceAll(" ", "_");
@@ -168,7 +169,7 @@ function addBlog() {
 	console.log(slug);
 
 
-	if (headerimagetitle != '' && client != '' && blogtitle != '' && blogdate != '' && blogcontent != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0) {
+	if (client != '' && blogtitle != '' && blogdate != '' && blogcontent != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0) {
 		var json = {
 			"date": blogdate,
 			"title": blogtitle,
@@ -181,7 +182,8 @@ function addBlog() {
 			"subcategory": blogsubcategory,
 			"client": client,
 			"content": listOfContents,
-			"gallery": galleryList['gallery']
+			"gallery": galleryList['gallery'],
+			"target": blogtarget
 		}
 		console.log(json);
 		var request = new XMLHttpRequest();
