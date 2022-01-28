@@ -77,6 +77,10 @@ function triggerServiceEditModal(id){
 
 function editServicesSave(){
 	var new_service = document.getElementById('editServicesInput').value;
+	var servicesDesc = document.getElementById('editServicesDesc').value;
+	var servicesCover = document.getElementById('editServicesCover').value;
+	var servicesHover = document.getElementById('editServicesHover').value;
+
 	var json = {
 		"service": new_service
 	}

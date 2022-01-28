@@ -600,6 +600,8 @@ function getExistingPlanSubservices() {
 			}
 			document.getElementById('offerdetails_table').style.display = "block";
 		} else if (data['subservices'].length > 0) {
+			var planform2 = document.getElementById('planform2');
+			planform2.innerHTML = "";
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
 
