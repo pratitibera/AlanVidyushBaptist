@@ -46,7 +46,7 @@ function addCoachInfo(){
 	if(coachimg1 != "" && coachname1 != "" && coachimg2 == "" && coachname2 == "" && coachimg3 == "" && coachname3 == ""){
 		coachdata = `<div class="row m-0 p-500">
             <div class="col-12 col-sm-12 p-0">
-               <img src="${coachimg1}">
+               <img src="${coachimg1}" id="coach1">
                <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
             </div>
          </div>`;
@@ -55,11 +55,11 @@ function addCoachInfo(){
 	else if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != "" && coachimg3 == "" && coachname3 == ""){
 		coachdata = `<div class="row m-0 p-300">
             <div class="col-6 col-sm-6 p-0">
-               <img src="${coachimg1}">
+               <img src="${coachimg1}" id="coach1">
                <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
             </div>
             <div class="col-6 col-sm-6 p-0">
-               <img src="${coachimg2}">
+               <img src="${coachimg2}" id="coach2">
                <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
             </div>
          </div>`;
@@ -68,15 +68,15 @@ function addCoachInfo(){
 	else if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != "" && coachimg3 != "" && coachname3 != ""){
 		coachdata = `<div class="row m-0 p-150">
             <div class="col-4 col-sm-4 p-0">
-               <img src="${coachimg1}">
+               <img src="${coachimg1}" id="coach1">
                <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
             </div>
             <div class="col-4 col-sm-4 p-0">
-               <img src="${coachimg2}">
+               <img src="${coachimg2}" id="coach2">
                <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
             </div>
             <div class="col-4 col-sm-4 p-0">
-               <img src="${coachimg2}">
+               <img src="${coachimg2}" id="coach3">
                <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
             </div>
          </div>`;
@@ -106,6 +106,7 @@ function addCoachInfo(){
 // Blog body
 var blogContentBody = "";
 var blogHeadingCount = 0;
+var blogBodyImageCount = 0;
 
 function addHeading(){
 	var heading = document.getElementById('heading').value;
@@ -135,7 +136,7 @@ function addImages(){
 	var imageurl = document.getElementById('imageurl').value;
 	if(imageurl != ""){
 		blogContentBody += `<div class="text-center mt-4">
-            <img src="${imageurl}" class="w-70 mow-100">
+            <img src="${imageurl}" class="w-70 mow-100" id="blogBodyImage_${blogBodyImageCount++}">
          </div>`;
 		document.getElementById('blogContentData').value = blogContentBody;
 	}

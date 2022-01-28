@@ -24,7 +24,7 @@
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="#addblog">Add blogs</a>
-                    <a class="dropdown-item" href="#editblogs">Manage featuring of blogs</a>
+                    <a class="dropdown-item" href="#featureBlogs">Manage blogs</a>
                   </div>
                </li>
                <li class="nav-item dropdown">
@@ -160,7 +160,7 @@
          </div>
       </section>
       <hr>
-      <section id="editblogs">
+      <section id="featureBlogs">
          <div class="container">
             <h3 class="mb-5">MANAGE FEATURING OF BLOGS</h3>
             <div class="form-group">
@@ -175,6 +175,7 @@
                      <tr>
                         <th>Blog Title</th>
                         <th></th>
+                        <th></th>
                      </tr>
                   </thead>
                   <tbody id="allBlogs"></tbody>
@@ -183,6 +184,78 @@
             <div class="text-center mt-1 mb-5" id="readmorebutton">
                <button class="btn website-button bg-dark text-white" onclick="getAllBlogs();">READ MORE</button>
             </div>
+         </div>
+      </section>
+      <hr>
+      <hr>
+      <section id="editBlog">
+         <div class="container">
+            <h3 class="mb-5">EDIT BLOG</h3>
+            <div class="form-group">
+               <label>Cover images: <span class="text-danger">*</span></label>
+               <div id="headerimageList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="headerimagetitle" placeholder="Enter cover image title">
+                  <input type="text" class="form-control w-50 ml-4" id="headerimageurl" placeholder="Enter cover image URL">
+                  <button class="btn btn-dark ml-4" onclick="addCoverImage();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Client Information HTML: <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="client">
+            </div>
+            <div class="form-group">
+               <label>Blog author:</label>
+               <input type="text" class="form-control" id="author">
+            </div>
+            <div class="form-group">
+               <label>Blog title: <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogtitle">
+            </div>
+            <div class="form-group">
+               <label>Date: (Format: 12 November, 2021) <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogdate">
+            </div>
+            <div class="form-group">
+               <label>Blog content HTML: <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogcontent">
+            </div>
+            <div class="form-group">
+               <label>Blog summary: <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogsummary">
+            </div>
+            <div class="form-group">
+               <label>Select blog category: <span class="text-danger">*</span></label>
+               <select class="form-control" id="blogcategory" onchange="getBlogSubcategory(this.value);"></select>
+            </div>
+            <div class="form-group">
+               <label>Select blog subcategory: <span class="text-danger">*</span></label>
+               <select class="form-control" id="blogsubcategory"></select>
+            </div>
+            <div class="form-group">
+               <label>Add contents: <span class="text-danger">*</span></label>
+               <div id="contentList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-50" id="content">
+                  <button class="btn btn-dark ml-4" onclick="addContents();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Add images for gallery: <span class="text-danger">*</span></label>
+               <div id="galleryList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="gallerytitle" placeholder="Enter image title">
+                  <input type="text" class="form-control w-50 ml-4" id="galleryimage" placeholder="Enter image URL">
+                  <button class="btn btn-dark ml-4" onclick="addImage();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Target URL:</label>
+               <input type="text" class="form-control" id="blogtarget">
+            </div>
+         </div>
+         <div class="text-center mt-5 mb-5">
+            <button class="btn btn-dark w-25" onclick="addBlog();">ADD BLOG</button>
          </div>
       </section>
       <hr>
@@ -670,6 +743,7 @@
       <script src="js/services.js"></script>
       <script src="js/coupons.js"></script>
       <script src="js/addBlogs.js"></script>
+      <script src="js/editBlogs.js"></script>
       <script src="js/editServices.js"></script>
    </body>
 </html>
