@@ -92,6 +92,10 @@ function checkout() {
 	var customer_mobile = document.getElementById('customer_mobile').value;
 	var customer_email = document.getElementById('customer_email').value;
 
+	if(coupon_code == undefined){
+		coupon_code = "";
+	}
+
 	if (customer_name != '' && customer_mobile != '' && customer_email != '') {
 		var json = {
 			"offerIds": offerId,
@@ -111,7 +115,7 @@ function checkout() {
 			if (data['receipt_id'] != "") {
 				var options = {
 					"key": "rzp_test_I4CcsfzCypIJie",
-					"amount": parseInt(data['amount']) * 100,
+					"amount": data['amount'],
 					"currency": "INR",
 					"name": "ALAN VIDYUSH BAPTIST",
 					"description": "Pay For Your Service",
