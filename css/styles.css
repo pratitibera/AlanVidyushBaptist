@@ -1115,8 +1115,7 @@ footer .move-up {
 }
 
 .bgclr-1 {
-   background: #104548;
-   border: 2px solid #235a49;
+   background: linear-gradient(to left, #433074 0%, #a364a2 100%);
    color: #ffffff;
 }
 

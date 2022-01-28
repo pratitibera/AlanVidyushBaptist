@@ -117,6 +117,7 @@ function getPlans() {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		document.getElementById('pricing_heading').innerHTML = "PRICING OF " + mainService.toUpperCase();
 		var pricing_section_container = document.getElementById('pricing-section-container');
 		pricing_section_container.innerHTML += `<h2 class="fo-40 fw-700 text-center pt-5 mfo-25">We've Got Plans for ${mainService}</h2><hr>`;
 

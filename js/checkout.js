@@ -60,8 +60,9 @@ function applyCoupon() {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		if(data['message'] == "Coupon does not exist"){
-			document.getElementById('coupon_status').innerHTML += `<div class="fo-16 text-dark fw-600">Invalid Coupon</div>`;
+		if(data['error'] == "Coupon does not exist"){
+			document.getElementById('coupon_status').innerHTML = `<input type="text" placeholder="Coupon code" id="coupon_code">
+			<div class="fo-16 text-dark fw-600">Invalid Coupon</div>`;
 		}
 		else{
 			document.getElementById('coupon_button').innerHTML = "REMOVE COUPON";
