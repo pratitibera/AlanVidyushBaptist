@@ -303,3 +303,48 @@ function edit_data_interval(){
 		}
 	}
 }
+
+
+
+
+
+
+var s_index = 0;
+var s_limit = 50;
+
+
+// Search blogs
+function searchBlog() {
+	var searched_blog = document.getElementById('searched_blog').value;
+	var request = new XMLHttpRequest();
+  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + "?index=" + s_index + "&limit=" + s_limit + "&searchQuery=" + searched_blog, true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send();
+  request.onload = function () {
+    var data = JSON.parse(this.response);
+    console.log(data);
+    if(data.length > 0){
+    	s_index = data.length;
+	    var allBlogs = document.getElementById('allBlogs');
+	    allBlogs.innerHTML = "";
+	    for (i = 0; i < data.length; i++) {
+	    	if(data[i]['featured'] == true){
+	    		allBlogs.innerHTML += `<tr>
+	                      <td>${data[i]['title']}</td>
+	                      <td><button class="btn btn-dark" id="delete_${data[i]['_id']}" onclick="handleFeatures(this.id)">DELETE FROM FEATURED</button></td>
+	                    </tr>`;
+	    	}
+	    	else{
+	    		allBlogs.innerHTML += `<tr>
+	                      <td>${data[i]['title']}</td>
+	                      <td><button class="btn btn-dark" id="add_${data[i]['_id']}" onclick="handleFeatures(this.id)">ADD TO FEATURED</button></td>
+	                    </tr>`;
+	    	}
+	    }
+    }
+    else{
+    	alert("No search results found");
+      //document.getElementById('readmorebutton').innerHTML = `<div class="fo-20 fw-600 text-center"><p>That's all we have</p></div>`;
+    }
+  }
+}

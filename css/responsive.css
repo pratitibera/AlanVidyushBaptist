@@ -402,4 +402,11 @@
 	.cart_count {
 		padding-top: 24px;
 	}
+	.whatsapp_icon_span{
+		top: 14px;
+		right: -3px;
+	}
+	.min-height{
+		min-height: 36.5vh;
+	}
 }

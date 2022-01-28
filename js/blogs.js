@@ -20,11 +20,11 @@ function getAllBlogs(page) {
 
 function displayBlogs(data, page) {
   if (page == 'blog_page') {
+    // <div class="fo-30 fw-600 text-center mt-2 mfo-20">${data[0]['summary']}</div>
     document.getElementById('blog_page_cover').innerHTML = `<img src="${data[0]['headerImage'][0]['image']}" class="w-100">
             <div class="imageOverlay">
-               <div class="fo-52 fw-600 text-center mfo-30">${data[0]['title']}</div>
-               <div class="fo-30 fw-600 text-center mt-2 mfo-20">${data[0]['summary']}</div>
-               <div class="text-center mt-5">
+               <div class="fo-52 fw-600 text-center mfo-20">${data[0]['title']}</div>
+               <div class="text-center mt-3 mt-md-5">
                   <a href="blog.html?id=${data[0]['_id']}">
                      <button class="btn website-button bg-dark text-white">READ MORE</button>
                   </a>

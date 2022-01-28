@@ -11,6 +11,17 @@ menuBtn.addEventListener('click', () => {
     }
 });
 
+function startLoader() {
+    document.getElementById("preloader").style.display = "block";
+    document.getElementById("loader").style.display = "block";
+}
+
+function stopLoader() {
+    $(".loader").fadeOut();
+    $("#preloader").delay(2000).fadeOut("slow");
+    document.getElementById("preloader").style.display = "none";
+}
+
 function notify(message) {
     if (document.getElementById('show_notification') == null) {
         (() => {
