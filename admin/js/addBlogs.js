@@ -1,147 +1,299 @@
-var clientHtml = "";
-var coachdata = "";
+// Blog categories and subcategories
 
+var blogCatandSub = [{
+		"category": "Fitness",
+		"subcategory": ["Weight Loss", "Muscle Gain", "Body Recomposition", "Sports Performance", "Fitness Modelling", "Fitness Myths"]
+	},
+	{
+		"category": "Nutrition",
+		"subcategory": ["Weight Loss", "Weight Gain", "Nutrition Concepts", "Recipes", "Nutrition Myths"]
 
-async function copyToClipboard(id) {
-	 var e = document.getElementById(id).value;
-	 t = document.createElement("textarea");
-	 document.body.appendChild(t);
-	 t.setAttribute("id", "dummy_id");
-	 document.getElementById("dummy_id").value = e;
-	 await t.select();
-	 await document.execCommand("copy");
-	 document.body.removeChild(t);
+	},
+	{
+		"category": "Education",
+		"subcategory": ["Career", "Skills"]
+
+	},
+	{
+		"category": "Psychology",
+		"subcategory": ["Sex", "Relationships", "Communication", "Psychology Concepts", "Philosophy", "Spirituality"]
+
+	},
+	{
+		"category": "Finance",
+		"subcategory": ["Taxation", "Investment", "Business", "Commerce", "Economics"]
+
+	}
+]
+
+function getBlogCategory() {
+	var blogcategory_select = document.getElementById('blogcategory');
+	for (i = 0; i < blogCatandSub.length; i++) {
+		var cat_option = document.createElement('option');
+		cat_option.value = blogCatandSub[i]['category'] + "_" + i;
+		cat_option.append(blogCatandSub[i]['category']);
+		blogcategory_select.append(cat_option);
+	}
+}
+
+function getBlogSubcategory(val) {
+	var indexx = val.split('_')[1];
+	var blogsubcategory_select = document.getElementById('blogsubcategory');
+	blogsubcategory_select.innerHTML = "";
+	for (i = 0; i < blogCatandSub[indexx]['subcategory'].length; i++) {
+		var subcat_option = document.createElement('option');
+		subcat_option.value = blogCatandSub[indexx]['subcategory'][i];
+		subcat_option.append(blogCatandSub[indexx]['subcategory'][i]);
+		blogsubcategory_select.append(subcat_option);
+	}
+}
+
+var cover = []; // Stores the cover images list
+var coach = []; // Stores the coach images list
+var content = []; // Stores the blog body list
+var contentList = []; // Stores the blog contents
+var gallery = []; // Stores the gallery images
+
+// Cover image
+function addCoverImage(){
+	var headerimageurl = document.getElementById('headerimageurl').value;
+	var headerimagetitle = document.getElementById('headerimagetitle').value;
+	dic = {
+		"image": headerimageurl,
+		"title": headerimagetitle
+	}
+	cover.push(dic);
+	coverList = {
+		"cover": cover
+	}
+	document.getElementById('headerimageurl').value = "";
+	document.getElementById('headerimagetitle').value = "";
+
+	document.getElementById('headerimageList').innerHTML = "";
+	console.log(coverList['cover']);
+	for (i = 0; i < coverList['cover'].length; i++) {
+		document.getElementById('headerimageList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${coverList['cover'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="cover_${i}" onclick="removeCoverImage(this.id)">x</span></div>
+                     <img src=${coverList['cover'][i]['image']} class="w-100">
+                  </div>`
+	}
+}
+
+function removeCoverImage(id) {
+	var id = parseInt(id.split('_')[1]);
+	coverList['cover'].splice(id, 1);
+	document.getElementById('headerimageList').innerHTML = "";
+	for (i = 0; i < coverList['cover'].length; i++) {
+		document.getElementById('headerimageList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${coverList['cover'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="cover_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <img src=${coverList['cover'][i]['image']} class="w-100">
+                  </div>`
+	}
 }
 
 
-function addClientInfo(){
-	var clientField = document.getElementById('clientField').value;
-	var clientFieldData = document.getElementById('clientFieldData').value;
-	if(clientField != "" && clientFieldData != ""){
-		if(coachdata == ""){
-			clientHtml += `<div class="text-center fw-700 mfo-12">${clientField}: ${clientFieldData}</div>`;
-			document.getElementById('clientInfoData').value = `<div>${clientHtml}</div>`;
-		}
-		else{
-			document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12">COACH</div></div>${coachdata}
-			<div class="text-center fw-700 mfo-12 mt-5">${clientField}: ${clientFieldData}</div>`;
-			coachdata = "";
-			clientHtml = "";
-		}
+// Coach image
+function addCoachImage(){
+	var coachname = document.getElementById('coachname').value;
+	var coachimage = document.getElementById('coachimage').value;
+	dic = {
+		"image": coachimage,
+		"name": coachname
 	}
-	else{
-		alert("Enter all fields");
+	coach.push(dic);
+	coachList = {
+		"coach": coach
 	}
-	document.getElementById('clientField').value = "";
-	document.getElementById('clientFieldData').value = "";
+	document.getElementById('coachimage').value = "";
+	document.getElementById('coachname').value = "";
+
+	document.getElementById('coachList').innerHTML = "";
+	console.log(coachList['coach']);
+	for (i = 0; i < coachList['coach'].length; i++) {
+		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${coachList['coach'][i]['name']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>
+                     <img src=${coachList['coach'][i]['image']} class="w-100">
+                  </div>`
+	}
 }
 
-function addCoachInfo(){
-	var coachimg1 = document.getElementById('coachimg1').value;
-	var coachname1 = document.getElementById('coachname1').value;
-	var coachimg2 = document.getElementById('coachimg2').value;
-	var coachname2 = document.getElementById('coachname2').value;
-	var coachimg3 = document.getElementById('coachimg3').value;
-	var coachname3 = document.getElementById('coachname3').value;
-	if(coachimg1 != "" && coachname1 != "" && coachimg2 == "" && coachname2 == "" && coachimg3 == "" && coachname3 == ""){
-		coachdata = `<div class="row m-0 p-500">
-            <div class="col-12 col-sm-12 p-0">
-               <img src="${coachimg1}" id="coach1">
-               <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
-            </div>
-         </div>`;
-        document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
+function removecoachImage(id) {
+	var id = parseInt(id.split('_')[1]);
+	coachList['coach'].splice(id, 1);
+	document.getElementById('coachList').innerHTML = "";
+	for (i = 0; i < coachList['coach'].length; i++) {
+		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${coachList['coach'][i]['name']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <img src=${coachList['coach'][i]['image']} class="w-100">
+                  </div>`
 	}
-	else if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != "" && coachimg3 == "" && coachname3 == ""){
-		coachdata = `<div class="row m-0 p-300">
-            <div class="col-6 col-sm-6 p-0">
-               <img src="${coachimg1}" id="coach1">
-               <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
-            </div>
-            <div class="col-6 col-sm-6 p-0">
-               <img src="${coachimg2}" id="coach2">
-               <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
-            </div>
-         </div>`;
-      document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
-	}
-	else if(coachimg1 != "" && coachname1 != "" && coachimg2 != "" && coachname2 != "" && coachimg3 != "" && coachname3 != ""){
-		coachdata = `<div class="row m-0 p-150">
-            <div class="col-4 col-sm-4 p-0">
-               <img src="${coachimg1}" id="coach1">
-               <div class="mt-3 fw-700 mfo-12">${coachname1}</div>
-            </div>
-            <div class="col-4 col-sm-4 p-0">
-               <img src="${coachimg2}" id="coach2">
-               <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
-            </div>
-            <div class="col-4 col-sm-4 p-0">
-               <img src="${coachimg2}" id="coach3">
-               <div class="mt-3 fw-700 mfo-12">${coachname2}</div>
-            </div>
-         </div>`;
-      document.getElementById('clientInfoData').value = `<div>${clientHtml}<div class="text-center fw-700 mt-3 mfo-12 mb-3">COACH</div></div>${coachdata}`;
-	}
-	else{
-		alert("Enter all fields");
-	}
-	document.getElementById('coachimg1').value = "";
-	document.getElementById('coachname1').value = "";
-	document.getElementById('coachimg2').value = "";
-	document.getElementById('coachname2').value = "";
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
 // Blog body
-var blogContentBody = "";
-var blogHeadingCount = 0;
-var blogBodyImageCount = 0;
+function addBlogBody(){
+	var contentid = document.getElementById('contentid').value;
+	var contentheading = document.getElementById('contentheading').value;
+	var contentpara = document.getElementById('contentpara').value;
+	dic = {
+		"id": parseInt(contentid),
+		"heading": contentheading,
+		"paragraph": contentpara
+	}
+	content.push(dic);
+	content.sort(function(a, b) {
+		return a.id - b.id;
+	});
+	blogcontentList = {
+		"content": content
+	}
+	var contentid = document.getElementById('contentid').value = "";
+	var contentheading = document.getElementById('contentheading').value = "";
+	var contentpara = document.getElementById('contentpara').value = "";
 
-function addHeading(){
-	var heading = document.getElementById('heading').value;
-	if(heading != ""){
-		blogContentBody += `<div class="blogContent fw-600 fo-30 mfo-18" id="topic${blogHeadingCount++}">${heading}</div>`;
-		document.getElementById('blogContentData').value = blogContentBody;
+	document.getElementById('blogcontent').innerHTML = "";
+	console.log(blogcontentList['content']);
+	for (i = 0; i < blogcontentList['content'].length; i++) {
+		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-4 mb-2">
+                     <div>${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
+                     <div>${blogcontentList['content'][i]['paragraph']}</div>
+                  </div>`
 	}
-	else{
-		alert("Enter heading");
-	}
-	document.getElementById('heading').value = "";
 }
 
-function addParas(){
-	var paras = document.getElementById('paras').value;
-	if(paras != ""){
-		blogContentBody += `<div class="blogContent fo-17 mfo-15 mt-2">${paras}</div>`;
-		document.getElementById('blogContentData').value = blogContentBody;
+function removecontentImage(id) {
+	var id = parseInt(id.split('_')[1]);
+	blogcontentList['content'].splice(id, 1);
+	document.getElementById('blogcontent').innerHTML = "";
+	for (i = 0; i < blogcontentList['content'].length; i++) {
+		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-4 mb-2">
+                     <div>${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
+                     <div>${blogcontentList['content'][i]['paragraph']}</div>
+                  </div>`
 	}
-	else{
-		alert("Enter paragraph");
-	}
-	document.getElementById('paras').value = "";
 }
 
-function addImages(){
-	var imageurl = document.getElementById('imageurl').value;
-	if(imageurl != ""){
-		blogContentBody += `<div class="text-center mt-4">
-            <img src="${imageurl}" class="w-70 mow-100" id="blogBodyImage_${blogBodyImageCount++}">
-         </div>`;
-		document.getElementById('blogContentData').value = blogContentBody;
+// Blog contents
+function addContents() {
+	var content = document.getElementById('content').value;
+	contentList.push(content);
+	document.getElementById('contentList').innerHTML = "";
+	for (i = 0; i < contentList.length; i++) {
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">${contentList[i]}<span class="ml-3 cursor-pointer" id="blogContent_${i}" onclick="removeContent(this.id)">x</span></div>`;
 	}
-	else{
-		alert("Enter image url");
+	document.getElementById('content').value = "";
+}
+
+function removeContent(id) {
+	var id = parseInt(id.split('_')[1]);
+	contentList.splice(id, 1);
+	document.getElementById('contentList').innerHTML = "";
+	for (i = 0; i < contentList.length; i++) {
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">${contentList[i]}<span class="ml-3 cursor-pointer" id="blogContent_${i}" onclick="removeContent(this.id)">x</span></div>`;
 	}
-	document.getElementById('imageurl').value = "";
+	document.getElementById('content').value = "";
+}
+
+
+// Gallery images
+function addImage() {
+	var gallerytitle = document.getElementById('gallerytitle').value;
+	var galleryimage = document.getElementById('galleryimage').value;
+	dic = {
+		"image": galleryimage,
+		"title": gallerytitle
+	}
+	gallery.push(dic);
+	galleryList = {
+		"gallery": gallery
+	}
+	document.getElementById('gallerytitle').value = "";
+	document.getElementById('galleryimage').value = "";
+
+	document.getElementById('galleryList').innerHTML = "";
+	for (i = 0; i < galleryList['gallery'].length; i++) {
+		document.getElementById('galleryList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${galleryList['gallery'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="gallery_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <img src=${galleryList['gallery'][i]['image']} class="w-100">
+                  </div>`
+	}
+}
+
+function removeImage(id) {
+	var id = parseInt(id.split('_')[1]);
+	galleryList['gallery'].splice(id, 1);
+	document.getElementById('galleryList').innerHTML = "";
+	for (i = 0; i < galleryList['gallery'].length; i++) {
+		document.getElementById('galleryList').innerHTML += `<div class="col-sm-2 mb-2">
+                     <div>${galleryList['gallery'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="gallery_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <img src=${galleryList['gallery'][i]['image']} class="w-100">
+                  </div>`
+	}
+}
+
+
+
+// Add blog
+function addBlog() {
+	var listOfContents = []; // Stores the final blog contents
+
+	for (i = 0; i < contentList.length; i++) {
+		dic = {
+			"id": "topic" + i,
+			"title": contentList[i]
+		}
+		listOfContents.push(dic);
+	}
+
+	var client = document.getElementById('client').value;
+	var brands = document.getElementById('brands').value;
+	var author = document.getElementById('author').value;
+	var blogtitle = document.getElementById('blogtitle').value;
+	var blogdate = document.getElementById('blogdate').value;
+	var blogsummary = document.getElementById('blogsummary').value;
+	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
+	var blogsubcategory = document.getElementById('blogsubcategory').value;
+	var blogtarget = document.getElementById('blogtarget').value;
+
+	var slug = blogtitle.replace(/[^a-zA-Z0-9 ]/g, "");
+	var slug = slug.replaceAll(" ", "_");
+	var slug = encodeURIComponent(slug);
+
+	if (client != '' && blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
+		var json = {
+			"date": blogdate,
+			"title": blogtitle,
+			"author": author,
+			"headerImage": coverList['cover'],
+			"slug": slug,
+			"summary": blogsummary,
+			"body": blogcontentList['content'],
+			"category": blogcategory,
+			"subcategory": blogsubcategory,
+			"client": client,
+			"brands": brands,
+			"coach": coachList['coach'],
+			"content": listOfContents,
+			"gallery": galleryList['gallery'],
+			"target": blogtarget
+		}
+		console.log(json);
+		var request = new XMLHttpRequest();
+		request.open(urlSet.post_blogApi.method, urlSet.post_blogApi.url, true);
+		request.setRequestHeader("Content-Type", "application/json");
+		request.send(JSON.stringify(json));
+		request.onload = function () {
+			var data = JSON.parse(this.response);
+			console.log(data);
+			if (data['message'] == "Blog has been added") {
+				alert("Blog successfully added");
+				location.reload();
+			} else {
+				alert("Could not add blog");
+			}
+		}
+	} else {
+		alert("Please fill all details")
+	}
 }

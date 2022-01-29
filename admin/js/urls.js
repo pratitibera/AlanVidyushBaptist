@@ -12,6 +12,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/blogs/",
         method: "POST",
     },
+    delete_blogApi: { // Delete a blog
+        url: baseUrl + "/api/v1/blogs/",
+        method: "DELETE",
+    },
     get_AuthorblogApi: { // Get blogs of an author
         url: baseUrl + "/api/v1/blogs/author/",
         method: "GET",

@@ -244,7 +244,11 @@
                   <div class="carousel-inner" id="blogImageContainer"></div>
                </div>
             </div>
-            <div class="blogWriter" id="blogWriter"></div>
+            <div class="blogWriter">
+               <div id="blogWriter"></div>
+               <div id="coaches"></div>
+               <div class="text-center fw-700 mfo-12 mt-5" id="brands"></div>
+            </div>
             <div class="blogHeading text-center mt-5" id="blogHeading"></div>
             <hr class="blogBorder">
             <div class="fo-13 mt-5 text-center blogDate" id="blogdate"></div>
@@ -322,6 +326,51 @@
          </section>
       </section>
       <!---Footer section begins --->
+
+
+      <!-- The Modal -->
+      <div class="modal fade" id="checkout">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header bg-theme">
+                  <h4 class="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
+                  <button type="button" class="close text-dark fw-800" data-dismiss="modal">&times;</button>
+               </div>
+               <!-- Modal body -->
+               <div class="modal-body pt-4">
+                  <div id="particulars"></div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_name">
+                     <div class="underline"></div>
+                     <label>Full Name</label>
+                  </div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_email">
+                     <div class="underline"></div>
+                     <label>Email</label>
+                  </div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_mobile">
+                     <div class="underline"></div>
+                     <label>Contact number</label>
+                  </div>
+                  <div class="row m-0 couponsection mt-5">
+                     <div class="col-6 col-sm-6 pl-0" id="coupon_status">
+                        <input type="text" placeholder="Coupon code" id="coupon_code">
+                     </div>
+                     <div class="col-6 col-sm-6 pr-0">
+                        <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();" id="coupon_button">APPLY COUPON</button>
+                     </div>
+                  </div>
+               </div>
+               <div class="checkoutfooter row m-0">
+                  <button class="btn website-button w-50 bg-white text-dark fo-20 fw-800" id="totalbill"></button>
+                  <button class="btn website-button w-50 bg-dark text-white" onclick="checkout();">PROCEED TO PAYMENT</button>
+               </div>
+            </div>
+         </div>
+      </div>
       <footer id="contact">
          <div class="footer-bg overflow-hidden">
             <div class="footer-img-container w-100">
@@ -372,5 +421,6 @@
       <script src="js/urls.js"></script>
       <script src="js/main.js"></script>
       <script src="js/blogs.js"></script>
+      <script src="js/checkout.js"></script>
    </body>
 </html>

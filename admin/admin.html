@@ -106,6 +106,19 @@
                <input type="text" class="form-control" id="client">
             </div>
             <div class="form-group">
+               <label>Brands: </label>
+               <input type="text" class="form-control" id="brands">
+            </div>
+            <div class="form-group">
+               <label>Coach:</label>
+               <div id="coachList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="coachname" placeholder="Enter name of coach">
+                  <input type="text" class="form-control w-50 ml-4" id="coachimage" placeholder="Enter image of coach">
+                  <button class="btn btn-dark ml-4" onclick="addCoachImage();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
                <label>Blog author:</label>
                <input type="text" class="form-control" id="author">
             </div>
@@ -119,7 +132,13 @@
             </div>
             <div class="form-group">
                <label>Blog content HTML: <span class="text-danger">*</span></label>
-               <input type="text" class="form-control" id="blogcontent">
+               <div class="row m-0" id="blogcontent"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-10" id="contentid" placeholder="Enter index">
+                  <input type="text" class="form-control w-25 ml-4" id="contentheading" placeholder="Enter heading">
+                  <input type="text" class="form-control w-50 ml-4" id="contentpara" placeholder="Enter paragraph">
+                  <button class="btn btn-dark ml-4" onclick="addBlogBody();">ADD</button>
+               </div>
             </div>
             <div class="form-group">
                <label>Blog summary: <span class="text-danger">*</span></label>
@@ -176,6 +195,7 @@
                         <th>Blog Title</th>
                         <th></th>
                         <th></th>
+                        <th></th>
                      </tr>
                   </thead>
                   <tbody id="allBlogs"></tbody>
@@ -193,69 +213,88 @@
             <h3 class="mb-5">EDIT BLOG</h3>
             <div class="form-group">
                <label>Cover images: <span class="text-danger">*</span></label>
-               <div id="headerimageList" class="row m-0"></div>
+               <div id="edit_headerimageList" class="row m-0"></div>
                <div class="row m-0 mt-3">
-                  <input type="text" class="form-control w-25" id="headerimagetitle" placeholder="Enter cover image title">
-                  <input type="text" class="form-control w-50 ml-4" id="headerimageurl" placeholder="Enter cover image URL">
-                  <button class="btn btn-dark ml-4" onclick="addCoverImage();">ADD</button>
+                  <input type="text" class="form-control w-25" id="edit_headerimagetitle" placeholder="Enter cover image title">
+                  <input type="text" class="form-control w-50 ml-4" id="edit_headerimageurl" placeholder="Enter cover image URL">
+                  <button class="btn btn-dark ml-4" onclick="edit_addCoverImage();">ADD</button>
                </div>
             </div>
             <div class="form-group">
                <label>Client Information HTML: <span class="text-danger">*</span></label>
-               <input type="text" class="form-control" id="client">
+               <input type="text" class="form-control" id="edit_client">
+            </div>
+            <div class="form-group">
+               <label>Brands: </label>
+               <input type="text" class="form-control" id="edit_brands">
+            </div>
+            <div class="form-group">
+               <label>Coach:</label>
+               <div id="edit_coachList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="edit_coachname" placeholder="Enter name of coach">
+                  <input type="text" class="form-control w-50 ml-4" id="edit_coachimage" placeholder="Enter image of coach">
+                  <button class="btn btn-dark ml-4" onclick="edit_addCoachImage();">ADD</button>
+               </div>
             </div>
             <div class="form-group">
                <label>Blog author:</label>
-               <input type="text" class="form-control" id="author">
+               <input type="text" class="form-control" id="edit_author">
             </div>
             <div class="form-group">
                <label>Blog title: <span class="text-danger">*</span></label>
-               <input type="text" class="form-control" id="blogtitle">
+               <input type="text" class="form-control" id="edit_blogtitle">
             </div>
             <div class="form-group">
                <label>Date: (Format: 12 November, 2021) <span class="text-danger">*</span></label>
-               <input type="text" class="form-control" id="blogdate">
+               <input type="text" class="form-control" id="edit_blogdate">
             </div>
             <div class="form-group">
                <label>Blog content HTML: <span class="text-danger">*</span></label>
-               <input type="text" class="form-control" id="blogcontent">
+               <div class="row m-0" id="edit_blogcontent"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-10" id="edit_contentid" placeholder="Enter index">
+                  <input type="text" class="form-control w-25 ml-4" id="edit_contentheading" placeholder="Enter heading">
+                  <input type="text" class="form-control w-50 ml-4" id="edit_contentpara" placeholder="Enter paragraph">
+                  <button class="btn btn-dark ml-4" onclick="edit_addBlogBody();">ADD</button>
+               </div>
             </div>
             <div class="form-group">
                <label>Blog summary: <span class="text-danger">*</span></label>
-               <input type="text" class="form-control" id="blogsummary">
+               <input type="text" class="form-control" id="edit_blogsummary">
             </div>
             <div class="form-group">
                <label>Select blog category: <span class="text-danger">*</span></label>
-               <select class="form-control" id="blogcategory" onchange="getBlogSubcategory(this.value);"></select>
+               <select class="form-control" id="edit_blogcategory" onchange="getBlogSubcategory(this.value);"></select>
             </div>
             <div class="form-group">
                <label>Select blog subcategory: <span class="text-danger">*</span></label>
-               <select class="form-control" id="blogsubcategory"></select>
+               <select class="form-control" id="edit_blogsubcategory"></select>
             </div>
             <div class="form-group">
                <label>Add contents: <span class="text-danger">*</span></label>
                <div id="contentList" class="row m-0"></div>
                <div class="row m-0 mt-3">
-                  <input type="text" class="form-control w-50" id="content">
-                  <button class="btn btn-dark ml-4" onclick="addContents();">ADD</button>
+                  <input type="text" class="form-control w-50" id="edit_content">
+                  <button class="btn btn-dark ml-4" onclick="edit_addContents();">ADD</button>
                </div>
             </div>
             <div class="form-group">
                <label>Add images for gallery: <span class="text-danger">*</span></label>
-               <div id="galleryList" class="row m-0"></div>
+               <div id="edit_galleryList" class="row m-0"></div>
                <div class="row m-0 mt-3">
-                  <input type="text" class="form-control w-25" id="gallerytitle" placeholder="Enter image title">
-                  <input type="text" class="form-control w-50 ml-4" id="galleryimage" placeholder="Enter image URL">
-                  <button class="btn btn-dark ml-4" onclick="addImage();">ADD</button>
+                  <input type="text" class="form-control w-25" id="edit_gallerytitle" placeholder="Enter image title">
+                  <input type="text" class="form-control w-50 ml-4" id="edit_galleryimage" placeholder="Enter image URL">
+                  <button class="btn btn-dark ml-4" onclick="edit_addImage();">ADD</button>
                </div>
             </div>
             <div class="form-group">
                <label>Target URL:</label>
-               <input type="text" class="form-control" id="blogtarget">
+               <input type="text" class="form-control" id="edit_blogtarget">
             </div>
          </div>
          <div class="text-center mt-5 mb-5">
-            <button class="btn btn-dark w-25" onclick="addBlog();">ADD BLOG</button>
+            <button class="btn btn-dark w-25" onclick="saveEditedBlog();">ADD BLOG</button>
          </div>
       </section>
       <hr>
@@ -613,34 +652,9 @@
                      <input type="text" class="form-control" id="clientFieldData">
                   </div>
                   <button class="btn btn-dark" onclick="addClientInfo();">ADD CLIENT INFO</button>
-                  <div class="form-group mt-4">
-                     <label>Coach image URL 1:</label>
-                     <input type="text" class="form-control" id="coachimg1">
-                  </div>
-                  <div class="form-group">
-                     <label>Coach name 1:</label>
-                     <input type="text" class="form-control" id="coachname1">
-                  </div>
-                  <div class="form-group mt-4">
-                     <label>Coach image URL 2:</label>
-                     <input type="text" class="form-control" id="coachimg2">
-                  </div>
-                  <div class="form-group">
-                     <label>Coach name 2:</label>
-                     <input type="text" class="form-control" id="coachname2">
-                  </div>
-                  <div class="form-group mt-4">
-                     <label>Coach image URL 3:</label>
-                     <input type="text" class="form-control" id="coachimg3">
-                  </div>
-                  <div class="form-group">
-                     <label>Coach name 3:</label>
-                     <input type="text" class="form-control" id="coachname3">
-                  </div>
-                  <button class="btn btn-dark" onclick="addCoachInfo();">ADD COACH INFO</button>
                </div>
                <div class="col-sm-6">
-                  <textarea rows="31" class="w-100" id="clientInfoData"></textarea>
+                  <textarea rows="13" class="w-100" id="clientInfoData"></textarea>
                   <button class="btn btn-dark mt-3" onclick="copyToClipboard('clientInfoData');">COPY TO CLIPBOARD</button>
                </div>
             </div>
@@ -652,15 +666,11 @@
             <div class="row m-0">
                <div class="col-sm-6">
                   <div class="form-group">
-                     <label>Heading:</label>
-                     <input type="text" class="form-control" id="heading">
-                  </div>
-                  <button class="btn btn-dark mb-2" onclick="addHeading();">ADD HEADING</button>
-                  <div class="form-group">
                      <label>Paragraph:</label>
                      <input type="text" class="form-control" id="paras">
                   </div>
                   <button class="btn btn-dark mb-2" onclick="addParas();">ADD PARAGRAPH</button>
+                  <button class="btn btn-dark mb-2" onclick="changeParas();">CHANGE PARAGRAPH</button>
                   <div class="form-group">
                      <label>Image URL:</label>
                      <input type="text" class="form-control" id="imageurl">
@@ -739,11 +749,12 @@
       <script src="js/urls.js" defer></script>
       <script src="js/script.js"></script>
       <script src="js/blogs.js"></script>
-      <script src="js/addServices.js"></script>
-      <script src="js/services.js"></script>
-      <script src="js/coupons.js"></script>
+      <script src="js/generateBlogs.js"></script>
       <script src="js/addBlogs.js"></script>
       <script src="js/editBlogs.js"></script>
+      <script src="js/services.js"></script>
+      <script src="js/addServices.js"></script>
       <script src="js/editServices.js"></script>
+      <script src="js/coupons.js"></script>
    </body>
 </html>

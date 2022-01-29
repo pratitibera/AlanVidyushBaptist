@@ -169,7 +169,7 @@ function payNowResponse(razorpay_payment_id, razorpay_order_id, razorpay_signatu
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		if(data['message'] == ""){
+		if(data['message'] == "Order Valid and Successful"){
 			notify("Payment successful");
 			localStorage.clear();
 		}

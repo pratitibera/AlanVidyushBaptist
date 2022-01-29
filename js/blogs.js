@@ -25,7 +25,7 @@ function displayBlogs(data, page) {
             <div class="imageOverlay">
                <div class="fo-52 fw-600 text-center mfo-20">${data[0]['title']}</div>
                <div class="text-center mt-3 mt-md-5">
-                  <a href="blog.html?id=${data[0]['_id']}">
+                  <a href="blog.html?id=${data[0]['slug']}">
                      <button class="btn website-button bg-dark text-white">READ MORE</button>
                   </a>
                </div>
@@ -35,7 +35,7 @@ function displayBlogs(data, page) {
 
   var displayAllBlogs = document.getElementById('displayAllBlogs');
   for (i = 0; i < data.length; i++) {
-    displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['_id']}">
+    displayAllBlogs.innerHTML += `<div class="col-6 col-sm-4 mb-4"><a href="blog.html?id=${data[i]['slug']}">
              <img src="${data[i]['headerImage'][0]['image']}" class="w-100">
              <div class="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14 text-dark">${data[i]['title']}</div>
              <div class="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11 text-dark">${data[i]['summary']}</div>
@@ -117,7 +117,7 @@ function getCategorisedBlogs() {
                <div class="fo-52 fw-600 text-center mfo-30">${data[0]['title']}</div>
                <div class="fo-30 fw-600 text-center mt-2 mfo-20">${data[0]['summary']}</div>
                <div class="text-center mt-5">
-                  <a href="blog.html?id=${data[0]['_id']}">
+                  <a href="blog.html?id=${data[0]['slug']}">
                      <button class="btn website-button bg-dark text-white">READ MORE</button>
                   </a>
                </div>
@@ -260,15 +260,60 @@ function displaySingleBlog(blog_id) {
                      </div>`;
         }
       }
-      //Client info
+      // client info
       document.getElementById('blogWriter').innerHTML = data['client'];
+      // Coaches
+      if(data['coach'].length == 1){
+        document.getElementById('coaches').innerHTML = `<div class="text-center fw-700 mt-3 mfo-12">COACH</div>
+                  <div class="row m-0 p-500 mt-3">
+                     <div class="col-12 col-sm-12 p-0">
+                        <img src="${data['coach'][0]['image']}">                
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['name']}</div>
+                     </div>
+                  </div>`
+      }
+      else if(data['coach'].length == 2){
+          document.getElementById('coaches').innerHTML = `<div class="text-center fw-700 mt-3 mfo-12">COACH</div>
+                  <div class="row m-0 p-300 mt-3">
+                     <div class="col-6 col-sm-6 p-0">
+                        <img src="${data['coach'][0]['image']}">                
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['name']}</div>
+                     </div>
+                     <div class="col-6 col-sm-6 p-0">
+                        <img src="${data['coach'][1]['image']}">                
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][1]['name']}</div>
+                     </div>
+                  </div>`
+        }
+          else if(data['coach'].length == 3){
+            document.getElementById('coaches').innerHTML = `<div class="text-center fw-700 mt-3 mfo-12">COACH</div>
+                  <div class="row m-0 mt-3">
+                     <div class="col-4 col-sm-4 p-0">
+                        <img src="${data['coach'][0]['image']}">                
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['name']}</div>
+                     </div>
+                     <div class="col-4 col-sm-4 p-0">
+                        <img src="${data['coach'][1]['image']}">                
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][1]['name']}</div>
+                     </div>
+                     <div class="col-4 col-sm-4 p-0">
+                        <img src="${data['coach'][2]['image']}">                
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][2]['name']}</div>
+                     </div>
+                  </div>`
+          }
+      // Brands
+      document.getElementById('brands').innerHTML = "BRANDS: " + data['brands'];
       // Blog heading
       document.getElementById('blogHeading').append(data['title']);
       // Blog date
       document.getElementById('blogdate').append(data['date']);
 
       // Blog content
-      document.getElementById('blogContent').innerHTML = data['body'];
+      for(i = 0; i < data['body'].length; i++){
+        document.getElementById('blogContent').innerHTML += `<div class="blogContent fw-600 fo-30 mfo-18 mb-3" id="topic_${data['body'][i]['id']}">${data['body'][i]['heading']}</div>
+        <div class="blogContent fo-17 mfo-15">${data['body'][i]['paragraph']}</div>`;
+      }
 
       // Gallery
       var blogsSection = document.getElementById('blogsSection');
