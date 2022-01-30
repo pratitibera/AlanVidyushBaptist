@@ -18,6 +18,9 @@ function editMainServices(){
                         <td class="text-center">
                            <button class="btn btn-dark" id="editMainServ_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
                         </td>
+                        <td class="text-center">
+                           <button class="btn btn-dark" id="deleteMainServ_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+                        </td>
                      </tr>`;
             document.getElementById('editMainServicesTable').style.display = "block";
 		}
@@ -41,6 +44,9 @@ function editServices(){
                         <td class="text-center">
                            <button class="btn btn-dark" id="editServ_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
                         </td>
+                        <td class="text-center">
+                           <button class="btn btn-dark" id="deleteServ_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+                        </td>
                      </tr>`;
             document.getElementById('editServicesTable').style.display = "block";
 		}
@@ -62,12 +68,34 @@ function editSubservices(){
 			editSubservicesData.innerHTML += `<tr>
                         <td>${data[i]['service']}</td>
                         <td class="text-center">
-                           <button class="btn btn-dark" id="editServ_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+                           <button class="btn btn-dark" id="editSubserv_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+                        </td>
+                        <td class="text-center">
+                           <button class="btn btn-dark" id="deleteSubserv_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
                         </td>
                      </tr>`;
             document.getElementById('editSubservicesTable').style.display = "block";
 		}
 	}
+}
+
+function deleteService(id) {
+	var request = new XMLHttpRequest();
+	request.open(urlSet.deleteServiceApi.method, urlSet.deleteServiceApi.url + id.split('_')[1], true);
+	request.setRequestHeader("Content-Type", "application/json");
+	request.send(JSON.stringify());
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+		if(data['message'] == "Service Deleted"){
+			alert("Service Deleted");
+			location.reload();
+		}
+		else{
+			alert("Could not delete service");
+		}
+	}
+	
 }
 
 function triggerServiceEditModal(id){

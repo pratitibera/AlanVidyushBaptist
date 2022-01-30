@@ -41,10 +41,16 @@ function addService() {
 	if (service != '') {
 		var json = {
 			"service": mainService,
-			"service_image": [service_cover,service_hover],
-			"description": service_desc,
+			"service_image": [],
+			"description": "",
 			"level": 1,
-			"subservices": [service],
+			"subservices": [
+			    {
+			      "service": service,
+			      "service_image": [service_cover,service_hover],
+			      "description": service_desc
+			    }
+			],
 			"offers": []
 		}
 		console.log(json);
@@ -58,10 +64,10 @@ function addService() {
 			document.getElementById('service').value = "";
 			if (data['message'] == "Serivce has been updated") {
 				alert("Service successfully added");
+				location.reload();
 			} else {
 				alert("Could not add service");
 			}
-			location.reload();
 		}
 	} else {
 		alert("Enter service");

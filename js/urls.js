@@ -63,6 +63,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/admin/service",
         method: "POST",
     },
+    deleteServiceApi: { // To delete services
+        url: baseUrl + "/api/v1/admin/service/",
+        method: "DELETE",
+    },
     editServicesApi: { // Update service names
         url: baseUrl + "/api/v1/admin/",
         method: "PATCH",
