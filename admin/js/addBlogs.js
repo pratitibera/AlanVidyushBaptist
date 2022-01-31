@@ -108,6 +108,7 @@ function addCoachImage(){
 	}
 	document.getElementById('coachimage').value = "";
 	document.getElementById('coachname').value = "";
+	document.getElementById('coachdesignation').value = "";
 
 	document.getElementById('coachList').innerHTML = "";
 	console.log(coachList['coach']);

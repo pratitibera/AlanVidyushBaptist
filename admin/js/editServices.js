@@ -17,7 +17,7 @@ function editMainServices(){
 			editMainServicesData.innerHTML += `<tr>
                         <td>${data[i]['service']}</td>
                         <td class="text-center">
-                           <button class="btn btn-dark" id="editMainServ_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+                           <button class="btn btn-dark" id="editMainServ_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
                         </td>
                         <td class="text-center">
                            <button class="btn btn-dark" id="deleteMainServ_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
@@ -43,7 +43,7 @@ function editServices(){
 			editServicesData.innerHTML += `<tr>
                         <td>${data[i]['service']}</td>
                         <td class="text-center">
-                           <button class="btn btn-dark" id="editServ_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+                           <button class="btn btn-dark" id="editServ_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
                         </td>
                         <td class="text-center">
                            <button class="btn btn-dark" id="deleteServ_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
@@ -69,7 +69,7 @@ function editSubservices(){
 			editSubservicesData.innerHTML += `<tr>
                         <td>${data[i]['service']}</td>
                         <td class="text-center">
-                           <button class="btn btn-dark" id="editSubserv_${data[i]['_id']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+                           <button class="btn btn-dark" id="editSubserv_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
                         </td>
                         <td class="text-center">
                            <button class="btn btn-dark" id="deleteSubserv_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
@@ -110,6 +110,7 @@ function deleteService(id) {
 function triggerServiceEditModal(id){
 	$("#editServicesModal").modal();
 	service_to_be_edited = id.split('_')[1];
+
 	servicetype_to_be_edited = id.split('_')[0];
 	if(servicetype_to_be_edited == "editMainServ"){
 		servicetype_to_be_edited = 0;
@@ -119,6 +120,19 @@ function triggerServiceEditModal(id){
 	}
 	else{
 		servicetype_to_be_edited = 2;
+	}
+
+	var request = new XMLHttpRequest();
+	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + id.split('_')[2], true);
+	request.setRequestHeader("Content-Type", "application/json");
+	request.send();
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+		document.getElementById('editServicesInput').value = data['service'];
+		document.getElementById('editServicesDesc').value = data['description'];
+		document.getElementById('editServicesCover').value = data['service_image'][0];
+		document.getElementById('editServicesHover').value = data['service_image'][1];
 	}
 }
 

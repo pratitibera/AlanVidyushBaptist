@@ -211,14 +211,14 @@ function getFeaturedBlogs() {
             blogSlider.innerHTML += `<label for="s${i}" id="slide${i}">
                      <div class="blogcardimage">
                         <a href="blog.html?id=${data[i]['_id']}">
-                           <img src=${data[i]['headerImage']['image']} height="100%" width="100%">
+                           <img src=${data[i]['headerImage'][0]['image']} height="100%" width="100%">
                         </a>
                      </div>
                      <div class="blog-body">
                         <div class="fo-21 fw-700 mfo-12">${data[i]['title']}</div>
                         <div class="fo-14 txtco mt-3 fw-400 mfo-11">${data[i]['summary']}</div>
                         <div class="mt-4">
-                           <a href="blog.html?id=${data[i]['_id']}" class="fo-12 fw-600 bco mfo-11">READ MORE >></a>
+                           <a href="blog.html?id=${data[i]['slug']}" class="fo-12 fw-600 bco mfo-11">READ MORE >></a>
                         </div>
                      </div>
                      <div class="blog-footer fo-12 mfo-11">${data[i]['date']}</div>
