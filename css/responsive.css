@@ -102,22 +102,6 @@
 	#collapsibleBlogCategories .row{
 		justify-content: space-between;
 	}
-	#portfolioSection .card{
-		height: 500px;
-		display: flex;
-		justify-content: center;
-		border: none;
-	}
-	#portfolioSection .card img{
-		height: 400px;
-	}
-	#portfolioSection .card img:hover{
-		height: 500px;
-		margin: auto;
-		box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.22), 0 4px 8px rgba(0, 0, 0, 0.06) !important;
-		transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12), 0.3s box-shadow, 0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
-    
-	}
 	.pricing-section-container{
 		padding: 40px 175px 20px 175px;
 	}
@@ -134,9 +118,9 @@
 	.blogImageContainer{
 		margin-top: 160px;
 	}
-	/* .dark-pricing{
-		box-shadow: 0px 0px 10px 0px #000000;
-	} */
+	#portfolioSection img:hover{
+		transform: scale(1.3);
+	}
 }
 
 @media only screen and (max-width: 576px) {
@@ -379,17 +363,6 @@
 	}
 	.services-list{
 		padding: 25px 0px;
-	}
-	#portfolioSection .card{
-		height: 400px;
-		display: flex;
-		justify-content: center;
-		border: none;
-	}
-	#portfolioSection .card img{
-		height: 400px;
-		margin: auto;
-		/* box-shadow: 20px 20px 15px rgba(0, 0, 0, 0.22), 0 4px 8px rgba(0, 0, 0, 0.06) !important; */
 	}
 	.pricing-cover{
 		margin-top: 66px;

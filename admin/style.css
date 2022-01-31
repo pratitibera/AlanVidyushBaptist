@@ -53,6 +53,6 @@ section{
 
 #collapsibleNavbar li a{
     font-size: 14px;
-    /* padding-left: 1.35rem;
-    padding-right: 1.35rem; */
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

@@ -16,7 +16,6 @@ function getMainServices() {
 
 function displayServices() {
 	var mainServices_section = document.getElementById('mainServices_section');
-	console.log(mainServicesData);
 	for (i = 0; i < mainServicesData.length; i++) {
 		var service = mainServicesData[i]['service'].replaceAll(' ', '_');
 		// mainServices_section.innerHTML += `<div class="col-sm-4">

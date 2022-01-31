@@ -137,10 +137,16 @@ function addSubservice() {
 		if (subservice != '') {
 			var json = {
 				"service": selected_service,
-				"service_image": [subservice_cover,subservice_hover],
-				"description": subservice_desc,
+				"service_image": [],
+				"description": "",
 				"level": 2,
-				"subservices": [subservice],
+				"subservices": [
+				    {
+				      "service": subservice,
+				      "service_image": [subservice_cover,subservice_hover],
+				      "description": subservice_desc
+				    }
+				],
 				"offers": []
 			}
 			console.log(json);

@@ -77,7 +77,7 @@ var urlSet = {
         method: "DELETE",
     },
     editServicesApi: { // Update service names
-        url: baseUrl + "/api/v1/admin/",
+        url: baseUrl + "/api/v1/admin/service/",
         method: "PATCH",
     },
     

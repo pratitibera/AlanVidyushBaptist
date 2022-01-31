@@ -1,7 +1,7 @@
 function deleteBlog(id){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.delete_blogApi.method, urlSet.delete_blogApi.url + id.split('_')[1], true);
-	request.setRequestHeader("Content-Type", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
@@ -23,6 +23,7 @@ function editBlog(id) {
 	var request = new XMLHttpRequest();
 	  request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + editBlogid, true);
 	  request.setRequestHeader("Content-Type", "application/json");
+	  request.setRequestHeader("authorization", authtoken);
 	  request.send();
 	  request.onload = function () {
 	    var data = JSON.parse(this.response);

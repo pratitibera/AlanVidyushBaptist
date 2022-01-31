@@ -1,4 +1,5 @@
 var service_to_be_edited;
+var servicetype_to_be_edited;
 var editservice_level;
 
 function editMainServices(){
@@ -82,15 +83,22 @@ function editSubservices(){
 function deleteService(id) {
 	var request = new XMLHttpRequest();
 	request.open(urlSet.deleteServiceApi.method, urlSet.deleteServiceApi.url + id.split('_')[1], true);
-	request.setRequestHeader("Content-Type", "application/json");
 	request.setRequestHeader("authorization", authtoken);
-	request.send(JSON.stringify());
+	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
 		if(data['message'] == "Service Deleted"){
 			alert("Service Deleted");
-			location.reload();
+			if(id.split('_')[0] == "deleteMainServ"){
+				editMainServices();
+			}
+			else if(id.split('_')[0] == "deleteServ"){
+				editServices();
+			}
+			else{
+				editSubservices();
+			}
 		}
 		else{
 			alert("Could not delete service");
@@ -100,8 +108,18 @@ function deleteService(id) {
 }
 
 function triggerServiceEditModal(id){
-	service_to_be_edited = id.split('_')[1];
 	$("#editServicesModal").modal();
+	service_to_be_edited = id.split('_')[1];
+	servicetype_to_be_edited = id.split('_')[0];
+	if(servicetype_to_be_edited == "editMainServ"){
+		servicetype_to_be_edited = 0;
+	}
+	else if(servicetype_to_be_edited == "editServ"){
+		servicetype_to_be_edited = 1;
+	}
+	else{
+		servicetype_to_be_edited = 2;
+	}
 }
 
 function editServicesSave(){
@@ -111,7 +129,12 @@ function editServicesSave(){
 	var servicesHover = document.getElementById('editServicesHover').value;
 
 	var json = {
-		"service": new_service
+		"service": new_service,
+		"service_image": [servicesCover, servicesHover],
+		"description": servicesDesc,
+		"level": parseInt(servicetype_to_be_edited),
+		"subservices": [],
+		"offers": []
 	}
 	console.log(json);
 	var request = new XMLHttpRequest();
@@ -125,17 +148,15 @@ function editServicesSave(){
 		if(data['message'] == "Service Updated"){
 			$("#editServicesModal").modal('hide');
 			alert("Service Updated");
-			location.reload();
-			// getPlanServices();
-			// if(editservice_level == 0){
-			// 	editMainServices();
-			// }
-			// else if(editservice_level == 1){
-			// 	editServices();
-			// }
-			// else{
-			// 	editSubservices();
-			// }
+			if(servicetype_to_be_edited == 0){
+				editMainServices();
+			}
+			else if(servicetype_to_be_edited == 1){
+				editServices();
+			}
+			else{
+				editSubservices();
+			}
 		}
 		else{
 			alert("Could not update service");
