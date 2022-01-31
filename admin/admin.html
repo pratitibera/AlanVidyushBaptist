@@ -88,7 +88,7 @@
                     Account
                   </a>
                   <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#changecredentials">Change credentials</a>
+                     <a class="dropdown-item" href="#changepassword">Change password</a>
                      <a class="dropdown-item" href="#" onclick="logout();">Logout</a>
                   </div>
                </li>
@@ -763,18 +763,17 @@
 
 
       <!-- Change credentials --->
-      <section id="changecredentials" class="mb-5">
+      <section id="changepassword" class="mb-5">
          <div class="container" style="padding: 100px 250px">
-            <h2>CHANGE ADMIN CREDENTIALS</h2>
-            <div class="form-group mt-5">
-               <label>Username:</label>
-               <input type="text" class="form-control" id="username" placeholder="Enter username">
+            <div class="form-group">
+               <label>Enter new password:</label>
+               <input type="password" class="form-control" id="password" placeholder="Enter new password">
             </div>
             <div class="form-group">
-               <label>Password:</label>
-               <input type="password" class="form-control" id="password" placeholder="Enter password">
+               <label>Confirm password:</label>
+               <input type="password" class="form-control" id="c_password" placeholder="Enter new password">
             </div>
-            <button type="button" class="btn btn-primary mt-4" onclick="changecredentials();">Submit</button>
+            <button type="button" class="btn btn-primary mt-4" onclick="changepassword();">Submit</button>
          </div>
       </section>
 

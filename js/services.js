@@ -18,23 +18,6 @@ function displayServices() {
 	var mainServices_section = document.getElementById('mainServices_section');
 	for (i = 0; i < mainServicesData.length; i++) {
 		var service = mainServicesData[i]['service'].replaceAll(' ', '_');
-		// mainServices_section.innerHTML += `<div class="col-sm-4">
-		//             <div class="single-service-item" id="service_${i}" onclick="mainServiceDetails(this.id);">
-		//                <div class="img-holder">
-		//                   <figure class="swap-on-hover">
-		//                      <img class="swap-on-hover__front-image" src="${mainServicesData[i]['service_image'][0]}">
-		//                      <img class="swap-on-hover__back-image" src="${mainServicesData[i]['service_image'][1]}">
-		//                   </figure>
-		//                   <div class="text-holder text-center">
-		//                      <h3>${mainServicesData[i]['service']}</h3>
-		//                      <p>${mainServicesData[i]['description']}</p>
-		//                      <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">Read More</div> 
-		//                   </div>
-		//                </div>
-		//             </div>
-		//          </div>`;
-
-
 		mainServices_section.innerHTML += `<div class="col-sm-4">
                <div class="single-service-item" id="service_${i}" onclick="mainServiceDetails(this.id);">
                   <div class="img-holder">
