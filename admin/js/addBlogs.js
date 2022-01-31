@@ -111,7 +111,6 @@ function addCoachImage(){
 	document.getElementById('coachdesignation').value = "";
 
 	document.getElementById('coachList').innerHTML = "";
-	console.log(coachList['coach']);
 	for (i = 0; i < coachList['coach'].length; i++) {
 		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
                      <div>${coachList['coach'][i]['name']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>

@@ -142,8 +142,20 @@ var urlSet = {
 
     // Admin transactions
 
-    transactionsApi: { // View all transactions
-        url: baseUrl + "/api/v1/admin/transactions?status=Successful",
+    viewTransactionsApi: { // View all transactions
+        url: baseUrl + "/api/v1/transaction?status=Successful",
         method: "GET",
     },
+    addTransactionsApi: { // Add transactions
+        url: baseUrl + "/api/v1/transaction/",
+        method: "POST",
+    },
+    updateTransactionsApi: { // Update transactions
+        url: baseUrl + "/api/v1/transaction/",
+        method: "PATCH",
+    },
+    deleteTransactionsApi: { // Delete transactions
+        url: baseUrl + "/api/v1/transaction/",
+        method: "DELETE",
+    }
 };

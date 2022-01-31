@@ -1,6 +1,6 @@
 var authtoken;
 
-function signin(){
+function signin() {
 	var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
 
@@ -16,22 +16,20 @@ function signin(){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		if(data['message'] == "User logged in."){
+		if (data['message'] == "User logged in.") {
 			localStorage.setItem("authtoken", data['token']);
 			document.location.href = "admin.html";
-		}
-		else{
+		} else {
 			alert("Login failed! Username or Password is wrong.")
 		}
 	}
 }
 
-function checkLoginStatus(){
+function checkLoginStatus() {
 	var token = localStorage.getItem("authtoken");
-	if(token == null){
+	if (token == null) {
 		document.location.href = "login.html";
-	}
-	else{
+	} else {
 		authtoken = token;
 		getBlogCategory();
 		getBlogSubcategory('Weight Loss_0');
@@ -40,11 +38,49 @@ function checkLoginStatus(){
 	}
 }
 
-function changepassword(){
+var blog_data;
+
+function checkLoginStatus2() {
+	var token = localStorage.getItem("authtoken");
+	if (token == null) {
+		document.location.href = "login.html";
+	} else {
+		try {
+			var url = document.location.href,
+				params = url.split("?")[1].split("&"),
+				data = {},
+				tmp;
+			for (var i = 0, l = params.length; i < l; i++) {
+				tmp = params[i].split("=");
+				data[tmp[0]] = tmp[1];
+				blog_id = data["id"];
+
+				var request = new XMLHttpRequest();
+				request.open(urlSet.get_blogApi.method, urlSet.get_blogApi.url + blog_id, true);
+				request.setRequestHeader("Content-Type", "application/json");
+				request.setRequestHeader("authorization", authtoken);
+				request.send();
+				request.onload = function () {
+					blog_data = JSON.parse(this.response);
+					console.log(blog_data);
+					displayBlogData();
+				}
+
+				authtoken = token;
+				getBlogCategory();
+				getBlogSubcategory('Weight Loss_0');
+			}
+		} catch {
+			document.location.href = "admin.html";
+		}
+	}
+}
+
+function changepassword() {
 	var password = document.getElementById('password').value;
 	var c_password = document.getElementById('c_password').value;
 
-	if(password === c_password){
+	if (password === c_password) {
 		var json = {
 			"username": username,
 			"password": password
@@ -58,21 +94,19 @@ function changepassword(){
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
-			if(data['message'] == "Admin Updated"){
+			if (data['message'] == "Admin Updated") {
 				alert("Credentials Updated");
-			}
-			else{
+			} else {
 				alert("Sorry! Could not update new credentials");
 			}
 		}
-	}
-	else{
+	} else {
 		alert("Password mismatch");
 	}
 }
 
 
-function logout(){
+function logout() {
 	localStorage.removeItem("authtoken");
 	document.location.href = "login.html";
 }

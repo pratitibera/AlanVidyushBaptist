@@ -15,6 +15,9 @@ th,td{
 .w-70{
     width: 70%;
 }
+.fo-30{
+    font-size: 30px;
+}
 #collapsibleNavbar{
     justify-content: space-evenly;
 }
@@ -55,4 +58,11 @@ section{
     font-size: 14px;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+#blogcontent img{
+    width: 30%;
+}
+#blogcontent div{
+    padding: 15px;
 }

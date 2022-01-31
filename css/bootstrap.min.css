@@ -39,11 +39,11 @@
 *,
 ::after,
 ::before {
-	box-sizing: border-box
+	box-sizing: border-box;
 }
 
 html {
-	font-family: font-family: open sans condensed,sans-serif;
+	font-family: open sans condensed,sans-serif;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;

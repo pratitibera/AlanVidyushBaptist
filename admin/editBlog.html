@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>ADMIN PANEL</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body onload="checkLoginStatus2();">
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+         <!-- <a class="navbar-brand" href="#">Alan Baptist</a> -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="admin.html">Back to main dashboard</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#editBlog">Edit blogs</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#clientinfo">Generate client information</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#blogbody">Generate blog body</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <br>
+      <!--- End of navbar -->
+
+
+      <section id="editBlog">
+         <div class="container">
+            <h3 class="mb-5">EDIT BLOG</h3>
+            <div class="form-group">
+               <label>Cover images: <span class="text-danger">*</span></label>
+               <div id="headerimageList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="headerimagetitle" placeholder="Enter cover image title">
+                  <input type="text" class="form-control w-50 ml-4" id="headerimageurl" placeholder="Enter cover image URL">
+                  <button class="btn btn-dark ml-4" onclick="addCoverImage();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Client Information HTML: <span class="text-danger">*</span></label>
+               <div contenteditable="true" id="client">
+            </div>
+            <div class="form-group">
+               <label>Brands: </label>
+               <input type="text" class="form-control" id="brands">
+            </div>
+            <div class="form-group">
+               <label>Coach:</label>
+               <div id="coachList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="coachname" placeholder="Enter name of coach">
+                  <input type="text" class="form-control w-50 ml-4" id="coachimage" placeholder="Enter image of coach">
+                  <button class="btn btn-dark ml-4" onclick="addCoachImage();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Blog author:</label>
+               <input type="text" class="form-control" id="author">
+            </div>
+            <div class="form-group">
+               <label>Blog title: <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogtitle">
+            </div>
+            <div class="form-group">
+               <label>Date: (Format: 12 November, 2021) <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogdate">
+            </div>
+            <div class="form-group">
+               <label>Blog content HTML: <span class="text-danger">*</span></label>
+               <div id="blogcontent"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-10" id="contentid" placeholder="Enter index">
+                  <input type="text" class="form-control w-25 ml-4" id="contentheading" placeholder="Enter heading">
+                  <input type="text" class="form-control w-50 ml-4" id="contentpara" placeholder="Enter paragraph">
+                  <button class="btn btn-dark ml-4" onclick="edit_addBlogBody();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Blog summary: <span class="text-danger">*</span></label>
+               <input type="text" class="form-control" id="blogsummary">
+            </div>
+            <div class="form-group">
+               <label>Select blog category: <span class="text-danger">*</span></label>
+               <select class="form-control" id="blogcategory" onchange="getBlogSubcategory(this.value);"></select>
+            </div>
+            <div class="form-group">
+               <label>Select blog subcategory: <span class="text-danger">*</span></label>
+               <select class="form-control" id="blogsubcategory"></select>
+            </div>
+            <div class="form-group">
+               <label>Add contents: <span class="text-danger">*</span></label>
+               <div id="contentList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-50" id="content">
+                  <button class="btn btn-dark ml-4" onclick="addContents();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Add images for gallery: <span class="text-danger">*</span></label>
+               <div id="galleryList" class="row m-0"></div>
+               <div class="row m-0 mt-3">
+                  <input type="text" class="form-control w-25" id="gallerytitle" placeholder="Enter image title">
+                  <input type="text" class="form-control w-50 ml-4" id="galleryimage" placeholder="Enter image URL">
+                  <button class="btn btn-dark ml-4" onclick="addImage();">ADD</button>
+               </div>
+            </div>
+            <div class="form-group">
+               <label>Target URL:</label>
+               <input type="text" class="form-control" id="blogtarget">
+            </div>
+         </div>
+         <div class="text-center mt-5 mb-5">
+            <button class="btn btn-dark w-25" onclick="saveEditedBlog();">ADD BLOG</button>
+         </div>
+      </section>
+      <hr>
+
+
+
+      <div class="modal" id="editBlogModal">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header bg-dark">
+                  <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group">
+                     <label>Enter new content</label>
+                     <textarea class="form-control" style="height: 200px; resize: none" id="newContent"></textarea>
+                  </div>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-dark" id="saveContent">SAVE</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Blogs sections --->
+
+
+
+
+
+
+
+
+
+      <!-- HTML Generator --->
+      <section id="clientinfo" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">GENERATE CLIENT INFORMATION HTML</h3>
+            <div class="row m-0">
+               <div class="col-sm-6">
+                  <div class="form-group">
+                     <label>Field name:</label>
+                     <input type="text" class="form-control" id="clientField">
+                  </div>
+                  <div class="form-group">
+                     <label>Field data:</label>
+                     <input type="text" class="form-control" id="clientFieldData">
+                  </div>
+                  <button class="btn btn-dark" onclick="addClientInfo();">ADD CLIENT INFO</button>
+               </div>
+               <div class="col-sm-6">
+                  <textarea rows="13" class="w-100" id="clientInfoData"></textarea>
+                  <button class="btn btn-dark mt-3" onclick="copyToClipboard('clientInfoData');">COPY TO CLIPBOARD</button>
+               </div>
+            </div>
+         </div>
+      </section>
+      <section id="blogbody" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">GENERATE BLOG BODY HTML</h3>
+            <div class="row m-0">
+               <div class="col-sm-6">
+                  <div class="form-group">
+                     <label>Paragraph:</label>
+                     <input type="text" class="form-control" id="paras">
+                  </div>
+                  <button class="btn btn-dark mb-2" onclick="addParas();">ADD PARAGRAPH</button>
+                  <button class="btn btn-dark mb-2" onclick="changeParas();">CHANGE PARAGRAPH</button>
+                  <div class="form-group">
+                     <label>Image URL:</label>
+                     <input type="text" class="form-control" id="imageurl">
+                  </div>
+                  <button class="btn btn-dark mb-2" onclick="addImages();">ADD IMAGES</button>
+               </div>
+               <div class="col-sm-6">
+                  <textarea rows="15" class="w-100" id="blogContentData"></textarea>
+                  <button class="btn btn-dark mt-3" onclick="copyToClipboard('blogContentData');">COPY TO CLIPBOARD</button>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+
+
+
+
+
+      <script src="js/urls.js" defer></script>
+      <script src="js/script.js"></script>
+      <script src="js/blogs.js"></script>
+      <script src="js/generateBlogs.js"></script>
+      <script src="js/addBlogs.js"></script>
+      <script src="js/editBlogs.js"></script>
+   </body>
+</html>
