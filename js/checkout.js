@@ -171,7 +171,7 @@ function payNowResponse(razorpay_payment_id, razorpay_order_id, razorpay_signatu
 		console.log(data);
 		if(data['message'] == "Order Valid and Successful"){
 			notify("Payment successful");
-			localStorage.clear();
+			sessionStorage.clear();
 		}
 		else{
 			notify("Payment unsuccessful");

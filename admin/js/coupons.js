@@ -8,6 +8,7 @@ function addCoupons(){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.addCouponsApi.method, urlSet.addCouponsApi.url, true);
 	request.setRequestHeader("Content-Type", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send(JSON.stringify(json));
 	request.onload = function () {
 		var data = JSON.parse(this.response);
@@ -52,6 +53,7 @@ function deleteCoupon(id){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.deleteCouponsApi.method, urlSet.deleteCouponsApi.url + id, true);
 	request.setRequestHeader("Accept", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
@@ -71,6 +73,7 @@ function viewTransactions(){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.transactionsApi.method, urlSet.transactionsApi.url, true);
 	request.setRequestHeader("Accept", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);

@@ -42,6 +42,7 @@ function handleFeatures(id){
 		var request = new XMLHttpRequest();
 		  request.open(urlSet.add_blog_to_featuredApi.method, urlSet.add_blog_to_featuredApi.url + id.split('_')[1], true);
 		  request.setRequestHeader("Accept", "application/json");
+		  request.setRequestHeader("authorization", authtoken);
 		  request.send();
 		  request.onload = function () {
 		    var data = JSON.parse(this.response);
@@ -57,6 +58,7 @@ function handleFeatures(id){
 		var request = new XMLHttpRequest();
 		  request.open(urlSet.delete_blog_from_featuredApi.method, urlSet.delete_blog_from_featuredApi.url + id.split('_')[1], true);
 		  request.setRequestHeader("Accept", "application/json");
+		  request.setRequestHeader("authorization", authtoken);
 		  request.send();
 		  request.onload = function () {
 		    var data = JSON.parse(this.response);

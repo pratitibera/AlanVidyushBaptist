@@ -16,11 +16,11 @@ function addMainService() {
 	var request = new XMLHttpRequest();
 	request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
 	request.setRequestHeader("Content-Type", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send(JSON.stringify(json));
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		document.getElementById('main_service').value = "";
 		if (data['message'] == "Serivce has been updated") {
 			alert("Main Service successfully added");
 			location.reload();
@@ -57,11 +57,11 @@ function addService() {
 		var request = new XMLHttpRequest();
 		request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
 		request.setRequestHeader("Content-Type", "application/json");
+		request.setRequestHeader("authorization", authtoken);
 		request.send(JSON.stringify(json));
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
-			document.getElementById('service').value = "";
 			if (data['message'] == "Serivce has been updated") {
 				alert("Service successfully added");
 				location.reload();
@@ -147,17 +147,17 @@ function addSubservice() {
 			var request = new XMLHttpRequest();
 			request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
 			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("authorization", authtoken);
 			request.send(JSON.stringify(json));
 			request.onload = function () {
 				var data = JSON.parse(this.response);
 				console.log(data);
-				document.getElementById('subservice').value = "";
 				if (data['message'] == "Serivce has been updated") {
 					alert("Subservice successfully added");
+					location.reload();
 				} else {
 					alert("Could not add subservice");
 				}
-				location.reload();
 			}
 		} else {
 			alert("Enter a subservice");

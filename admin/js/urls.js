@@ -33,8 +33,12 @@ var urlSet = {
     // Admin
 
     adminLoginApi: { // Admin login
-        url: baseUrl + "/api/v1/admin/login",
+        url: baseUrl + "/api/v1/auth/api/v1/auth/login",
         method: "POST",
+    },
+    adminUpdateApi: { // Admin login
+        url: baseUrl + "/api/v1/auth/api/v1/auth/update",
+        method: "PATCH",
     },
 
 
@@ -57,7 +61,7 @@ var urlSet = {
 
 
     viewServicesApi: { // To get services
-        url: baseUrl + "/api/v1/admin/",
+        url: baseUrl + "/api/v1/admin/service/",
         method: "GET",
     },
     getMainServiceApi: { // To get services based on level

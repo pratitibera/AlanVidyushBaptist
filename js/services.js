@@ -211,11 +211,18 @@ function addToCart(id) {
 		"id": res[3]
 	}
 
-	shopcart.push(cartitem);
-	notify("Service added to cart");
-	localStorage.setItem("cart", JSON.stringify(shopcart));
-
-	shopcart = JSON.parse(localStorage.getItem("cart"));
-	document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
-	document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
+	for(y = 0; y < shopcart.length; y++){
+		if(shopcart[y]['id'] == cartitem['id']){
+			notify("Service already added to cart");
+		}
+		else{
+			shopcart.push(cartitem);
+			notify("Service added to cart");
+			sessionStorage.setItem("cart", JSON.stringify(shopcart))
+	
+			shopcart = JSON.parse(sessionStorage.getItem("cart"));
+			document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
+			document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
+		}
+	}
 }

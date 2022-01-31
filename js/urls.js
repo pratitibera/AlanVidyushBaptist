@@ -1,4 +1,5 @@
 const baseUrl = "https://desolate-retreat-74146.herokuapp.com";
+// http://localhost:8081
 var urlSet = {
 
     // Blogs
@@ -10,6 +11,10 @@ var urlSet = {
     post_blogApi: { // Add a new blog
         url: baseUrl + "/api/v1/blogs/",
         method: "POST",
+    },
+    delete_blogApi: { // Delete a blog
+        url: baseUrl + "/api/v1/blogs/",
+        method: "DELETE",
     },
     get_AuthorblogApi: { // Get blogs of an author
         url: baseUrl + "/api/v1/blogs/author/",
@@ -28,8 +33,12 @@ var urlSet = {
     // Admin
 
     adminLoginApi: { // Admin login
-        url: baseUrl + "/api/v1/admin/login",
+        url: baseUrl + "/api/v1/auth/api/v1/auth/login",
         method: "POST",
+    },
+    adminUpdateApi: { // Admin login
+        url: baseUrl + "/api/v1/auth/api/v1/auth/update",
+        method: "PATCH",
     },
 
 
@@ -52,7 +61,7 @@ var urlSet = {
 
 
     viewServicesApi: { // To get services
-        url: baseUrl + "/api/v1/admin/",
+        url: baseUrl + "/api/v1/admin/service/",
         method: "GET",
     },
     getMainServiceApi: { // To get services based on level
@@ -134,7 +143,7 @@ var urlSet = {
     // Admin transactions
 
     transactionsApi: { // View all transactions
-        url: baseUrl + "/api/v1/admin/transactions",
+        url: baseUrl + "/api/v1/admin/transactions?status=Successful",
         method: "GET",
     },
 };

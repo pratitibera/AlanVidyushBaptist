@@ -83,6 +83,7 @@ function deleteService(id) {
 	var request = new XMLHttpRequest();
 	request.open(urlSet.deleteServiceApi.method, urlSet.deleteServiceApi.url + id.split('_')[1], true);
 	request.setRequestHeader("Content-Type", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send(JSON.stringify());
 	request.onload = function () {
 		var data = JSON.parse(this.response);
@@ -116,6 +117,7 @@ function editServicesSave(){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.editServicesApi.method, urlSet.editServicesApi.url + service_to_be_edited, true);
 	request.setRequestHeader("Content-Type", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send(JSON.stringify(json));
 	request.onload = function () {
 		var data = JSON.parse(this.response);

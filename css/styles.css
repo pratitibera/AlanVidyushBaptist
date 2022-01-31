@@ -1036,6 +1036,7 @@ footer .move-up {
 .services-list{
 	padding: 80px 100px;
 	background-color: #eeeeee;
+	min-height: 19vh;
 }
 
 .single-service-item {

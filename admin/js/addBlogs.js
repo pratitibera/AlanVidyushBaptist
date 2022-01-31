@@ -96,9 +96,11 @@ function removeCoverImage(id) {
 function addCoachImage(){
 	var coachname = document.getElementById('coachname').value;
 	var coachimage = document.getElementById('coachimage').value;
+	var coachdesignation = document.getElementById('coachdesignation').value;
 	dic = {
 		"image": coachimage,
-		"name": coachname
+		"name": coachname,
+		"designation": coachdesignation
 	}
 	coach.push(dic);
 	coachList = {
