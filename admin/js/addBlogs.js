@@ -157,8 +157,8 @@ function addBlogBody(){
 	document.getElementById('blogcontent').innerHTML = "";
 	console.log(blogcontentList['content']);
 	for (i = 0; i < blogcontentList['content'].length; i++) {
-		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-4 mb-2">
-                     <div>${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
+		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-12 mb-5">
+                     <div class="font-weight-bolder">${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
                      <div>${blogcontentList['content'][i]['paragraph']}</div>
                   </div>`
 	}
@@ -169,8 +169,8 @@ function removecontentImage(id) {
 	blogcontentList['content'].splice(id, 1);
 	document.getElementById('blogcontent').innerHTML = "";
 	for (i = 0; i < blogcontentList['content'].length; i++) {
-		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-4 mb-2">
-                     <div>${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
+		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-12 mb-5">
+                     <div class="font-weight-bolder">${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
                      <div>${blogcontentList['content'][i]['paragraph']}</div>
                   </div>`
 	}
@@ -248,7 +248,7 @@ function addBlog() {
 		listOfContents.push(dic);
 	}
 
-	var client = document.getElementById('client').value;
+	var client = document.getElementById('client').innerHTML;
 	var brands = document.getElementById('brands').value;
 	var author = document.getElementById('author').value;
 	var blogtitle = document.getElementById('blogtitle').value;

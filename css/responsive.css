@@ -119,7 +119,7 @@
 		margin-top: 160px;
 	}
 	#portfolioSection img:hover{
-		transform: scale(1.3);
+		transform: scale(1.05);
 	}
 }
 

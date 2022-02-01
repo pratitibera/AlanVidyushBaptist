@@ -11,9 +11,11 @@ function viewTransactions(){
 		transaction_details.innerHTML = "";
 
 		for(i = 0; i < data.length; i++){
-
+			var istDate = new Date(data[i]['date']).toLocaleString(undefined, {
+				timeZone: 'Asia/Kolkata'
+			});
 			var td1 = document.createElement('td');
-			td1.append(data[i]['date']);
+			td1.append(istDate);
 
 			var td2 = document.createElement('td');
 			td2.append(data[i]['name']);
