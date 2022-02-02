@@ -16,6 +16,18 @@
 
 /* Globacl classes */
 
+.context-menu {
+  position: absolute;
+  text-align: center;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 225px;
+  font-size: 13px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .37);
+  z-index: 99999;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -33,7 +45,7 @@ input:-webkit-autofill:active {
 #notification-area {
   position: fixed;
   bottom: 90px;
-  z-index: 9999;
+  z-index: 999999;
   right: 10px;
   width: auto;
   height: auto;
@@ -1349,4 +1361,10 @@ footer .move-up {
 
 #portfolioSection .card{
 	border: none;
+}
+.cash_option{
+	background-color: #FFE972; 
+	padding: 12px 0px; 
+	margin-top: 15px;
+	cursor: pointer;
 }

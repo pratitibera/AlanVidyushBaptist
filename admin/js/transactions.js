@@ -1,3 +1,5 @@
+var successful_transactions = '?status=Successful';
+
 function viewTransactions(){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewTransactionsApi.method, urlSet.viewTransactionsApi.url, true);
@@ -45,8 +47,13 @@ function viewTransactions(){
 			td8.append(data[i]['status']);
 
 			var td9 = document.createElement('td');
-			td9.innerHTML = `<button class="btn btn-dark" onclick="editTransaction(this.id);" id="edittrans_${data[i]['_id']}">EDIT</button>`;
-
+			if(data[i]['status'] != "Successful"){
+				td9.innerHTML = `<button class="btn btn-dark" onclick="editTransaction(this.id);" id="edittrans_${data[i]['_id']}">PAID</button>`;
+			}
+			else{
+				td9.innerHeight = "";
+			}
+		
 			var td10 = document.createElement('td');
 			td10.innerHTML = `<button class="btn btn-dark" onclick="deleteTransaction(this.id);" id="deletetrans_${data[i]['_id']}">DELETE</button>`;
 
@@ -69,6 +76,41 @@ function viewTransactions(){
 
 function editTransaction(id){
 	console.log(id);
+	var request = new XMLHttpRequest();
+	request.open(urlSet.viewTransactionsApi.method, urlSet.viewTransactionsApi.url + '/' + id.split('_')[1], true);
+	request.setRequestHeader("Accept", "application/json");
+	request.setRequestHeader("authorization", authtoken);
+	request.send();
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+
+		var json = {
+		  "_id": data['_id'],
+		  "couponCode": data['couponCode'],
+		  "name": data['name'],
+		  "status": "Successful",
+		  "amount": data['amount'],
+		  "phone": data['phone'],
+		  "email": data['email'],
+		  "date": data['date'],
+		  "offers": data['offers'],
+		  "type": data['type'],
+		  "razorpay_order_id": data['razorpay_order_id'],
+		  "razorpay_signature": data['razorpay_signature'],
+		  "razorpay_payment_id": data['razorpay_payment_id']
+		}
+		console.log(json);
+		var request = new XMLHttpRequest();
+		request.open(urlSet.viewTransactionsApi.method, urlSet.viewTransactionsApi.url + '/' + id.split('_')[1], true);
+		request.setRequestHeader("Accept", "application/json");
+		request.setRequestHeader("authorization", authtoken);
+		request.send(JSON.stringify(json));
+		request.onload = function () {
+			var data = JSON.parse(this.response);
+			console.log(data);
+		}
+	}
 }
 
 function deleteTransaction(id){

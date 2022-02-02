@@ -11,6 +11,29 @@ menuBtn.addEventListener('click', () => {
     }
 });
 
+
+// To prevent images from being downloaded
+document.onclick = hideMenu;
+for(i = 0; i < document.querySelectorAll(".copyright_img").length; i++){
+ document.querySelectorAll(".copyright_img")[i].oncontextmenu = rightClick;
+}
+
+function hideMenu() {
+  document.getElementById("contextMenu").style.display = "none"
+}
+
+function rightClick(e) {
+    e.preventDefault();
+    if (document.getElementById("contextMenu").style.display == "block")
+        hideMenu();
+    else {
+        var menu = document.getElementById("contextMenu")
+        menu.style.display = 'block';
+        menu.style.left = e.pageX + "px";
+        menu.style.top = e.pageY + "px";
+    }
+}
+
 function startLoader() {
     document.getElementById("preloader").style.display = "block";
     document.getElementById("loader").style.display = "block";

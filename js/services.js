@@ -148,7 +148,7 @@ function getPlans() {
 			card.append(ul);
 
 			var choose = document.createElement('div');
-			var plan_id = data['offers'][j]['duration'].replaceAll(' ', '_') + '#' + data['offers'][j]['price'] + '#' + data['offers'][j]['discounted_price'] + '#' + data['offers'][j]['_id'];
+			var plan_id = data['offers'][j]['duration'].replaceAll(' ', '_') + '#' + data['offers'][j]['price'] + '#' + data['offers'][j]['discounted_price'] + '#' + data['offers'][j]['_id'] + '#' + data['offers'][j]['offer_name'];
 			choose.innerHTML = `<div class="text-center mt-5">
                         <button class="btn" onclick="addToCart(this.id);" id=${plan_id}>CHOOSE PLAN</button>
                      </div>`;
@@ -183,28 +183,40 @@ function getPlans() {
 
 
 function addToCart(id) {
-	id = id.replaceAll('_', ' ');
 	res = id.split('#');
+	res[0] = res[0].replaceAll('_', ' ');
+	res[4] = res[4].replaceAll('_', ' - ');
 	var cartitem = {
-		"service": mainService,
+		"service": res[4],
 		"duration": res[0],
 		"price": res[1],
 		"discount": res[2],
 		"id": res[3]
 	}
 
-	for(y = 0; y < shopcart.length; y++){
-		if(shopcart[y]['id'] == cartitem['id']){
-			notify("Service already added to cart");
+	if(shopcart.length > 0){
+		for(y = 0; y < shopcart.length; y++){
+			if(shopcart[y]['id'] == cartitem['id']){
+				notify("Service already added to cart");
+			}
+			else{
+				shopcart.push(cartitem);
+				notify("Service added to cart");
+				sessionStorage.setItem("cart", JSON.stringify(shopcart))
+		
+				shopcart = JSON.parse(sessionStorage.getItem("cart"));
+				document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
+				document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
+			}
 		}
-		else{
-			shopcart.push(cartitem);
-			notify("Service added to cart");
-			sessionStorage.setItem("cart", JSON.stringify(shopcart))
-	
-			shopcart = JSON.parse(sessionStorage.getItem("cart"));
-			document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
-			document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
-		}
+	}
+	else{
+		shopcart.push(cartitem);
+		notify("Service added to cart");
+		sessionStorage.setItem("cart", JSON.stringify(shopcart))
+
+		shopcart = JSON.parse(sessionStorage.getItem("cart"));
+		document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
+		document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
 	}
 }

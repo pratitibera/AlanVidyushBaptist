@@ -36,6 +36,9 @@
    </head>
    <body onload="getAllCategoryBlogs();">
       <div id="overlay"></div>
+      <div id="contextMenu" class="context-menu" style="display:none">
+         This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
+      </div>
       <!---Floating button of whatsapp --->
       <div class="whatsapp_icon row">
          <div class="fo-16 bg-gray text-white">Talk to Us <span class="borde-gray"></span></div>
@@ -242,7 +245,10 @@
                <!-- Modal body -->
                <div class="modal-body pt-4">
                   <div id="particulars"></div>
-                  <div class="input-data mt-5">
+                  <div class="mt-4 text-right">
+                     <div class="fo-14 fw-600 cursorPointer" onclick="emptyCart();" data-dismiss="modal">EMPTY CART</div>
+                  </div>
+                  <div class="input-data">
                      <input type="text" required id="customer_name">
                      <div class="underline"></div>
                      <label>Full Name</label>
@@ -257,12 +263,15 @@
                      <div class="underline"></div>
                      <label>Contact number</label>
                   </div>
-                  <div class="row m-0 couponsection mt-5">
+                  <div class="row m-0 couponsection mt-3">
                      <div class="col-6 col-sm-6 pl-0" id="coupon_status">
                         <input type="text" placeholder="Coupon code" id="coupon_code">
                      </div>
                      <div class="col-6 col-sm-6 pr-0">
                         <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();" id="coupon_button">APPLY COUPON</button>
+                     </div>
+                     <div class="col-12 col-sm-12 text-center cash_option">
+                        <div class="fo-16 fw-700" onclick="payInCash();">PAY IN CASH</div>
                      </div>
                   </div>
                </div>
