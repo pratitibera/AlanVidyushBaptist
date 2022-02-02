@@ -23,6 +23,14 @@ function editBlog(id) {
 }
 
 function saveEditedBlog(){
+	console.log(coverList['cover']);
+	var client = document.getElementById('client').innerHTML;
+	var brands = document.getElementById('brands').value;
+	console.log(coachList['coach']);
+	var author = document.getElementById('author').value;
+	var blogtitle = document.getElementById('blogtitle').value;
+	var blogdate = document.getElementById('blogdate').value;
+
 	content = [];
 	for(i = 0; i < body_count; i++){
 		var contentid = document.getElementById('index_' + i).innerHTML;
@@ -43,6 +51,25 @@ function saveEditedBlog(){
 	}
 
 	console.log(blogcontentList);
+
+	var blogsummary = document.getElementById('blogsummary').value;
+	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
+	var blogsubcategory = document.getElementById('blogsubcategory').value;
+
+	var listOfContents = []; // Stores the final blog contents
+	var contents_count = 0;
+	$('.contentsPage').each(function(){
+		dic = {
+			"id": "topic" + contents_count++,
+			"title": $(this).html()
+		}
+		listOfContents.push(dic);
+	});
+
+	console.log(listOfContents);
+
+	console.log(galleryList['gallery']);
+	var blogtarget = document.getElementById('blogtarget').value;
 }
 
 
@@ -123,7 +150,7 @@ function displayBlogData(){
 	document.getElementById('coachList').innerHTML = "";
 	for (i = 0; i < coachList['coach'].length; i++) {
 		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
-                     <div>${coachList['coach'][i]['name']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>
+                     <div>${coachList['coach'][i]['name']} - ${coachList['coach'][i]['designation']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>
                      <img src=${coachList['coach'][i]['image']} class="w-100">
                   </div>`
 	}
@@ -142,7 +169,7 @@ function displayBlogData(){
 		var body = document.createElement('div');
 		body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
 		body.setAttribute('id', 'index_' + body_count);
-		// body.setAttribute('contenteditable', true);
+		body.setAttribute('contenteditable', true);
 		body.innerHTML = blog_data['body'][j]['id'];
 
 		document.getElementById('blogcontent').append(body);
@@ -164,11 +191,20 @@ function displayBlogData(){
 
 		var body = document.createElement('div');
 		body.setAttribute('class', 'mb-5 text-right');
+
+		var bodydelete = document.createElement('button');
+		bodydelete.setAttribute('class', 'btn btn-dark mr-4');
+		bodydelete.setAttribute('id', 'deletebody_' + body_count);
+		bodydelete.setAttribute('onclick', `deleteContent(this.id)`);
+		bodydelete.append('DELETE SECTION');
+
 		var bodybutton = document.createElement('button');
 		bodybutton.setAttribute('class', 'btn btn-dark');
 		bodybutton.setAttribute('id', 'newbody_' + body_count++);
 		bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
 		bodybutton.append('ADD NEW CONTENT');
+
+		body.append(bodydelete);
 		body.append(bodybutton);
 
 		document.getElementById('blogcontent').append(body);
@@ -190,7 +226,10 @@ function displayBlogData(){
 	// Contents
 	document.getElementById('contentList').innerHTML = "";
 	for (i = 0; i < contentList.length; i++) {
-		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">${contentList[i]}<span class="ml-3 cursor-pointer" id="blogContent_${i}" onclick="removeContent(this.id)">x</span></div>`;
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+               <span class="contentsPage" contenteditable="true">${contentList[i]}</span>
+               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="edit_removeContent(this.id)">x</span>
+            </div>`;
 	}
 
 	// Gallery
@@ -217,7 +256,7 @@ function edit_addBlogBody() {
 	var body = document.createElement('div');
 	body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
 	body.setAttribute('id', 'index_' + body_count);
-	// body.setAttribute('contenteditable', true);
+	body.setAttribute('contenteditable', true);
 	body.innerHTML = contentid;
 
 	document.getElementById('blogcontent').append(body);
@@ -239,11 +278,21 @@ function edit_addBlogBody() {
 
 	var body = document.createElement('div');
 	body.setAttribute('class', 'mb-5 text-right');
+
+
+	var bodydelete = document.createElement('button');
+	bodydelete.setAttribute('class', 'btn btn-dark mr-4');
+	bodydelete.setAttribute('id', 'deletebody_' + body_count);
+	bodydelete.setAttribute('onclick', `deleteContent(this.id)`);
+	bodydelete.append('DELETE SECTION');
+
 	var bodybutton = document.createElement('button');
 	bodybutton.setAttribute('class', 'btn btn-dark');
 	bodybutton.setAttribute('id', 'newbody_' + body_count++);
 	bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
 	bodybutton.append('ADD NEW CONTENT');
+
+	body.append(bodydelete);
 	body.append(bodybutton);
 
 	document.getElementById('blogcontent').append(body);
@@ -262,4 +311,103 @@ function addNewContent(id){
 			document.getElementById('para_' + id.split('_')[1]).innerHTML = new_content;
 		}
 	});
+}
+function deleteContent(id) {
+	var id = parseInt(id.split('_')[1]);
+
+	content = [];
+	for(i = 0; i < body_count; i++){
+		var contentid = document.getElementById('index_' + i).innerHTML;
+		var contentheading = document.getElementById('heading_' + i).innerHTML;
+		var contentpara = document.getElementById('para_' + i).innerHTML;
+		dic = {
+			"id": parseInt(contentid),
+			"heading": contentheading,
+			"paragraph": contentpara
+		}
+		content.push(dic);
+		content.sort(function(a, b) {
+			return a.id - b.id;
+		});
+		blogcontentList = {
+			"content": content
+		}
+	}
+
+	console.log(blogcontentList);
+
+	blogcontentList['content'].splice(id, 1);
+	document.getElementById('blogcontent').innerHTML = "";
+	body_count = 0;
+
+	for(j = 0; j < blogcontentList['content'].length; j++){
+		var body = document.createElement('div');
+		body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
+		body.setAttribute('id', 'index_' + body_count);
+		body.setAttribute('contenteditable', true);
+		body.innerHTML = blogcontentList['content'][j]['id'];
+
+		document.getElementById('blogcontent').append(body);
+
+		var body = document.createElement('div');
+		body.setAttribute('class', 'font-weight-bolder');
+		body.setAttribute('id', 'heading_' + body_count);
+		body.setAttribute('contenteditable', true);
+		body.innerHTML = blogcontentList['content'][j]['heading'];
+
+		document.getElementById('blogcontent').append(body);
+
+		var body = document.createElement('div');
+		body.setAttribute('id', 'para_' + body_count);
+		body.setAttribute('contenteditable', true);
+		body.innerHTML = blogcontentList['content'][j]['paragraph'];
+
+		document.getElementById('blogcontent').append(body);
+
+		var body = document.createElement('div');
+		body.setAttribute('class', 'mb-5 text-right');
+
+		var bodydelete = document.createElement('button');
+		bodydelete.setAttribute('class', 'btn btn-dark mr-4');
+		bodydelete.setAttribute('id', 'deletebody_' + body_count);
+		bodydelete.setAttribute('onclick', `deleteContent(this.id)`);
+		bodydelete.append('DELETE SECTION');
+
+		var bodybutton = document.createElement('button');
+		bodybutton.setAttribute('class', 'btn btn-dark');
+		bodybutton.setAttribute('id', 'newbody_' + body_count++);
+		bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
+		bodybutton.append('ADD NEW CONTENT');
+
+		body.append(bodydelete);
+		body.append(bodybutton);
+
+		document.getElementById('blogcontent').append(body);
+	}
+}
+
+function edit_addContents() {
+	var content = document.getElementById('content').value;
+	contentList.push(content);
+	document.getElementById('contentList').innerHTML = "";
+	for (i = 0; i < contentList.length; i++) {
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+               <span class="contentsPage" contenteditable="true">${contentList[i]}</span>
+               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="edit_removeContent(this.id)">x</span>
+            </div>`;
+	}
+	document.getElementById('content').value = "";
+}
+
+function edit_removeContent(id) {
+	var id = parseInt(id.split('_')[1]);
+	contentList.splice(id, 1);
+	document.getElementById('contentList').innerHTML = "";
+	for (i = 0; i < contentList.length; i++) {
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+               <span class="contentsPage" contenteditable="true">${contentList[i]}</span>
+               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="edit_removeContent(this.id)">x</span>
+            </div>`;
+	}
+	document.getElementById('content').value = "";
 }

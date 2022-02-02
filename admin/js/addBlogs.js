@@ -113,7 +113,7 @@ function addCoachImage(){
 	document.getElementById('coachList').innerHTML = "";
 	for (i = 0; i < coachList['coach'].length; i++) {
 		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
-                     <div>${coachList['coach'][i]['name']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>
+                     <div>${coachList['coach'][i]['name']} - ${coachList['coach'][i]['designation']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>
                      <img src=${coachList['coach'][i]['image']} class="w-100">
                   </div>`
 	}
@@ -125,7 +125,7 @@ function removecoachImage(id) {
 	document.getElementById('coachList').innerHTML = "";
 	for (i = 0; i < coachList['coach'].length; i++) {
 		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
-                     <div>${coachList['coach'][i]['name']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <div>${coachList['coach'][i]['name']} - ${coachList['coach'][i]['designation']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removeImage(this.id)">x</span></div>
                      <img src=${coachList['coach'][i]['image']} class="w-100">
                   </div>`
 	}
@@ -182,7 +182,10 @@ function addContents() {
 	contentList.push(content);
 	document.getElementById('contentList').innerHTML = "";
 	for (i = 0; i < contentList.length; i++) {
-		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">${contentList[i]}<span class="ml-3 cursor-pointer" id="blogContent_${i}" onclick="removeContent(this.id)">x</span></div>`;
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+               <span class="contentsPage">${contentList[i]}</span>
+               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="removeContent(this.id)">x</span>
+            </div>`;
 	}
 	document.getElementById('content').value = "";
 }
@@ -192,7 +195,10 @@ function removeContent(id) {
 	contentList.splice(id, 1);
 	document.getElementById('contentList').innerHTML = "";
 	for (i = 0; i < contentList.length; i++) {
-		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">${contentList[i]}<span class="ml-3 cursor-pointer" id="blogContent_${i}" onclick="removeContent(this.id)">x</span></div>`;
+		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+               <span class="contentsPage">${contentList[i]}</span>
+               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="removeContent(this.id)">x</span>
+            </div>`;
 	}
 	document.getElementById('content').value = "";
 }

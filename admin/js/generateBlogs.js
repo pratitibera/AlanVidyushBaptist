@@ -37,10 +37,10 @@ function addParas() {
 		blogContentBody = document.getElementById('blogContentData').value;
 		blogContentBody += paras
 		document.getElementById('blogContentData').value = blogContentBody;
+		document.getElementById('paras').value = "";
 	} else {
 		alert("Enter paragraph");
 	}
-	document.getElementById('paras').value = "";
 }
 
 function changeParas() {
@@ -57,8 +57,23 @@ function addImages() {
             <img src="${imageurl}" class="w-70 mow-100" id="blogBodyImage_${blogBodyImageCount++}">
          </div>`;
 		document.getElementById('blogContentData').value = blogContentBody;
+		document.getElementById('imageurl').value = "";
 	} else {
 		alert("Enter image url");
 	}
-	document.getElementById('imageurl').value = "";
+}
+
+function addLink(){
+	var linktext = document.getElementById('linktext').value;
+	var linkurl = document.getElementById('linkurl').value;
+	if(linktext != "" && linkurl != ""){
+		blogContentBody = document.getElementById('blogContentData').value;
+		blogContentBody += `<a href="${linkurl}">${linktext}</a>`;
+		document.getElementById('blogContentData').value = blogContentBody;
+		document.getElementById('linktext').value = "";
+		document.getElementById('linkurl').value = "";
+	}
+	else{
+		alert("Enter all hyperlink details");
+	}
 }

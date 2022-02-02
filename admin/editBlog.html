@@ -28,7 +28,7 @@
                   <a class="nav-link" href="#clientinfo">Generate client information</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#blogbody">Generate blog body</a>
+                  <a class="nav-link" href="editBlog.html#blogbody">Generate blog body</a>
                </li>
             </ul>
          </div>
@@ -61,8 +61,9 @@
                <label>Coach:</label>
                <div id="coachList" class="row m-0"></div>
                <div class="row m-0 mt-3">
-                  <input type="text" class="form-control w-25" id="coachname" placeholder="Enter name of coach">
-                  <input type="text" class="form-control w-50 ml-4" id="coachimage" placeholder="Enter image of coach">
+                  <input type="text" class="form-control w-25" id="coachname" placeholder="Enter name">
+                  <input type="text" class="form-control w-25 ml-4" id="coachimage" placeholder="Enter image URL">
+                  <input type="text" class="form-control w-25 ml-4" id="coachdesignation" placeholder="Enter designation">
                   <button class="btn btn-dark ml-4" onclick="addCoachImage();">ADD</button>
                </div>
             </div>
@@ -105,7 +106,7 @@
                <div id="contentList" class="row m-0"></div>
                <div class="row m-0 mt-3">
                   <input type="text" class="form-control w-50" id="content">
-                  <button class="btn btn-dark ml-4" onclick="addContents();">ADD</button>
+                  <button class="btn btn-dark ml-4" onclick="edit_addContents();">ADD</button>
                </div>
             </div>
             <div class="form-group">
@@ -123,7 +124,7 @@
             </div>
          </div>
          <div class="text-center mt-5 mb-5">
-            <button class="btn btn-dark w-25" onclick="saveEditedBlog();">ADD BLOG</button>
+            <button class="btn btn-dark w-25" onclick="saveEditedBlog();">SAVE BLOG</button>
          </div>
       </section>
       <hr>

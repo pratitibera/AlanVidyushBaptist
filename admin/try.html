@@ -17,27 +17,22 @@
       </style>
 </head>
 <body>
-   <div id="cont"></div>
-   <div class="container">
-      <input type="text" class="form-control mt-5" id="contentheading" placeholder="Enter heading">
-   <div id="contentpara" class="form-control mt-5" contenteditable="true" style="height: 100px"></div>
-   <div class="row m-0 mt-5">
-      <button class="btn btn-dark ml-4" onclick="addLinks();">ADD HYPERLINK</button>
-      <button class="btn btn-dark ml-4" onclick="addImages();">ADD IMAGE</button>
-   </div>
-   </div>
+   <div class="dive">huiiii</div>
+   <div class="dive">muiiii</div>
+   <div class="dive">suiiii</div>
 
    <script>
-      function addLinks() {
-         document.getElementById('contentpara').innerHTML += `<a href="link.html">LINK</a>`
-      }
-
-      function addImages() {
-         document.getElementById('contentpara').innerHTML += `<br><div class="text-center"><img src="https://alanvidyushbaptist.com/assets/services/1.png"></div>`
-      }
+      $('.dive').each(function(){
+    //if statement here 
+    // use $(this) to reference the current div in the loop
+    //you can try something like...
 
 
-      document.getElementById('cont').innerHTML = `heuy prats&nbsp;<a href="link.html">LINK</a><br><div class="text-center"><img src="https://alanvidyushbaptist.com/assets/services/1.png"></div>`
+    console.log($(this).html());
+
+
+ });
+      
    </script>
 
 </body>
