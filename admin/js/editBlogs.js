@@ -1,6 +1,6 @@
 var body_count = 0;
 
-function deleteBlog(id){
+function deleteBlog(id) {
 	var request = new XMLHttpRequest();
 	request.open(urlSet.delete_blogApi.method, urlSet.delete_blogApi.url + id.split('_')[1], true);
 	request.setRequestHeader("authorization", authtoken);
@@ -8,11 +8,10 @@ function deleteBlog(id){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		if(data['message'] == "Blog has been deleted"){
+		if (data['message'] == "Blog has been deleted") {
 			alert("Blog has been deleted");
 			location.reload();
-		}
-		else{
+		} else {
 			alert("Could not delete blog");
 		}
 	}
@@ -22,7 +21,7 @@ function editBlog(id) {
 	document.location.href = "editBlog.html?id=" + id.split('_')[1];
 }
 
-function saveEditedBlog(){
+function saveEditedBlog() {
 	console.log(coverList['cover']);
 	var client = document.getElementById('client').innerHTML;
 	var brands = document.getElementById('brands').value;
@@ -32,7 +31,7 @@ function saveEditedBlog(){
 	var blogdate = document.getElementById('blogdate').value;
 
 	content = [];
-	for(i = 0; i < body_count; i++){
+	for (i = 0; i < body_count; i++) {
 		var contentid = document.getElementById('index_' + i).innerHTML;
 		var contentheading = document.getElementById('heading_' + i).innerHTML;
 		var contentpara = document.getElementById('para_' + i).innerHTML;
@@ -42,7 +41,7 @@ function saveEditedBlog(){
 			"paragraph": contentpara
 		}
 		content.push(dic);
-		content.sort(function(a, b) {
+		content.sort(function (a, b) {
 			return a.id - b.id;
 		});
 		blogcontentList = {
@@ -58,7 +57,7 @@ function saveEditedBlog(){
 
 	var listOfContents = []; // Stores the final blog contents
 	var contents_count = 0;
-	$('.contentsPage').each(function(){
+	$('.contentsPage').each(function () {
 		dic = {
 			"id": "topic" + contents_count++,
 			"title": $(this).html()
@@ -71,26 +70,6 @@ function saveEditedBlog(){
 	console.log(galleryList['gallery']);
 	var blogtarget = document.getElementById('blogtarget').value;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function getBlogCategory() {
@@ -115,12 +94,12 @@ function getBlogSubcategory(val) {
 	}
 }
 
-function displayBlogData(){
+function displayBlogData() {
 	cover = blog_data['headerImage'];
 	coach = blog_data['coach'];
 	content = blog_data['body'];
 	contentList = [];
-	for(i = 0; i < blog_data['content'].length; i++){
+	for (i = 0; i < blog_data['content'].length; i++) {
 		contentList.push(blog_data['content'][i]['title']);
 	}
 	gallery = blog_data['gallery'];
@@ -165,7 +144,7 @@ function displayBlogData(){
 	document.getElementById('blogdate').value = blog_data['date'];
 
 	// Blog body
-	for(j = 0; j < blog_data['body'].length; j++){
+	for (j = 0; j < blog_data['body'].length; j++) {
 		var body = document.createElement('div');
 		body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
 		body.setAttribute('id', 'index_' + body_count);
@@ -214,12 +193,12 @@ function displayBlogData(){
 	document.getElementById('blogsummary').value = blog_data['summary'];
 
 	// Category
-	$("#blogcategory option").filter(function() {
+	$("#blogcategory option").filter(function () {
 		return $(this).text() == blog_data['category'];
 	}).prop("selected", true);
 
 	// Subcategory
-	$("#blogsubcategory option").filter(function() {
+	$("#blogsubcategory option").filter(function () {
 		return $(this).text() == blog_data['subcategory'];
 	}).prop("selected", true);
 
@@ -301,89 +280,94 @@ function edit_addBlogBody() {
 	var contentheading = document.getElementById('contentheading').value = "";
 	var contentpara = document.getElementById('contentpara').value = "";
 }
-function addNewContent(id){
+
+function addNewContent(id) {
 	$("#editBlogModal").modal();
 
-	$('#saveContent').click(function(){
+	$('#saveContent').click(function () {
 		$("#editBlogModal").modal("hide");
 		var new_content = document.getElementById('newContent').value;
-		if(new_content != ''){
+		if (new_content != '') {
 			document.getElementById('para_' + id.split('_')[1]).innerHTML = new_content;
 		}
 	});
 }
+
 function deleteContent(id) {
-	var id = parseInt(id.split('_')[1]);
+	$("#confirmDelete").modal();
+	$('.confirmDelete').click(function () {
+		var id = parseInt(id.split('_')[1]);
 
-	content = [];
-	for(i = 0; i < body_count; i++){
-		var contentid = document.getElementById('index_' + i).innerHTML;
-		var contentheading = document.getElementById('heading_' + i).innerHTML;
-		var contentpara = document.getElementById('para_' + i).innerHTML;
-		dic = {
-			"id": parseInt(contentid),
-			"heading": contentheading,
-			"paragraph": contentpara
+		content = [];
+		for (i = 0; i < body_count; i++) {
+			var contentid = document.getElementById('index_' + i).innerHTML;
+			var contentheading = document.getElementById('heading_' + i).innerHTML;
+			var contentpara = document.getElementById('para_' + i).innerHTML;
+			dic = {
+				"id": parseInt(contentid),
+				"heading": contentheading,
+				"paragraph": contentpara
+			}
+			content.push(dic);
+			content.sort(function (a, b) {
+				return a.id - b.id;
+			});
+			blogcontentList = {
+				"content": content
+			}
 		}
-		content.push(dic);
-		content.sort(function(a, b) {
-			return a.id - b.id;
-		});
-		blogcontentList = {
-			"content": content
+
+		console.log(blogcontentList);
+
+		blogcontentList['content'].splice(id, 1);
+		document.getElementById('blogcontent').innerHTML = "";
+		body_count = 0;
+
+		for (j = 0; j < blogcontentList['content'].length; j++) {
+			var body = document.createElement('div');
+			body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
+			body.setAttribute('id', 'index_' + body_count);
+			body.setAttribute('contenteditable', true);
+			body.innerHTML = blogcontentList['content'][j]['id'];
+
+			document.getElementById('blogcontent').append(body);
+
+			var body = document.createElement('div');
+			body.setAttribute('class', 'font-weight-bolder');
+			body.setAttribute('id', 'heading_' + body_count);
+			body.setAttribute('contenteditable', true);
+			body.innerHTML = blogcontentList['content'][j]['heading'];
+
+			document.getElementById('blogcontent').append(body);
+
+			var body = document.createElement('div');
+			body.setAttribute('id', 'para_' + body_count);
+			body.setAttribute('contenteditable', true);
+			body.innerHTML = blogcontentList['content'][j]['paragraph'];
+
+			document.getElementById('blogcontent').append(body);
+
+			var body = document.createElement('div');
+			body.setAttribute('class', 'mb-5 text-right');
+
+			var bodydelete = document.createElement('button');
+			bodydelete.setAttribute('class', 'btn btn-dark mr-4');
+			bodydelete.setAttribute('id', 'deletebody_' + body_count);
+			bodydelete.setAttribute('onclick', `deleteContent(this.id)`);
+			bodydelete.append('DELETE SECTION');
+
+			var bodybutton = document.createElement('button');
+			bodybutton.setAttribute('class', 'btn btn-dark');
+			bodybutton.setAttribute('id', 'newbody_' + body_count++);
+			bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
+			bodybutton.append('ADD NEW CONTENT');
+
+			body.append(bodydelete);
+			body.append(bodybutton);
+
+			document.getElementById('blogcontent').append(body);
 		}
-	}
-
-	console.log(blogcontentList);
-
-	blogcontentList['content'].splice(id, 1);
-	document.getElementById('blogcontent').innerHTML = "";
-	body_count = 0;
-
-	for(j = 0; j < blogcontentList['content'].length; j++){
-		var body = document.createElement('div');
-		body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
-		body.setAttribute('id', 'index_' + body_count);
-		body.setAttribute('contenteditable', true);
-		body.innerHTML = blogcontentList['content'][j]['id'];
-
-		document.getElementById('blogcontent').append(body);
-
-		var body = document.createElement('div');
-		body.setAttribute('class', 'font-weight-bolder');
-		body.setAttribute('id', 'heading_' + body_count);
-		body.setAttribute('contenteditable', true);
-		body.innerHTML = blogcontentList['content'][j]['heading'];
-
-		document.getElementById('blogcontent').append(body);
-
-		var body = document.createElement('div');
-		body.setAttribute('id', 'para_' + body_count);
-		body.setAttribute('contenteditable', true);
-		body.innerHTML = blogcontentList['content'][j]['paragraph'];
-
-		document.getElementById('blogcontent').append(body);
-
-		var body = document.createElement('div');
-		body.setAttribute('class', 'mb-5 text-right');
-
-		var bodydelete = document.createElement('button');
-		bodydelete.setAttribute('class', 'btn btn-dark mr-4');
-		bodydelete.setAttribute('id', 'deletebody_' + body_count);
-		bodydelete.setAttribute('onclick', `deleteContent(this.id)`);
-		bodydelete.append('DELETE SECTION');
-
-		var bodybutton = document.createElement('button');
-		bodybutton.setAttribute('class', 'btn btn-dark');
-		bodybutton.setAttribute('id', 'newbody_' + body_count++);
-		bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
-		bodybutton.append('ADD NEW CONTENT');
-
-		body.append(bodydelete);
-		body.append(bodybutton);
-
-		document.getElementById('blogcontent').append(body);
-	}
+	});
 }
 
 function edit_addContents() {

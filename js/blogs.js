@@ -311,7 +311,7 @@ function displaySingleBlog(blog_id) {
 
       // Blog content
       for(i = 0; i < data['body'].length; i++){
-        document.getElementById('blogContent').innerHTML += `<div class="blogContent fw-600 fo-30 mfo-18 mb-3" id="topic_${data['body'][i]['id']}">${data['body'][i]['heading']}</div>
+        document.getElementById('blogContent').innerHTML += `<div class="blogContent fw-600 fo-30 mfo-18 mb-3" id="topic${data['body'][i]['id']}">${data['body'][i]['heading']}</div>
         <div class="blogContent fo-17 mfo-15">${data['body'][i]['paragraph']}</div>`;
       }
 

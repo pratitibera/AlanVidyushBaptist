@@ -25,9 +25,6 @@
                   <a class="nav-link" href="#editBlog">Edit blogs</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#clientinfo">Generate client information</a>
-               </li>
-               <li class="nav-item">
                   <a class="nav-link" href="editBlog.html#blogbody">Generate blog body</a>
                </li>
             </ul>
@@ -149,6 +146,19 @@
             </div>
          </div>
       </div>
+
+
+
+      <div class="modal" id="confirmDelete">
+         <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content p-5">
+               <div class="row m-0 justify-content-around">
+                  <button class="btn btn-dark confirmDelete">CONFIRM</button>
+                  <button class="btn btn-dark" data-dismiss="modal">CANCEL</button>
+               </div>
+            </div>
+         </div>
+      </div>
       <!-- Blogs sections --->
 
 
@@ -160,28 +170,6 @@
 
 
       <!-- HTML Generator --->
-      <section id="clientinfo" class="mb-5">
-         <div class="container">
-            <h3 class="mb-5">GENERATE CLIENT INFORMATION HTML</h3>
-            <div class="row m-0">
-               <div class="col-sm-6">
-                  <div class="form-group">
-                     <label>Field name:</label>
-                     <input type="text" class="form-control" id="clientField">
-                  </div>
-                  <div class="form-group">
-                     <label>Field data:</label>
-                     <input type="text" class="form-control" id="clientFieldData">
-                  </div>
-                  <button class="btn btn-dark" onclick="addClientInfo();">ADD CLIENT INFO</button>
-               </div>
-               <div class="col-sm-6">
-                  <textarea rows="13" class="w-100" id="clientInfoData"></textarea>
-                  <button class="btn btn-dark mt-3" onclick="copyToClipboard('clientInfoData');">COPY TO CLIPBOARD</button>
-               </div>
-            </div>
-         </div>
-      </section>
       <section id="blogbody" class="mb-5">
          <div class="container">
             <h3 class="mb-5">GENERATE BLOG BODY HTML</h3>
