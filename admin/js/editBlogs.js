@@ -89,7 +89,7 @@ function saveEditedBlog() {
 		}
 		console.log(json);
 		var request = new XMLHttpRequest();
-		request.open(urlSet.edit_blogApi.method, urlSet.edit_blogApi.url, true);
+		request.open(urlSet.edit_blogApi.method, urlSet.edit_blogApi.url + blog_data['_id'], true);
 		request.setRequestHeader("Content-Type", "application/json");
 		request.setRequestHeader("authorization", authtoken);
 		request.send(JSON.stringify(json));

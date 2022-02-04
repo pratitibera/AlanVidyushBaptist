@@ -113,7 +113,7 @@ function payInCash() {
 					"name": customer_name,
 					"phone": customer_mobile,
 					"email": customer_email,
-					"type": "Cash"
+					"type": "CASH"
 				}
 				console.log(json);
 				var request = new XMLHttpRequest();
@@ -161,7 +161,7 @@ function checkout() {
 					"name": customer_name,
 					"phone": customer_mobile,
 					"email": customer_email,
-					"type": "Online"
+					"type": "ONLINE"
 				}
 				console.log(json);
 				var request = new XMLHttpRequest();

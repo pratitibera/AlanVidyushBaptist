@@ -41,7 +41,7 @@ function viewTransactions(){
 			td6.append(data[i]['amount']);
 
 			var td7 = document.createElement('td');
-			td7.append(data[i]['transaction_type']);
+			td7.append(data[i]['type']);
 
 			var td8 = document.createElement('td');
 			td8.append(data[i]['status']);
@@ -76,40 +76,20 @@ function viewTransactions(){
 
 function editTransaction(id){
 	console.log(id);
+	var json = {
+		"razorpay_order_id": "",
+		"razorpay_signature": "",
+		"razorpay_payment_id": "",
+		"receipt_id": id.split('_')[1],
+		"type": "CASH"
+	}
+	console.log(json);
 	var request = new XMLHttpRequest();
-	request.open(urlSet.viewTransactionsApi.method, urlSet.viewTransactionsApi.url + '/' + id.split('_')[1], true);
-	request.setRequestHeader("Accept", "application/json");
-	request.setRequestHeader("authorization", authtoken);
-	request.send();
+	request.open(urlSet.verifyPaymentApi.method, urlSet.verifyPaymentApi.url, true);
+	request.send(JSON.stringify(json));
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-
-		var json = {
-		  "_id": data['_id'],
-		  "couponCode": data['couponCode'],
-		  "name": data['name'],
-		  "status": "Successful",
-		  "amount": data['amount'],
-		  "phone": data['phone'],
-		  "email": data['email'],
-		  "date": data['date'],
-		  "offers": data['offers'],
-		  "type": data['type'],
-		  "razorpay_order_id": data['razorpay_order_id'],
-		  "razorpay_signature": data['razorpay_signature'],
-		  "razorpay_payment_id": data['razorpay_payment_id']
-		}
-		console.log(json);
-		var request = new XMLHttpRequest();
-		request.open(urlSet.viewTransactionsApi.method, urlSet.viewTransactionsApi.url + '/' + id.split('_')[1], true);
-		request.setRequestHeader("Accept", "application/json");
-		request.setRequestHeader("authorization", authtoken);
-		request.send(JSON.stringify(json));
-		request.onload = function () {
-			var data = JSON.parse(this.response);
-			console.log(data);
-		}
 	}
 }
 
@@ -124,7 +104,7 @@ function deleteTransaction(id){
 		console.log(data);
 		if(data['message'] == "Transaction has been deleted."){
 			alert("Transaction has been deleted.");
-			document.location.href = "index.html";
+			viewTransactions();
 		}
 		else{
 			alert("Could not delete this transaction.");
