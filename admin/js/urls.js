@@ -12,6 +12,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/blogs/",
         method: "POST",
     },
+    edit_blogApi: { // Edit blog
+        url: baseUrl + "/api/v1/blogs/",
+        method: "PATCH",
+    },
     delete_blogApi: { // Delete a blog
         url: baseUrl + "/api/v1/blogs/",
         method: "DELETE",

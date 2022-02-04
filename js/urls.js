@@ -12,6 +12,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/blogs/",
         method: "POST",
     },
+    edit_blogApi: { // Edit blog
+        url: baseUrl + "/api/v1/blogs/",
+        method: "PATCH",
+    },
     delete_blogApi: { // Delete a blog
         url: baseUrl + "/api/v1/blogs/",
         method: "DELETE",
@@ -143,7 +147,7 @@ var urlSet = {
     // Admin transactions
 
     viewTransactionsApi: { // View all transactions
-        url: baseUrl + "/api/v1/transaction?status=Successful",
+        url: baseUrl + "/api/v1/transaction",
         method: "GET",
     },
     addTransactionsApi: { // Add transactions

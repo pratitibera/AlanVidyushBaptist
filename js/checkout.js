@@ -3,6 +3,7 @@ var totalbill = 0;
 var coupon_code;
 
 function emptyCart() {
+	shopcart = [];
 	sessionStorage.clear();
 	document.getElementById('cart_count_mobile').innerHTML = "";
 	document.getElementById('cart_count_desktop').innerHTML = "";
@@ -122,6 +123,13 @@ function payInCash() {
 				request.onload = function () {
 					var data = JSON.parse(this.response);
 					console.log(data);
+					if (data['receipt_id'] != ""){
+						$("#checkout").modal("hide");
+						notify("Order placed successfully");
+						emptyCart();
+					} else {
+						notify("Payment unsuccessful");
+					}
 				}
 			} else {
 				notify("Please enter a valid email ID");
@@ -227,7 +235,7 @@ function payNowResponse(razorpay_payment_id, razorpay_order_id, razorpay_signatu
 		console.log(data);
 		if (data['message'] == "Order Valid and Successful") {
 			notify("Payment successful");
-			sessionStorage.clear();
+			emptyCart();
 		} else {
 			notify("Payment unsuccessful");
 		}

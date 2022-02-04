@@ -1,4 +1,5 @@
 var body_count = 0;
+var deletion_id;
 
 function deleteBlog(id) {
 	var request = new XMLHttpRequest();
@@ -22,14 +23,17 @@ function editBlog(id) {
 }
 
 function saveEditedBlog() {
-	console.log(coverList['cover']);
 	var client = document.getElementById('client').innerHTML;
 	var brands = document.getElementById('brands').value;
-	console.log(coachList['coach']);
 	var author = document.getElementById('author').value;
 	var blogtitle = document.getElementById('blogtitle').value;
 	var blogdate = document.getElementById('blogdate').value;
+	var blogsummary = document.getElementById('blogsummary').value;
+	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
+	var blogsubcategory = document.getElementById('blogsubcategory').value;
+	var blogtarget = document.getElementById('blogtarget').value;
 
+	// Blog body
 	content = [];
 	for (i = 0; i < body_count; i++) {
 		var contentid = document.getElementById('index_' + i).innerHTML;
@@ -49,12 +53,7 @@ function saveEditedBlog() {
 		}
 	}
 
-	console.log(blogcontentList);
-
-	var blogsummary = document.getElementById('blogsummary').value;
-	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
-	var blogsubcategory = document.getElementById('blogsubcategory').value;
-
+	// Blog contents
 	var listOfContents = []; // Stores the final blog contents
 	var contents_count = 0;
 	$('.contentsPage').each(function () {
@@ -65,10 +64,48 @@ function saveEditedBlog() {
 		listOfContents.push(dic);
 	});
 
-	console.log(listOfContents);
+	// Slug
+	var slug = blogtitle.replace(/[^a-zA-Z0-9 ]/g, "");
+	var slug = slug.replaceAll(" ", "_");
+	var slug = encodeURIComponent(slug);
 
-	console.log(galleryList['gallery']);
-	var blogtarget = document.getElementById('blogtarget').value;
+	if (client != '' && blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
+		var json = {
+			"date": blogdate,
+			"title": blogtitle,
+			"author": author,
+			"headerImage": coverList['cover'],
+			"slug": slug,
+			"summary": blogsummary,
+			"body": blogcontentList['content'],
+			"category": blogcategory,
+			"subcategory": blogsubcategory,
+			"client": client,
+			"brands": brands,
+			"coach": coachList['coach'],
+			"content": listOfContents,
+			"gallery": galleryList['gallery'],
+			"target": blogtarget
+		}
+		console.log(json);
+		var request = new XMLHttpRequest();
+		request.open(urlSet.edit_blogApi.method, urlSet.edit_blogApi.url, true);
+		request.setRequestHeader("Content-Type", "application/json");
+		request.setRequestHeader("authorization", authtoken);
+		request.send(JSON.stringify(json));
+		request.onload = function () {
+			var data = JSON.parse(this.response);
+			console.log(data);
+			if (data['message'] == "Blog has been added") {
+				alert("Blog successfully added");
+				location.reload();
+			} else {
+				alert("Could not add blog");
+			}
+		}
+	} else {
+		alert("Please fill all details")
+	}
 }
 
 
@@ -232,6 +269,13 @@ function edit_addBlogBody() {
 	var contentheading = document.getElementById('contentheading').value;
 	var contentpara = document.getElementById('contentpara').value;
 
+	dic = {
+		"id": parseInt(contentid),
+		"heading": contentheading,
+		"paragraph": contentpara
+	}
+	content.push(dic);
+
 	var body = document.createElement('div');
 	body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
 	body.setAttribute('id', 'index_' + body_count);
@@ -295,8 +339,10 @@ function addNewContent(id) {
 
 function deleteContent(id) {
 	$("#confirmDelete").modal();
+	deletion_id = id;
 	$('.confirmDelete').click(function () {
-		var id = parseInt(id.split('_')[1]);
+		$("#confirmDelete").modal("hide");
+		var id = parseInt(deletion_id.split('_')[1]);
 
 		content = [];
 		for (i = 0; i < body_count; i++) {
