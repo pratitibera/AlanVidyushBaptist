@@ -85,11 +85,18 @@ function editTransaction(id){
 	console.log(json);
 	var request = new XMLHttpRequest();
 	request.open(urlSet.verifyPaymentApi.method, urlSet.verifyPaymentApi.url, true);
-	request.setRequestHeader("Accept", "application/json");
+	request.setRequestHeader("Content-Type", "application/json");
 	request.send(JSON.stringify(json));
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		if(data['message'] == "Order Successful"){
+			alert("Transaction Updated")
+			viewTransactions();
+		}
+		else{
+			alert("Could not update transaction");
+		}
 	}
 }
 

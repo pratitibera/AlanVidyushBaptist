@@ -96,8 +96,8 @@ function saveEditedBlog() {
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
-			if (data['message'] == "Blog has been added") {
-				alert("Blog successfully added");
+			if (data['message'] == "Blog has been Updated") {
+				alert("Blog has been Updated");
 				location.reload();
 			} else {
 				alert("Could not add blog");
