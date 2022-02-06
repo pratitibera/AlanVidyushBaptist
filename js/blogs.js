@@ -186,26 +186,6 @@ function manageBlogs() {
     }
 
     displaySingleBlog(blog_id);
-    document.getElementById("navItems").style.display = "contents";
-    document.getElementById("contentItems").style.display = "none";
-
-    var distance = $('.blogContents').offset().top;
-    $(window).scroll(function () {
-      if (screen.width < 577) {
-        if ($(this).scrollTop() >= distance) {
-          document.getElementById("navItems").style.display = "none";
-          document.getElementById("contentItems").style.display = "block";
-          document.getElementById("contentItems").style.width = "100%";
-          $("nav").removeClass("bg-dark");
-          $("nav").addClass("bg-white");
-        } else {
-          document.getElementById("navItems").style.display = "contents";
-          document.getElementById("contentItems").style.display = "none";
-          $("nav").removeClass("bg-white");
-          $("nav").addClass("bg-dark");
-        }
-      }
-    });
 
     window.addEventListener("scroll", () => {
       let scrollPercentRounded = Math.round((window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100);
@@ -233,14 +213,8 @@ function displaySingleBlog(blog_id) {
     console.log(data);
     try {
       // Contents 
-      var contentList1 = document.getElementById('contentList1');
       var contentList2 = document.getElementById('contentList2');
       for (i = 0; i < data['content'].length; i++) {
-        contentList1.innerHTML += `<li class="fo-16">
-                           <a href="#${data['content'][i]['id']}">
-                              <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['content'][i]['title']}
-                           </a>
-                        </li>`;
         contentList2.innerHTML += `<li class="fo-16">
                            <a href="#${data['content'][i]['id']}">
                               <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>${data['content'][i]['title']}
@@ -345,6 +319,22 @@ function displaySingleBlog(blog_id) {
       });
       document.getElementById('blogAvailable').style.display = "block";
       document.getElementById('blogNotAvailable').style.display = "none";
+
+      var x = $("#stickyContents").offset();
+      x = x.top - 150;
+      console.log(x);
+
+      var header = document.getElementById("stickyContents");
+
+      window.onscroll = function() {
+        console.log(window.pageYOffset, x)
+        if (window.pageYOffset > x) {
+          header.classList.add("sticky2");
+          console.log("ki");
+        } else {
+          header.classList.remove("sticky2");
+        }
+      };
     } catch {
       document.getElementById('blogAvailable').style.display = "none";
       document.getElementById('blogNotAvailable').style.display = "block";

@@ -31,6 +31,9 @@
             .move-up{
                bottom: 55%!important;
             }
+            .fixed-top{
+               position: relative;
+            }
          }
       </style>
    </head>
@@ -119,121 +122,96 @@
          <div class="progress">
             <div class="progress-bar" id="blogContentProgress"></div>
          </div>
-         <div id="navItems">
-            <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-               <div class="menu-btn__burger"></div>
-            </div>
-            <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
-            <button class="btn d-sm-none" onclick="fetchCart();">
-               <i class="fa fa-shopping-cart fo-30 bco">
-                  <sup class="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
-               </i>
-            </button>
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-               <div class="row d-none d-sm-flex">
-                  <div class="col-sm-3 m-auto">
-                     <i class="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar"></i>
-                  </div>
-                  <div class="col-sm-6">
-                     <div class="owner-name text-center opensans">
-                        <a href="index.html" class="text-white">ALAN BAPTIST</a>
-                     </div>
-                  </div>
-                  <div class="col-sm-3 m-auto">
-                     <a href="mainservices.html">
-                        <button class="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
-                     </a>
+         <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <div class="menu-btn__burger"></div>
+         </div>
+         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
+         <button class="btn d-sm-none" onclick="fetchCart();">
+            <i class="fa fa-shopping-cart fo-30 bco">
+               <sup class="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
+            </i>
+         </button>
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="row d-none d-sm-flex">
+               <div class="col-sm-3 m-auto">
+                  <i class="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar"></i>
+               </div>
+               <div class="col-sm-6">
+                  <div class="owner-name text-center opensans">
+                     <a href="index.html" class="text-white">ALAN BAPTIST</a>
                   </div>
                </div>
-               <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-                  <li class="nav-item ml-sm-auto header-nav-pl">
-                     <a class="nav-link exo" href="index.html#about">
-                     <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link exo" href="index.html#success">
-                     <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link exo" href="index.html#blogs">
-                     <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
-                     </a>
-                  </li>
-                  <li class="nav-item mr-sm-auto header-nav-pr">
-                     <a class="nav-link exo" href="index.html#contact">
-                     <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
-                     </a>
-                  </li>
-                  <li class="nav-item d-block d-sm-none text-center">
-                     <a href="mainservices.html">
-                     <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-                     </a>
-                  </li>
-                  <li class="nav-item text-right pr-0 d-none d-sm-block">
-                     <button class="btn mr-2" onclick="fetchCart();">
-                        <i class="fa fa-shopping-cart fo-30 bco position-relative">
-                           <sup class="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
-                        </i>
-                     </button>
-                  </li>
-               </ul>
-               <div class="navExtras d-block d-sm-none">
-                  <div class="pb-2">
-                     <a href="partners.html">Partners</a>
-                  </div>
-                  <div class="pb-2">
-                     <a href="columnist.html">Columnists</a>
-                  </div>
-                  <div class="pb-2">
-                     <a href="portfolio.html">Portfolio</a>
-                  </div>
-               </div>
-               <div class="searchbox d-flex d-sm-none">
-                  <i class="fa fa-search" id="mobileSearch" onclick="search(this.id);"></i>
-                  <input type="text" name="" placeholder="Search..." class="searches" id="mobileSearchi">
-               </div>
-               <div class="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
-                  <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
-                  <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://www.instagram.com/alan_baptist/" target="_blank">
-                  <i class="fab fa-instagram text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
-                  <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://alan.optimumwellness@gmail.com" target="_blank">
-                  <i class="fas fa-envelope text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
-                  <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+               <div class="col-sm-3 m-auto">
+                  <a href="mainservices.html">
+                     <button class="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
                   </a>
                </div>
             </div>
-         </div> 
-         <div id="contentItems">
-            <div id="accordion">
-               <div class="row m-0 p-2 pb-sm-3">
-                  <div class="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">Contents</div>
-                  <div class="col-2 col-sm-2 text-center p-0 m-auto">
-                     <a data-toggle="collapse" href="#collapseContents2">
-                     <i class="fas fa-chevron-down bco fo-24" onclick="toggleContents(this)"></i>
-                     </a>
-                  </div>
+            <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
+               <li class="nav-item ml-sm-auto header-nav-pl">
+                  <a class="nav-link exo" href="index.html#about">
+                  <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link exo" href="index.html#success">
+                  <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link exo" href="index.html#blogs">
+                  <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+                  </a>
+               </li>
+               <li class="nav-item mr-sm-auto header-nav-pr">
+                  <a class="nav-link exo" href="index.html#contact">
+                  <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+                  </a>
+               </li>
+               <li class="nav-item d-block d-sm-none text-center">
+                  <a href="mainservices.html">
+                  <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
+                  </a>
+               </li>
+               <li class="nav-item text-right pr-0 d-none d-sm-block">
+                  <button class="btn mr-2" onclick="fetchCart();">
+                     <i class="fa fa-shopping-cart fo-30 bco position-relative">
+                        <sup class="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
+                     </i>
+                  </button>
+               </li>
+            </ul>
+            <div class="navExtras d-block d-sm-none">
+               <div class="pb-2">
+                  <a href="partners.html">Partners</a>
                </div>
-               <div id="collapseContents2" class="collapse" data-parent="#accordion">
-                  <div class="pt-2">
-                     <ul class="pl-2 collapseContents2" id="contentList1">
-                        <!-- <li class="fo-16">
-                           <a href="#topic0">
-                              <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>Introduction
-                           </a>
-                        </li> -->
-                     </ul>
-                  </div>
+               <div class="pb-2">
+                  <a href="columnist.html">Columnists</a>
                </div>
+               <div class="pb-2">
+                  <a href="portfolio.html">Portfolio</a>
+               </div>
+            </div>
+            <div class="searchbox d-flex d-sm-none">
+               <i class="fa fa-search" id="mobileSearch" onclick="search(this.id);"></i>
+               <input type="text" name="" placeholder="Search..." class="searches" id="mobileSearchi">
+            </div>
+            <div class="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
+               <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+               <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+               <i class="fab fa-instagram text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+               <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+               <i class="fas fa-envelope text-white fw-600 m-2"></i>
+               </a>
+               <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
+               <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+               </a>
             </div>
          </div>
       </nav>
@@ -241,7 +219,7 @@
       <div id="notification-area"></div>
       <section class="min-height">
          <!---Blog section starts --->
-         <section id="blogAvailable">
+         <section id="blogAvailable" class="blogAvailable">
             <div class="blogImageContainer">
                <div class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner" id="blogImageContainer"></div>
@@ -258,7 +236,7 @@
             <div class="blogContentContainer">
                <div class="row m-0 flex-sm-row-reverse">
                   <div class="col-sm-3 blogContents p-0 mt-4 mt-sm-0">
-                     <div class="sticky stickyContents" id="sticky">
+                     <div class="stickyContents" id="stickyContents">
                         <div id="accordion">
                            <div class="row m-0 p-2 pb-sm-3">
                               <div class="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">Contents</div>

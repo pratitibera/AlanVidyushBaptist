@@ -696,7 +696,7 @@ nav .navbar-collapse.show {
 	border-bottom: 3px solid #e6ce4c;
 	max-width: 200px;
 }
-#blogsSection img{
+#blogsSection img, #blogsSection video{
 	height: 260px;
 }
 [type=radio] {
