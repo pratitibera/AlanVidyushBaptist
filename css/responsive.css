@@ -7,7 +7,7 @@
 		padding: 25px 450px;
 	}
 	.site-title .site-background {
-		padding-top: 15rem!important;
+		padding-top: 10rem!important;
 		text-align: center;
 		color: #fff;
 	}
@@ -16,6 +16,9 @@
 	}
 	.collabs .col-sm-4{
 		margin-bottom: 45px!important;
+	}
+	.blogcardimage {
+		height: 300px!important;
 	}
 }
 

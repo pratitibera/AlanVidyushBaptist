@@ -85,7 +85,7 @@ function removeCoverImage(id) {
 	document.getElementById('headerimageList').innerHTML = "";
 	for (i = 0; i < coverList['cover'].length; i++) {
 		document.getElementById('headerimageList').innerHTML += `<div class="col-sm-2 mb-2">
-                     <div>${coverList['cover'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="cover_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <div>${coverList['cover'][i]['title']}<span class="ml-3 float-right cursor-pointer" id="cover_${i}" onclick="removeCoverImage(this.id)">x</span></div>
                      <img src=${coverList['cover'][i]['image']} class="w-100">
                   </div>`
 	}
@@ -125,7 +125,7 @@ function removecoachImage(id) {
 	document.getElementById('coachList').innerHTML = "";
 	for (i = 0; i < coachList['coach'].length; i++) {
 		document.getElementById('coachList').innerHTML += `<div class="col-sm-2 mb-2">
-                     <div>${coachList['coach'][i]['name']} - ${coachList['coach'][i]['designation']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removeImage(this.id)">x</span></div>
+                     <div>${coachList['coach'][i]['name']} - ${coachList['coach'][i]['designation']}<span class="ml-3 float-right cursor-pointer" id="coach_${i}" onclick="removecoachImage(this.id)">x</span></div>
                      <img src=${coachList['coach'][i]['image']} class="w-100">
                   </div>`
 	}
