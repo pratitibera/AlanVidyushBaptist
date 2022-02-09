@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import Header from "../components/Home/Header";
 import Sidebar from "../components/Layout/Sidebar";
-import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const About = () => (
