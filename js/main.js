@@ -273,3 +273,14 @@ else{
     document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
     document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
 }
+
+export default {
+    nextBlog,
+    prevBlog,
+    getFeaturedBlogs,
+    search,
+    displayPortfolio,
+    notify,
+    startLoader,
+    stopLoader
+}
