@@ -113,16 +113,22 @@
 	}
 
 	.blogWriter .row.p-300 {
-		padding: 0px 300px;
+		padding: 0px 200px;
 	}
 	.blogWriter .row.p-500 {
-		padding: 0px 500px;
+		padding: 0px 400px;
 	}
 	.blogImageContainer{
 		margin-top: 160px;
 	}
 	#portfolioSection img:hover{
 		transform: scale(1.05);
+	}
+	.sticky3 {
+		position: sticky;
+		top: 160px;
+		padding: 10px;
+		font-size: 13px;
 	}
 }
 

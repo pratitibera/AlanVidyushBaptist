@@ -268,7 +268,7 @@ function addBlog() {
 	var slug = slug.replaceAll(" ", "_");
 	var slug = encodeURIComponent(slug);
 
-	if (client != '' && blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
+	if (blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
 		var json = {
 			"date": blogdate,
 			"title": blogtitle,

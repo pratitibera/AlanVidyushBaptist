@@ -238,24 +238,22 @@ function displaySingleBlog(blog_id) {
       document.getElementById('blogWriter').innerHTML = data['client'];
       // Coaches
       if(data['coach'].length == 1){
-        document.getElementById('coaches').innerHTML = `<div class="text-center fw-700 mt-3 mfo-12">COACH</div>
-                  <div class="row m-0 p-500 mt-3">
+        document.getElementById('coaches').innerHTML = `<div class="row m-0 p-500 mt-3">
                      <div class="col-12 col-sm-12 p-0">
                         <img src="${data['coach'][0]['image']}">                
-                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['name']}</div>
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['designation']} : ${data['coach'][0]['name']}</div>
                      </div>
                   </div>`
       }
       else if(data['coach'].length == 2){
-          document.getElementById('coaches').innerHTML = `<div class="text-center fw-700 mt-3 mfo-12">COACH</div>
-                  <div class="row m-0 p-300 mt-3">
+          document.getElementById('coaches').innerHTML = `<div class="row m-0 p-300 mt-3">
                      <div class="col-6 col-sm-6 p-0">
                         <img src="${data['coach'][0]['image']}">                
-                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['name']}</div>
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['designation']} : ${data['coach'][0]['name']}</div>
                      </div>
                      <div class="col-6 col-sm-6 p-0">
                         <img src="${data['coach'][1]['image']}">                
-                        <div class="mt-3 fw-700 mfo-12">${data['coach'][1]['name']}</div>
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][1]['designation']} : ${data['coach'][1]['name']}</div>
                      </div>
                   </div>`
         }
@@ -264,15 +262,15 @@ function displaySingleBlog(blog_id) {
                   <div class="row m-0 mt-3">
                      <div class="col-4 col-sm-4 p-0">
                         <img src="${data['coach'][0]['image']}">                
-                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['name']}</div>
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][0]['designation']} : ${data['coach'][0]['name']}</div>
                      </div>
                      <div class="col-4 col-sm-4 p-0">
                         <img src="${data['coach'][1]['image']}">                
-                        <div class="mt-3 fw-700 mfo-12">${data['coach'][1]['name']}</div>
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][1]['designation']} : ${data['coach'][1]['name']}</div>
                      </div>
                      <div class="col-4 col-sm-4 p-0">
                         <img src="${data['coach'][2]['image']}">                
-                        <div class="mt-3 fw-700 mfo-12">${data['coach'][2]['name']}</div>
+                        <div class="mt-3 fw-700 mfo-12">${data['coach'][2]['designation']} : ${data['coach'][2]['name']}</div>
                      </div>
                   </div>`
           }
@@ -313,7 +311,7 @@ function displaySingleBlog(blog_id) {
             autoWidth: false
           },
           960: {
-            items: 3
+            items: 4
           }
         }
       });
@@ -322,17 +320,19 @@ function displaySingleBlog(blog_id) {
 
       var x = $("#stickyContents").offset();
       x = x.top - 150;
-      console.log(x);
 
       var header = document.getElementById("stickyContents");
 
       window.onscroll = function() {
-        console.log(window.pageYOffset, x)
-        if (window.pageYOffset > x) {
+        if(screen.width > 500){
+          if (window.pageYOffset > x) {
+            header.classList.add("sticky2");
+          } else {
+            header.classList.remove("sticky2");
+          }
+        }
+        else{
           header.classList.add("sticky2");
-          console.log("ki");
-        } else {
-          header.classList.remove("sticky2");
         }
       };
     } catch {
