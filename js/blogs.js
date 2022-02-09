@@ -315,6 +315,40 @@ function displaySingleBlog(blog_id) {
           }
         }
       });
+
+      var postUrl = `https://alanvidyushbaptist.com/blog.html?id=` + data['slug'];
+      var postTitle = data['summary'];
+
+      console.log(postUrl);
+      console.log(postTitle);
+
+      document.getElementById('shareBlog').innerHTML = `<div class="col-1 d-block d-sm-none"></div>
+                           <div class="col-2 text-center mb-5">
+                              <a href="https://www.facebook.com/sharer/sharer.php?u=${postUrl}"e=${postTitle} ${postUrl}" target="_blank">
+                                 <i class="fab fa-facebook fw-600 fo-26 text-dark mfo-20"></i>
+                              </a>
+                           </div>
+                           <div class="col-2 text-center mb-5">
+                              <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+                                 <i class="fab fa-instagram text-dark fw-600 fo-26 mfo-20"></i>
+                              </a>
+                           </div>
+                           <div class="col-2 text-center mb-5">
+                              <a href="https://www.linkedin.com/shareArticle/?mini=true&url=${postUrl}&title=${postTitle}?&source=${postUrl}" target="_blank">
+                                 <i class="fab fa-linkedin-in text-dark fw-600 fo-26 mfo-20"></i>
+                              </a>
+                           </div>
+                           <div class="col-2 text-center mb-5">
+                              <a href="https://mail.google.com/mail/u/0/?tf=cm&su=ALAN+BAPTIST&body=${postTitle}+${postUrl}" target="_blank">
+                                 <i class="fas fa-envelope text-dark fw-600 fo-26 mfo-20"></i>
+                              </a>
+                           </div>
+                           <div class="col-2 text-center mb-5">
+                              <a href="https://api.whatsapp.com/send?text=${postTitle} ${postUrl}" target="_blank">
+                                 <i class="fab fa-whatsapp text-dark fw-600 fo-26 mfo-20"></i>
+                              </a>
+                           </div>
+                           <div class="col-1 d-block d-sm-none"></div>`;
       document.getElementById('blogAvailable').style.display = "block";
       document.getElementById('blogNotAvailable').style.display = "none";
 
