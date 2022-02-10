@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { Link } from "react-router-dom";
 
 
 import AboutLogo from "../../img/icons/about.png"
@@ -48,13 +49,13 @@ const Navbar = ({ overlay}) => {
         </div>
         <div className="col-sm-6">
             <div className="owner-name text-center opensans">
-                <a href="index.html" className="text-white">ALAN BAPTIST</a>
+                <Link to="/" className="text-white">ALAN BAPTIST</Link>
             </div>
         </div>
         <div className="col-sm-3 m-auto">
-            <a href="mainservices.html">
+            <Link to="/services">
                 <button className="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
-            </a>
+            </Link>
         </div>
     </div>
     <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
@@ -79,9 +80,9 @@ const Navbar = ({ overlay}) => {
             </a>
         </li>
         <li className="nav-item d-block d-sm-none text-center">
-            <a href="mainservices.html">
+            <Link to="/services">
                 <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-            </a>
+            </Link>
         </li>
         <li className="nav-item text-right pr-0 d-none d-sm-block">
             <button className="btn mr-2" onClick="fetchCart();">
@@ -93,13 +94,13 @@ const Navbar = ({ overlay}) => {
     </ul>
     <div className="navExtras d-block d-sm-none">
         <div className="pb-2">
-            <a href="partners.html">Partners</a>
+            <Link to="/partners">Partners</Link>
         </div>
         <div className="pb-2">
-            <a href="columnist.html">Columnists</a>
+            <Link to="/columnists">Columnists</Link>
         </div>
         <div className="pb-2">
-            <a href="portfolio.html">Portfolio</a>
+            <Link to="/portfolio">Portfolio</Link>
         </div>
     </div>
     <div className="searchbox d-flex d-sm-none">

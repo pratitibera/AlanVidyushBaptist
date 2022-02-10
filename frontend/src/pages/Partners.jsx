@@ -3,6 +3,11 @@
 import Sidebar from "../components/Layout/Sidebar";
 import BlogSection from "../components/About/BlogSection";
 
+import PartnerImage1 from "../img/partners/partner_1.png"
+import PartnerImage2 from "../img/partners/partner_2.png"
+import PartnerImage3 from "../img/partners/partner_3.png"
+import PartnerImage4 from "../img/partners/partner_4.png"
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Partners = () => (
     <main>
@@ -39,7 +44,7 @@ const Partners = () => (
                 <div class="col-sm-8 p-0 bg-grey">
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
                         <div class="col-5 col-sm-5 m-auto text-right">
-                            <img src="img/partners/partner_1.png" class="w-70 mow-100"></img>
+                            <img src={PartnerImage1} class="w-70 mow-100"></img>
                         </div>
                         <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
                             <div class="mid-border"></div> 
@@ -68,7 +73,7 @@ const Partners = () => (
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
                         <div class="col-5 col-sm-5 m-auto text-right">
                             <a href="achievements.html">
-                                <img src="img/partners/partner_2.png" class="w-70 mow-100"></img>
+                            <img src={PartnerImage2} class="w-70 mow-100"></img>
                             </a>
                         </div>
                         <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
@@ -97,7 +102,7 @@ const Partners = () => (
                 <div class="col-sm-8 p-0 bg-grey">
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
                         <div class="col-5 col-sm-5 m-auto text-right">
-                            <img src="img/partners/partner_3.png" class="w-70 mow-100"></img>
+                        <img src={PartnerImage3} class="w-70 mow-100"></img>
                         </div>
                         <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
                             <div class="mid-border"></div> 
@@ -126,7 +131,7 @@ const Partners = () => (
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
                         <div class="col-5 col-sm-5 m-auto text-right">
                             <a href="achievements.html">
-                                <img src="img/partners/partner_4.png" class="w-70 mow-100"></img>
+                            <img src={PartnerImage4} class="w-70 mow-100"></img>
                             </a>
                         </div>
                         <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">

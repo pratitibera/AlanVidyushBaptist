@@ -11,6 +11,7 @@ import Footer from "./components/Layout/Footer"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Partners from "./pages/Partners"
+import Columnists from "./pages/Columnists"
 import Portfolio from "./pages/Portfolio"
 import Sidebar from "./components/Layout/Sidebar";
 import Blogs from "./pages/Blogs";
@@ -50,6 +51,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="partners" element={<Partners />} />
+          <Route path="columnists" element={<Columnists />} />
           <Route path="portfolio"  element={<Portfolio />} />
           <Route path="/blogs/:category/:slug"  element={<Blogs />} />
 

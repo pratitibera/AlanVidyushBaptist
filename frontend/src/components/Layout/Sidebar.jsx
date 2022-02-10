@@ -1,4 +1,6 @@
 
+import { Link } from "react-router-dom";
+
 import AboutLogo from "../../img/icons/about.png"
 import StoryLogo from "../../img/icons/story.png"
 import BlogsLogo from "../../img/icons/blogs.png"
@@ -42,20 +44,20 @@ const Sidebar = ({ overlay }) => {
                 </a>
             </li>
             <li className="nav-item text-center">
-                <a href="mainservices.html">
+                <Link to="/services">
                     <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-                </a>
+                </Link>
             </li>
         </ul>
         <div className="navExtras">
             <div className="pt-3 pl-5">
-                <a href="partners.html" className="text-white">Partners</a>
+                <Link to="/partners" className="text-white">Partners</Link>
             </div>
             <div className="pt-2 pl-5">
-                <a href="columnist.html" className="text-white">Columnists</a>
+                <Link to="/columnists" className="text-white">Columnists</Link>
             </div>
             <div className="pt-2 pl-5">
-                <a href="portfolio.html" className="text-white">Portfolio</a>
+                <Link to="/portfolio" className="text-white">Portfolio</Link>
             </div>
         </div>
         <div className="searchbox mt-4">

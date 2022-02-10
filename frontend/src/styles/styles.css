@@ -1217,7 +1217,10 @@ footer .move-up {
 #pricing_heading{
 	text-transform: uppercase;
 }
-
+.pricing-hr{
+	border-bottom: 3px solid #FFE972; 
+	max-width: 100px
+}
 .dark-pricing .fw-600{
 	color: #fff;
 }

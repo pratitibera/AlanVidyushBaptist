@@ -2,6 +2,26 @@
 
 import Sidebar from "../components/Layout/Sidebar";
 
+import AboutImage1 from "../img/about/about1.png"
+import AboutImage2 from "../img/about/about2.png"
+import AboutImage3 from "../img/about/about3.png"
+import AboutImage4 from "../img/about/about4.jpg"
+import AboutImage5 from "../img/about/about5.png"
+import AboutImage6 from "../img/about/about6.png"
+import AboutImage7 from "../img/about/about7.png"
+import AboutImage8 from "../img/about/about8.png"
+import AboutImage9 from "../img/about/about9.png"
+import AboutImage10 from "../img/about/about10.jfif"
+import AboutImage11 from "../img/about/about11.png"
+import AboutImage12 from "../img/about/about12.png"
+import AboutImage13 from "../img/about/about13.png"
+import AboutImage14 from "../img/about/about14.png"
+import AboutImage15 from "../img/about/about15.png"
+import AboutImage16 from "../img/about/about16.jpg"
+import AboutImage17 from "../img/about/about17.png"
+import AboutImage18 from "../img/about/about18.png"
+
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const About = () => (
     <main>
@@ -37,7 +57,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.precisionnutrition.com/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about1.png" class="w-100"></img>
+                            <img src={AboutImage1} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -47,7 +67,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.mac-nutritionuni.com/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about2.png" class="w-100"></img>
+                        <img src={AboutImage2} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -57,7 +77,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.nasm.org/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about3.png" class="w-100"></img>
+                        <img src={AboutImage3} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -67,7 +87,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.nasm.org/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about4.jpg" class="w-100"></img>
+                        <img src={AboutImage4} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -80,7 +100,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.acefitness.org/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about5.png" class="w-100"></img>
+                        <img src={AboutImage5} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -90,7 +110,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.issaonline.com/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about6.png" class="w-100"></img>
+                        <img src={AboutImage6} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -100,7 +120,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.strengthandconditioning.org/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about7.png" class="w-100"></img>
+                        <img src={AboutImage7} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -110,7 +130,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.crossfit.com/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about8.png" class="w-100"></img>
+                        <img src={AboutImage8} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -120,7 +140,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://functionalanatomyseminars.com/frs-system/functional-range-conditioning/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about9.png" class="w-100"></img>
+                        <img src={AboutImage9} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -133,7 +153,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.nationalcprfoundation.com/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about10.jfif" class="w-100"></img>
+                        <img src={AboutImage10} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -146,7 +166,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.icai.org/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about11.png" class="w-100"></img>
+                        <img src={AboutImage11} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -156,7 +176,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.icsi.edu/home/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about12.png" class="w-100"></img>
+                        <img src={AboutImage12} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -166,7 +186,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href=" https://courses.varunmalhotra.co.in/learn" target="_blank" rel="noreferrer">
-                            <img src="img/about/about13.png" class="w-100"></img>
+                        <img src={AboutImage13} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -176,7 +196,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://courses.varunmalhotra.co.in/learn" target="_blank" rel="noreferrer">
-                            <img src="img/about/about14.png" class="w-100"></img>
+                        <img src={AboutImage14} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -186,7 +206,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.caluniv.ac.in/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about15.png" class="w-100"></img>
+                        <img src={AboutImage15} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -196,7 +216,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.sxccal.edu/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about16.jpg" class="w-100"></img>
+                        <img src={AboutImage16} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -209,7 +229,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="http://ignou.ac.in/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about17.png" class="w-100"></img>
+                        <img src={AboutImage17} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -219,7 +239,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="http://ignou.ac.in/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about17.png" class="w-100"></img>
+                        <img src={AboutImage17} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -232,7 +252,7 @@ const About = () => (
                 <div class="row m-0">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.sxcsccu.edu.in/" target="_blank" rel="noreferrer">
-                            <img src="img/about/about18.png" class="w-100"></img>
+                        <img src={AboutImage18} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
@@ -242,7 +262,7 @@ const About = () => (
                 <div class="row m-0 d-flex flex-row-reverse">
                     <div class="col-2 col-sm-3">
                         <a href="https://www.facebook.com/SMSKolkata" target="_blank" rel="noreferrer">
-                            <img src="img/about/about19.png" class="w-100"></img>
+                        <img src={AboutImage18} class="w-100"></img>
                         </a>
                     </div>
                     <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">

@@ -2,21 +2,8 @@
 
 import Sidebar from "../components/Layout/Sidebar";
 
-import PortfolioImage1 from "../img/portfolio/1.jpeg"
-import PortfolioImage2 from "../img/portfolio/2.jpeg"
-import PortfolioImage3 from "../img/portfolio/3.jpeg"
-import PortfolioImage4 from "../img/portfolio/4.jpeg"
-import PortfolioImage5 from "../img/portfolio/5.jpeg"
-import PortfolioImage6 from "../img/portfolio/6.jpeg"
-import PortfolioImage7 from "../img/portfolio/7.jpeg"
-import PortfolioImage8 from "../img/portfolio/8.jpeg"
-import PortfolioImage9 from "../img/portfolio/9.jpeg"
-import PortfolioImage10 from "../img/portfolio/10.jpeg"
-import PortfolioImage11 from "../img/portfolio/11.jpeg"
-import PortfolioImage12 from "../img/portfolio/12.jpeg"
-
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const Portfolio = () => (
+const Pricing = () => (
     <main>
         <div id="overlay"></div>
         <div id="contextMenu" className="context-menu" style={{ display: "none" }}>
@@ -38,70 +25,55 @@ const Portfolio = () => (
 
 
         <div id="notification-area"></div>
+
+    
         
         <section>
-            <div class="min-height">
-                <div class="owl-carousel" id="portfolioSection">
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage1} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage2} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage3} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage4} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage5} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage6} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage7} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage8} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage9} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage10} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage11} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage12} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
+            <section class="pricing-cover">
+                <div class="pricing-landing-image"></div>
+                <div class="w-100 pricing-landing">
+                    <div class="text-center text-white fo-40 fw-700 mfo-24" id="pricing_heading"></div>
+                </div>
+            </section>
+
+            <section class="pricing-section pt-4">
+                <div class="d-block pricing-section-container" id="pricing-section-container"></div>
+            </section>
+
+            <div class="fo-34 text-dark text-center fw-700 p-4 mfo-24 mt-sm-3 testimonials-heading pb-2">Testimonials</div>
+            <hr className="pricing-hr"></hr>
+
+
+            <div class="row m-0 mt-5 testimonials">
+                <div class="col-sm-4 mb-5">
+                    <div class="bg-grey p-4">
+                    <div class="text-center testimonialsImage">
+                        <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-30"></img>
+                    </div>
+                    <div class="text-center fo-24 fw-600">John Doe</div>
+                    <div class="fo-15"><span class="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<span class="fo-22 fw-800">"</span></div>
+                    <hr></hr>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-5">
+                    <div class="bg-grey p-4">
+                    <div class="text-center testimonialsImage">
+                        <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-30"></img>
+                    </div>
+                    <div class="text-center fo-24 fw-600">John Doe</div>
+                    <div class="fo-15"><span class="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<span class="fo-22 fw-800">"</span></div>
+                    <hr></hr>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-5">
+                    <div class="bg-grey p-4">
+                    <div class="text-center testimonialsImage">
+                        <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="w-30"></img>
+                    </div>
+                    <div class="text-center fo-24 fw-600">John Doe</div>
+                    <div class="fo-15"><span class="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<span class="fo-22 fw-800">"</span></div>
+                    <hr></hr>
+                    </div>
                 </div>
             </div>
 
@@ -157,4 +129,4 @@ const Portfolio = () => (
     </main>
 )
 
-export default Portfolio;
+export default Pricing;

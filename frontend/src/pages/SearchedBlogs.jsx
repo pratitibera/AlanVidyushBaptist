@@ -2,21 +2,8 @@
 
 import Sidebar from "../components/Layout/Sidebar";
 
-import PortfolioImage1 from "../img/portfolio/1.jpeg"
-import PortfolioImage2 from "../img/portfolio/2.jpeg"
-import PortfolioImage3 from "../img/portfolio/3.jpeg"
-import PortfolioImage4 from "../img/portfolio/4.jpeg"
-import PortfolioImage5 from "../img/portfolio/5.jpeg"
-import PortfolioImage6 from "../img/portfolio/6.jpeg"
-import PortfolioImage7 from "../img/portfolio/7.jpeg"
-import PortfolioImage8 from "../img/portfolio/8.jpeg"
-import PortfolioImage9 from "../img/portfolio/9.jpeg"
-import PortfolioImage10 from "../img/portfolio/10.jpeg"
-import PortfolioImage11 from "../img/portfolio/11.jpeg"
-import PortfolioImage12 from "../img/portfolio/12.jpeg"
-
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const Portfolio = () => (
+const SearchedBlogs = () => (
     <main>
         <div id="overlay"></div>
         <div id="contextMenu" className="context-menu" style={{ display: "none" }}>
@@ -38,71 +25,20 @@ const Portfolio = () => (
 
 
         <div id="notification-area"></div>
+
+    
         
-        <section>
-            <div class="min-height">
-                <div class="owl-carousel" id="portfolioSection">
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage1} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage2} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage3} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage4} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage5} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage6} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage7} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage8} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage9} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage10} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage11} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src={PortfolioImage12} class="w-100 copyright_img"></img>
-                        </div>  
-                    </div>  
+        <section class="partners-section2 min-height">
+
+            <div id="blogAvailable">
+                <div class="text-dark fo-30 p-5 text-center fw-700" id="searched_keyword">Searched results of </div>
+                <div class="row m-0 mt-3" id="displayAllBlogs"></div>
+                <div class="text-center mt-5 mb-5" id="readmorebutton">
+                    <button class="btn website-button bg-dark text-white" onclick="searchBlogs();">READ MORE</button>
                 </div>
+            </div>
+            <div id="blogNotAvailable">
+                <div class="text-center fw-600 fo-24 mb-4 mt-5">Sorry, we couldn't find any results.</div>
             </div>
 
             <div className="modal fade" id="checkout">
@@ -157,4 +93,4 @@ const Portfolio = () => (
     </main>
 )
 
-export default Portfolio;
+export default SearchedBlogs;

@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return(
         <footer id="contact">
         <div class="footer-bg overflow-hidden">
             <div class="text-center mt-4">
-                <a href="mainservices.html">
+                <Link to="/services">
                     <button class="btn website-button pulsating fo-30" data-aos="fade-left" data-aos-delay="100">CONSULT</button>
-                </a>
+                </Link>
             </div>
             <div class="text-center fo-40 fw-800 bco mfo-35 text-white pt-5" data-aos="fade-left" data-aos-delay="100">ALAN BAPTIST</div>
             <div class="footer-img-container w-100">
