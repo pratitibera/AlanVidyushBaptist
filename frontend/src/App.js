@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import AOS from 'aos'
 import $ from "jquery"
 import { Routes, Route } from "react-router-dom" 
@@ -13,8 +13,19 @@ import About from "./pages/About"
 import Partners from "./pages/Partners"
 import Portfolio from "./pages/Portfolio"
 import Sidebar from "./components/Layout/Sidebar";
+import Blogs from "./pages/Blogs";
 
 function App() {
+  const overlay = useRef(null)
+
+  const overlayHandler = () => {
+    document.querySelector(".menuSidebar").classList.remove("navToggle");
+    document.querySelector(".header-nav").classList.add("d-flex");
+    document.querySelector(".header-nav").classList.remove("d-none");
+    document.querySelector(".header-consult").classList.add("d-block");
+    document.querySelector(".header-consult").classList.remove("d-none");
+    overlay.current.style.display = "none";
+}
   useEffect(() => {
       $('.move-up span').click(function () {
         $('html, body').animate({
@@ -27,16 +38,21 @@ function App() {
     });
   }, []);
 
+  
+
   return (
     <div className="App">
-        <Navbar />
-        <Sidebar />
+        <div id="overlay" ref={overlay} onClick={overlayHandler}></div>
+        <Navbar overlay={overlay}/>
+        <Sidebar overlay={overlay} />
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="partners" element={<Partners />} />
           <Route path="portfolio"  element={<Portfolio />} />
+          <Route path="/blogs/:category/:slug"  element={<Blogs />} />
+
         </Route>
       </Routes>
     </div>

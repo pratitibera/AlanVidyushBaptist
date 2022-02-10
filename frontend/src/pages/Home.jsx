@@ -38,7 +38,7 @@ const Home = () => {
     
     return(
     <main>
-        <div id="overlay"></div>
+
         <div id="contextMenu" className="context-menu" style={{ display: "none" }}>
             This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
         </div>
