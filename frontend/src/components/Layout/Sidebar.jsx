@@ -1,9 +1,20 @@
+
+
 /* eslint-disable jsx-a11y/alt-text */
-const Sidebar = () => {
+const Sidebar = ({ overlay }) => {
+
+    const closeCollapsibleSidebarHandler = () => {
+        document.querySelector(".menuSidebar").classList.remove("navToggle");
+        document.querySelector(".header-nav").classList.add("d-flex");
+        document.querySelector(".header-nav").classList.remove("d-none");
+        document.querySelector(".header-consult").classList.add("d-block");
+        document.querySelector(".header-consult").classList.remove("d-none");
+        overlay.current.style.display = "none";
+    }
     return (
         <div className="menuSidebar">
         <span className="close-menuSidebar">
-            <i className="fa fa-times cursorPointer bco" id="close_collapsibleSidebar"> </i>
+            <i className="fa fa-times cursorPointer bco" id="close_collapsibleSidebar" onClick={closeCollapsibleSidebarHandler}> </i>
         </span>
         <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
             <li className="nav-item ml-sm-auto">

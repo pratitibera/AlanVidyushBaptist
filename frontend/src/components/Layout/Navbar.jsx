@@ -1,3 +1,6 @@
+import { useRef } from "react"
+
+
 import AboutLogo from "../../img/icons/about.png"
 import StoryLogo from "../../img/icons/story.png"
 import BlogsLogo from "../../img/icons/blogs.png"
@@ -5,22 +8,43 @@ import ContactLogo from "../../img/icons/contact.png"
 
 
 
-const Navbar = () => {
+const Navbar = ({ overlay}) => {
+    const menuBtn = useRef(null)
+
+
+    const collapsibleSidebarHandler = () => {
+        document.querySelector(".menuSidebar").classList.add("navToggle");
+        document.querySelector(".header-nav").classList.add("d-none");
+        document.querySelector(".header-nav").classList.remove("d-flex");
+        document.querySelector(".header-consult").classList.add("d-none");
+        document.querySelector(".header-consult").classList.remove("d-block");
+        overlay.current.style.display = "block";
+    }
+    
+    const menuHandler = () => {
+        if (!menuBtn.current.classList.contains("open")) {
+            menuBtn.current.classList.add('open');
+        } else {
+            menuBtn.current.classList.remove('open');
+        }
+    }
+
+
     return(
         <nav className="navbar navbar-expand-md bg-dark fixed-top">
-<div className="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<div className="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" onClick={menuHandler} ref={menuBtn}>
     <div className="menu-btn__burger"></div>
 </div>
 <a className="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
-<button className="btn d-sm-none" onclick="fetchCart();">
+<button className="btn d-sm-none" onClick="fetchCart();">
     <i className="fa fa-shopping-cart fo-30 bco">
         <sup className="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
     </i>
 </button>
-<div className="collapse navbar-collapse" id="collapsibleNavbar">
+<div className="collapse navbar-collapse" id="collapsibleNavbar" >
     <div className="row d-none d-sm-flex">
-        <div className="col-sm-3 m-auto">
-            <i className="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar"></i>
+        <div className="col-sm-3 m-auto" >
+            <i className="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar" onClick={collapsibleSidebarHandler}></i>
         </div>
         <div className="col-sm-6">
             <div className="owner-name text-center opensans">
@@ -60,7 +84,7 @@ const Navbar = () => {
             </a>
         </li>
         <li className="nav-item text-right pr-0 d-none d-sm-block">
-            <button className="btn mr-2" onclick="fetchCart();">
+            <button className="btn mr-2" onClick="fetchCart();">
                 <i className="fa fa-shopping-cart fo-30 bco position-relative">
                     <sup className="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
                 </i>
@@ -79,7 +103,7 @@ const Navbar = () => {
         </div>
     </div>
     <div className="searchbox d-flex d-sm-none">
-        <i className="fa fa-search" id="mobileSearch" onclick="search(this.id);"></i>
+        <i className="fa fa-search" id="mobileSearch" onClick="search(this.id);"></i>
         <input type="text" name="" placeholder="Search..." className="searches" id="mobileSearchi" />
     </div>
     <div className="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
