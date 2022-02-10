@@ -249,7 +249,7 @@ function getFeaturedBlogs() {
 }
 
 function prevBlog() {
-    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
+    let v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
     if (v < 1) {
         v = 5;
     }
@@ -257,7 +257,7 @@ function prevBlog() {
 }
 
 function nextBlog() {
-    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
+    let v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
     if (v > 5) {
         v = 1;
     }

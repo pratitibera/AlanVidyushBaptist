@@ -1,12 +1,41 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { useState, useEffect } from "react"
 
 import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
 import Header from "../components/Home/Header";
 import Sidebar from "../components/Layout/Sidebar";
 
+import AboutLogo from "../img/about.jpg"
+import OWLogo from "../img/logos/ow.png"
+
+import urlSet from "../utils/urls";
+
+import axios from "axios"
+
+
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const Home = () => (
+const Home = () => {
+    const [ blogs, setBlogs ] = useState([])
+
+    useEffect(() => {
+    const getFeaturedBlogs = async () => {
+        try{
+            const url = urlSet.get_featuredblogApi.url + "?index=0&limit=5";
+            const res = await axios.get(url)
+            setBlogs(res.data)
+        } catch(err){
+            setBlogs([])
+            console.log(err)
+        }
+    }
+
+    getFeaturedBlogs()
+    }, [])
+
+    
+    return(
     <main>
         <div id="overlay"></div>
         <div id="contextMenu" className="context-menu" style={{ display: "none" }}>
@@ -49,7 +78,7 @@ const Home = () => (
                         <div className="text-white text-justify">In addition to being an educationalist, finance professional, and fitness coach, Alan is also a licensed therapist. Furthermore, he has a Master’s degree in Philosophy as well. He wishes to coach and mentor other individuals who are struggling with the various dimensions of their wellness. Being an optimum wellness coach, his life’s objective is to provide education, enlightenment, and inspiration to people and help them achieve optimal and holistic wellness in the different dimensions of their life such as physical, dietary and psychological wellness, financial wellness, spiritual wellness, sexual wellness, intellectual and occupational wellness and social wellness.</div>
                     </div>
                     <div className="col-sm-6 p-0 text-center mt-3 mt-sm-0" data-aos="fade-left" data-aos-delay="140">
-                        <img src="img/about.jpg" className="w-80 copyright_img" />
+                        <img src={AboutLogo} className="w-80 copyright_img" />
                     </div>
                 </div>
                 <br />
@@ -69,7 +98,7 @@ const Home = () => (
                     <div className="col-sm-5 m-auto">
                         <div className="p-4 p-sm-0">
                             <a href="#" target="_blank">
-                                <img src="img/logos/ow.png" className="w-100" />
+                                <img src={OWLogo} className="w-100" />
                             </a>
                         </div>
                     </div>
@@ -110,7 +139,7 @@ const Home = () => (
                             <a href="https://www.facebook.com/nfna.education" target="_blank" rel="noreferrer">
                                 <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                             </a>
-                            <a href="https://instagram.com/nfna.education?utm_medium=copy_link" target="_blank" rel="noreferrer">
+                            <a href="hdivttps://instagram.com/nfna.education?utm_medium=copy_link" target="_blank" rel="noreferrer">
                                 <i className="fab fa-instagram text-white fw-600 m-2"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/nfna" target="_blank" rel="noreferrer">
@@ -159,7 +188,7 @@ const Home = () => (
                         </div>
                         <br />
                         <div className="text-white fo-16 mt-2">
-                            Let's Be Fit is an online nutrition and fitness consultancy platform that strives to provide to their clients not only evidence-based solutions to their diet and fitness concerns, but also an experience that makes them happy, confident and strong. They have been working in the field of fitness since the past 5 years and have transformed and positively touched and impacted the lives of 1000+ individuals.<br /><br />The key specialty of Let's Be Fit lies in -<br /><br />
+                            Let's Beblogs Fit is an online nutrition and fitness consultancy platform that strives to provide to their clients not only evidence-based solutions to their diet and fitness concerns, but also an experience that makes them happy, confident and strong. They have been working in the field of fitness since the past 5 years and have transformed and positively touched and impacted the lives of 1000+ individuals.<br /><br />The key specialty of Let's Be Fit lies in -<br /><br />
                             <ul>
                                 <li><i className="fas fa-long-arrow-alt-right mr-2"></i>Providing a completely tailor-made and customized experience based on all the personal relevant data of a client pertaining to their fitness and health goals.</li>
                                 <li><i className="fas fa-long-arrow-alt-right mr-2"></i>Regular rigorous follow-ups with clients with the aim to enhance accountability towards adhering to the prescribed plan is a core aspect of Let's Be Fit's coaching philosophy!</li>
@@ -215,7 +244,7 @@ const Home = () => (
                 </div>
             </div>
 
-            <BlogSection />
+            <BlogSection blogs={blogs} />
 
             <div className="modal fade" id="checkout">
                 <div className="modal-dialog modal-dialog-centered">
@@ -267,7 +296,7 @@ const Home = () => (
             </div>
         </section>
     </main>
-)
+)}
 
 export default Home;
 
