@@ -53,8 +53,6 @@ const Home = () => {
         </div>
 
 
-        <Sidebar />
-
 
 
         <div id="notification-area"></div>
