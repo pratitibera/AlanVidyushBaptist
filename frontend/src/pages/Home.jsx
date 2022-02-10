@@ -5,6 +5,7 @@ import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
 import Header from "../components/Home/Header";
 import Sidebar from "../components/Layout/Sidebar";
+import Footer from "../components/Layout/Footer";
 
 import AboutLogo from "../img/about.jpg"
 import OWLogo from "../img/logos/ow.png"
@@ -294,14 +295,10 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </section>
     </main>
 )}
 
 export default Home;
-
-
-
-
-
-

@@ -2,12 +2,9 @@ import { useEffect } from "react";
 import AOS from 'aos'
 import $ from "jquery"
 
-
-
 //Layout
 import Navbar from "./components/Layout/Navbar"
 import Footer from "./components/Layout/Footer"
-
 
 // Pages
 import Home from "./pages/Home"
@@ -29,7 +26,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Home />
-      <Footer />
     </div>
   );
 }
