@@ -59,22 +59,22 @@ const Navbar = ({ overlay}) => {
     </div>
     <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
         <li className="nav-item ml-sm-auto header-nav-pl">
-            <a className="nav-link exo" href="index.html#about">
+            <a className="nav-link exo text-center" href="#about">
                 <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>ABOUT ALAN
             </a>
         </li>
         <li className="nav-item">
-            <a className="nav-link exo" href="index.html#success">
+            <a className="nav-link exo text-center" href="#success">
                 <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>SUCCESS STORIES
             </a>
         </li>
         <li className="nav-item">
-            <a className="nav-link exo" href="index.html#blogs">
+            <a className="nav-link exo text-center" href="#blogs">
                 <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>BLOGS
             </a>
         </li>
         <li className="nav-item mr-sm-auto header-nav-pr">
-            <a className="nav-link exo" href="index.html#contact">
+            <a className="nav-link exo text-center" href="#contact">
                 <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>CONTACT
             </a>
         </li>

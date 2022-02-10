@@ -35,7 +35,7 @@
 		margin-bottom: 9rem!important;
 	}
 	.associations {
-		background: linear-gradient(#3E205A 100px, #324a80 1200px, #bd1114 1900px, #000000 2600px, #857979 4000px, #3E205A 4200px, #000000 4450px);
+		background: linear-gradient(#3E205A 100px, #324a80 1200px, #bd1114 1900px, #000000 2600px, #857979 4000px, #3E205A 4200px, #000000 4570px);
 		padding-top: 150px
 	}
 	.associations .container-fluid {
@@ -44,7 +44,7 @@
 	/* #header-nav img {
 		display: none;
 	} */
-	.nav-link{
+	#header-nav .nav-link{
 		text-align: center;
 	}
 	.header-nav-pl{

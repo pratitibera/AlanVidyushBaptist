@@ -45,7 +45,7 @@ const BlogSection = ({ blogs }) => {
                 return <BlogCard blog={blog} index={index+1} key={index}/>
             })} 
 
-            <div className="text-center mt-5">
+            <div className="text-center blogs-handler-icons">
                 <i className="fas fa-long-arrow-alt-left mr-1 text-white fw-800 fo-20 cursorPointer" onClick={prevBlog}></i>
                 <i className="fas fa-long-arrow-alt-right ml-1 text-white fw-800 fo-20 cursorPointer" onClick={nextBlog}></i>
             </div>

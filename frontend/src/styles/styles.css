@@ -449,7 +449,7 @@ ul {
 	 border-radius: 8px;
 	 margin-top: 55px;
 	 margin-right: 18px;
-	 width: 124px;
+	 width: 134px;
 	 position: relative;
 }
 .whatsapp_icon_span{
@@ -705,7 +705,7 @@ nav .navbar-collapse.show {
 
 #blogSlider {
 	padding-top: 20px;
-	height: 80vh;
+	height: 83vh;
 	position: relative;
 	perspective: 1000px;
 	transform-style: preserve-3d;
@@ -783,6 +783,7 @@ nav .navbar-collapse.show {
 .blog-body {
 	padding: 40px 32px 20px 32px;
 	line-height: 1.7em;
+	height: 280px;
 }
 
 .blog-footer {
@@ -790,7 +791,9 @@ nav .navbar-collapse.show {
 	padding: 16px 32px;
 	color: #ADADAD;
 }
-
+.blogs-handler-icons{
+	margin-top: 610px;
+}
 
 /* Footer */
 
@@ -816,7 +819,8 @@ footer .move-up {
 	position: relative;
 	/* background-repeat: no-repeat; */
 	background-position: 50% 50%;
-	height: 50vh;
+	height: 70vh;
+	padding-top: 160px;
 }
 
 .footer-bg .text-white {

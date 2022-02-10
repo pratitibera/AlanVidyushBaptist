@@ -1,4 +1,8 @@
 
+import AboutLogo from "../../img/icons/about.png"
+import StoryLogo from "../../img/icons/story.png"
+import BlogsLogo from "../../img/icons/blogs.png"
+import ContactLogo from "../../img/icons/contact.png"
 
 /* eslint-disable jsx-a11y/alt-text */
 const Sidebar = ({ overlay }) => {
@@ -17,24 +21,24 @@ const Sidebar = ({ overlay }) => {
             <i className="fa fa-times cursorPointer bco" id="close_collapsibleSidebar" onClick={closeCollapsibleSidebarHandler}> </i>
         </span>
         <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
-            <li className="nav-item ml-sm-auto">
+            <li className="nav-item">
                 <a className="nav-link exo" href="#about">
-                    <img src="img/icons/about.png" className="w-8 mr-2" />ABOUT ALAN
+                    <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>ABOUT ALAN
                 </a>
             </li>
             <li className="nav-item">
                 <a className="nav-link exo" href="#success">
-                    <img src="img/icons/story.png" className="w-8 mr-2" />SUCCESS STORIES
+                    <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>SUCCESS STORIES
                 </a>
             </li>
             <li className="nav-item">
                 <a className="nav-link exo" href="#blogs">
-                    <img src="img/icons/blogs.png" className="w-8 mr-2" />BLOGS
+                    <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>BLOGS
                 </a>
             </li>
             <li className="nav-item mr-sm-auto">
                 <a className="nav-link exo" href="#contact">
-                    <img src="img/icons/contact.png" className="w-8 mr-2" />CONTACT
+                    <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>CONTACT
                 </a>
             </li>
             <li className="nav-item text-center">
