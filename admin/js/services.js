@@ -825,7 +825,7 @@ function saveOffer() {
    var actual_price = document.getElementById('edit_actual_price').value;
    var discounted_price = document.getElementById('edit_discounted_price').value;
    var recommendation = document.getElementById('editrecommendation').value;
-   var offer_name = document.getElementById('edit_offer_name');
+   var offer_name = document.getElementById('edit_offer_name').value;
 
    if (recommendation == 0) {
       recommendation = false;
@@ -866,10 +866,10 @@ function saveOffer() {
          }
       }
 
-
       var request = new XMLHttpRequest();
       request.open(urlSet.editOffersApi.method, urlSet.editOffersApi.url + offerid_to_be_edited, true);
       request.setRequestHeader("Content-Type", "application/json");
+      request.setRequestHeader("authorization", authtoken);
       request.send(JSON.stringify(json));
       request.onload = function () {
          var data = JSON.parse(this.response);

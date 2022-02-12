@@ -249,7 +249,7 @@ function getFeaturedBlogs() {
 }
 
 function prevBlog() {
-    let v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
+    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
     if (v < 1) {
         v = 5;
     }
@@ -257,7 +257,7 @@ function prevBlog() {
 }
 
 function nextBlog() {
-    let v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
+    v = parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
     if (v > 5) {
         v = 1;
     }
@@ -272,15 +272,4 @@ else{
     var shopcart = JSON.parse(sessionStorage.getItem("cart"));
     document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
     document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
-}
-
-export default {
-    nextBlog,
-    prevBlog,
-    getFeaturedBlogs,
-    search,
-    displayPortfolio,
-    notify,
-    startLoader,
-    stopLoader
 }
