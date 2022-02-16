@@ -1,55 +1,63 @@
 import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router";
 import urlSet from "../utils/urls";
 
-const Mainservices = () => {
+const Services = () => {
   const [services, setServices] = useState([]);
+  const params = useParams();
+
+  console.log(params);
   useEffect(() => {
-    function getMainServices() {
+    var mainServicesData;
+
+    function getServices() {
       var request = new XMLHttpRequest();
       request.open(
-        urlSet.getMainServiceApi.method,
-        urlSet.getMainServiceApi.url + "?level=0",
+        urlSet.viewServicesApi.method,
+        urlSet.viewServicesApi.url + params.serviceId.replaceAll("_", " "),
         true
       );
       request.setRequestHeader("Content-Type", "application/json");
       request.send();
       request.onload = function () {
         var data = JSON.parse(this.response);
-        setServices(data);
+        console.log(data);
+        mainServicesData = data["subservices"];
+        setServices(mainServicesData);
       };
     }
-
-    getMainServices();
-  });
+    getServices();
+  }, [params]);
 
   return (
     <div>
-      <section class="services-banner">
+      {/* <body onload="getServices();"> */}
+      <section className="services-banner">
         <h1>Services</h1>
       </section>
 
-      <section class="services-list">
-        <div class="row m-0" id="mainServices_section">
-          <div class="col-sm-4">
-            <div class="single-service-item" id="" onclick="">
-              <div class="img-holder">
-                <figure class="swap-on-hover">
+      <section className="services-list">
+        <div className="row m-0" id="mainServices_section">
+          <div className="col-sm-4">
+            <div className="single-service-item">
+              <div className="img-holder">
+                <figure className="swap-on-hover">
                   <img
-                    class="swap-on-hover__front-image"
+                    className="swap-on-hover__front-image"
                     src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png"
                   />
                   <img
-                    class="swap-on-hover__back-image"
+                    className="swap-on-hover__back-image"
                     src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png"
                   />
                 </figure>
-                <div class="text-holder text-center">
+                <div className="text-holder text-center">
                   <h3>Weight Loss</h3>
                   <p>
                     Nutritional coaching to normalise BMI healthily without any
                     side effects.
                   </p>
-                  <div class="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">
+                  <div className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">
                     Read More
                   </div>
                 </div>
@@ -65,16 +73,17 @@ const Mainservices = () => {
   );
 };
 
-export default Mainservices;
+export default Services;
 
 const ServiceCard = ({ service, index }) => {
+  const navigate = useNavigate();
   const mainServiceDetails = () => {
     if (service["offers"].length > 0) {
-      document.location.href =
-        "pricing?service=" + service["service"].replaceAll(" ", "_");
+      navigate(
+        "/services/" + service["service"].replaceAll(" ", "_") + "/pricing"
+      );
     } else {
-      document.location.href =
-        "services/" + service["service"].replaceAll(" ", "_");
+      navigate("/services/" + service["service"].replaceAll(" ", "_"));
     }
   };
   return (

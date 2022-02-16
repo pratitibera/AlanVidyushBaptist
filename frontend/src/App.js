@@ -17,6 +17,7 @@ import Blogs from "./pages/Blogs";
 import Blog from "./pages/Blog";
 import Pricing from "./pages/Pricing";
 import Mainservices from "./pages/Mainservices";
+import Services from "./pages/Services";
 
 function App() {
   const overlay = useRef(null);
@@ -62,8 +63,9 @@ function App() {
           <Route path="/blogs/:category/:subcategory" element={<Blog />} />
           <Route path="/blog/:id" element={<Blog />} />
 
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/mainservices" element={<Mainservices />} />
+          <Route path="/services/:serviceId/pricing" element={<Pricing />} />
+          <Route path="/services/:serviceId" element={<Services />} />
+          <Route path="/services" element={<Mainservices />} />
         </Route>
       </Routes>
     </div>

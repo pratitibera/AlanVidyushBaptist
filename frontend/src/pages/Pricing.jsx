@@ -1,30 +1,19 @@
 import { useEffect } from "react";
 import urlSet from "../utils/urls";
 import $ from "jquery";
+import { useParams } from "react-router";
 
 const Pricing = () => {
+  const params = useParams();
   useEffect(() => {
     function getPlans() {
       var mainService;
       var i, j, k;
-      try {
-        var url = document.location.href,
-          params = url.split("?")[1].split("&"),
-          data = {},
-          tmp;
-        for (var i = 0, l = params.length; i < l; i++) {
-          tmp = params[i].split("=");
-          data[tmp[0]] = tmp[1];
-          mainService = data["service"].replaceAll("_", " ");
-        }
-      } catch {
-        document.location.href = "mainservices";
-      }
 
       var request = new XMLHttpRequest();
       request.open(
         urlSet.viewServicesApi.method,
-        urlSet.viewServicesApi.url + mainService,
+        urlSet.viewServicesApi.url + params.serviceId.replaceAll("_", " "),
         true
       );
       request.setRequestHeader("Content-Type", "application/json");
