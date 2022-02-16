@@ -1,4 +1,5 @@
 import $ from "jquery"
+import { Link } from "react-router-dom"
 
 import { useEffect } from "react"
 
@@ -63,19 +64,19 @@ export default BlogSection;
 const BlogCard = ({index, blog}) => {
     return(
         <label for={`s${index}`} id={`slide${index}`}>
-                         <div className="blogcardimage">
-                            <a href={"blog.html?id=" + blog['_id']}>
-                               <img src={`${blog['headerImage'][0]['image']}`} height="100%" width="100%" />
-                            </a>
-                         </div>
-                         <div className="blog-body">
-                            <div className="fo-21 fw-700 mfo-12">{blog['title']}</div>
-                            <div className="fo-14 txtco mt-3 fw-400 mfo-11">{blog['summary']}</div>
-                            <div className="mt-4">
-                               <a href={"blog.html?id=" + blog['slug']} className="fo-12 fw-600 bco mfo-11">READ MORE</a>
-                            </div>
-                         </div>
-                         <div className="blog-footer fo-12 mfo-11">{blog['date']}</div>
-                      </label>
+            <div className="blogcardimage">
+            <Link to={"/blog/" + blog['_id']}>
+                <img src={`${blog['headerImage'][0]['image']}`} height="100%" width="100%" alt={blog.slug}/>
+            </Link>
+            </div>
+            <div className="blog-body">
+            <div className="fo-21 fw-700 mfo-12">{blog['title']}</div>
+            <div className="fo-14 txtco mt-3 fw-400 mfo-11">{blog['summary']}</div>
+            <div className="mt-4">
+                <Link to={"/blog/" + blog['slug']} className="fo-12 fw-600 bco mfo-11">READ MORE</Link>
+            </div>
+            </div>
+            <div className="blog-footer fo-12 mfo-11">{blog['date']}</div>
+        </label>
     )
 }

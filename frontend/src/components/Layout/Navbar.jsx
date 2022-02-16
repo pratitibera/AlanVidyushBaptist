@@ -5,6 +5,7 @@ import AboutLogo from "../../img/icons/about.png"
 import StoryLogo from "../../img/icons/story.png"
 import BlogsLogo from "../../img/icons/blogs.png"
 import ContactLogo from "../../img/icons/contact.png"
+import { Link } from "react-router-dom"
 
 
 
@@ -35,7 +36,7 @@ const Navbar = ({ overlay}) => {
 <div className="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" onClick={menuHandler} ref={menuBtn}>
     <div className="menu-btn__burger"></div>
 </div>
-<a className="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
+<Link className="navbar-brand d-block d-md-none" to="">ALAN BAPTIST</Link>
 <button className="btn d-sm-none" onClick="fetchCart();">
     <i className="fa fa-shopping-cart fo-30 bco">
         <sup className="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
@@ -48,40 +49,40 @@ const Navbar = ({ overlay}) => {
         </div>
         <div className="col-sm-6">
             <div className="owner-name text-center opensans">
-                <a href="index.html" className="text-white">ALAN BAPTIST</a>
+                <Link to="/" className="text-white">ALAN BAPTIST</Link>
             </div>
         </div>
         <div className="col-sm-3 m-auto">
-            <a href="mainservices.html">
+            <Link to="mainservices">
                 <button className="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
-            </a>
+            </Link>
         </div>
     </div>
     <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
         <li className="nav-item ml-sm-auto header-nav-pl">
-            <a className="nav-link exo" href="index.html#about">
+            <Link className="nav-link exo" to="#about">
                 <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>ABOUT ALAN
-            </a>
+            </Link>
         </li>
         <li className="nav-item">
-            <a className="nav-link exo" href="index.html#success">
+            <Link className="nav-link exo" to="/#success">
                 <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>SUCCESS STORIES
-            </a>
+            </Link>
         </li>
         <li className="nav-item">
-            <a className="nav-link exo" href="index.html#blogs">
+            <Link className="nav-link exo" to={{ pathname:"/", hash: "blogs"}}>
                 <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>BLOGS
-            </a>
+            </Link>
         </li>
         <li className="nav-item mr-sm-auto header-nav-pr">
-            <a className="nav-link exo" href="index.html#contact">
+            <Link className="nav-link exo" to="/#contact">
                 <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>CONTACT
-            </a>
+            </Link>
         </li>
         <li className="nav-item d-block d-sm-none text-center">
-            <a href="mainservices.html">
+            <Link to="/mainservices">
                 <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-            </a>
+            </Link>
         </li>
         <li className="nav-item text-right pr-0 d-none d-sm-block">
             <button className="btn mr-2" onClick="fetchCart();">
@@ -93,13 +94,13 @@ const Navbar = ({ overlay}) => {
     </ul>
     <div className="navExtras d-block d-sm-none">
         <div className="pb-2">
-            <a href="partners.html">Partners</a>
+            <Link to="/partners">Partners</Link>
         </div>
         <div className="pb-2">
-            <a href="columnist.html">Columnists</a>
+            <Link to="/columnist">Columnists</Link>
         </div>
         <div className="pb-2">
-            <a href="portfolio.html">Portfolio</a>
+            <Link to="/portfolio">Portfolio</Link>
         </div>
     </div>
     <div className="searchbox d-flex d-sm-none">

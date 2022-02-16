@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 /* eslint-disable jsx-a11y/alt-text */
@@ -18,40 +19,40 @@ const Sidebar = ({ overlay }) => {
         </span>
         <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
             <li className="nav-item ml-sm-auto">
-                <a className="nav-link exo" href="#about">
+                <Link className="nav-link exo" to="#about">
                     <img src="img/icons/about.png" className="w-8 mr-2" />ABOUT ALAN
-                </a>
+                </Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link exo" href="#success">
+                <Link className="nav-link exo" to="/#success">
                     <img src="img/icons/story.png" className="w-8 mr-2" />SUCCESS STORIES
-                </a>
+                </Link>
             </li>
             <li className="nav-item">
-                <a className="nav-link exo" href="#blogs">
+                <Link className="nav-link exo" to="/#blogs">
                     <img src="img/icons/blogs.png" className="w-8 mr-2" />BLOGS
-                </a>
+                </Link>
             </li>
             <li className="nav-item mr-sm-auto">
-                <a className="nav-link exo" href="#contact">
+                <Link className="nav-link exo" to="/#contact">
                     <img src="img/icons/contact.png" className="w-8 mr-2" />CONTACT
-                </a>
+                </Link>
             </li>
             <li className="nav-item text-center">
-                <a href="mainservices.html">
+                <Link to="mainservices.html">
                     <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-                </a>
+                </Link>
             </li>
         </ul>
         <div className="navExtras">
             <div className="pt-3 pl-5">
-                <a href="partners.html" className="text-white">Partners</a>
+                <Link to="partners" className="text-white">Partners</Link>
             </div>
             <div className="pt-2 pl-5">
-                <a href="columnist.html" className="text-white">Columnists</a>
+                <Link to="columnist" className="text-white">Columnists</Link>
             </div>
             <div className="pt-2 pl-5">
-                <a href="portfolio.html" className="text-white">Portfolio</a>
+                <Link to="portfolio" className="text-white">Portfolio</Link>
             </div>
         </div>
         <div className="searchbox mt-4">
