@@ -1,24 +1,29 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
 import Header from "../components/Home/Header";
-import Sidebar from "../components/Layout/Sidebar";
-import Footer from "../components/Layout/Footer";
+
 
 import AboutLogo from "../img/about.jpg"
 import OWLogo from "../img/logos/ow.png"
+import $ from "jquery"
 
 import urlSet from "../utils/urls";
 
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
     const [ blogs, setBlogs ] = useState([])
+    console.log(window.location.hash)
+
+
+
 
     useEffect(() => {
     const getFeaturedBlogs = async () => {
@@ -32,8 +37,12 @@ const Home = () => {
         }
     }
 
+    $(window.location.hash).scroll()
+
     getFeaturedBlogs()
     }, [])
+
+    
 
     
     return(
@@ -84,9 +93,9 @@ const Home = () => {
                 <div className="about-quote font-italic text-white text-justify" data-aos="fade-up" data-aos-delay="100"><span className="bco fw-600">"</span>The fool is in many ways the precursor to the expert. An individual who's open to humbly accepting their ignorance stands a greater chance at attaining enlightenment than the self-proclaimed intellectual.<span className="bco fw-600">"</span></div>
                 <br />
                 <div className="text-center" data-aos="fade-up" data-aos-delay="100">
-                    <a href="about.html">
+                    <Link to="/about">
                         <button className="btn website-button pulsating">KNOW MORE</button>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -201,9 +210,9 @@ const Home = () => {
                 <div className="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
                     <div className="col-sm-5 m-auto">
                         <div>
-                            <a href="#" target="_blank">
+                            <Link to="#" target="_blank">
                                 <img src="https://i.postimg.cc/NfkmrrdX/zest.png" className="w-100" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="col-sm-7 pl-sm-3">
@@ -243,60 +252,28 @@ const Home = () => {
                 </div>
             </div>
 
-            <BlogSection blogs={blogs} />
+            <Section id="blogs"><BlogSection blogs={blogs} /></Section>
+            
 
-            <div className="modal fade" id="checkout">
-                <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-
-                        <div className="modal-header bg-theme">
-                            <h4 className="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
-                            <button type="button" className="close text-dark fw-800" data-dismiss="modal">&times;</button>
-                        </div>
-
-                        <div className="modal-body pt-4">
-                            <div id="particulars"></div>
-                            <div className="mt-4 text-right">
-                                <div className="fo-14 fw-600 cursorPointer" onclick="emptyCart();" data-dismiss="modal">EMPTY CART</div>
-                            </div>
-                            <div className="input-data">
-                                <input type="text" required id="customer_name" />
-                                <div className="underline"></div>
-                                <label>Full Name</label>
-                            </div>
-                            <div className="input-data mt-5">
-                                <input type="text" required id="customer_email" />
-                                <div className="underline"></div>
-                                <label>Email</label>
-                            </div>
-                            <div className="input-data mt-5">
-                                <input type="text" required id="customer_mobile" />
-                                <div className="underline"></div>
-                                <label>Contact number</label>
-                            </div>
-                            <div className="row m-0 couponsection mt-3">
-                                <div className="col-6 col-sm-6 pl-0" id="coupon_status">
-                                    <input type="text" placeholder="Coupon code" id="coupon_code" />
-                                </div>
-                                <div className="col-6 col-sm-6 pr-0">
-                                    <button className="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();" id="coupon_button">APPLY COUPON</button>
-                                </div>
-                                <div className="col-12 col-sm-12 text-center cash_option">
-                                    <div className="fo-16 fw-700" onclick="payInCash();">PAY IN CASH</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="checkoutfooter row m-0">
-                            <button className="btn website-button w-50 bg-white text-dark fo-20 fw-800" id="totalbill"></button>
-                            <button className="btn website-button w-50 bg-dark text-white" onclick="checkout();">PROCEED TO PAYMENT</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <Footer />
         </section>
     </main>
 )}
 
 export default Home;
+
+
+const Section = ({ id, children }) => {
+    const ref = useRef()
+
+    useEffect(() => {
+        if(window.location.hash === id){
+            ref.current.scrollIntoView({ behavior: "smooth"})
+        }
+    }, [id])
+
+    return (
+        <div ref={ref} id={id}>
+            {children}
+        </div>
+    )
+}

@@ -264,15 +264,7 @@ function nextBlog() {
     document.getElementById('s' + v).checked = true;
 }
 
-// Cart
-if(sessionStorage.getItem("cart") == null || sessionStorage.getItem("cart") == undefined){
-    var shopcart = [];
-}
-else{
-    var shopcart = JSON.parse(sessionStorage.getItem("cart"));
-    document.getElementById('cart_count_mobile').innerHTML = shopcart.length;
-    document.getElementById('cart_count_desktop').innerHTML = shopcart.length;
-}
+
 
 export default {
     nextBlog,
