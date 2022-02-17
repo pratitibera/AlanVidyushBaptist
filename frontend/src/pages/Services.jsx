@@ -38,33 +38,6 @@ const Services = () => {
 
       <section className="services-list">
         <div className="row m-0" id="mainServices_section">
-          <div className="col-sm-4">
-            <div className="single-service-item">
-              <div className="img-holder">
-                <figure className="swap-on-hover">
-                  <img
-                    className="swap-on-hover__front-image"
-                    src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_vector-1.png"
-                  />
-                  <img
-                    className="swap-on-hover__back-image"
-                    src="https://www.nmami.in/wp-content/uploads/2019/05/Service-Thumbnail1_Images-min.png"
-                  />
-                </figure>
-                <div className="text-holder text-center">
-                  <h3>Weight Loss</h3>
-                  <p>
-                    Nutritional coaching to normalise BMI healthily without any
-                    side effects.
-                  </p>
-                  <div className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">
-                    Read More
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {services &&
             services.map((service) => <ServiceCard service={service} />)}
         </div>

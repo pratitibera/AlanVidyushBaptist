@@ -1,4 +1,5 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 import AboutLogo from "../../img/icons/about.png";
 import StoryLogo from "../../img/icons/story.png";
@@ -8,6 +9,19 @@ import { Link } from "react-router-dom";
 
 const Navbar = ({ overlay }) => {
   const menuBtn = useRef(null);
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [cartCount, setCartCount] = useState(0);
+  useEffect(() => {
+    if (
+      sessionStorage.getItem("cart") === null ||
+      sessionStorage.getItem("cart") === undefined
+    ) {
+      setCartCount(0);
+    } else {
+      setCartCount(JSON.parse(sessionStorage.getItem("cart")));
+    }
+  }, []);
 
   const collapsibleSidebarHandler = () => {
     document.querySelector(".menuSidebar").classList.add("navToggle");
@@ -26,6 +40,14 @@ const Navbar = ({ overlay }) => {
     }
   };
 
+  const searchHandler = () => {
+    navigate("/blogs/search?" + searchQuery);
+  };
+
+  const searchQueryChangeHandler = (event) => {
+    setSearchQuery(event.current.value);
+  };
+
   return (
     <nav className="navbar navbar-expand-md bg-dark fixed-top">
       <div
@@ -41,12 +63,11 @@ const Navbar = ({ overlay }) => {
       <Link className="navbar-brand d-block d-md-none" to="">
         ALAN BAPTIST
       </Link>
-      <button className="btn d-sm-none" onClick="fetchCart();">
+      <button className="btn d-sm-none" onClick={() => null}>
         <i className="fa fa-shopping-cart fo-30 bco">
-          <sup
-            className="cart_count fo-24 bco fw-600"
-            id="cart_count_mobile"
-          ></sup>
+          <sup className="cart_count fo-24 bco fw-600" id="cart_count_mobile">
+            {cartCount > 0 ? cartCount : ""}
+          </sup>
         </i>
       </button>
       <div className="collapse navbar-collapse" id="collapsibleNavbar">
@@ -114,7 +135,9 @@ const Navbar = ({ overlay }) => {
                 <sup
                   className="cart_count fo-24 bco fw-600"
                   id="cart_count_desktop"
-                ></sup>
+                >
+                  {cartCount > 0 ? cartCount : ""}
+                </sup>
               </i>
             </button>
           </li>
@@ -134,11 +157,13 @@ const Navbar = ({ overlay }) => {
           <i
             className="fa fa-search"
             id="mobileSearch"
-            onClick="search(this.id);"
+            onClick={searchHandler}
           ></i>
           <input
             type="text"
             name=""
+            value={searchQuery}
+            onChange={searchQueryChangeHandler}
             placeholder="Search..."
             className="searches"
             id="mobileSearchi"

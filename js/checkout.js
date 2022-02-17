@@ -4,6 +4,18 @@ var offerId = [];
 var totalbill = 0;
 var coupon_code;
 
+// Cart
+if (
+  sessionStorage.getItem("cart") == null ||
+  sessionStorage.getItem("cart") == undefined
+) {
+  var shopcart = [];
+} else {
+  var shopcart = JSON.parse(sessionStorage.getItem("cart"));
+  document.getElementById("cart_count_mobile").innerHTML = shopcart.length;
+  document.getElementById("cart_count_desktop").innerHTML = shopcart.length;
+}
+
 function emptyCart() {
   shopcart = [];
   sessionStorage.clear();

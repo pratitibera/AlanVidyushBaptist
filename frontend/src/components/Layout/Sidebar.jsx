@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 /* eslint-disable jsx-a11y/alt-text */
 const Sidebar = ({ overlay }) => {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
   const closeCollapsibleSidebarHandler = () => {
     document.querySelector(".menuSidebar").classList.remove("navToggle");
     document.querySelector(".header-nav").classList.add("d-flex");
@@ -10,6 +14,17 @@ const Sidebar = ({ overlay }) => {
     document.querySelector(".header-consult").classList.remove("d-none");
     overlay.current.style.display = "none";
   };
+
+  const searchHandler = () => {
+    console.log("here", searchQuery);
+    navigate("/blogs/search?" + searchQuery);
+  };
+
+  const searchQueryChangeHandler = (event) => {
+    console.log(event.target.value);
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div className="menuSidebar">
       <span className="close-menuSidebar">
@@ -75,13 +90,15 @@ const Sidebar = ({ overlay }) => {
         <i
           className="fa fa-search"
           id="desktopSearch"
-          onclick="search(this.id);"
+          onClick={searchHandler}
         ></i>
         <input
           type="text"
           name=""
+          value={searchQuery}
           placeholder="Search..."
           className="searches"
+          onChange={searchQueryChangeHandler}
           id="desktopSearchi"
         />
       </div>
