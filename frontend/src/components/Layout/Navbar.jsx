@@ -95,29 +95,29 @@ const Navbar = ({ overlay }) => {
           </div>
         </div>
         <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-          <li className="nav-item ml-sm-auto header-nav-pl">
-            <Link className="nav-link exo" to="#about">
+          <li className="nav-item header-nav-pl">
+            <Link className="nav-link exo text-center" to="#about">
               <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
               ABOUT ALAN
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link exo" to="/#success">
+            <Link className="nav-link exo text-center" to="/#success">
               <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
               SUCCESS STORIES
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              className="nav-link exo"
+              className="nav-link exo text-center"
               to={{ pathname: "/", hash: "blogs" }}
             >
               <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
               BLOGS
             </Link>
           </li>
-          <li className="nav-item mr-sm-auto header-nav-pr">
-            <Link className="nav-link exo" to="/#contact">
+          <li className="nav-item header-nav-pr">
+            <Link className="nav-link exo text-center" to="/#contact">
               <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
               CONTACT
             </Link>

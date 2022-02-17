@@ -1,4 +1,16 @@
-@media only screen and (min-width: 1401px) {
+@media only screen and (min-width: 1000px) {
+	.header-nav-pl{
+		padding-left: 70px;
+	}
+	.header-nav-pr{
+		padding-right: 70px;
+	}
+	.lfo-20{
+		font-size: 20px;
+	}
+	.lfo-12{
+		font-size: 12px;
+	}
 	.associations {
 		background: linear-gradient(#3E205A 100px, #324a80 1100px, #bd1114 1800px, #000000 2150px, #857979 3400px, #3E205A 3800px, #000000 4100px);
 		padding-top: 150px
@@ -12,7 +24,7 @@
 		color: #fff;
 	}
 	.collabs{
-		margin-top: 85px!important;
+		margin-top: 35px!important;
 	}
 	.collabs .col-sm-4{
 		margin-bottom: 45px!important;
@@ -23,6 +35,9 @@
 }
 
 @media only screen and (min-width: 577px) {
+	.navExtras div a{
+		font-size: 13px;
+	}
 	.site-title .site-background {
 		padding-top: 5rem;
 		text-align: center;
@@ -40,12 +55,6 @@
 	}
 	.associations .container-fluid {
 		padding: 0px 50px;
-	}
-	/* #header-nav img {
-		display: none;
-	} */
-	.nav-link{
-		text-align: center;
 	}
 	.header-nav-pl{
 		padding-left: 160px;

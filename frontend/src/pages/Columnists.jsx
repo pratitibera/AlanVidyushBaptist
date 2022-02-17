@@ -2,6 +2,9 @@
 
 import Sidebar from "../components/Layout/Sidebar";
 import BlogSection from "../components/About/BlogSection";
+import Footer from "../components/Layout/Footer";
+
+import PartnerImage5 from "../img/partners/partner_6.png"
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Columnists = () => (
@@ -39,7 +42,7 @@ const Columnists = () => (
                 <div class="col-sm-8 p-0 bg-grey">
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
                         <div class="col-5 col-sm-5 m-auto text-right">
-                            <img src="img/partners/partner_5.jpg" class="w-70 mow-100"></img>
+                        <img src={PartnerImage5} class="w-70 mow-100"></img>
                         </div>
                         <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
                             <div class="mid-border"></div> 
@@ -113,6 +116,7 @@ const Columnists = () => (
         </section>
 
         <BlogSection />
+        <Footer/>
     </main>
 )
 

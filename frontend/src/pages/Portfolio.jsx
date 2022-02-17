@@ -1,6 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import Sidebar from "../components/Layout/Sidebar";
+import Footer from "../components/Layout/Footer";
+
+import PortfolioImage1 from "../img/portfolio/1.jpeg"
+import PortfolioImage2 from "../img/portfolio/2.jpeg"
+import PortfolioImage3 from "../img/portfolio/3.jpeg"
+import PortfolioImage4 from "../img/portfolio/4.jpeg"
+import PortfolioImage5 from "../img/portfolio/5.jpeg"
+import PortfolioImage6 from "../img/portfolio/6.jpeg"
+import PortfolioImage7 from "../img/portfolio/7.jpeg"
+import PortfolioImage8 from "../img/portfolio/8.jpeg"
+import PortfolioImage9 from "../img/portfolio/9.jpeg"
+import PortfolioImage10 from "../img/portfolio/10.jpeg"
+import PortfolioImage11 from "../img/portfolio/11.jpeg"
+import PortfolioImage12 from "../img/portfolio/12.jpeg"
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Portfolio = () => (
@@ -27,71 +41,134 @@ const Portfolio = () => (
         <div id="notification-area"></div>
         
         <section>
-            <div class="min-height">
-                <div class="owl-carousel" id="portfolioSection">
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/1.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/2.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/3.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
+            
+            <div class="owl-carousel d-sm-none portfolioSection_mobile" id="portfolioSection">
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage1} class="w-100 copyright_img"></img>
                     </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/4.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/5.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage2} class="w-100 copyright_img"></img>
                     </div>  
-                    <div class="p-2 p-sm-4">
-                    <div class="card p-0">
-                        <img src="img/portfolio/6.jpeg" class="w-100 copyright_img"></img>
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage3} class="w-100 copyright_img"></img>
                     </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/7.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/8.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage4} class="w-100 copyright_img"></img>
                     </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/9.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
-                    </div> 
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/10.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage5} class="w-100 copyright_img"></img>
                     </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/11.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage6} class="w-100 copyright_img"></img>
                     </div>  
-                    <div class="p-2 p-sm-4">
-                        <div class="card p-0">
-                            <img src="img/portfolio/12.jpeg" class="w-100 copyright_img"></img>
-                        </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage7} class="w-100 copyright_img"></img>
                     </div>  
-                </div>
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage8} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage9} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage10} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage11} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage12} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
             </div>
 
+
+            <div class="portfolioSection_desktop row d-none d-sm-flex">
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage1} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage2} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage3} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage4} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage5} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage6} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage7} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage8} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage9} class="w-100 copyright_img"></img>
+                    </div>  
+                </div> 
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage10} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage11} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+                <div class="p-2">
+                    <div class="card p-0 border-0">
+                        <img src={PortfolioImage12} class="w-100 copyright_img"></img>
+                    </div>  
+                </div>  
+            </div>
+            
             <div className="modal fade" id="checkout">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
@@ -141,6 +218,7 @@ const Portfolio = () => (
                 </div>
             </div>
         </section>
+        <Footer/>
     </main>
 )
 

@@ -26,7 +26,7 @@ const BlogSection = ({ blogs }) => {
     }
 
     return(
-        <div className="blog-section" id="blogs">
+        <div className="blog-section vh-175" id="blogs">
         <div className="fo-52 pt-3 fw-700 text-center text-white mfo-32 d-flex justify-content-center">
             Check out my
             <a href="blogs.html" className="pulsating_text ml-3 ">Blogs</a>
@@ -71,7 +71,7 @@ const BlogCard = ({index, blog}) => {
             </div>
             <div className="blog-body">
             <div className="fo-21 fw-700 mfo-12">{blog['title']}</div>
-            <div className="fo-14 txtco mt-3 fw-400 mfo-11">{blog['summary']}</div>
+            <div className="fo-14 txtco mt-3 fw-400 mfo-11 txtoverflowmultiple">{blog['summary']}</div>
             <div className="mt-4">
                 <Link to={"/blog/" + blog['slug']} className="fo-12 fw-600 bco mfo-11">READ MORE</Link>
             </div>

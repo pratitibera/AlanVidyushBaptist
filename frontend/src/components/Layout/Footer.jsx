@@ -1,31 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 const Footer = () => {
   return (
-    <footer id="contact">
+    <footer id="contact" className="pageContact">
       <div class="footer-bg overflow-hidden">
-        <div class="text-center mt-4">
-          <a href="/services">
-            <button
-              class="btn website-button pulsating fo-30"
-              data-aos="fade-left"
-              data-aos-delay="100"
-            >
-              CONSULT
-            </button>
-          </a>
-        </div>
-        <div
-          class="text-center fo-40 fw-800 bco mfo-35 text-white pt-5"
-          data-aos="fade-left"
-          data-aos-delay="100"
-        >
-          ALAN BAPTIST
-        </div>
         <div class="footer-img-container w-100">
-          <img
-            src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp"
-            class="w-100"
-          />
+          <img src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp"
+            class="w-100"/>
         </div>
       </div>
       <div class="text-center bg-dark pb-5">
@@ -75,6 +55,9 @@ const Footer = () => {
         <div class="text-white mfo-13">
           Front End Design Conceptualizer{" "}
           <span class="bco">"Hritavash Saha"</span>
+        </div>
+        <div className="text-white mfo-12">
+          Chief Website Asset Creator <span className="bco">"Rupsha Das"</span>
         </div>
         <div class="text-white mfo-13">
           Chief Content Manager <span class="bco">"Debasmita Das"</span>

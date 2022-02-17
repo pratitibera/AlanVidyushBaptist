@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import AboutLogo from "../../img/icons/about.png";
+import StoryLogo from "../../img/icons/story.png";
+import BlogsLogo from "../../img/icons/blogs.png";
+import ContactLogo from "../../img/icons/contact.png";
+
 /* eslint-disable jsx-a11y/alt-text */
 const Sidebar = ({ overlay }) => {
   const navigate = useNavigate();
@@ -37,27 +42,27 @@ const Sidebar = ({ overlay }) => {
         </i>
       </span>
       <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
-        <li className="nav-item ml-sm-auto">
+        <li className="nav-item">
           <Link className="nav-link exo" to="#about">
-            <img src="img/icons/about.png" className="w-8 mr-2" />
+            <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>
             ABOUT ALAN
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link exo" to="/#success">
-            <img src="img/icons/story.png" className="w-8 mr-2" />
+            <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>
             SUCCESS STORIES
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link exo" to="/#blogs">
-            <img src="img/icons/blogs.png" className="w-8 mr-2" />
+            <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>
             BLOGS
           </Link>
         </li>
-        <li className="nav-item mr-sm-auto">
+        <li className="nav-item">
           <Link className="nav-link exo" to="/#contact">
-            <img src="img/icons/contact.png" className="w-8 mr-2" />
+            <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>
             CONTACT
           </Link>
         </li>
@@ -70,17 +75,17 @@ const Sidebar = ({ overlay }) => {
         </li>
       </ul>
       <div className="navExtras">
-        <div className="pt-3 pl-5">
+        <div className="pt-2 pl-5">
           <Link to="partners" className="text-white">
             Partners
           </Link>
         </div>
-        <div className="pt-2 pl-5">
+        <div className="pt-1 pl-5">
           <Link to="columnist" className="text-white">
             Columnists
           </Link>
         </div>
-        <div className="pt-2 pl-5">
+        <div className="pt-1 pl-5">
           <Link to="portfolio" className="text-white">
             Portfolio
           </Link>
@@ -102,7 +107,7 @@ const Sidebar = ({ overlay }) => {
           id="desktopSearchi"
         />
       </div>
-      <div className="row m-0 mt-4 justify-content-center mb-4">
+      <div className="row m-0 mt-4 justify-content-center mb-3">
         <a
           href="https://www.facebook.com/alanvidyushandrew.baptist"
           target="_blank"
@@ -146,6 +151,9 @@ const Sidebar = ({ overlay }) => {
       <div className="text-white fo-12 text-center">
         Front End Design Conceptualizer{" "}
         <span className="bco">"Hritavash Saha"</span>
+      </div>
+      <div className="text-white fo-12 text-center">
+        Chief Website Asset Creator <span className="bco">"Rupsha Das"</span>
       </div>
       <div className="text-white fo-12 text-center">
         Chief Content Manager <span className="bco">"Debasmita Das"</span>

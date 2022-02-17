@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 
 //Layout
 import Navbar from "./components/Layout/Navbar";
-import Footer from "./components/Layout/Footer";
 
 // Pages
 import Home from "./pages/Home";
@@ -18,6 +17,7 @@ import Blog from "./pages/Blog";
 import Pricing from "./pages/Pricing";
 import Mainservices from "./pages/Mainservices";
 import Services from "./pages/Services";
+import Columnists from "./pages/Columnists";
 
 function App() {
   const overlay = useRef(null);
@@ -55,6 +55,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="partners" element={<Partners />} />
+          <Route path="columnists" element={<Columnists />} />
           <Route path="portfolio" element={<Portfolio />} />
 
           <Route path="/blogs" element={<Blogs />} />

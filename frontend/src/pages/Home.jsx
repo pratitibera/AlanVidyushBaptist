@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
 import Header from "../components/Home/Header";
+import Homefooter from "../components/Layout/Homefooter";
 
 
 import AboutLogo from "../img/about.jpg"
@@ -28,7 +29,7 @@ const Home = () => {
     useEffect(() => {
     const getFeaturedBlogs = async () => {
         try{
-            const url = urlSet.get_featuredblogApi.url + "?index=0&limit=5";
+            const url = urlSet.get_featuredblogApi.url;
             const res = await axios.get(url)
             setBlogs(res.data)
         } catch(err){
@@ -252,7 +253,8 @@ const Home = () => {
                 </div>
             </div>
 
-            <Section id="blogs"><BlogSection blogs={blogs} /></Section>
+            <Section ><BlogSection blogs={blogs} /></Section>
+            <Homefooter/>
             
 
         </section>

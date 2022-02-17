@@ -16,6 +16,31 @@
 
 /* Globacl classes */
 
+.txtoverflowmultiple {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+}
+
+.vh-175{
+	height: 175vh;
+}
+.pageContact .footer-bg{
+	height: 20vh!important;
+ }
+ .pageContact .move-up{
+	bottom: 35%!important;
+ }
+ @media only screen and (max-width: 576px){
+	.pageContact .footer-bg{
+	   height: 5vh!important;
+	}
+	.pageContact .move-up{
+	   bottom: 55%!important;
+	}
+ }
 .context-menu {
   position: absolute;
   text-align: center;
@@ -1070,7 +1095,7 @@ footer .move-up {
 }
 .single-service-item .text-holder {
    position: absolute;
-   top: 255px;
+   top: 230px;
    left: 5px;
    right: 5px;
    bottom: 5px;
@@ -1359,12 +1384,30 @@ footer .move-up {
 	padding-bottom: 12px;
 }
 
-#portfolioSection .card{
-	border: none;
-}
 .cash_option{
 	background-color: #FFE972; 
 	padding: 12px 0px; 
 	margin-top: 15px;
 	cursor: pointer;
+}
+
+
+
+
+.portfolioSection_mobile{
+	margin: 70px 0px 0px 0px;
+}
+.portfolioSection_desktop{
+	margin: 140px 0px 0px 0px;
+}
+.portfolioSection_desktop{
+	width: 3900px;
+	overflow-x: scroll;
+}
+.portfolioSection_desktop .card{
+	height: 435px;
+}
+.portfolioSection_desktop .card img{
+	height: 435px;
+	width: auto;
 }
