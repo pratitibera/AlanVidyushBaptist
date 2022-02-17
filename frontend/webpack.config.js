@@ -1,10 +1,11 @@
-import webpack from "webpack"
+import webpack from "webpack";
 
 module.exports = {
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        })
-    ]
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery",
+    }),
+  ],
 };

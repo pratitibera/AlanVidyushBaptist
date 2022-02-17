@@ -35,16 +35,20 @@ const Blogs = () => {
   const [categories, setCategories] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const params = useParams();
-  const searchParams = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search");
+
   const navigate = useNavigate();
   const isSubCategory = params.category;
 
-  console.log(params, searchParams);
+  console.log();
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
         let url = urlSet.get_blogApi.url;
-        if (params.category && params.subcategory)
+
+        if (searchQuery) url = url + "?searchQuery=" + searchQuery;
+        else if (params.category && params.subcategory)
           url =
             url +
             `?category=${params.category}&subcategory=${params.subcategory}`;
@@ -69,7 +73,7 @@ const Blogs = () => {
       ]);
     }
     fetchBlogs();
-  }, [params]);
+  }, [params, searchQuery]);
 
   const categoryHandler = (id) => {
     if (isSubCategory) {
