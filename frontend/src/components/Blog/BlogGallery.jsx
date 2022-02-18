@@ -1,54 +1,56 @@
-import { useEffect } from "react";
-import $ from "jquery";
+/* eslint-disable jsx-a11y/alt-text */
+import Slider from "react-slick";
 
 const BlogGallery = ({ gallery }) => {
-  console.log(window);
-  useEffect(() => {
-    $("#blogsSection").owlCarousel({
-      loop: true,
-      autoplay: true,
-      autoWidth: true,
-      autoPlaySpeed: 1000,
-      autoplayHoverPause: true,
-      dots: false,
-      nav: true,
-      navText: [
-        $(".owl-navigation .owl-nav-prev"),
-        $(".owl-navigation .owl-nav-next"),
-      ],
-      responsive: {
-        0: {
-          items: 1,
-          autoWidth: false,
-        },
-        960: {
-          items: 4,
+  console.log(gallery);
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    responsive: [
+      {
+        breakpoint: 1800,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true,
         },
       },
-    });
-  }, [gallery]);
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <div className="col-12 col-sm-12">
-      <div className="owl-carousel mt-sm-5" id="blogsSection">
-        {gallery &&
-          gallery.map((image, index) => {
-            return (
-              <div class="p-2" key={index}>
-                <div class="card p-0">
-                  <img src={image["image"]} class="w-100" />
+      {gallery && (
+        <div className="mt-sm-5">
+          <Slider {...settings}>
+            {gallery.map((image, index) => {
+              return (
+                <div key={index} className="p-4">
+                  <img src={image["image"]} height="300" />
                 </div>
-              </div>
-            );
-          })}
-      </div>
-      <div className="owl-navigation">
-        <span className="owl-nav-prev mr-2">
-          <i className="fas fa-long-arrow-alt-left"></i>
-        </span>
-        <span className="owl-nav-next ml-2">
-          <i className="fas fa-long-arrow-alt-right"></i>
-        </span>
-      </div>
+              );
+            })}
+          </Slider>
+        </div>
+      )}
     </div>
   );
 };
