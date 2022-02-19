@@ -93,9 +93,12 @@ const Blog = () => {
                               >
                                 {elem["heading"]}
                               </div>
-                              <div class="blogContent fo-17 mfo-15">
-                                {elem["paragraph"]}
-                              </div>
+                              <div
+                                class="blogContent fo-17 mfo-15"
+                                dangerouslySetInnerHTML={{
+                                  __html: elem["paragraph"],
+                                }}
+                              ></div>
                             </>
                           );
                         })}
