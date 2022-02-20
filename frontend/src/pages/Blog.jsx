@@ -115,7 +115,7 @@ const Blog = () => {
 
                   <div className="col-sm-4 blogContents p-0 mt-4 mt-sm-0">
                     <div className="stickyContents sticky3" id="stickyContents">
-                      <Accordian title="Huhlha">
+                      <Accordian title="Contents">
                         <div className="pt-2">
                           <ul className="pl-2" id="contentList2">
                             {blog &&
@@ -136,7 +136,20 @@ const Blog = () => {
                     </div>
                   </div>
 
-                  <BlogGallery gallery={blog.gallery} />
+                  <BlogGallery>
+                    {blog &&
+                      blog.gallery.map((image, index) => {
+                        return (
+                          <div key={index} className="p-4">
+                            <img
+                              src={image["image"]}
+                              height="300"
+                              className="w-100 copyright_img"
+                            />
+                          </div>
+                        );
+                      })}
+                  </BlogGallery>
                 </div>
               </div>
               <BlogShareIcons postTitle={postTitle} postUrl={postUrl} />

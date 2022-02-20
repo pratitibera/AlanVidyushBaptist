@@ -15,40 +15,7 @@ import PortfolioImage9 from "../img/portfolio/9.jpeg";
 import PortfolioImage10 from "../img/portfolio/10.jpeg";
 import PortfolioImage11 from "../img/portfolio/11.jpeg";
 import PortfolioImage12 from "../img/portfolio/12.jpeg";
-
-const settings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 2,
-  responsive: [
-    {
-      breakpoint: 1800,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 2,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 1300,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 900,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+import BlogGallery from "../components/Blog/BlogGallery";
 
 const images = [
   PortfolioImage1,
@@ -86,7 +53,7 @@ const Portfolio = () => (
         class="owl-carousel d-sm-none portfolioSection_mobile"
         id="portfolioSection"
       >
-        <Slider {...settings}>
+        <BlogGallery>
           {images.map((image, index) => {
             return (
               <div class="p-2" key={index}>
@@ -96,7 +63,7 @@ const Portfolio = () => (
               </div>
             );
           })}
-        </Slider>
+        </BlogGallery>
       </div>
 
       <div class="portfolioSection_desktop row d-none d-sm-flex">
