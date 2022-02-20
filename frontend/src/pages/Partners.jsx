@@ -7,6 +7,9 @@ import PartnerImage1 from "../img/partners/partner_1.png"
 import PartnerImage2 from "../img/partners/partner_2.png"
 import PartnerImage3 from "../img/partners/partner_3.png"
 import PartnerImage4 from "../img/partners/partner_4.png"
+import PartnerImage6 from "../img/partners/partner_6.png"
+
+import PartnersBanner from "../img/banners/partners_banner.png"
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Partners = () => (
@@ -34,12 +37,41 @@ const Partners = () => (
 
         <section>
             <div class="partners-cover text-center">
-                <img src="https://media.self.com/photos/5e385cdfb7ea8d0009212cdb/8:3/w_1280,c_limit/00_heros-contributors.jpg" class="w-100"></img>
+                <img src={PartnersBanner} class="w-100"></img>
             </div>
-            <div class="fo-34 text-dark text-center fw-700 p-4 mfo-24">MEET MY PARTNERS</div>
         </section>
         
-        <section class="partners-section">
+        <section class="partners-section mt-4">
+        <div class="row m-0">
+                <div class="col-sm-8 p-0 bg-grey">
+                    <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
+                        <div class="col-5 col-sm-5 m-auto text-right">
+                            <a href="achievements.html">
+                            <img src={PartnerImage6} class="w-70 mow-100"></img>
+                            </a>
+                        </div>
+                        <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
+                            <div class="mid-border"></div> 
+                        </div>
+                        <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
+                            <div class="fo-28 mfo-26 fw-800 text-center">Neera</div>
+                            <div class="fo-15 mfo-20 fw-800 text-center">
+                                <a href="achievements.html?partner=Neera">
+                                    <button class="btn website-button bg-dark mt-3 text-white">READ MORE</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
+                    <div class="m-auto">
+                        <a href="partners.html?partner=Neera">
+                            <div class="fo-18 text-white fw-600">Marathon Running Coach, Certified Yoga Instructor, Strength Coach, Fitness Model.</div>
+                        </a>
+                        <hr></hr>
+                    </div>
+                </div>
+            </div>
             <div class="row m-0 d-flex flex-row-reverse">
                 <div class="col-sm-8 p-0 bg-grey">
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">

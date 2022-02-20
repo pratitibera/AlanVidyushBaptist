@@ -5,6 +5,8 @@ import BlogSection from "../components/About/BlogSection";
 
 import PartnerImage5 from "../img/partners/partner_5.jpg"
 
+import ColumnistsBanner from "../img/banners/columnists_banner.png"
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Columnists = () => (
     <main>
@@ -31,12 +33,11 @@ const Columnists = () => (
 
         <section>
             <div class="partners-cover text-center">
-                <img src="https://media.self.com/photos/5e385cdfb7ea8d0009212cdb/8:3/w_1280,c_limit/00_heros-contributors.jpg" class="w-100"></img>
+                <img src={ColumnistsBanner} class="w-100"></img>
             </div>
-            <div class="fo-34 text-dark text-center fw-700 p-4 mfo-24">MEET MY COLUMNISTS</div>
         </section>
         
-        <section class="partners-section">
+        <section class="partners-section mt-4">
             <div class="row m-0 d-flex flex-row-reverse">
                 <div class="col-sm-8 p-0 bg-grey">
                     <div class="row m-0 pl-sm-5 pr-sm-5 h-100">

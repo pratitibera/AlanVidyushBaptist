@@ -624,6 +624,9 @@ nav .navbar-collapse.show {
 	display: flex;
 	justify-content: center;
 }
+.site-title-about{
+	background: url('../img/banners/about_banner.png');
+}
 .site-title .site-background {
    color: #fff;
 }

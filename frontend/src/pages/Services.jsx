@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 
 import Sidebar from "../components/Layout/Sidebar";
+import ServicesBanner from "../img/banners/services_banner.png"
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Services = () => (
@@ -29,10 +30,11 @@ const Services = () => (
     
         
         <section>
-            <section class="services-banner">
-                <h1>Services</h1>
+            <section>
+                <div class="partners-cover text-center">
+                    <img src={ServicesBanner} class="w-100"></img>
+                </div>
             </section>
-
             <section class="services-list">
                 <div class="row m-0" id="mainServices_section"></div>
             </section>

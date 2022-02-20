@@ -46,7 +46,7 @@ const About = () => (
 
         <div id="notification-area"></div>
         
-        <section class="site-title">
+        <section class="site-title site-title-about">
             <div class="site-background w-100" data-aos="fade-up" data-aos-delay="100"></div>
         </section>
             
