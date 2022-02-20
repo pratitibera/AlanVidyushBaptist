@@ -167,6 +167,11 @@ const Navbar = ({ overlay }) => {
             placeholder="Search..."
             className="searches"
             id="mobileSearchi"
+            onKeyPress={(e) => {
+              if (e.key === "Enter" || e.keyCode === 13) {
+                searchHandler();
+              }
+            }}
           />
         </div>
         <div className="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">

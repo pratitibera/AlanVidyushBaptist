@@ -1,6 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate, useSearchParams } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  useSearchParams,
+  Link,
+} from "react-router-dom";
 import urlSet from "../utils/urls";
 
 var blogCatandSub = {
@@ -37,6 +42,7 @@ const Blogs = () => {
   const params = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
+  const partnerQuery = searchParams.get("partner");
 
   const navigate = useNavigate();
   const isSubCategory = params.category;
@@ -47,7 +53,8 @@ const Blogs = () => {
       try {
         let url = urlSet.get_blogApi.url;
 
-        if (searchQuery) url = url + "?searchQuery=" + searchQuery;
+        if (partnerQuery) url = url + "?author=" + partnerQuery;
+        else if (searchQuery) url = url + "?searchQuery=" + searchQuery;
         else if (params.category && params.subcategory)
           url =
             url +
@@ -73,7 +80,7 @@ const Blogs = () => {
       ]);
     }
     fetchBlogs();
-  }, [params, searchQuery]);
+  }, [params, partnerQuery, searchQuery]);
 
   const categoryHandler = (id) => {
     if (isSubCategory) {
@@ -89,7 +96,11 @@ const Blogs = () => {
 
   return (
     <main>
-      <div id="contextMenu" className="context-menu" style={{ display: "none" }}>
+      <div
+        id="contextMenu"
+        className="context-menu"
+        style={{ display: "none" }}
+      >
         This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
       </div>
 
@@ -151,7 +162,6 @@ const Blogs = () => {
           </div>
         </div>
       </section>
-      {/* <!-- All blogs section ends ---> */}
     </main>
   );
 };
@@ -193,10 +203,19 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
 const BlogCard = ({ blog }) => {
   return (
     <div className="col-6 col-sm-4 mb-4">
-      <img src={blog.headerImage[0].image} className="w-100" alt={blog.title} />
-      <div className="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">
-        {blog.title}
-      </div>
+      <Link to={"/blog/" + blog.slug}>
+        <img
+          src={blog.headerImage[0].image}
+          className="w-100"
+          alt={blog.title}
+        />
+      </Link>
+      <Link to={"/blog/" + blog.slug}>
+        <div className="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">
+          {blog.title}
+        </div>
+      </Link>
+
       <div className="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">
         {blog.summary}
       </div>

@@ -4,8 +4,10 @@ const Footer = () => {
     <footer id="contact" className="pageContact">
       <div className="footer-bg overflow-hidden">
         <div className="footer-img-container w-100">
-          <img src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp"
-            className="w-100"/>
+          <img
+            src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp"
+            className="w-100"
+          />
         </div>
       </div>
       <div className="text-center bg-dark pb-5">

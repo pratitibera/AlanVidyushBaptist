@@ -1,13 +1,7 @@
 import $ from "jquery";
 import { Link } from "react-router-dom";
 
-import { useEffect } from "react";
-
 const BlogSection = ({ blogs }) => {
-  useEffect(() => {
-    $(".owl-carousel").trigger("refresh.owl.carousel");
-  }, [blogs.length]);
-  console.log(blogs);
   const prevBlog = () => {
     let v =
       parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
@@ -30,9 +24,9 @@ const BlogSection = ({ blogs }) => {
     <div className="blog-section vh-175" id="blogs">
       <div className="fo-52 pt-3 fw-700 text-center text-white mfo-32 d-flex justify-content-center">
         Check out my
-        <a href="blogs.html" className="pulsating_text ml-3 ">
+        <Link to="/blogs" className="pulsating_text ml-3 ">
           Blogs
-        </a>
+        </Link>
       </div>
       <hr />
       <div className="pr-lg-4 pl-lg-4">

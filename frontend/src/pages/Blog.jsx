@@ -55,7 +55,6 @@ const Blog = () => {
   }, [params]);
 
   const routeToSection = (id) => {
-    console.log(id);
     document.getElementById(id).scrollIntoView();
   };
 

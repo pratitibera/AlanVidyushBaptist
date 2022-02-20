@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import urlSet from "../utils/urls";
-import Footer from "../components/Layout/Footer";
 import ServiceCard from "../components/Services/ServiceCard";
 
 const Services = () => {
@@ -44,8 +43,6 @@ const Services = () => {
             services.map((service) => <ServiceCard service={service} />)}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
