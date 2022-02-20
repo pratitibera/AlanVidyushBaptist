@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect, createRef, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import urlSet from "../utils/urls";
 import { Link } from "react-router-dom";
@@ -7,6 +7,7 @@ import BlogShareIcons from "../components/Blog/BlogShareIcons";
 import BlogGallery from "../components/Blog/BlogGallery";
 import CoachSection from "../components/Blog/CoachSection";
 import Accordian from "../components/Basic/Accordian/Accordian";
+import Helmet from "react-helmet";
 
 const Blog = () => {
   const params = useParams();
@@ -34,6 +35,21 @@ const Blog = () => {
     };
 
     if (params.id) fetchBlog();
+
+    const setProgress = () => {
+      let scrollPercentRounded = Math.round(
+        (window.scrollY / (document.body.offsetHeight - window.innerHeight)) *
+          100
+      );
+      document.getElementById("blogContentProgress").style.width =
+        scrollPercentRounded + "%";
+    };
+    window.addEventListener("scroll", setProgress);
+
+    return () => {
+      window.removeEventListener("scroll", setProgress);
+      document.getElementById("blogContentProgress").style.width = "0%";
+    };
   }, [params]);
 
   const routeToSection = (id) => {
@@ -43,6 +59,24 @@ const Blog = () => {
 
   return (
     <main className="min-height">
+      <Helmet>
+        <meta name="summary" content="" />
+        <meta name="title" content="" />
+        <meta name="image" content="" />
+      </Helmet>
+
+      <div
+        id="blogContentProgress"
+        style={{
+          height: "5px",
+          position: "fixed",
+          top: "0px",
+          width: "0%",
+          background: "yellow",
+          zIndex: "999999",
+        }}
+      ></div>
+
       {blog && !loading ? (
         <section className="blogAvailable">
           <div className="blogImageContainer">
@@ -122,7 +156,7 @@ const Blog = () => {
                               blog.content.map((elem, index) => {
                                 return (
                                   <li
-                                    class="fo-16"
+                                    class="fo-16 cursor-pointer"
                                     onClick={() => routeToSection(elem.id)}
                                   >
                                     <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>

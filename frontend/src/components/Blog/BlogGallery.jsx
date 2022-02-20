@@ -53,10 +53,7 @@ const SampleNextArrow = (props) => {
   return (
     <i
       className="fas fa-long-arrow-alt-right"
-      onClick={() => {
-        console.log("p");
-        onClick();
-      }}
+      onClick={onClick}
       style={{
         bottom: "-10px",
         position: "absolute",
@@ -79,12 +76,8 @@ function SamplePrevArrow(props) {
         position: "absolute",
         right: "53%",
         fontSize: "26px",
-        background: "green",
       }}
-      onClick={() => {
-        console.log("H");
-        onClick();
-      }}
+      onClick={onClick}
     />
   );
 }

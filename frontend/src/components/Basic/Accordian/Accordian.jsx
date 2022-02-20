@@ -10,7 +10,7 @@ const Accordian = ({ title, children }) => {
         className={styles.accordianTitle}
         onClick={() => setIsActive(!isActive)}
       >
-        <div className="row m-0 p-2 pb-sm-3">
+        <div className="row m-0 p-2 pb-sm-3 cursor-pointer">
           <div className="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">
             {title}
           </div>
@@ -24,6 +24,7 @@ const Accordian = ({ title, children }) => {
             ></i>
           </div>
         </div>
+        <hr className="w-100" />
       </div>
       <div className={styles.accordionContent} aria-expanded={isActive}>
         {children}
