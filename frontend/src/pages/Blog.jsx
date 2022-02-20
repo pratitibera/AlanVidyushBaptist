@@ -59,11 +59,13 @@ const Blog = () => {
 
   return (
     <main className="min-height">
-      <Helmet>
-        <meta name="summary" content="" />
-        <meta name="title" content="" />
-        <meta name="image" content="" />
-      </Helmet>
+      {blog && (
+        <Helmet>
+          <meta name="summary" content={blog.summary} />
+          <meta name="title" content={blog.title} />
+          <meta name="image" content={blog.headerImage[0].image} />
+        </Helmet>
+      )}
 
       <div
         id="blogContentProgress"
