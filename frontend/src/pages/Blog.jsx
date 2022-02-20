@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import urlSet from "../utils/urls";
 import { Link } from "react-router-dom";
-import $ from "jquery";
+import Scroll, { Element, scroller, Events, scrollSpy } from "react-scroll";
 import BlogShareIcons from "../components/Blog/BlogShareIcons";
 import BlogGallery from "../components/Blog/BlogGallery";
 import CoachSection from "../components/Blog/CoachSection";
+import Accordian from "../components/Basic/Accordian/Accordian";
 
 const Blog = () => {
   const params = useParams();
@@ -33,6 +34,24 @@ const Blog = () => {
 
     if (params.id) fetchBlog();
   }, [params]);
+
+  useEffect(() => {
+    Events.scrollEvent.register("begin", function (to, element) {
+      console.log("begin", arguments);
+    });
+
+    Events.scrollEvent.register("end", function (to, element) {
+      console.log("end", arguments);
+    });
+
+    scrollSpy.update();
+
+    return () => {
+      Events.scrollEvent.remove("begin");
+      Events.scrollEvent.remove("end");
+    };
+  }, []);
+
   return (
     <main className="min-height">
       {blog && !loading ? (
@@ -86,7 +105,10 @@ const Blog = () => {
                       {blog &&
                         blog.body.map((elem) => {
                           return (
-                            <>
+                            <Element
+                              name={`topic${elem["id"]}`}
+                              id={`topic${elem["id"]}`}
+                            >
                               <div
                                 class="blogContent fw-600 fo-30 mfo-18 mb-3"
                                 id={`topic${elem["id"]}`}
@@ -99,55 +121,46 @@ const Blog = () => {
                                   __html: elem["paragraph"],
                                 }}
                               ></div>
-                            </>
+                            </Element>
                           );
                         })}
                     </div>
                   </div>
+
                   <div className="col-sm-4 blogContents p-0 mt-4 mt-sm-0">
                     <div className="stickyContents sticky3" id="stickyContents">
-                      <div id="accordion">
-                        <div className="row m-0 p-2 pb-sm-3">
-                          <div className="col-10 col-sm-10 p-0 fo-18 fw-700 mfo-22">
-                            Contents
-                          </div>
-                          <div className="col-2 col-sm-2 text-center p-0 m-auto">
-                            <Link
-                              data-toggle="collapse"
-                              to={{ hash: "collapseContents1" }}
-                            >
-                              <i
-                                className="fas fa-chevron-down bco fo-24"
-                                onClick="toggleContents(this)"
-                                id="toggleDesktopContent"
-                              ></i>
-                            </Link>
-                          </div>
+                      <Accordian title="Huhlha">
+                        <div className="pt-2">
+                          <ul className="pl-2" id="contentList2">
+                            {blog &&
+                              blog.content.map((elem, index) => {
+                                console.log(elem);
+                                return (
+                                  <li
+                                    class="fo-16"
+                                    key={index}
+                                    onClick={() => {
+                                      scroller.scrollTo(`topic${elem["id"]}`, {
+                                        duration: 1500,
+                                        delay: 100,
+                                        smooth: true,
+                                        containerId: "blogContent",
+                                        offset: 50,
+                                      });
+                                      console.log("Clicked");
+                                    }}
+                                  >
+                                    <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>
+                                    {elem["title"]}
+                                  </li>
+                                );
+                              })}
+                          </ul>
                         </div>
-                        <div
-                          id="collapseContents1"
-                          className="collapse"
-                          // data-parent="#accordion"
-                        >
-                          <div className="pt-2">
-                            <ul className="pl-2" id="contentList2">
-                              {blog &&
-                                blog.content.map((elem) => {
-                                  return (
-                                    <li class="fo-16">
-                                      <Link to={{ hash: elem["id"] }}>
-                                        <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>
-                                        {elem["title"]}
-                                      </Link>
-                                    </li>
-                                  );
-                                })}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
+                      </Accordian>
                     </div>
                   </div>
+
                   <BlogGallery gallery={blog.gallery} />
                 </div>
               </div>
