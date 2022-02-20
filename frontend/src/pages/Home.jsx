@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
 import Header from "../components/Home/Header";
-import Sidebar from "../components/Layout/Sidebar";
 import Footer from "../components/Layout/Footer";
 
 import AboutLogo from "../img/about.jpg"
