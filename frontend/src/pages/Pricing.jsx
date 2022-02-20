@@ -1,144 +1,122 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import urlSet from "../utils/urls";
-import $ from "jquery";
+import axios from "axios";
 import { useParams } from "react-router";
+import Slider from "react-slick";
+import OfferCard from "../components/Services/OfferCard";
+
+const SampleNextArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <i
+      className="fas fa-long-arrow-alt-right"
+      onClick={onClick}
+      style={{
+        bottom: "-30px",
+        position: "absolute",
+        right: "47%",
+        fontSize: "26px",
+      }}
+    />
+  );
+};
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  console.log(className);
+  return (
+    <div
+      className="fas fa-long-arrow-alt-left"
+      style={{
+        ...style,
+        bottom: "-30px",
+        position: "absolute",
+        right: "53%",
+        fontSize: "26px",
+      }}
+      onClick={onClick}
+    />
+  );
+}
+
+const settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 2,
+  arrows: true,
+  nextArrow: <SampleNextArrow />,
+  prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1300,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
+  ],
+};
 
 const Pricing = () => {
+  const [service, setService] = useState(null);
   const params = useParams();
   useEffect(() => {
-    function getPlans() {
-      var mainService;
-      var i, j, k;
-
-      var request = new XMLHttpRequest();
-      request.open(
-        urlSet.viewServicesApi.method,
-        urlSet.viewServicesApi.url + params.serviceId.replaceAll("_", " "),
-        true
-      );
-      request.setRequestHeader("Content-Type", "application/json");
-      request.send();
-      request.onload = function () {
-        var data = JSON.parse(this.response);
-        console.log(data);
-        document.getElementById("pricing_heading").innerHTML =
-          "PRICING OF " + mainService.toUpperCase();
-        var pricing_section_container = document.getElementById(
-          "pricing-section-container"
+    const getPlans = async () => {
+      try {
+        const res = await axios.get(
+          urlSet.viewServicesApi.url + params.serviceId.replaceAll("_", " ")
         );
-        pricing_section_container.innerHTML += `<h2 className="fo-40 fw-700 text-center pt-5 mfo-25">We've Got Plans for ${mainService}</h2><hr>`;
-
-        var pricing_row = document.createElement("div");
-        pricing_row.setAttribute("class", "owl-carousel mt-5");
-        pricing_row.setAttribute("id", "pricingCarousel");
-
-        for (j = 0; j < data["offers"].length; j++) {
-          var card = document.createElement("div");
-          if (j % 2 === 0) {
-            card.setAttribute("class", "bg-white pt-5 pb-5");
-          } else {
-            card.setAttribute("class", "bg-dark pt-5 pb-5 dark-pricing");
-          }
-
-          var duration = document.createElement("div");
-          duration.setAttribute("class", "fo-52 fw-600 pco text-center");
-          duration.innerHTML = data["offers"][j]["duration"];
-          card.append(duration);
-
-          var recommend = document.createElement("div");
-          recommend.setAttribute(
-            "class",
-            "pco fo-20 fw-600 text-center recommend"
-          );
-
-          if (data["offers"][j]["recommended"] === true) {
-            recommend.innerHTML = "Recommended";
-          }
-          card.append(recommend);
-
-          var price = document.createElement("div");
-          price.setAttribute("class", "text-center fw-600 fo-52");
-          if (data["offers"][j]["discounted_price"] !== undefined) {
-            price.innerHTML = `<span className="fo-20" style="text-decoration: line-through">₹ ${data["offers"][j]["price"]}</span>
-                            <span className="pco fo-36 fw-600">₹ </span>${data["offers"][j]["discounted_price"]}`;
-          } else {
-            price.innerHTML = `<span className="pco fo-36 fw-600">₹ </span>${data["offers"][j]["price"]}`;
-          }
-          card.append(price);
-
-          var ul = document.createElement("ul");
-          ul.setAttribute("class", "pricing-section-items pl-0 mt-3");
-          for (k = 0; k < data["offers"][j]["features"].length; k++) {
-            var li = document.createElement("li");
-            li.append(data["offers"][j]["features"][k]);
-            ul.append(li);
-          }
-          card.append(ul);
-
-          var choose = document.createElement("div");
-          var plan_id =
-            data["offers"][j]["duration"].replaceAll(" ", "_") +
-            "#" +
-            data["offers"][j]["price"] +
-            "#" +
-            data["offers"][j]["discounted_price"] +
-            "#" +
-            data["offers"][j]["_id"] +
-            "#" +
-            data["offers"][j]["offer_name"];
-          choose.innerHTML = `<div className="text-center mt-5">
-                            <button className="btn" onClick="addToCart(this.id);" id=${plan_id}>CHOOSE PLAN</button>
-                         </div>`;
-          card.append(choose);
-
-          pricing_row.append(card);
-        }
-        pricing_section_container.append(pricing_row);
-        $("#pricingCarousel").owlCarousel({
-          loop: false,
-          autoplay: true,
-          autoPlaySpeed: 1000,
-          autoplayHoverPause: true,
-          dots: false,
-          nav: true,
-          navText: [
-            $(".owl-navigation .owl-nav-prev"),
-            $(".owl-navigation .owl-nav-next"),
-          ],
-          responsive: {
-            0: {
-              items: 1,
-            },
-            556: {
-              items: 3,
-            },
-          },
-        });
-      };
-    }
-
+        setService(res.data);
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     getPlans();
-  });
+  }, [params.serviceId]);
   return (
     <div>
       {/* <body onload="getPlans();"> */}
       adasda
       <div id="notification-area"></div>
-      {/* <!-- Pricing section starts ---> */}
       <section className="pricing-cover">
         <div className="pricing-landing-image"></div>
         <div className="w-100 pricing-landing">
           <div
             className="text-center text-white fo-40 fw-700 mfo-24"
             id="pricing_heading"
-          ></div>
+          >
+            {service && "Pricing for " + service.service}
+          </div>
         </div>
       </section>
       <section className="pricing-section pt-4">
         <div
           className="d-block pricing-section-container"
           id="pricing-section-container"
-        ></div>
+        >
+          <h2 className="fo-40 fw-700 text-center pt-5 mfo-25">
+            {service && "We've Got Plans for " + service.service}
+          </h2>
+          <hr />
+          <Slider {...settings}>
+            {service &&
+              service.offers.map((offer, index) => {
+                return <OfferCard dark={index % 2 === 0} offer={offer} />;
+              })}
+          </Slider>
+        </div>
       </section>
       {/* <!-- Pricing section ends ---> */}
       {/* <!--- Testimonials start --> */}

@@ -31,35 +31,35 @@ const Columnists = () => (
         <div id="notification-area"></div>
 
         <section>
-            <div class="partners-cover text-center">
-                <img src="https://media.self.com/photos/5e385cdfb7ea8d0009212cdb/8:3/w_1280,c_limit/00_heros-contributors.jpg" class="w-100"></img>
+            <div className="partners-cover text-center">
+                <img src="https://media.self.com/photos/5e385cdfb7ea8d0009212cdb/8:3/w_1280,c_limit/00_heros-contributors.jpg" className="w-100"></img>
             </div>
-            <div class="fo-34 text-dark text-center fw-700 p-4 mfo-24">MEET MY COLUMNISTS</div>
+            <div className="fo-34 text-dark text-center fw-700 p-4 mfo-24">MEET MY COLUMNISTS</div>
         </section>
         
-        <section class="partners-section">
-            <div class="row m-0 d-flex flex-row-reverse">
-                <div class="col-sm-8 p-0 bg-grey">
-                    <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
-                        <div class="col-5 col-sm-5 m-auto text-right">
-                        <img src={PartnerImage5} class="w-70 mow-100"></img>
+        <section className="partners-section">
+            <div className="row m-0 d-flex flex-row-reverse">
+                <div className="col-sm-8 p-0 bg-grey">
+                    <div className="row m-0 pl-sm-5 pr-sm-5 h-100">
+                        <div className="col-5 col-sm-5 m-auto text-right">
+                        <img src={PartnerImage5} className="w-70 mow-100"></img>
                         </div>
-                        <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
-                            <div class="mid-border"></div> 
+                        <div className="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
+                            <div className="mid-border"></div> 
                         </div>
-                        <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-                            <div class="fo-28 mfo-26 fw-800 text-center">Debasmita Das</div>
-                            <div class="fo-15 mfo-20 fw-800 text-center">
+                        <div className="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
+                            <div className="fo-28 mfo-26 fw-800 text-center">Debasmita Das</div>
+                            <div className="fo-15 mfo-20 fw-800 text-center">
                                 <a href="achievements.html?partner=Debasmita_Das">
-                                <button class="btn website-button bg-dark mt-3 text-white">READ MORE</button>
+                                <button className="btn website-button bg-dark mt-3 text-white">READ MORE</button>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-                    <div class="m-auto">
-                        <div class="fo-18 text-white fw-600">Chief Content Manager, Wellness Influencer</div>
+                <div className="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
+                    <div className="m-auto">
+                        <div className="fo-18 text-white fw-600">Chief Content Manager, Wellness Influencer</div>
                         <hr></hr>
                     </div>
                 </div>

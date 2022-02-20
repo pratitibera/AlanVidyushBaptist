@@ -61,31 +61,31 @@ const CheckoutModal = () => {
       for (let i = 0; i < shopCart.length; i++) {
         offerIds.push(shopCart[i]["id"]);
         if (shopCart[i]["discount"] === "undefined") {
-          particulars.innerHTML += `<div class="row m-0 mb-2">
-	                        <div class="col-3 col-sm-2">
-	                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+          particulars.innerHTML += `<div className="row m-0 mb-2">
+	                        <div className="col-3 col-sm-2">
+	                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100">
 	                        </div>
-	                        <div class="col-6 col-sm-6 p-0">
-	                           <div class="fo-16 fw-600 mfo-14">${shopCart[i]["service"]}</div>
-	                           <div class="fo-14 mfo-12">${shopCart[i]["duration"]}</div>
+	                        <div className="col-6 col-sm-6 p-0">
+	                           <div className="fo-16 fw-600 mfo-14">${shopCart[i]["service"]}</div>
+	                           <div className="fo-14 mfo-12">${shopCart[i]["duration"]}</div>
 	                        </div>
-	                        <div class="col-3 col-sm-4 p-0">
-	                           <div class="fo-26 fw-700 text-right mfo-18">₹ ${shopCart[i]["price"]}</div>
+	                        <div className="col-3 col-sm-4 p-0">
+	                           <div className="fo-26 fw-700 text-right mfo-18">₹ ${shopCart[i]["price"]}</div>
 	                        </div>
 	                     </div>`;
           totalbill = totalbill + parseInt(shopCart[i]["price"]);
         } else {
-          particulars.innerHTML += `<div class="row m-0 mb-2">
-	                        <div class="col-3 col-sm-2">
-	                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" class="w-100">
+          particulars.innerHTML += `<div className="row m-0 mb-2">
+	                        <div className="col-3 col-sm-2">
+	                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100">
 	                        </div>
-	                        <div class="col-6 col-sm-6 p-0">
-	                           <div class="fo-16 fw-600 mfo-14">${shopCart[i]["service"]}</div>
-	                           <div class="fo-14 mfo-12">${shopCart[i]["duration"]}</div>
+	                        <div className="col-6 col-sm-6 p-0">
+	                           <div className="fo-16 fw-600 mfo-14">${shopCart[i]["service"]}</div>
+	                           <div className="fo-14 mfo-12">${shopCart[i]["duration"]}</div>
 	                        </div>
-	                        <div class="col-3 col-sm-4 p-0">
-	                           <div class="fo-26 fw-700 text-right mfo-18">₹ ${shopCart[i]["discount"]}</div>
-	                           <div class="fo-16 text-right mfo-12" style="text-decoration: line-through" id="checkout_discount">₹ ${shopCart[i]["price"]}</div>
+	                        <div className="col-3 col-sm-4 p-0">
+	                           <div className="fo-26 fw-700 text-right mfo-18">₹ ${shopCart[i]["discount"]}</div>
+	                           <div className="fo-16 text-right mfo-12" style="text-decoration: line-through" id="checkout_discount">₹ ${shopCart[i]["price"]}</div>
 	                        </div>
 	                     </div>`;
           totalbill = totalbill + parseInt(shopCart[i]["discount"]);
@@ -118,7 +118,7 @@ const CheckoutModal = () => {
         document.getElementById(
           "coupon_status"
         ).innerHTML = `<input type="text" placeholder="Coupon code" id="coupon_code">
-        <div class="fo-16 text-dark fw-600">Invalid Coupon</div>`;
+        <div className="fo-16 text-dark fw-600">Invalid Coupon</div>`;
       } else {
         setCouponCode(code);
         setDiscount(data["discount"]);
@@ -128,8 +128,8 @@ const CheckoutModal = () => {
           .setAttribute("onclick", `removeCoupon()`);
         document.getElementById(
           "coupon_status"
-        ).innerHTML = `<div class="fo-16 text-dark fw-600">${code} Coupon applied</div>
-                              <div class="fo-13 text-dark">Discount: ₹ ${data["discount"]}</div>`;
+        ).innerHTML = `<div className="fo-16 text-dark fw-600">${code} Coupon applied</div>
+                              <div className="fo-13 text-dark">Discount: ₹ ${data["discount"]}</div>`;
         document.getElementById("totalbill").innerHTML =
           "TOTAL: ₹ " + data["discounted_price"];
       }
@@ -288,74 +288,74 @@ const CheckoutModal = () => {
   };
 
   return (
-    <div class="modal fade" id="checkout">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+    <div className="modal fade" id="checkout">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
           {/* <!-- Modal Header --> */}
-          <div class="modal-header bg-theme">
-            <h4 class="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
+          <div className="modal-header bg-theme">
+            <h4 className="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
             <button
               type="button"
-              class="close text-dark fw-800"
+              className="close text-dark fw-800"
               data-dismiss="modal"
             >
               &times;
             </button>
           </div>
           {/* <!-- Modal body --> */}
-          <div class="modal-body pt-4">
+          <div className="modal-body pt-4">
             <div id="particulars"></div>
-            <div class="mt-4 text-right">
+            <div className="mt-4 text-right">
               <div
-                class="fo-14 fw-600 cursorPointer"
+                className="fo-14 fw-600 cursorPointer"
                 onclick="emptyCart();"
                 data-dismiss="modal"
               >
                 EMPTY CART
               </div>
             </div>
-            <div class="input-data">
+            <div className="input-data">
               <input type="text" required id="customer_name" />
-              <div class="underline"></div>
+              <div className="underline"></div>
               <label>Full Name</label>
             </div>
-            <div class="input-data mt-5">
+            <div className="input-data mt-5">
               <input type="text" required id="customer_email" />
-              <div class="underline"></div>
+              <div className="underline"></div>
               <label>Email</label>
             </div>
-            <div class="input-data mt-5">
+            <div className="input-data mt-5">
               <input type="text" required id="customer_mobile" />
-              <div class="underline"></div>
+              <div className="underline"></div>
               <label>Contact number</label>
             </div>
-            <div class="row m-0 couponsection mt-3">
-              <div class="col-6 col-sm-6 pl-0" id="coupon_status">
+            <div className="row m-0 couponsection mt-3">
+              <div className="col-6 col-sm-6 pl-0" id="coupon_status">
                 <input type="text" placeholder="Coupon code" id="coupon_code" />
               </div>
-              <div class="col-6 col-sm-6 pr-0">
+              <div className="col-6 col-sm-6 pr-0">
                 <button
-                  class="btn website-button bg-dark text-white w-100 mfo-12"
+                  className="btn website-button bg-dark text-white w-100 mfo-12"
                   onclick={applyCoupon}
                   id="coupon_button"
                 >
                   APPLY COUPON
                 </button>
               </div>
-              <div class="col-12 col-sm-12 text-center cash_option">
-                <div class="fo-16 fw-700" onClick={payInCash}>
+              <div className="col-12 col-sm-12 text-center cash_option">
+                <div className="fo-16 fw-700" onClick={payInCash}>
                   PAY IN CASH
                 </div>
               </div>
             </div>
           </div>
-          <div class="checkoutfooter row m-0">
+          <div className="checkoutfooter row m-0">
             <button
-              class="btn website-button w-50 bg-white text-dark fo-20 fw-800"
+              className="btn website-button w-50 bg-white text-dark fo-20 fw-800"
               id="totalbill"
             ></button>
             <button
-              class="btn website-button w-50 bg-dark text-white"
+              className="btn website-button w-50 bg-dark text-white"
               onclick={checkout}
             >
               PROCEED TO PAYMENT

@@ -47,232 +47,232 @@ const About = () => (
 
         <div id="notification-area"></div>
         
-        <section class="site-title">
-            <div class="site-background w-100" data-aos="fade-up" data-aos-delay="100"></div>
+        <section className="site-title">
+            <div className="site-background w-100" data-aos="fade-up" data-aos-delay="100"></div>
         </section>
             
         <section>
-            <div class="container-fluid p-0 pt-5 pr-sm-5 pl-sm-5 pt-sm-5">
-                <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Nutrition</div>
-                <div class="aboutpage-container" data-aos="fade-right" data-aos-delay="100">
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+            <div className="container-fluid p-0 pt-5 pr-sm-5 pl-sm-5 pt-sm-5">
+                <div className="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Nutrition</div>
+                <div className="aboutpage-container" data-aos="fade-right" data-aos-delay="100">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.precisionnutrition.com/" target="_blank" rel="noreferrer">
-                            <img src={AboutImage1} class="w-100"></img>
+                            <img src={AboutImage1} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>PN Level 1 Course at Precision Nutrition(Canada)</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.mac-nutritionuni.com/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage2} class="w-100"></img>
+                        <img src={AboutImage2} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>MNU Course at Mac Nutrition Uni(United Kingdom)</b>
                     </div>
                 </div>
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.nasm.org/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage3} class="w-100"></img>
+                        <img src={AboutImage3} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied Certified <b>Sports Nutrition Coach(CSNC) at the National Academy of Sports Medicine(NASM)</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.nasm.org/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage4} class="w-100"></img>
+                        <img src={AboutImage4} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>Sports Nutritionist Specialist at the National Exercise & Sports Trainers Association(NESTA)</b>
                     </div>
                 </div>
                 </div>
-                <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Exercise</div>
-                <div class="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Exercise</div>
+                <div className="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.acefitness.org/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage5} class="w-100"></img>
+                        <img src={AboutImage5} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Personal Trainer Course</b> at the <b>American Council of Exercise(ACE)</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.issaonline.com/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage6} class="w-100"></img>
+                        <img src={AboutImage6} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Certified Personal Trainer Course</b> at the <b>International Sports Sciences Association(ISSA)</b>
                     </div>
                 </div>
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.strengthandconditioning.org/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage7} class="w-100"></img>
+                        <img src={AboutImage7} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Strength and Conditioning Coach Course</b> at the <b>Australian Strength and Conditioning Association(ASCA)</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.crossfit.com/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage8} class="w-100"></img>
+                        <img src={AboutImage8} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>CROSSFIT L-1</b>, <b>CROSSFIT L-2</b> and <b>CROSSFIT</b> for Kids
                     </div>
                 </div>
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://functionalanatomyseminars.com/frs-system/functional-range-conditioning/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage9} class="w-100"></img>
+                        <img src={AboutImage9} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>Functional Range Conditioning(FRC)</b> at <b>Functional Range Systems(FRS)</b>
                     </div>
                 </div>
                 </div>
-                <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Life Saving Skills</div>
-                <div class="aboutpage-container" data-aos="fade-right" data-aos-delay="100">
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Life Saving Skills</div>
+                <div className="aboutpage-container" data-aos="fade-right" data-aos-delay="100">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.nationalcprfoundation.com/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage10} class="w-100"></img>
+                        <img src={AboutImage10} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         <b>CPR / AED / First-Aid</b> (Adult / Child / Infant / Choking) Certified by the <b>National CPR Foundation(USA)</b>
                     </div>
                 </div>
                 </div>
-                <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Finance</div>
-                <div class="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Finance</div>
+                <div className="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.icai.org/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage11} class="w-100"></img>
+                        <img src={AboutImage11} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Chartered Accountancy’s</b> Course at the <b>Institute of Chartered Accountancy of India(ICAI)</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.icsi.edu/home/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage12} class="w-100"></img>
+                        <img src={AboutImage12} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Company Secretary’s</b> Course at the Institute of Company Secretary of India(ICSI)
                     </div>
                 </div>
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href=" https://courses.varunmalhotra.co.in/learn" target="_blank" rel="noreferrer">
-                        <img src={AboutImage13} class="w-100"></img>
+                        <img src={AboutImage13} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Financial Literacy Intensive Programme(FLIP)</b> by <b>EIFS</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://courses.varunmalhotra.co.in/learn" target="_blank" rel="noreferrer">
-                        <img src={AboutImage14} class="w-100"></img>
+                        <img src={AboutImage14} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied the <b>Financial Literacy Awareness Programme(FLAP)</b> by <b>EIFS</b>
                     </div>
                 </div>
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.caluniv.ac.in/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage15} class="w-100"></img>
+                        <img src={AboutImage15} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>M.Com</b> with a specialization in Accounting and Finance at <b>Calcutta University</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.sxccal.edu/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage16} class="w-100"></img>
+                        <img src={AboutImage16} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>B.Com(Honors)</b> with a specialization in Accounting and Finance at <b>St.  Xavier’s College Kolkata</b>
                     </div>
                 </div>
                 </div>
-                <div class="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Psychology & Theology</div>
-                <div class="aboutpage-container" data-aos="fade-right" data-aos-delay="100">
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="text-center fo-30 fw-800 bluetext mfo-16">Achievements in the field of Psychology & Theology</div>
+                <div className="aboutpage-container" data-aos="fade-right" data-aos-delay="100">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="http://ignou.ac.in/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage17} class="w-100"></img>
+                        <img src={AboutImage17} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>Master’s in Psychology</b> at the <b>Indira Gandhi National Open University(IGNOU)</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="http://ignou.ac.in/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage17} class="w-100"></img>
+                        <img src={AboutImage17} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied <b>Master’s in Philosophy</b> at the <b>Indira Gandhi National Open University(IGNOU)</b>
                     </div>
                 </div>
                 </div>
-                <div class="text-center fo-30 fw-800 bluetext mfo-16">Alma Mater and Schooling Information</div>
-                <div class="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
-                <div class="row m-0">
-                    <div class="col-2 col-sm-3">
+                <div className="text-center fo-30 fw-800 bluetext mfo-16">Alma Mater and Schooling Information</div>
+                <div className="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
+                <div className="row m-0">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.sxcsccu.edu.in/" target="_blank" rel="noreferrer">
-                        <img src={AboutImage18} class="w-100"></img>
+                        <img src={AboutImage18} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied and appeared for <b>ICSE</b> and <b>ISC</b> examination at <b>St. Xavier’s Collegiate School</b>
                     </div>
                 </div>
-                <div class="row m-0 d-flex flex-row-reverse">
-                    <div class="col-2 col-sm-3">
+                <div className="row m-0 d-flex flex-row-reverse">
+                    <div className="col-2 col-sm-3">
                         <a href="https://www.facebook.com/SMSKolkata" target="_blank" rel="noreferrer">
-                        <img src={AboutImage18} class="w-100"></img>
+                        <img src={AboutImage18} className="w-100"></img>
                         </a>
                     </div>
-                    <div class="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
+                    <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">
                         Studied primary school <b>foundation subjects</b> at <b>St. Mary’s High School</b>
                     </div>
                 </div>
                 </div>
-                <div class="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
-                <div class="fo-18 mfo-12"><b>Disclaimer -</b>Kindly note that having studied a module offered by an organisation or an institution doesn’t necessarily signify that Alan Baptist is certified in the course corresponding to the modules studied.</div>
+                <div className="aboutpage-container" data-aos="fade-up" data-aos-delay="100">
+                <div className="fo-18 mfo-12"><b>Disclaimer -</b>Kindly note that having studied a module offered by an organisation or an institution doesn’t necessarily signify that Alan Baptist is certified in the course corresponding to the modules studied.</div>
                 </div>
             </div>
 
