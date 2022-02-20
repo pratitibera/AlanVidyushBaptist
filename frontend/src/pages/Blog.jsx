@@ -3,18 +3,20 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import urlSet from "../utils/urls";
 import { Link } from "react-router-dom";
-import Scroll, { Element, scroller, Events, scrollSpy } from "react-scroll";
 import BlogShareIcons from "../components/Blog/BlogShareIcons";
 import BlogGallery from "../components/Blog/BlogGallery";
 import CoachSection from "../components/Blog/CoachSection";
 import Accordian from "../components/Basic/Accordian/Accordian";
+import Helmet from "react-helmet";
 
 const Blog = () => {
   const params = useParams();
+
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(false);
   const [postTitle, setPostTitle] = useState("");
   const [postUrl, setPostUrl] = useState("");
+
   useEffect(() => {
     const fetchBlog = async () => {
       try {
@@ -33,27 +35,50 @@ const Blog = () => {
     };
 
     if (params.id) fetchBlog();
-  }, [params]);
 
-  useEffect(() => {
-    Events.scrollEvent.register("begin", function (to, element) {
-      console.log("begin", arguments);
-    });
-
-    Events.scrollEvent.register("end", function (to, element) {
-      console.log("end", arguments);
-    });
-
-    scrollSpy.update();
+    const setProgress = () => {
+      let scrollPercentRounded = Math.round(
+        (window.scrollY / (document.body.offsetHeight - window.innerHeight)) *
+          100
+      );
+      document.getElementById("blogContentProgress").style.width =
+        scrollPercentRounded + "%";
+    };
+    window.addEventListener("scroll", setProgress);
 
     return () => {
-      Events.scrollEvent.remove("begin");
-      Events.scrollEvent.remove("end");
+      window.removeEventListener("scroll", setProgress);
+      document.getElementById("blogContentProgress").style.width = "0%";
     };
-  }, []);
+  }, [params]);
+
+  const routeToSection = (id) => {
+    console.log(id);
+    document.getElementById(id).scrollIntoView();
+  };
 
   return (
     <main className="min-height">
+      {blog && (
+        <Helmet>
+          <meta name="summary" content={blog.summary} />
+          <meta name="title" content={blog.title} />
+          <meta name="image" content={blog.headerImage[0].image} />
+        </Helmet>
+      )}
+
+      <div
+        id="blogContentProgress"
+        style={{
+          height: "5px",
+          position: "fixed",
+          top: "0px",
+          width: "0%",
+          background: "yellow",
+          zIndex: "999999",
+        }}
+      ></div>
+
       {blog && !loading ? (
         <section className="blogAvailable">
           <div className="blogImageContainer">
@@ -105,13 +130,10 @@ const Blog = () => {
                       {blog &&
                         blog.body.map((elem) => {
                           return (
-                            <Element
-                              name={`topic${elem["id"]}`}
-                              id={`topic${elem["id"]}`}
-                            >
+                            <>
                               <div
                                 class="blogContent fw-600 fo-30 mfo-18 mb-3"
-                                id={`topic${elem["id"]}`}
+                                id={"topic" + elem["id"]}
                               >
                                 {elem["heading"]}
                               </div>
@@ -121,7 +143,7 @@ const Blog = () => {
                                   __html: elem["paragraph"],
                                 }}
                               ></div>
-                            </Element>
+                            </>
                           );
                         })}
                     </div>
@@ -129,26 +151,15 @@ const Blog = () => {
 
                   <div className="col-sm-4 blogContents p-0 mt-4 mt-sm-0">
                     <div className="stickyContents sticky3" id="stickyContents">
-                      <Accordian title="Huhlha">
+                      <Accordian title="Contents">
                         <div className="pt-2">
                           <ul className="pl-2" id="contentList2">
                             {blog &&
                               blog.content.map((elem, index) => {
-                                console.log(elem);
                                 return (
                                   <li
-                                    class="fo-16"
-                                    key={index}
-                                    onClick={() => {
-                                      scroller.scrollTo(`topic${elem["id"]}`, {
-                                        duration: 1500,
-                                        delay: 100,
-                                        smooth: true,
-                                        containerId: "blogContent",
-                                        offset: 50,
-                                      });
-                                      console.log("Clicked");
-                                    }}
+                                    class="fo-16 cursor-pointer"
+                                    onClick={() => routeToSection(elem.id)}
                                   >
                                     <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>
                                     {elem["title"]}
@@ -161,7 +172,20 @@ const Blog = () => {
                     </div>
                   </div>
 
-                  <BlogGallery gallery={blog.gallery} />
+                  <BlogGallery>
+                    {blog &&
+                      blog.gallery.map((image, index) => {
+                        return (
+                          <div key={index} className="p-4">
+                            <img
+                              src={image["image"]}
+                              height="300"
+                              className="w-100 copyright_img"
+                            />
+                          </div>
+                        );
+                      })}
+                  </BlogGallery>
                 </div>
               </div>
               <BlogShareIcons postTitle={postTitle} postUrl={postUrl} />

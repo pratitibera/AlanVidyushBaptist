@@ -20,7 +20,7 @@ const Mainservices = () => {
     }
 
     getMainServices();
-  });
+  }, []);
 
   return (
     <div>
@@ -41,6 +41,7 @@ const Mainservices = () => {
 export default Mainservices;
 
 const ServiceCard = ({ service, index }) => {
+  console.log(service);
   const mainServiceDetails = () => {
     if (service["offers"].length > 0) {
       document.location.href =
@@ -50,13 +51,10 @@ const ServiceCard = ({ service, index }) => {
         "services/" + service["service"].replaceAll(" ", "_");
     }
   };
+
   return (
     <div className="col-sm-4">
-      <div
-        className="single-service-item"
-        id={`service_${service.id}`}
-        onClick={mainServiceDetails}
-      >
+      <div className="single-service-item" id={`service_${service.id}`}>
         <div className="img-holder">
           <figure className="swap-on-hover">
             <img
@@ -68,10 +66,13 @@ const ServiceCard = ({ service, index }) => {
               src={service["service_image"][1]}
             />
           </figure>
-          <div className="text-holder text-center">
+          <div className="text-holder text-center service-card__description">
             <h3>{service["service"]}</h3>
             <p>{service["description"]}</p>
-            <div className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3">
+            <div
+              className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3"
+              onClick={mainServiceDetails}
+            >
               Know More
             </div>
           </div>

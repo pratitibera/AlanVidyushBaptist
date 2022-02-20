@@ -60,7 +60,7 @@ const Navbar = ({ overlay }) => {
       >
         <div className="menu-btn__burger"></div>
       </div>
-      <Link className="navbar-brand d-block d-md-none" to="">
+      <Link className="navbar-brand d-block d-md-none" to="/">
         ALAN BAPTIST
       </Link>
       <button className="btn d-sm-none" onClick={() => null}>
@@ -96,7 +96,7 @@ const Navbar = ({ overlay }) => {
         </div>
         <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
           <li className="nav-item header-nav-pl">
-            <Link className="nav-link exo text-center" to="#about">
+            <Link className="nav-link exo text-center" to="/#about">
               <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
               ABOUT ALAN
             </Link>

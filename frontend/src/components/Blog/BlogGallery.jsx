@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/alt-text */
 import Slider from "react-slick";
 
-const BlogGallery = ({ gallery }) => {
-  console.log(gallery);
+const BlogGallery = ({ children }) => {
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 2,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
     responsive: [
       {
         breakpoint: 1800,
@@ -15,7 +17,7 @@ const BlogGallery = ({ gallery }) => {
           slidesToShow: 3,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
+          arrows: true,
         },
       },
       {
@@ -24,7 +26,7 @@ const BlogGallery = ({ gallery }) => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true,
+          arrows: false,
         },
       },
       {
@@ -32,27 +34,50 @@ const BlogGallery = ({ gallery }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          arrows: false,
         },
       },
     ],
   };
   return (
-    <div className="col-12 col-sm-12">
-      {gallery && (
-        <div className="mt-sm-5">
-          <Slider {...settings}>
-            {gallery.map((image, index) => {
-              return (
-                <div key={index} className="p-4">
-                  <img src={image["image"]} height="300" />
-                </div>
-              );
-            })}
-          </Slider>
-        </div>
-      )}
+    <div className="col-12 col-sm-12 p-10 m-10">
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
 };
 
 export default BlogGallery;
+
+const SampleNextArrow = (props) => {
+  const { onClick } = props;
+  return (
+    <i
+      className="fas fa-long-arrow-alt-right"
+      onClick={onClick}
+      style={{
+        bottom: "-10px",
+        position: "absolute",
+        right: "47%",
+        fontSize: "26px",
+      }}
+    />
+  );
+};
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  console.log(className);
+  return (
+    <div
+      className="fas fa-long-arrow-alt-left"
+      style={{
+        ...style,
+        bottom: "-10px",
+        position: "absolute",
+        right: "53%",
+        fontSize: "26px",
+      }}
+      onClick={onClick}
+    />
+  );
+}

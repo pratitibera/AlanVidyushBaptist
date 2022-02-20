@@ -1,24 +1,29 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
 import Header from "../components/Home/Header";
-import Homefooter from "../components/Layout/Homefooter";
 
 import AboutLogo from "../img/about.jpg";
 import OWLogo from "../img/logos/ow.png";
-import $ from "jquery";
 
 import urlSet from "../utils/urls";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
+  const refs = {
+    blogs: useRef(),
+    about: useRef(),
+    success: useRef(),
+    contact: useRef(),
+  };
+
   const [blogs, setBlogs] = useState([]);
-  console.log(window.location.hash);
 
   useEffect(() => {
     const getFeaturedBlogs = async () => {
@@ -32,10 +37,18 @@ const Home = () => {
       }
     };
 
-    $(window.location.hash).scroll();
-
     getFeaturedBlogs();
   }, []);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      refs[window.location.hash.replace("#", "")].current.scrollIntoView();
+      console.log(window.location.hash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => window.removeEventListener("hashchange", onHashChange);
+  });
 
   return (
     <main>
@@ -65,7 +78,11 @@ const Home = () => {
 
       <CollabSection />
 
-      <section className="about-section overflow-hidden" id="about">
+      <section
+        className="about-section overflow-hidden"
+        id="about"
+        ref={refs.about}
+      >
         <div className="about-container w-70 mow-90">
           <div
             className="bco fw-600 fo-55 mfo-25 text-center m-4"
@@ -184,7 +201,11 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className="associations overflow-hidden" id="success">
+      <section
+        className="associations overflow-hidden"
+        id="success"
+        ref={refs.success}
+      >
         <div
           className="text-white text-center fo-40 fw-600 mfo-20"
           data-aos="fade-down"
@@ -548,28 +569,14 @@ const Home = () => {
           </div>
         </div>
 
-        <Section id="blogs">
+        <div ref={refs.blogs}>
           <BlogSection blogs={blogs} />
-        </Section>
+        </div>
       </section>
+
+      <Footer />
     </main>
   );
 };
 
 export default Home;
-
-const Section = ({ id, children }) => {
-  const ref = useRef();
-
-  useEffect(() => {
-    if (window.location.hash === id) {
-      ref.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [id]);
-
-  return (
-    <div ref={ref} id={id}>
-      {children}
-    </div>
-  );
-};
