@@ -1,15 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
 
-import "./styles/bootstrap.min.css"
-import "./styles/styles.css"
-import "./styles/responsive.css"
-import "./styles/aos.css"
-import "./styles/owl.carousel.min.css"
-import "./styles/owl.theme.default.min.css"
+import "./styles/aos.css";
+import "./styles/bootstrap.min.css";
+import "./styles/responsive.css";
+import "./styles/styles.css";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,7 +15,7 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 reportWebVitals();

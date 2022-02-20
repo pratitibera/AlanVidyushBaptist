@@ -41,7 +41,7 @@ const Navbar = ({ overlay }) => {
   };
 
   const searchHandler = () => {
-    navigate("/blogs/search?" + searchQuery);
+    navigate("/blogs?search=" + searchQuery);
   };
 
   const searchQueryChangeHandler = (event) => {

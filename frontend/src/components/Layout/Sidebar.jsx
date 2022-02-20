@@ -22,7 +22,7 @@ const Sidebar = ({ overlay }) => {
 
   const searchHandler = () => {
     console.log("here", searchQuery);
-    navigate("/blogs/search?" + searchQuery);
+    navigate("/blogs?search=" + searchQuery);
   };
 
   const searchQueryChangeHandler = (event) => {
