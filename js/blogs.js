@@ -319,9 +319,6 @@ function displaySingleBlog(blog_id) {
       var postUrl = `https://alanvidyushbaptist.com/blog.html?id=` + data['slug'];
       var postTitle = data['summary'];
 
-      console.log(postUrl);
-      console.log(postTitle);
-
       document.getElementById('shareBlog').innerHTML = `<div class="col-1 d-block d-sm-none"></div>
                            <div class="col-2 text-center mb-5">
                               <a href="https://www.facebook.com/sharer/sharer.php?u=${postUrl}"e=${postTitle} ${postUrl}" target="_blank">
@@ -358,7 +355,7 @@ function displaySingleBlog(blog_id) {
       var header = document.getElementById("stickyContents");
 
       window.onscroll = function() {
-        if(screen.width > 500){
+        if(screen.width < 500){
           if (window.pageYOffset > x) {
             header.classList.add("sticky2");
           } else {
@@ -366,7 +363,7 @@ function displaySingleBlog(blog_id) {
           }
         }
         else{
-          header.classList.add("sticky2");
+          header.classList.add("sticky3");
         }
       };
     } catch {

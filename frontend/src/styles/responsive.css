@@ -32,11 +32,28 @@
 	.blogcardimage {
 		height: 300px!important;
 	}
+	.about_labels img{
+		max-width: 1300px;
+	}
+	.swap-on-hover {
+		max-width: 543.33px;
+		height: 543.33px;
+	}
+	 
+	 .swap-on-hover img {
+		width: 543.33px;
+		height: 543.33px;
+	 }
 }
 
 @media only screen and (min-width: 577px) {
+<<<<<<< HEAD
 	.navExtras div a{
 		font-size: 13px;
+=======
+	.about_labels img{
+		max-width: 1100px;
+>>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 	}
 	.site-title .site-background {
 		padding-top: 5rem;
@@ -50,12 +67,21 @@
 		margin-bottom: 9rem!important;
 	}
 	.associations {
-		background: linear-gradient(#3E205A 100px, #324a80 1200px, #bd1114 1900px, #000000 2600px, #857979 4000px, #3E205A 4200px, #000000 4450px);
+		background: linear-gradient(#3E205A 100px, #324a80 1200px, #bd1114 1900px, #000000 2600px, #857979 4000px, #3E205A 4200px, #000000 4570px);
 		padding-top: 150px
 	}
 	.associations .container-fluid {
 		padding: 0px 50px;
 	}
+<<<<<<< HEAD
+=======
+	/* #header-nav img {
+		display: none;
+	} */
+	#header-nav .nav-link{
+		text-align: center;
+	}
+>>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 	.header-nav-pl{
 		padding-left: 160px;
 	}
@@ -88,7 +114,7 @@
 	}
 	.partners-section,
 	.partners-section2 {
-		padding: 0px 100px;
+		padding: 0px 30px;
 	}
 	/* #displayAllBlogs .col-6 {
 		border-top: 6px solid #000;
@@ -126,9 +152,6 @@
 	}
 	.blogWriter .row.p-500 {
 		padding: 0px 400px;
-	}
-	.blogImageContainer{
-		margin-top: 160px;
 	}
 	#portfolioSection img:hover{
 		transform: scale(1.05);
@@ -205,9 +228,6 @@
         font-size: 16px;
         padding: 10px 15px;
     }
-	.blogImageContainer{
-		margin-top: 70px;
-	}
 	.whatsapp_icon {
 		font-size: 50px;
 	}
@@ -294,9 +314,6 @@
 	#blogsSection img, #blogsSection video {
 	    height: 310px;
 	}
-	.min-height{
-		margin-top: 95px;
-	}
 	.blogImageContainer {
 		max-width: 100%;
 	}
@@ -331,8 +348,8 @@
 	}
 	.blogShareIcons i{
 		background: #FFE972;
-    padding: 14px;
-    border-radius: 50%;
+		padding: 14px;
+		border-radius: 50%;
 	}
 	/* Partners */
 	.partners-cover {
@@ -341,7 +358,7 @@
 		filter: brightness(.8);
 	}
 	.partners-cover img {
-		height: 45vh;
+		height: 20vh;
 	}
 	/* .partners-section img {
 		height: 225px;
@@ -403,6 +420,7 @@
 	}
 	.min-height{
 		min-height: 45vh;
+		margin-top: 0px;
 	}
 	.checkout .website-button{
 		padding-left: 0;
@@ -414,5 +432,8 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
+	}
+	.about_labels img{
+		max-width: 365px;
 	}
 }

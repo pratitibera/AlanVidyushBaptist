@@ -33,9 +33,10 @@ const Services = () => {
   return (
     <div>
       {/* <body onload="getServices();"> */}
-      <section className="services-banner">
-        <h1>Services</h1>
-      </section>
+
+      <div class="partners-cover text-center">
+        {/* <img src={ServicesBanner} class="w-100"></img> */}
+      </div>
 
       <section className="services-list">
         <div className="row m-0" id="mainServices_section">

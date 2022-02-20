@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+=======
+import { useRef } from "react"
+import { Link } from "react-router-dom";
+>>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 
 import AboutLogo from "../../img/icons/about.png";
 import StoryLogo from "../../img/icons/story.png";
@@ -81,9 +86,13 @@ const Navbar = ({ overlay }) => {
           </div>
           <div className="col-sm-6">
             <div className="owner-name text-center opensans">
+<<<<<<< HEAD
               <Link to="/" className="text-white">
                 ALAN BAPTIST
               </Link>
+=======
+                <Link to="/" className="text-white">ALAN BAPTIST</Link>
+>>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
             </div>
           </div>
           <div className="col-sm-3 m-auto">
@@ -94,6 +103,7 @@ const Navbar = ({ overlay }) => {
             </Link>
           </div>
         </div>
+<<<<<<< HEAD
         <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
           <li className="nav-item header-nav-pl">
             <Link className="nav-link exo text-center" to="/#about">
@@ -130,6 +140,41 @@ const Navbar = ({ overlay }) => {
             </Link>
           </li>
           <li className="nav-item text-right pr-0 d-none d-sm-block">
+=======
+        <div className="col-sm-3 m-auto">
+            <Link to="/services">
+                <button className="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
+            </Link>
+        </div>
+    </div>
+    <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
+        <li className="nav-item ml-sm-auto header-nav-pl">
+            <a className="nav-link exo text-center" href="#about">
+                <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>ABOUT ALAN
+            </a>
+        </li>
+        <li className="nav-item">
+            <a className="nav-link exo text-center" href="#success">
+                <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>SUCCESS STORIES
+            </a>
+        </li>
+        <li className="nav-item">
+            <a className="nav-link exo text-center" href="#blogs">
+                <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>BLOGS
+            </a>
+        </li>
+        <li className="nav-item mr-sm-auto header-nav-pr">
+            <a className="nav-link exo text-center" href="#contact">
+                <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>CONTACT
+            </a>
+        </li>
+        <li className="nav-item d-block d-sm-none text-center">
+            <Link to="/services">
+                <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
+            </Link>
+        </li>
+        <li className="nav-item text-right pr-0 d-none d-sm-block">
+>>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
             <button className="btn mr-2" onClick="fetchCart();">
               <i className="fa fa-shopping-cart fo-30 bco position-relative">
                 <sup
@@ -140,6 +185,7 @@ const Navbar = ({ overlay }) => {
                 </sup>
               </i>
             </button>
+<<<<<<< HEAD
           </li>
         </ul>
         <div className="navExtras d-block d-sm-none">
@@ -180,6 +226,27 @@ const Navbar = ({ overlay }) => {
             target="_blank"
             rel="noreferrer"
           >
+=======
+        </li>
+    </ul>
+    <div className="navExtras d-block d-sm-none">
+        <div className="pb-2">
+            <Link to="/partners">Partners</Link>
+        </div>
+        <div className="pb-2">
+            <Link to="/columnists">Columnists</Link>
+        </div>
+        <div className="pb-2">
+            <Link to="/portfolio">Portfolio</Link>
+        </div>
+    </div>
+    <div className="searchbox d-flex d-sm-none">
+        <i className="fa fa-search" id="mobileSearch" onClick="search(this.id);"></i>
+        <input type="text" name="" placeholder="Search..." className="searches" id="mobileSearchi" />
+    </div>
+    <div className="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
+        <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank" rel="noreferrer">
+>>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
             <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
           </a>
           <a

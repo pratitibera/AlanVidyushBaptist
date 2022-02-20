@@ -59,7 +59,27 @@ const BlogSection = ({ blogs }) => {
             ></i>
           </div>
         </div>
-      </div>
+        <hr />
+        <div className="pr-lg-4 pl-lg-4">
+            <div className="container-fluid pr-0 pl-0 pl-lg-5 pr-lg-5" id="blogSlider">
+                <input type="radio" name="blogSlider" id="s1" value="1" />
+                <input type="radio" name="blogSlider" id="s2" value="2" />
+                <input type="radio" name="blogSlider" id="s3" value="3" checked />
+                <input type="radio" name="blogSlider" id="s4" value="4" />
+                <input type="radio" name="blogSlider" id="s5" value="5" />
+
+            {/* Blogs */}
+
+            { blogs && blogs.length > 0 && blogs.map((blog, index) => {
+                return <BlogCard blog={blog} index={index+1} key={index}/>
+            })} 
+
+            <div className="text-center blogs-handler-icons">
+                <i className="fas fa-long-arrow-alt-left mr-1 text-white fw-800 fo-20 cursorPointer" onClick={prevBlog}></i>
+                <i className="fas fa-long-arrow-alt-right ml-1 text-white fw-800 fo-20 cursorPointer" onClick={nextBlog}></i>
+            </div>
+        </div>
+
     </div>
   );
 };

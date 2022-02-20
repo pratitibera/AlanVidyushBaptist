@@ -32,6 +32,19 @@ const images = [
   PortfolioImage12,
 ];
 
+import PortfolioImage1 from "../img/portfolio/1.jpeg";
+import PortfolioImage2 from "../img/portfolio/2.jpeg";
+import PortfolioImage3 from "../img/portfolio/3.jpeg";
+import PortfolioImage4 from "../img/portfolio/4.jpeg";
+import PortfolioImage5 from "../img/portfolio/5.jpeg";
+import PortfolioImage6 from "../img/portfolio/6.jpeg";
+import PortfolioImage7 from "../img/portfolio/7.jpeg";
+import PortfolioImage8 from "../img/portfolio/8.jpeg";
+import PortfolioImage9 from "../img/portfolio/9.jpeg";
+import PortfolioImage10 from "../img/portfolio/10.jpeg";
+import PortfolioImage11 from "../img/portfolio/11.jpeg";
+import PortfolioImage12 from "../img/portfolio/12.jpeg";
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Portfolio = () => (
   <main>
