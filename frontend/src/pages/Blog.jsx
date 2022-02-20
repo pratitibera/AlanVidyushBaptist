@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, createRef, useRef } from "react";
 import { useParams } from "react-router";
 import urlSet from "../utils/urls";
 import { Link } from "react-router-dom";
-import Scroll, { Element, scroller, Events, scrollSpy } from "react-scroll";
 import BlogShareIcons from "../components/Blog/BlogShareIcons";
 import BlogGallery from "../components/Blog/BlogGallery";
 import CoachSection from "../components/Blog/CoachSection";
@@ -11,10 +10,12 @@ import Accordian from "../components/Basic/Accordian/Accordian";
 
 const Blog = () => {
   const params = useParams();
+
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(false);
   const [postTitle, setPostTitle] = useState("");
   const [postUrl, setPostUrl] = useState("");
+
   useEffect(() => {
     const fetchBlog = async () => {
       try {
@@ -35,22 +36,10 @@ const Blog = () => {
     if (params.id) fetchBlog();
   }, [params]);
 
-  useEffect(() => {
-    Events.scrollEvent.register("begin", function (to, element) {
-      console.log("begin", arguments);
-    });
-
-    Events.scrollEvent.register("end", function (to, element) {
-      console.log("end", arguments);
-    });
-
-    scrollSpy.update();
-
-    return () => {
-      Events.scrollEvent.remove("begin");
-      Events.scrollEvent.remove("end");
-    };
-  }, []);
+  const routeToSection = (id) => {
+    console.log(id);
+    document.getElementById(id).scrollIntoView();
+  };
 
   return (
     <main className="min-height">
@@ -105,13 +94,10 @@ const Blog = () => {
                       {blog &&
                         blog.body.map((elem) => {
                           return (
-                            <Element
-                              name={`topic${elem["id"]}`}
-                              id={`topic${elem["id"]}`}
-                            >
+                            <>
                               <div
                                 class="blogContent fw-600 fo-30 mfo-18 mb-3"
-                                id={`topic${elem["id"]}`}
+                                id={"topic" + elem["id"]}
                               >
                                 {elem["heading"]}
                               </div>
@@ -121,7 +107,7 @@ const Blog = () => {
                                   __html: elem["paragraph"],
                                 }}
                               ></div>
-                            </Element>
+                            </>
                           );
                         })}
                     </div>
@@ -134,21 +120,10 @@ const Blog = () => {
                           <ul className="pl-2" id="contentList2">
                             {blog &&
                               blog.content.map((elem, index) => {
-                                console.log(elem);
                                 return (
                                   <li
                                     class="fo-16"
-                                    key={index}
-                                    onClick={() => {
-                                      scroller.scrollTo(`topic${elem["id"]}`, {
-                                        duration: 1500,
-                                        delay: 100,
-                                        smooth: true,
-                                        containerId: "blogContent",
-                                        offset: 50,
-                                      });
-                                      console.log("Clicked");
-                                    }}
+                                    onClick={() => routeToSection(elem.id)}
                                   >
                                     <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>
                                     {elem["title"]}
