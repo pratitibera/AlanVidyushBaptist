@@ -449,7 +449,7 @@ ul {
 	 border-radius: 8px;
 	 margin-top: 55px;
 	 margin-right: 18px;
-	 width: 134px;
+	 width: 144px;
 	 position: relative;
 }
 .whatsapp_icon_span{
@@ -1279,10 +1279,14 @@ footer .move-up {
 .pricing-section-container{
 	font-family: 'Roboto Slab', serif;
 }
-
+.pri_offer_heading{
+	font-size: 22px;
+	padding: 0px 8px;
+	height: 82px;
+}
 .pricing-section-items li{
 	color: #333333;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 400;
 	border-bottom: 1px solid rgba(9,9,9,.04);
 	padding: 10px 15px;
