@@ -34,7 +34,7 @@ const Services = () => {
   return (
     <div>
       <div class="partners-cover text-center">
-      <img src={ServicesBanner} className="w-100" alt="Services Banner"></img>
+        <img src={ServicesBanner} className="w-100" alt="Services Banner"></img>
       </div>
 
       <section className="services-list">

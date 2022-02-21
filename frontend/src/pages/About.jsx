@@ -1,8 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import Sidebar from "../components/Layout/Sidebar";
-import Footer from "../components/Layout/Footer";
-
 import AboutImage1 from "../img/about/about1.png";
 import AboutImage2 from "../img/about/about2.png";
 import AboutImage3 from "../img/about/about3.png";
@@ -42,12 +39,8 @@ const About = () => (
       </a>
     </div>
 
-    <section className="site-title">
-      <div
-        className="site-background w-100"
-        data-aos="fade-up"
-        data-aos-delay="100"
-      ></div>
+    <section className="site-title site-title-about">
+      <div className="site-background w-100" data-aos="fade-up" data-aos-delay="100"></div>
     </section>
 
     <section>
@@ -405,7 +398,6 @@ const About = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </main>
 );
 
