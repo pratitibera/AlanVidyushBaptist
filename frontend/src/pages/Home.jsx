@@ -568,24 +568,35 @@ const Home = () => {
 
         <BlogSection blogs={blogs} />
 
-        <div className="text-center mt-4">
-          <Link to="/services">
-            <button
-              className="btn website-button pulsating fo-30"
-              data-aos="fade-left"
-              data-aos-delay="100"
-            >
-              CONSULT
-            </button>
-          </Link>
-        </div>
+        <section>
+          <div className="text-center mt-4">
+            <Link to="/services">
+              <button
+                className="btn website-button pulsating fo-30"
+                data-aos="fade-left"
+                data-aos-delay="100"
+              >
+                CONSULT
+              </button>
+            </Link>
+          </div>
+          <div
+            className="text-center fo-40 fw-800 bco mfo-35 text-white pt-5"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            ALAN BAPTIST
+          </div>
+        </section>
         <div
-          className="text-center fo-40 fw-800 bco mfo-35 text-white pt-5"
-          data-aos="fade-left"
-          data-aos-delay="100"
-        >
-          ALAN BAPTIST
-        </div>
+          className="extended_black"
+          style={{
+            height: "170px",
+            width: "100%",
+            background: "black",
+            position: "absolute",
+          }}
+        ></div>
       </section>
     </main>
   );

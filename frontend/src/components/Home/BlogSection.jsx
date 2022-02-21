@@ -21,8 +21,8 @@ const BlogSection = ({ blogs }) => {
   };
 
   return (
-    <div className="blog-section vh-175" id="blogs">
-      <div className="fo-52 pt-3 fw-700 text-center text-white mfo-32 d-flex justify-content-center">
+    <div className="blog-section" id="blogs">
+      <div className="fo-52 pt-3 fw-700 mfo-32  text-center text-white d-flex justify-content-center">
         Check out my
         <Link to="/blogs" className="pulsating_text ml-3 ">
           Blogs
