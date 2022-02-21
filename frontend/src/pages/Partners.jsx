@@ -2,7 +2,6 @@
 
 import Sidebar from "../components/Layout/Sidebar";
 import BlogSection from "../components/About/BlogSection";
-import Footer from "../components/Layout/Footer";
 
 import PartnerImage1 from "../img/partners/partner_1.png";
 import PartnerImage2 from "../img/partners/partner_2.png";
@@ -45,9 +44,6 @@ const Partners = () => (
           src="https://media.self.com/photos/5e385cdfb7ea8d0009212cdb/8:3/w_1280,c_limit/00_heros-contributors.jpg"
           className="w-100"
         ></img>
-      </div>
-      <div className="fo-34 text-dark text-center fw-700 p-4 mfo-24">
-        MEET MY PARTNERS
       </div>
     </section>
 

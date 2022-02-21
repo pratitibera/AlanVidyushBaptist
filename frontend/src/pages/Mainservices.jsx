@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ServiceCard from "../components/Services/ServiceCard";
 import urlSet from "../utils/urls";
 
+import ServicesBanner from "../img/banners/services_banner.png";
+
 const Mainservices = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
@@ -25,9 +27,11 @@ const Mainservices = () => {
 
   return (
     <div>
-      <section className="services-banner">
-        <h1>Services</h1>
-      </section>
+      <section>
+      <div className="partners-cover text-center">
+        <img src={ServicesBanner} className="w-100" alt="Services Banner"></img>
+      </div>
+    </section>
 
       <section className="services-list">
         <div className="row m-0" id="mainServices_section">

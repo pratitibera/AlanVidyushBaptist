@@ -149,7 +149,7 @@
     justify-content: space-between;
   }
   .pricing-section-container {
-    padding: 40px 175px 20px 175px;
+    padding: 40px 175px 60px 175px;
   }
   .blogWriter .row.p-150 {
     padding: 0px 150px;
@@ -250,13 +250,8 @@
     padding: 10px 0px 10px 30px;
   }
   .site-title {
-    background: url("../img/cover_image_mobile.jpg");
-    background-size: cover;
-    height: 56vh;
-    margin-top: 20px;
-  }
-  .site-title .site-background {
-    padding-top: 3.5rem;
+    background: url("../img/cover_image_mobile.jpg")!important;
+    height: 50vh!important;
   }
   .about-container {
     padding: 0px 20px 20px 20px;

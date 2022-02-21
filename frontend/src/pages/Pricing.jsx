@@ -109,7 +109,7 @@ const Pricing = () => {
           <h2 className="fo-40 fw-700 text-center pt-5 mfo-25">
             {service && "We've Got Plans for " + service.service}
           </h2>
-          <hr />
+          <hr className="mb-5"/>
           <Slider {...settings}>
             {service &&
               service.offers.map((offer, index) => {
