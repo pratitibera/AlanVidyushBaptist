@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import BlogSection from "../components/Home/BlogSection";
 import CollabSection from "../components/Home/CollabSection";
@@ -12,18 +12,32 @@ import urlSet from "../utils/urls";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
-  const refs = {
-    blogs: useRef(),
-    about: useRef(),
-    success: useRef(),
-    contact: useRef(),
+  const [blogs, setBlogs] = useState([]);
+
+  const onHashChange = () => {
+    document
+      .getElementById(window.location.hash.replace("#", ""))
+      .scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+      });
+    console.log("Here");
+
+    console.log(window.location.hash);
   };
 
-  const [blogs, setBlogs] = useState([]);
+  useEffect(() => {
+    window.addEventListener("hashchange", () => {
+      console.log("HERERE");
+    });
+    return () =>
+      window.removeEventListener("hashchange", () => {
+        console.log("HERERE");
+      });
+  }, []);
 
   useEffect(() => {
     const getFeaturedBlogs = async () => {
@@ -38,17 +52,8 @@ const Home = () => {
     };
 
     getFeaturedBlogs();
+    // onHashChange();
   }, []);
-
-  useEffect(() => {
-    const onHashChange = () => {
-      refs[window.location.hash.replace("#", "")].current.scrollIntoView();
-      console.log(window.location.hash);
-    };
-    window.addEventListener("hashchange", onHashChange);
-
-    return () => window.removeEventListener("hashchange", onHashChange);
-  });
 
   return (
     <main>
@@ -78,11 +83,7 @@ const Home = () => {
 
       <CollabSection />
 
-      <section
-        className="about-section overflow-hidden"
-        id="about"
-        ref={refs.about}
-      >
+      <section className="about-section overflow-hidden" id="about">
         <div className="about-container w-70 mow-90">
           <div
             className="bco fw-600 fo-55 mfo-25 text-center m-4"
@@ -201,11 +202,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section
-        className="associations overflow-hidden"
-        id="success"
-        ref={refs.success}
-      >
+      <section className="associations overflow-hidden" id="success">
         <div
           className="text-white text-center fo-40 fw-600 mfo-20"
           data-aos="fade-down"
@@ -569,12 +566,27 @@ const Home = () => {
           </div>
         </div>
 
-        <div ref={refs.blogs}>
-          <BlogSection blogs={blogs} />
+        <BlogSection blogs={blogs} />
+
+        <div className="text-center mt-4">
+          <Link to="/services">
+            <button
+              className="btn website-button pulsating fo-30"
+              data-aos="fade-left"
+              data-aos-delay="100"
+            >
+              CONSULT
+            </button>
+          </Link>
+        </div>
+        <div
+          className="text-center fo-40 fw-800 bco mfo-35 text-white pt-5"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
+          ALAN BAPTIST
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 };

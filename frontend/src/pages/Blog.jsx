@@ -48,12 +48,13 @@ const Blog = () => {
 
     return () => {
       window.removeEventListener("scroll", setProgress);
-      document.getElementById("blogContentProgress").style.width = "0%";
+      if (document.getElementById("blogContentProgress")) {
+        document.getElementById("blogContentProgress").style.width = "0%";
+      }
     };
   }, [params]);
 
   const routeToSection = (id) => {
-    console.log(id);
     document.getElementById(id).scrollIntoView();
   };
 
@@ -87,7 +88,7 @@ const Blog = () => {
                 {blog &&
                   blog.headerImage.map((elem) => (
                     <div
-                      class="carousel-item active"
+                      className="carousel-item active"
                       data-interval={blog["data_interval"]}
                     >
                       <img
@@ -132,13 +133,13 @@ const Blog = () => {
                           return (
                             <>
                               <div
-                                class="blogContent fw-600 fo-30 mfo-18 mb-3"
+                                className="blogContent fw-600 fo-30 mfo-18 mb-3"
                                 id={"topic" + elem["id"]}
                               >
                                 {elem["heading"]}
                               </div>
                               <div
-                                class="blogContent fo-17 mfo-15"
+                                className="blogContent fo-17 mfo-15"
                                 dangerouslySetInnerHTML={{
                                   __html: elem["paragraph"],
                                 }}
@@ -158,10 +159,10 @@ const Blog = () => {
                               blog.content.map((elem, index) => {
                                 return (
                                   <li
-                                    class="fo-16 cursor-pointer"
+                                    className="fo-16 cursor-pointer"
                                     onClick={() => routeToSection(elem.id)}
                                   >
-                                    <i class="fas fa-circle fo-6 mr-2 bco fw-600"></i>
+                                    <i className="fas fa-circle fo-6 mr-2 bco fw-600"></i>
                                     {elem["title"]}
                                   </li>
                                 );

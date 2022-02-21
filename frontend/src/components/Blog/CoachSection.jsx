@@ -5,10 +5,10 @@ const CoachSection = ({ coach }) => {
         coach.map((elem) => {
           console.log(elem);
           return (
-            <div class="row m-0 p-300 mt-3">
-              <div class="col-6 col-sm-6 p-0">
+            <div className="row m-0 p-300 mt-3">
+              <div className="col-6 col-sm-6 p-0">
                 <img src={elem["image"]} alt={`${elem["name"]}`} />
-                <div class="mt-3 fw-700 mfo-12">
+                <div className="mt-3 fw-700 mfo-12">
                   {elem["designation"] === ""
                     ? `${elem["name"]}`
                     : `${elem["designation"]} : ${elem["name"]}`}

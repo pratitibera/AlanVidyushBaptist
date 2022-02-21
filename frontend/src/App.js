@@ -18,6 +18,7 @@ import Pricing from "./pages/Pricing";
 import Mainservices from "./pages/Mainservices";
 import Services from "./pages/Services";
 import Columnists from "./pages/Columnists";
+import Footer from "./components/Layout/Footer";
 
 function App() {
   const overlay = useRef(null);
@@ -46,7 +47,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div>
       <div id="overlay" ref={overlay} onClick={overlayHandler}></div>
       <Navbar overlay={overlay} />
       <Sidebar overlay={overlay} />
@@ -69,6 +70,8 @@ function App() {
           <Route path="/services" element={<Mainservices />} />
         </Route>
       </Routes>
+
+      <Footer />
     </div>
   );
 }

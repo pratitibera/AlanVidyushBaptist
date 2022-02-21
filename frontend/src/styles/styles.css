@@ -477,7 +477,7 @@ ul {
   border-radius: 8px;
   margin-top: 55px;
   margin-right: 18px;
-  width: 124px;
+  width: 144px;
   position: relative;
 }
 .whatsapp_icon_span {
@@ -648,6 +648,9 @@ nav .navbar-collapse.show {
   display: flex;
   justify-content: center;
 }
+.site-title-about {
+  background: url("../img/banners/about_banner.png");
+}
 .site-title .site-background {
   color: #fff;
 }
@@ -728,7 +731,7 @@ nav .navbar-collapse.show {
 
 #blogSlider {
   padding-top: 20px;
-  height: 80vh;
+  height: 83vh;
   position: relative;
   perspective: 1000px;
   transform-style: preserve-3d;
@@ -807,12 +810,16 @@ nav .navbar-collapse.show {
 .blog-body {
   padding: 40px 32px 20px 32px;
   line-height: 1.7em;
+  height: 280px;
 }
 
 .blog-footer {
   border-top: 1px solid #eeeeee;
   padding: 16px 32px;
   color: #adadad;
+}
+.blogs-handler-icons {
+  margin-top: 610px;
 }
 
 /* Footer */
@@ -839,7 +846,8 @@ footer .move-up {
   position: relative;
   /* background-repeat: no-repeat; */
   background-position: 50% 50%;
-  height: 50vh;
+  height: 70vh;
+  padding-top: 160px;
 }
 
 .footer-bg .text-white {
@@ -1232,7 +1240,10 @@ footer .move-up {
 #pricing_heading {
   text-transform: uppercase;
 }
-
+.pricing-hr {
+  border-bottom: 3px solid #ffe972;
+  max-width: 100px;
+}
 .dark-pricing .fw-600 {
   color: #fff;
 }
@@ -1288,10 +1299,14 @@ footer .move-up {
 .pricing-section-container {
   font-family: "Roboto Slab", serif;
 }
-
+.pri_offer_heading {
+  font-size: 22px;
+  padding: 0px 8px;
+  height: 82px;
+}
 .pricing-section-items li {
   color: #333333;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   border-bottom: 1px solid rgba(9, 9, 9, 0.04);
   padding: 10px 15px;

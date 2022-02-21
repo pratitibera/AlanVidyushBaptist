@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import Slider from "react-slick";
-import Footer from "../components/Layout/Footer";
+import BlogGallery from "../components/Blog/BlogGallery";
 
 import PortfolioImage1 from "../img/portfolio/1.jpeg";
 import PortfolioImage2 from "../img/portfolio/2.jpeg";
@@ -15,7 +14,6 @@ import PortfolioImage9 from "../img/portfolio/9.jpeg";
 import PortfolioImage10 from "../img/portfolio/10.jpeg";
 import PortfolioImage11 from "../img/portfolio/11.jpeg";
 import PortfolioImage12 from "../img/portfolio/12.jpeg";
-import BlogGallery from "../components/Blog/BlogGallery";
 
 const images = [
   PortfolioImage1,
@@ -50,15 +48,15 @@ const Portfolio = () => (
 
     <section>
       <div
-        class="owl-carousel d-sm-none portfolioSection_mobile"
+        className="owl-carousel d-sm-none portfolioSection_mobile"
         id="portfolioSection"
       >
         <BlogGallery>
           {images.map((image, index) => {
             return (
-              <div class="p-2" key={index}>
-                <div class="card p-0 border-0">
-                  <img src={image} class="w-100 copyright_img"></img>
+              <div className="p-2" key={index}>
+                <div className="card p-0 border-0">
+                  <img src={image} className="w-100 copyright_img"></img>
                 </div>
               </div>
             );
@@ -66,65 +64,65 @@ const Portfolio = () => (
         </BlogGallery>
       </div>
 
-      <div class="portfolioSection_desktop row d-none d-sm-flex">
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage1} class="w-100 copyright_img"></img>
+      <div className="portfolioSection_desktop row d-none d-sm-flex">
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage1} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage2} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage2} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage3} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage3} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage4} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage4} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage5} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage5} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage6} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage6} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage7} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage7} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage8} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage8} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage9} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage9} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage10} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage10} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage11} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage11} className="w-100 copyright_img"></img>
           </div>
         </div>
-        <div class="p-2">
-          <div class="card p-0 border-0">
-            <img src={PortfolioImage12} class="w-100 copyright_img"></img>
+        <div className="p-2">
+          <div className="card p-0 border-0">
+            <img src={PortfolioImage12} className="w-100 copyright_img"></img>
           </div>
         </div>
       </div>
@@ -209,7 +207,6 @@ const Portfolio = () => (
         </div>
       </div>
     </section>
-    <Footer />
   </main>
 );
 

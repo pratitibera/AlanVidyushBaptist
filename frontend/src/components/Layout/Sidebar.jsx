@@ -44,25 +44,25 @@ const Sidebar = ({ overlay }) => {
       <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
         <li className="nav-item">
           <Link className="nav-link exo" to="#about">
-            <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>
+            <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
             ABOUT ALAN
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link exo" to="/#success">
-            <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>
+            <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
             SUCCESS STORIES
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link exo" to="/#blogs">
-            <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>
+            <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
             BLOGS
           </Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link exo" to="/#contact">
-            <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>
+            <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
             CONTACT
           </Link>
         </li>
@@ -105,6 +105,11 @@ const Sidebar = ({ overlay }) => {
           className="searches"
           onChange={searchQueryChangeHandler}
           id="desktopSearchi"
+          onKeyPress={(e) => {
+            if (e.key === "Enter" || e.keyCode === 13) {
+              searchHandler();
+            }
+          }}
         />
       </div>
       <div className="row m-0 mt-4 justify-content-center mb-3">

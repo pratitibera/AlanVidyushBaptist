@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ServiceCard from "../components/Services/ServiceCard";
 import urlSet from "../utils/urls";
 
 const Mainservices = () => {
@@ -24,12 +25,12 @@ const Mainservices = () => {
 
   return (
     <div>
-      <section class="services-banner">
+      <section className="services-banner">
         <h1>Services</h1>
       </section>
 
-      <section class="services-list">
-        <div class="row m-0" id="mainServices_section">
+      <section className="services-list">
+        <div className="row m-0" id="mainServices_section">
           {services &&
             services.map((service) => <ServiceCard service={service} />)}
         </div>
@@ -39,45 +40,3 @@ const Mainservices = () => {
 };
 
 export default Mainservices;
-
-const ServiceCard = ({ service, index }) => {
-  console.log(service);
-  const mainServiceDetails = () => {
-    if (service["offers"].length > 0) {
-      document.location.href =
-        "pricing?service=" + service["service"].replaceAll(" ", "_");
-    } else {
-      document.location.href =
-        "services/" + service["service"].replaceAll(" ", "_");
-    }
-  };
-
-  return (
-    <div className="col-sm-4">
-      <div className="single-service-item" id={`service_${service.id}`}>
-        <div className="img-holder">
-          <figure className="swap-on-hover">
-            <img
-              className="swap-on-hover__front-image"
-              src={service["service_image"][0]}
-            />
-            <img
-              className="swap-on-hover__back-image"
-              src={service["service_image"][1]}
-            />
-          </figure>
-          <div className="text-holder text-center service-card__description">
-            <h3>{service["service"]}</h3>
-            <p>{service["description"]}</p>
-            <div
-              className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3"
-              onClick={mainServiceDetails}
-            >
-              Know More
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
