@@ -8,14 +8,9 @@ import PartnerImage1 from "../img/partners/partner_1.png";
 import PartnerImage2 from "../img/partners/partner_2.png";
 import PartnerImage3 from "../img/partners/partner_3.png";
 import PartnerImage4 from "../img/partners/partner_4.png";
-import PartnerImage5 from "../img/partners/partner_5.png";
-import { Link } from "react-router-dom";
-
-import PartnerImage1 from "../img/partners/partner_1.png";
-import PartnerImage2 from "../img/partners/partner_2.png";
-import PartnerImage3 from "../img/partners/partner_3.png";
-import PartnerImage4 from "../img/partners/partner_4.png";
 import PartnerImage6 from "../img/partners/partner_6.png";
+
+import { Link } from "react-router-dom";
 
 import PartnersBanner from "../img/banners/partners_banner.png";
 

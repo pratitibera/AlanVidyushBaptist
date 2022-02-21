@@ -1,26 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-<<<<<<< HEAD
 import AboutLogo from "../../img/icons/about.png";
 import StoryLogo from "../../img/icons/story.png";
 import BlogsLogo from "../../img/icons/blogs.png";
 import ContactLogo from "../../img/icons/contact.png";
-=======
-import { Link } from "react-router-dom";
-
-import AboutLogo from "../../img/icons/about.png"
-import StoryLogo from "../../img/icons/story.png"
-import BlogsLogo from "../../img/icons/blogs.png"
-import ContactLogo from "../../img/icons/contact.png"
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 
 /* eslint-disable jsx-a11y/alt-text */
 const Sidebar = ({ overlay }) => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
 
-<<<<<<< HEAD
   const closeCollapsibleSidebarHandler = () => {
     document.querySelector(".menuSidebar").classList.remove("navToggle");
     document.querySelector(".header-nav").classList.add("d-flex");
@@ -89,58 +79,6 @@ const Sidebar = ({ overlay }) => {
           <Link to="partners" className="text-white">
             Partners
           </Link>
-=======
-    const closeCollapsibleSidebarHandler = () => {
-        document.querySelector(".menuSidebar").classList.remove("navToggle");
-        document.querySelector(".header-nav").classList.add("d-flex");
-        document.querySelector(".header-nav").classList.remove("d-none");
-        document.querySelector(".header-consult").classList.add("d-block");
-        document.querySelector(".header-consult").classList.remove("d-none");
-        overlay.current.style.display = "none";
-    }
-    return (
-        <div className="menuSidebar">
-        <span className="close-menuSidebar">
-            <i className="fa fa-times cursorPointer bco" id="close_collapsibleSidebar" onClick={closeCollapsibleSidebarHandler}> </i>
-        </span>
-        <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
-            <li className="nav-item">
-                <a className="nav-link exo" href="#about">
-                    <img src={AboutLogo} className="w-8 mr-2" alt="About Logo"/>ABOUT ALAN
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link exo" href="#success">
-                    <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo"/>SUCCESS STORIES
-                </a>
-            </li>
-            <li className="nav-item">
-                <a className="nav-link exo" href="#blogs">
-                    <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo"/>BLOGS
-                </a>
-            </li>
-            <li className="nav-item mr-sm-auto">
-                <a className="nav-link exo" href="#contact">
-                    <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo"/>CONTACT
-                </a>
-            </li>
-            <li className="nav-item text-center">
-                <Link to="/services">
-                    <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-                </Link>
-            </li>
-        </ul>
-        <div className="navExtras">
-            <div className="pt-3 pl-5">
-                <Link to="/partners" className="text-white">Partners</Link>
-            </div>
-            <div className="pt-2 pl-5">
-                <Link to="/columnists" className="text-white">Columnists</Link>
-            </div>
-            <div className="pt-2 pl-5">
-                <Link to="/portfolio" className="text-white">Portfolio</Link>
-            </div>
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
         </div>
         <div className="pt-1 pl-5">
           <Link to="columnist" className="text-white">

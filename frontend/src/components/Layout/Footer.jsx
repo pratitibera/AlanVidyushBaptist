@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-<<<<<<< HEAD
   return (
     <footer id="contact" className="pageContact">
       <div className="footer-bg overflow-hidden">
@@ -11,20 +10,6 @@ const Footer = () => {
             src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp"
             className="w-100"
           />
-=======
-    return(
-        <footer id="contact">
-        <div class="footer-bg overflow-hidden">
-            <div class="text-center mt-4">
-                <Link to="/services">
-                    <button class="btn website-button pulsating fo-30" data-aos="fade-left" data-aos-delay="100">CONSULT</button>
-                </Link>
-            </div>
-            <div class="text-center fo-40 fw-800 bco mfo-35 text-white pt-5" data-aos="fade-left" data-aos-delay="100">ALAN BAPTIST</div>
-            <div class="footer-img-container w-100">
-                <img src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp" class="w-100" />
-            </div>
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
         </div>
       </div>
       <div className="text-center bg-dark pb-5">

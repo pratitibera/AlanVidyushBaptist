@@ -470,7 +470,6 @@ ul {
   width: 70px;
   height: 70px;
 }
-<<<<<<< HEAD
 .whatsapp_icon div {
   margin: auto;
   font-weight: 700;
@@ -478,19 +477,8 @@ ul {
   border-radius: 8px;
   margin-top: 55px;
   margin-right: 18px;
-  width: 124px;
+  width: 144px;
   position: relative;
-=======
-.whatsapp_icon div{
-	margin: auto;
-	 font-weight: 700;
-	 padding: 6px 25px;
-	 border-radius: 8px;
-	 margin-top: 55px;
-	 margin-right: 18px;
-	 width: 144px;
-	 position: relative;
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 }
 .whatsapp_icon_span {
   position: absolute;
@@ -660,8 +648,8 @@ nav .navbar-collapse.show {
   display: flex;
   justify-content: center;
 }
-.site-title-about{
-	background: url('../img/banners/about_banner.png');
+.site-title-about {
+  background: url("../img/banners/about_banner.png");
 }
 .site-title .site-background {
   color: #fff;
@@ -742,19 +730,11 @@ nav .navbar-collapse.show {
 }
 
 #blogSlider {
-<<<<<<< HEAD
   padding-top: 20px;
-  height: 80vh;
+  height: 83vh;
   position: relative;
   perspective: 1000px;
   transform-style: preserve-3d;
-=======
-	padding-top: 20px;
-	height: 83vh;
-	position: relative;
-	perspective: 1000px;
-	transform-style: preserve-3d;
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 }
 
 #blogSlider label {
@@ -828,14 +808,9 @@ nav .navbar-collapse.show {
 }
 
 .blog-body {
-<<<<<<< HEAD
   padding: 40px 32px 20px 32px;
   line-height: 1.7em;
-=======
-	padding: 40px 32px 20px 32px;
-	line-height: 1.7em;
-	height: 280px;
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
+  height: 280px;
 }
 
 .blog-footer {
@@ -843,12 +818,9 @@ nav .navbar-collapse.show {
   padding: 16px 32px;
   color: #adadad;
 }
-<<<<<<< HEAD
-=======
-.blogs-handler-icons{
-	margin-top: 610px;
+.blogs-handler-icons {
+  margin-top: 610px;
 }
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 
 /* Footer */
 
@@ -871,18 +843,11 @@ footer .move-up {
 .footer-bg {
   /* background-image: url('https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fGdhbGF4eXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'); background-attachment: fixed;
     background-size: cover;  */
-<<<<<<< HEAD
   position: relative;
   /* background-repeat: no-repeat; */
   background-position: 50% 50%;
-  height: 50vh;
-=======
-	position: relative;
-	/* background-repeat: no-repeat; */
-	background-position: 50% 50%;
-	height: 70vh;
-	padding-top: 160px;
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
+  height: 70vh;
+  padding-top: 160px;
 }
 
 .footer-bg .text-white {
@@ -1275,18 +1240,12 @@ footer .move-up {
 #pricing_heading {
   text-transform: uppercase;
 }
-<<<<<<< HEAD
-
+.pricing-hr {
+  border-bottom: 3px solid #ffe972;
+  max-width: 100px;
+}
 .dark-pricing .fw-600 {
   color: #fff;
-=======
-.pricing-hr{
-	border-bottom: 3px solid #FFE972; 
-	max-width: 100px
-}
-.dark-pricing .fw-600{
-	color: #fff;
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 }
 .dark-pricing li {
   color: #fff !important;
@@ -1340,29 +1299,18 @@ footer .move-up {
 .pricing-section-container {
   font-family: "Roboto Slab", serif;
 }
-<<<<<<< HEAD
-
+.pri_offer_heading {
+  font-size: 22px;
+  padding: 0px 8px;
+  height: 82px;
+}
 .pricing-section-items li {
   color: #333333;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   border-bottom: 1px solid rgba(9, 9, 9, 0.04);
   padding: 10px 15px;
   text-align: center;
-=======
-.pri_offer_heading{
-	font-size: 22px;
-	padding: 0px 8px;
-	height: 82px;
-}
-.pricing-section-items li{
-	color: #333333;
-	font-size: 12px;
-	font-weight: 400;
-	border-bottom: 1px solid rgba(9,9,9,.04);
-	padding: 10px 15px;
-	text-align: center;
->>>>>>> 222e12fa5168a1094b177b0f64b23dc2ba9c679a
 }
 .pricing-section .text-center button {
   margin: 15px 0px 10px 0px;

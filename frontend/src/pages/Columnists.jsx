@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import Sidebar from "../components/Layout/Sidebar";
 import BlogSection from "../components/About/BlogSection";
-import Footer from "../components/Layout/Footer";
 
-import PartnerImage5 from "../img/partners/partner_6.png";
-
-import PartnerImage5 from "../img/partners/partner_5.jpg";
+import PartnerImage6 from "../img/partners/partner_6.png";
 
 import ColumnistsBanner from "../img/banners/columnists_banner.png";
 
@@ -31,8 +27,6 @@ const Columnists = () => (
       </a>
     </div>
 
-    <Sidebar />
-
     <div id="notification-area"></div>
 
     <section>
@@ -52,7 +46,7 @@ const Columnists = () => (
         <div className="col-sm-8 p-0 bg-grey">
           <div className="row m-0 pl-sm-5 pr-sm-5 h-100">
             <div className="col-5 col-sm-5 m-auto text-right">
-              <img src={PartnerImage5} className="w-70 mow-100"></img>
+              <img src={PartnerImage6} className="w-70 mow-100"></img>
             </div>
             <div className="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
               <div className="mid-border"></div>
@@ -81,8 +75,6 @@ const Columnists = () => (
         </div>
       </div>
 
-      <Sidebar />
-
       <div id="notification-area"></div>
 
       <section>
@@ -96,7 +88,7 @@ const Columnists = () => (
           <div class="col-sm-8 p-0 bg-grey">
             <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
               <div class="col-5 col-sm-5 m-auto text-right">
-                <img src={PartnerImage5} class="w-70 mow-100"></img>
+                <img src={PartnerImage6} class="w-70 mow-100"></img>
               </div>
               <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
                 <div class="mid-border"></div>
