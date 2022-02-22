@@ -19,6 +19,11 @@ const Sidebar = ({ overlay }) => {
     document.querySelector(".header-consult").classList.remove("d-none");
     overlay.current.style.display = "none";
   };
+  const routeToPage = () => {
+    document
+      .getElementById(window.location.hash.replace("#", ""))
+      .scrollIntoView();
+  };
 
   const searchHandler = () => {
     console.log("here", searchQuery);
@@ -43,25 +48,41 @@ const Sidebar = ({ overlay }) => {
       </span>
       <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
         <li className="nav-item">
-          <Link className="nav-link exo" to="#about">
+          <Link
+            className="nav-link exo"
+            to="#about"
+            onClick={() => routeToPage("about")}
+          >
             <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
             ABOUT ALAN
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link exo" to="/#success">
+          <Link
+            className="nav-link exo"
+            to="/#success"
+            onClick={() => routeToPage("success")}
+          >
             <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
             SUCCESS STORIES
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link exo" to="/#blogs">
+          <Link
+            className="nav-link exo"
+            to="/#blogs"
+            onClick={() => routeToPage("blogs")}
+          >
             <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
             BLOGS
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link exo" to="/#contact">
+          <Link
+            className="nav-link exo"
+            to="/#contact"
+            onClick={() => routeToPage("contact")}
+          >
             <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
             CONTACT
           </Link>
