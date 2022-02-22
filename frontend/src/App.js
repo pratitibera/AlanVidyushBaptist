@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import AOS from "aos";
 import $ from "jquery";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 //Layout
 import Navbar from "./components/Layout/Navbar";
@@ -69,6 +69,7 @@ function App() {
           <Route path="/services/:serviceId" element={<Services />} />
           <Route path="/services" element={<Mainservices />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <Footer />
