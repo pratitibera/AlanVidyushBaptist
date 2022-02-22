@@ -4,15 +4,15 @@ const OfferCard = ({ dark, offer }) => {
     <div
       className={dark ? "bg-dark pt-5 pb-5 dark-pricing" : "bg-white pt-5 pb-5"}
     >
-      <div className="fo-52 fw-600 pco text-center">{offer.duration}</div>
+      <div className="pri_offer_heading fw-600 pco text-center">{offer.duration}</div>
       <div className="pco fo-20 fw-600 text-center recommend"></div>
 
       {offer.discounted_price && offer.discounted_price > 0 ? (
-        <div className="text-center fw-600 fo-52">
-          <span className="fo-20" style={{ textDecoration: "line-through" }}>
+        <div className="text-center fw-600 fo-22">
+          <span className="fo-20 mr-2" style={{ textDecoration: "line-through" }}>
             ₹ {offer.price}
           </span>
-          <span className="pco fo-36 fw-600">₹ </span>
+          <span className="pco fo-26 fw-600">₹ </span>
           {offer.discounted_price}
         </div>
       ) : (
@@ -32,7 +32,7 @@ const OfferCard = ({ dark, offer }) => {
             id="Salary_+_House_Property_Plan"
             disabled={!offer.in_stock}
           >
-            {offer.in_stock ? "CHOOSE PLAN" : "OUT OF STOCK"}
+            {offer.in_stock ? "CHOOSE PLAN" : "SLOTS FULL"}
           </button>
         </div>
       </div>

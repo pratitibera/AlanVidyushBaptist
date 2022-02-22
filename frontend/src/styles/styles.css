@@ -644,7 +644,7 @@ nav .navbar-collapse.show {
   margin-top: 60px;
   background: url("../img/cover_image.jpg");
   background-size: cover;
-  height: 100vh;
+  height: 110vh;
   display: flex;
   justify-content: center;
 }
@@ -685,7 +685,7 @@ nav .navbar-collapse.show {
 .about-container {
   padding: 10px 40px 40px 40px;
   background: rgba(0, 0, 0, 0.5);
-  margin-top: 90px;
+  margin-top: 30px;
   border: 2px solid #000;
 }
 
@@ -810,7 +810,7 @@ nav .navbar-collapse.show {
 .blog-body {
   padding: 40px 32px 20px 32px;
   line-height: 1.7em;
-  height: 280px;
+  height: 250px;
 }
 
 .blog-footer {
@@ -819,7 +819,7 @@ nav .navbar-collapse.show {
   color: #adadad;
 }
 .blogs-handler-icons {
-  margin-top: 610px;
+  margin-top: 630px;
 }
 
 /* Footer */
@@ -1258,7 +1258,7 @@ footer .move-up {
   background-image: url(http://elementnutri.com/wp-content/uploads/2019/04/Image-4.jpg);
   background-position: center center;
   background-size: cover;
-  margin-top: 142px;
+  margin-top: 120px;
   box-shadow: 0px 0px 34px 0px rgb(107 107 107 / 50%);
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   position: relative;

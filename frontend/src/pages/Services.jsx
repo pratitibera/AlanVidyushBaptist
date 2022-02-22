@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import urlSet from "../utils/urls";
 import ServiceCard from "../components/Services/ServiceCard";
+import ServicesBanner from "../img/banners/services_banner.png";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -32,10 +33,8 @@ const Services = () => {
 
   return (
     <div>
-      {/* <body onload="getServices();"> */}
-
       <div class="partners-cover text-center">
-        {/* <img src={ServicesBanner} class="w-100"></img> */}
+        <img src={ServicesBanner} className="w-100" alt="Services Banner"></img>
       </div>
 
       <section className="services-list">
