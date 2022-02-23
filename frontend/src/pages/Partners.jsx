@@ -54,9 +54,9 @@ const Partners = () => (
               <div class="mid-border"></div>
             </div>
             <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-              <div class="fo-28 mfo-26 fw-800 text-center">Neera</div>
+              <div class="fo-28 mfo-26 fw-800 text-center">Neera Katwal</div>
               <div class="fo-15 mfo-20 fw-800 text-center">
-                <a href="achievements.html?partner=Neera">
+                <a href="achievements.html?partner=Neera_Katwal">
                   <button class="btn website-button bg-dark mt-3 text-white">
                     READ MORE
                   </button>
@@ -67,7 +67,7 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partners.html?partner=Neera">
+            <a href="partners.html?partner=Neera_Katwal">
               <div class="fo-18 text-white fw-600">
                 Marathon Running Coach, Certified Yoga Instructor, Strength
                 Coach, Fitness Model.
