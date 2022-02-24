@@ -67,7 +67,7 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partners.html?partner=Neera">
+            <a href="/blogs?partner=Neera">
               <div class="fo-18 text-white fw-600">
                 Marathon Running Coach, Certified Yoga Instructor, Strength
                 Coach, Fitness Model.
@@ -87,9 +87,7 @@ const Partners = () => (
               <div class="mid-border"></div>
             </div>
             <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-              <div class="fo-28 mfo-26 fw-800 text-center">
-                Vivek Baptist
-              </div>
+              <div class="fo-28 mfo-26 fw-800 text-center">Vivek Baptist</div>
               <div class="fo-15 mfo-20 fw-800 text-center">
                 <a href="achievements.html?partner=Vivek_Baptist">
                   <button class="btn website-button bg-dark mt-3 text-white">
@@ -102,10 +100,10 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partnerBlogs.html?partner=Vivek_Baptist">
+            <a href="/blogs?partner=Vivek Baptist">
               <div class="fo-18 text-white fw-600">
-                Pain Science Expert Consultant, Powerlifting Athlete, Gym
-                Owner, Columnist
+                Pain Science Expert Consultant, Powerlifting Athlete, Gym Owner,
+                Columnist
               </div>
             </a>
             <hr></hr>
@@ -124,9 +122,7 @@ const Partners = () => (
               <div class="mid-border"></div>
             </div>
             <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-              <div class="fo-28 mfo-26 fw-800 text-center">
-                Vinit Baptist
-              </div>
+              <div class="fo-28 mfo-26 fw-800 text-center">Vinit Baptist</div>
               <div class="fo-15 mfo-20 fw-800 text-center">
                 <a href="achievements.html?partner=Vinit_Baptist">
                   <button class="btn website-button bg-dark mt-3 text-white">
@@ -139,10 +135,10 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partners.html?partner=Vinit_Baptist">
+            <a href="/blogs?partner=Vinit Baptist">
               <div class="fo-18 text-white fw-600">
-                Fitness Expert, Strength & Conditioning Coach, Athlete,
-                Mega-Gym Owner
+                Fitness Expert, Strength & Conditioning Coach, Athlete, Mega-Gym
+                Owner
               </div>
             </a>
             <hr></hr>
@@ -174,7 +170,7 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partners.html?partner=Minhaj_Akhtar_Khan">
+            <a href="/blogs?partner=Minhaj Akhtar Khan">
               <div class="fo-18 text-white fw-600">
                 CFO, Financial Consultant, Tax Advisor, Qualified Accountant
               </div>
@@ -195,9 +191,7 @@ const Partners = () => (
               <div class="mid-border"></div>
             </div>
             <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-              <div class="fo-28 mfo-26 fw-800 text-center">
-                Pankaj
-              </div>
+              <div class="fo-28 mfo-26 fw-800 text-center">Pankaj</div>
               <div class="fo-15 mfo-20 fw-800 text-center">
                 <a href="achievements.html?partner=Pankaj">
                   <button class="btn website-button bg-dark mt-3 text-white">
@@ -210,9 +204,9 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-1 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partners.html?partner=Pankaj">
+            <a href="/blogs?partner=Pankaj">
               <div class="fo-18 text-white fw-600">
-              Director, Financial Doctor, Tax Specialist 
+                Director, Financial Doctor, Tax Specialist
               </div>
             </a>
             <hr></hr>
@@ -229,9 +223,7 @@ const Partners = () => (
               <div class="mid-border"></div>
             </div>
             <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-              <div class="fo-28 mfo-26 fw-800 text-center">
-              Rohan Kothari
-              </div>
+              <div class="fo-28 mfo-26 fw-800 text-center">Rohan Kothari</div>
               <div class="fo-15 mfo-20 fw-800 text-center">
                 <a href="achievements.html?partner=Rohan_Kothari">
                   <button class="btn website-button bg-dark mt-3 text-white">
@@ -244,9 +236,9 @@ const Partners = () => (
         </div>
         <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
           <div class="m-auto">
-            <a href="partners.html?partner=Rohan_Kothari">
+            <a href="/blogs?partner=Rohan Kothari">
               <div class="fo-18 text-white fw-600">
-              CEO, Entreprenuer, Lawyer & Business Coach
+                CEO, Entreprenuer, Lawyer & Business Coach
               </div>
             </a>
             <hr></hr>

@@ -24,20 +24,7 @@ const Home = () => {
         behavior: "smooth",
         inline: "start",
       });
-    console.log("Here");
-
-    console.log(window.location.hash);
   };
-
-  useEffect(() => {
-    window.addEventListener("hashchange", () => {
-      console.log("HERERE");
-    });
-    return () =>
-      window.removeEventListener("hashchange", () => {
-        console.log("HERERE");
-      });
-  }, []);
 
   useEffect(() => {
     const getFeaturedBlogs = async () => {
@@ -52,7 +39,7 @@ const Home = () => {
     };
 
     getFeaturedBlogs();
-    // onHashChange();
+    onHashChange();
   }, []);
 
   return (

@@ -101,42 +101,35 @@ const Navbar = ({ overlay }) => {
           </div>
         </div>
         <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-          <li className="nav-item header-nav-pl">
-            <Link
-              className="nav-link exo text-center"
-              to="/#about"
-              onClick={() => routeToPage("about")}
-            >
+          <li
+            className="nav-item header-nav-pl"
+            onClick={() => routeToPage("about")}
+          >
+            <Link className="nav-link exo text-center" to="/#about">
               <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
               ABOUT ALAN
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              className="nav-link exo text-center"
-              to="/#success"
-              onClick={() => routeToPage("success")}
-            >
+          <li className="nav-item" onClick={() => routeToPage("success")}>
+            <Link className="nav-link exo text-center" to="/#success">
               <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
               SUCCESS STORIES
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => routeToPage("blogs")}>
             <Link
               className="nav-link exo text-center"
               to={{ pathname: "/", hash: "blogs" }}
-              onClick={() => routeToPage("blogs")}
             >
               <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
               BLOGS
             </Link>
           </li>
-          <li className="nav-item header-nav-pr">
-            <Link
-              className="nav-link exo text-center"
-              to="/#contact"
-              onClick={() => routeToPage("contact")}
-            >
+          <li
+            className="nav-item header-nav-pr"
+            onClick={() => routeToPage("contact")}
+          >
+            <Link className="nav-link exo text-center" to="/#contact">
               <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
               CONTACT
             </Link>

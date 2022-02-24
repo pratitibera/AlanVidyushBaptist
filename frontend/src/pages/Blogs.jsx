@@ -53,8 +53,9 @@ const Blogs = () => {
       try {
         let url = urlSet.get_blogApi.url;
 
-        if (partnerQuery) url = url + "?author=" + partnerQuery;
-        else if (searchQuery) url = url + "?searchQuery=" + searchQuery;
+        if (partnerQuery) {
+          url = urlSet.get_AuthorblogApi.url + partnerQuery;
+        } else if (searchQuery) url = url + "?searchQuery=" + searchQuery;
         else if (params.category && params.subcategory)
           url =
             url +

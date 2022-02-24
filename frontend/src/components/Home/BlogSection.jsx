@@ -47,7 +47,8 @@ const BlogSection = ({ blogs }) => {
             {blogs &&
               blogs.length > 0 &&
               blogs.map((blog, index) => {
-                return <BlogCard blog={blog} index={index + 1} key={index} />;
+                if (index < 5)
+                  return <BlogCard blog={blog} index={index + 1} key={index} />;
               })}
 
             <div className="text-center blogs-handler-icons">

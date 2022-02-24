@@ -5,6 +5,7 @@ import BlogSection from "../components/About/BlogSection";
 import PartnerImage7 from "../img/partners/partner_7.png";
 
 import ColumnistsBanner from "../img/banners/columnists_banner.png";
+import { Link } from "react-router-dom";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Columnists = () => (
@@ -58,12 +59,14 @@ const Columnists = () => (
           </div>
         </div>
         <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
-          <div class="m-auto">
-            <div class="fo-18 text-white fw-600">
-              Chief Content Manager, Wellness Influencer
+          <Link to="/blogs?partner=Debasmita Das">
+            <div class="m-auto">
+              <div class="fo-18 text-white fw-600">
+                Chief Content Manager, Wellness Influencer
+              </div>
+              <hr></hr>
             </div>
-            <hr></hr>
-          </div>
+          </Link>
         </div>
       </div>
     </section>
