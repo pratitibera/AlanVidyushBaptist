@@ -44,6 +44,10 @@ function App() {
     AOS.init({
       duration: 2000,
     });
+
+    window.addEventListener("locationchange", function () {
+      console.log("location changed!");
+    });
   }, []);
 
   return (

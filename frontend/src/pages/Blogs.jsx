@@ -8,7 +8,29 @@ import {
 } from "react-router-dom";
 import urlSet from "../utils/urls";
 
-var blogCatandSub = {
+const rootCategories = [
+  {
+    name: "Fitness",
+    image: require("../img/icons/Fitness Modelling Yellow.png"),
+  },
+  {
+    name: "Nutrition",
+    image: require("../img/icons/Nutrition Concepts Yellow.png"),
+  },
+  {
+    name: "Education",
+    image: require("../img/icons/Education Yellow.png"),
+  },
+  {
+    name: "Psychology",
+    image: require("../img/icons/Psychology Concepts Yellow.png"),
+  },
+  {
+    name: "Finance",
+    image: require("../img/icons/Taxation Yellow.png"),
+  },
+];
+const blogCatandSub = {
   Fitness: [
     {
       name: "Weight Loss",
@@ -158,28 +180,7 @@ const Blogs = () => {
     if (params.category) {
       setCategories(blogCatandSub[params.category]);
     } else {
-      setCategories([
-        {
-          name: "Fitness",
-          image: require("../img/icons/Fitness Modelling Yellow.png"),
-        },
-        {
-          name: "Nutrition",
-          image: require("../img/icons/Nutrition Concepts Yellow.png"),
-        },
-        {
-          name: "Education",
-          image: require("../img/icons/Education Yellow.png"),
-        },
-        {
-          name: "Psychology",
-          image: require("../img/icons/Psychology Concepts Yellow.png"),
-        },
-        {
-          name: "Finance",
-          image: require("../img/icons/Taxation Yellow.png"),
-        },
-      ]);
+      setCategories(rootCategories);
     }
     fetchBlogs();
   }, [params, partnerQuery, searchQuery]);
@@ -243,7 +244,33 @@ const Blogs = () => {
           />
         </div>
         <div className="position-relative" id="blog_page_cover">
-          {blogsRoot && <h1>This is the Root Blogs</h1>}
+          {blogsRoot && blogs && blogs.length > 1 && (
+            <div class="position-relative" id="blog_page_cover">
+              <img
+                src={blogs && blogs[0].headerImage[0].image}
+                class="w-100"
+                alt={blogs && blogs[0].headerImage[0].name}
+              />
+
+              <div class="imageOverlay">
+                <div class="fo-52 fw-600 text-center mfo-20">
+                  How Ismail Achieved 12% Body Fat
+                </div>
+                <div class="text-center mt-3 mt-md-5">
+                  <a href="blog.html?id=How_Ismail_Achieved_12_Body_Fat">
+                    <a
+                      class="btn website-button bg-dark text-white"
+                      target="_blank"
+                      href={"/blog/" + blogs[0].slug}
+                      rel="noreferrer"
+                    >
+                      READ MORE
+                    </a>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div className="partners-section2">
           <div
@@ -290,7 +317,6 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
         </div>
         {categories &&
           categories.map((category, index) => {
-            console.log(category);
             return (
               <div
                 id={"category_" + category.name}
