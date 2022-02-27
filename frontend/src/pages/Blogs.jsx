@@ -10,30 +10,111 @@ import urlSet from "../utils/urls";
 
 var blogCatandSub = {
   Fitness: [
-    "Weight Loss",
-    "Muscle Gain",
-    "Body Recomposition",
-    "Sports Performance",
-    "Fitness Modelling",
-    "Fitness Myths",
+    {
+      name: "Weight Loss",
+      image: require("../img/icons/Weight Loss Yellow.png"),
+    },
+    {
+      name: "Muscle Gain",
+      image: require("../img/icons/Muscle Gain Yellow.png"),
+    },
+    {
+      name: "Body Recomposition",
+      image: require("../img/icons/Body Recomposition Yellow.png"),
+    },
+    {
+      name: "Sports Performance",
+      image: require("../img/icons/Sports Performance Yellow.png"),
+    },
+    {
+      name: "Fitness Modelling",
+      image: require("../img/icons/Fitness Modelling Yellow.png"),
+    },
+    {
+      name: "Fitness Myths",
+      image: require("../img/icons/Fitness Myths Yellow.png"),
+    },
   ],
   Nutrition: [
-    "Weight Loss",
-    "Weight Gain",
-    "Nutrition Concepts",
-    "Recipes",
-    "Nutrition Myths",
+    {
+      name: "Weight Loss",
+      image: require("../img/icons/Weight Loss Yellow.png"),
+    },
+    {
+      name: "Weight Gain",
+      image: require("../img/icons/Weight Gain Yellow.png"),
+    },
+    {
+      name: "Nutrition Concepts",
+      image: require("../img/icons/Nutrition Concepts Yellow.png"),
+    },
+    {
+      name: "Recipes",
+      image: require("../img/icons/Recipes Yellow.png"),
+    },
+    {
+      name: "Nutrition Myths",
+      image: require("../img/icons/Nutrition Myths Yellow.png"),
+    },
   ],
-  Education: ["Career", "Skills"],
+  Education: [
+    {
+      name: "Career",
+      image: require("../img/icons/Career Yellow.png"),
+    },
+    {
+      name: "Skills",
+      image: require("../img/icons/Skills Yellow.png"),
+    },
+  ],
   Psychology: [
-    "Sex",
-    "Relationships",
-    "Communication",
-    "Psych Concepts",
-    "Philosophy",
-    "Spirituality",
+    {
+      name: "Sex",
+      image: require("../img/icons/Sex Yellow.png"),
+    },
+    {
+      name: "Relationships",
+      image: require("../img/icons/Relationships Yellow.png"),
+    },
+    {
+      name: "Communication",
+      image: require("../img/icons/Communication Yellow.png"),
+    },
+    {
+      name: "Psychology Concepts",
+      image: require("../img/icons/Psychology Concepts Yellow.png"),
+    },
+    {
+      name: "Philosophy",
+      image: require("../img/icons/Philosophy Yellow.png"),
+    },
+    {
+      name: "Spirituality",
+      image: require("../img/icons/Spirituality Yellow.png"),
+    },
   ],
-  Finance: ["Taxation", "Investment", "Business", "Commerce", "Economics"],
+  Finance: [
+    {
+      name: "Taxation",
+      image: require("../img/icons/Taxation Yellow.png"),
+    },
+    {
+      name: "Investment",
+      image: require("../img/icons/Investment Yellow.png"),
+    },
+    {
+      name: "Business",
+      image: require("../img/icons/Business Yellow.png"),
+    },
+    {
+      name: "Commerce",
+      image: require("../img/icons/Commerce Yellow.png"),
+    },
+    {
+      name: "Economics",
+      image: require("../img/icons/Economics Yellow.png"),
+    },
+  ],
 };
 
 const Blogs = () => {
@@ -47,7 +128,12 @@ const Blogs = () => {
   const navigate = useNavigate();
   const isSubCategory = params.category;
 
-  console.log();
+  const blogsRoot =
+    Object.keys(params).length === 0 &&
+    partnerQuery === null &&
+    searchQuery === null;
+
+  console.log(searchQuery, partnerQuery);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -73,11 +159,26 @@ const Blogs = () => {
       setCategories(blogCatandSub[params.category]);
     } else {
       setCategories([
-        "Fitness",
-        "Nutrition",
-        "Education",
-        "Psychology",
-        "Finance",
+        {
+          name: "Fitness",
+          image: require("../img/icons/Fitness Modelling Yellow.png"),
+        },
+        {
+          name: "Nutrition",
+          image: require("../img/icons/Nutrition Concepts Yellow.png"),
+        },
+        {
+          name: "Education",
+          image: require("../img/icons/Education Yellow.png"),
+        },
+        {
+          name: "Psychology",
+          image: require("../img/icons/Psychology Concepts Yellow.png"),
+        },
+        {
+          name: "Finance",
+          image: require("../img/icons/Taxation Yellow.png"),
+        },
       ]);
     }
     fetchBlogs();
@@ -107,6 +208,7 @@ const Blogs = () => {
 
       <div id="notification-area"></div>
       {/* <-- All blogs section starts --> */}
+
       <section className="allBlogsSection">
         <div className="text-center fo-40 fw-800 mfo-32" id="blogPage_heading">
           Blogs
@@ -115,6 +217,7 @@ const Blogs = () => {
           <i className="fas fa-dumbbell bco"></i>
         </div>
         <div className="text-center fo-15 txtco mfo-13">Ready, Sweat, go!</div>
+        {/* <-- All blogs section starts --> */}
         <div className="navbar navbar-expand-sm bg-dark navbar-dark mt-4 p-0">
           <div className="d-block d-sm-none text-white p-2 pl-4 fw-600 fo-20">
             TOPICS
@@ -139,7 +242,9 @@ const Blogs = () => {
             resetHandler={categoryResetHandler}
           />
         </div>
-        <div className="position-relative" id="blog_page_cover"></div>
+        <div className="position-relative" id="blog_page_cover">
+          {blogsRoot && <h1>This is the Root Blogs</h1>}
+        </div>
         <div className="partners-section2">
           <div
             className="text-dark fo-30 p-5 text-center fw-700 mfo-24"
@@ -170,6 +275,7 @@ const Blogs = () => {
 export default Blogs;
 
 const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
+  console.log(require(`../img/about.jpg`));
   return (
     <div
       className="collapse navbar-collapse d-sm-block w-100"
@@ -184,21 +290,25 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
         </div>
         {categories &&
           categories.map((category, index) => {
+            console.log(category);
             return (
               <div
-                id={"category_" + category}
+                id={"category_" + category.name}
                 key={index}
-                onClick={() => onClick(category)}
-                className={category === selected ? "active" : ""}
+                onClick={() => onClick(category.name)}
+                className={category.name === selected ? "active" : ""}
               >
                 {category && (
                   <img
-                    src={require(`../img/icons/${category} Yellow.png`).default}
-                    alt={category + "_icon"}
+                    src={category.image}
+                    alt={category.name + "_icon"}
+                    className="mr-2"
+                    height="20px"
+                    width="20px"
                   />
                 )}
 
-                {category}
+                {category.name}
               </div>
             );
           })}
