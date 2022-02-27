@@ -12,11 +12,13 @@ const Sidebar = ({ overlay }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const closeCollapsibleSidebarHandler = () => {
+    console.log("Heere");
     document.querySelector(".menuSidebar").classList.remove("navToggle");
     document.querySelector(".header-nav").classList.add("d-flex");
     document.querySelector(".header-nav").classList.remove("d-none");
     document.querySelector(".header-consult").classList.add("d-block");
     document.querySelector(".header-consult").classList.remove("d-none");
+    document.getElementById("menuBtn-toggle").classList.remove("open");
     overlay.current.style.display = "none";
   };
   const routeToPage = () => {

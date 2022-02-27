@@ -18,12 +18,13 @@ const Home = () => {
   const [blogs, setBlogs] = useState([]);
 
   const onHashChange = () => {
-    document
-      .getElementById(window.location.hash.replace("#", ""))
-      .scrollIntoView({
+    const elem = document.getElementById(window.location.hash.replace("#", ""));
+    if (elem) {
+      elem.scrollIntoView({
         behavior: "smooth",
         inline: "start",
       });
+    }
   };
 
   useEffect(() => {

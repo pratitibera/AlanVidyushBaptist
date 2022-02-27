@@ -191,7 +191,13 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
                 onClick={() => onClick(category)}
                 className={category === selected ? "active" : ""}
               >
-                <i className="fas fa-dumbbell mr-2"></i>
+                {category && (
+                  <img
+                    src={require(`../img/icons/${category} Yellow.png`).default}
+                    alt={category + "_icon"}
+                  />
+                )}
+
                 {category}
               </div>
             );
