@@ -54,9 +54,9 @@ const Partners = () => (
               <div class="mid-border"></div>
             </div>
             <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-              <div class="fo-28 mfo-26 fw-800 text-center">Neera</div>
+              <div class="fo-28 mfo-26 fw-800 text-center">Neera Katwal</div>
               <div class="fo-15 mfo-20 fw-800 text-center">
-                <a href="achievements.html?partner=Neera">
+                <a href="achievements.html?partner=Neera_Katwal">
                   <button class="btn website-button bg-dark mt-3 text-white">
                     READ MORE
                   </button>

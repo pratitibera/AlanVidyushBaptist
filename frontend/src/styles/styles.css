@@ -39,10 +39,11 @@
 }
 @media only screen and (max-width: 576px) {
   .pageContact .footer-bg {
-    height: 5vh !important;
+    height: 2vh !important;
+    padding-top: 50px!important;
   }
   .pageContact .move-up {
-    bottom: 55% !important;
+    bottom: 60% !important;
   }
 }
 .context-menu {
@@ -731,7 +732,7 @@ nav .navbar-collapse.show {
 
 #blogSlider {
   padding-top: 20px;
-  height: 83vh;
+  height: 120vh;
   position: relative;
   perspective: 1000px;
   transform-style: preserve-3d;
@@ -1074,7 +1075,7 @@ footer .move-up {
 }
 .services-list {
   padding: 80px 100px;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
   min-height: 19vh;
 }
 
