@@ -88,7 +88,7 @@ const Sidebar = ({ overlay }) => {
           </Link>
         </div>
         <div className="pt-1 pl-5">
-          <Link to="columnist" className="text-white">
+          <Link to="columnists" className="text-white">
             Columnists
           </Link>
         </div>

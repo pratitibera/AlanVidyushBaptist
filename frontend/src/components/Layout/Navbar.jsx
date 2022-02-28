@@ -138,7 +138,7 @@ const Navbar = ({ overlay }) => {
             <Link to="/partners">Partners</Link>
           </div>
           <div className="pb-2">
-            <Link to="/columnist">Columnists</Link>
+            <Link to="/columnists">Columnists</Link>
           </div>
           <div className="pb-2">
             <Link to="/portfolio">Portfolio</Link>

@@ -6,119 +6,120 @@ import {
   useSearchParams,
   Link,
 } from "react-router-dom";
+import BlogCard from "../components/Blog/BlogCard";
 import urlSet from "../utils/urls";
 
 const rootCategories = [
   {
     name: "Fitness",
-    image: require("../img/icons/Fitness Modelling Yellow.png"),
+    image: require("../img/icons/Fitness Modelling White.png"),
   },
   {
     name: "Nutrition",
-    image: require("../img/icons/Nutrition Concepts Yellow.png"),
+    image: require("../img/icons/Nutrition Concepts White.png"),
   },
   {
     name: "Education",
-    image: require("../img/icons/Education Yellow.png"),
+    image: require("../img/icons/Education White.png"),
   },
   {
     name: "Psychology",
-    image: require("../img/icons/Psychology Concepts Yellow.png"),
+    image: require("../img/icons/Psychology Concepts White.png"),
   },
   {
     name: "Finance",
-    image: require("../img/icons/Taxation Yellow.png"),
+    image: require("../img/icons/Taxation White.png"),
   },
 ];
 const blogCatandSub = {
   Fitness: [
     {
       name: "Weight Loss",
-      image: require("../img/icons/Weight Loss Yellow.png"),
+      image: require("../img/icons/Weight Loss White.png"),
     },
     {
       name: "Muscle Gain",
-      image: require("../img/icons/Muscle Gain Yellow.png"),
+      image: require("../img/icons/Muscle Gain White.png"),
     },
     {
       name: "Body Recomposition",
-      image: require("../img/icons/Body Recomposition Yellow.png"),
+      image: require("../img/icons/Body Recomposition White.png"),
     },
     {
       name: "Sports Performance",
-      image: require("../img/icons/Sports Performance Yellow.png"),
+      image: require("../img/icons/Sports Performance White.png"),
     },
     {
       name: "Fitness Modelling",
-      image: require("../img/icons/Fitness Modelling Yellow.png"),
+      image: require("../img/icons/Fitness Modelling White.png"),
     },
     {
       name: "Fitness Myths",
-      image: require("../img/icons/Fitness Myths Yellow.png"),
+      image: require("../img/icons/Fitness Myths White.png"),
     },
   ],
   Nutrition: [
     {
       name: "Weight Loss",
-      image: require("../img/icons/Weight Loss Yellow.png"),
+      image: require("../img/icons/Weight Loss White.png"),
     },
     {
       name: "Weight Gain",
-      image: require("../img/icons/Weight Gain Yellow.png"),
+      image: require("../img/icons/Weight Gain White.png"),
     },
     {
       name: "Nutrition Concepts",
-      image: require("../img/icons/Nutrition Concepts Yellow.png"),
+      image: require("../img/icons/Nutrition Concepts White.png"),
     },
     {
       name: "Recipes",
-      image: require("../img/icons/Recipes Yellow.png"),
+      image: require("../img/icons/Recipes White.png"),
     },
     {
       name: "Nutrition Myths",
-      image: require("../img/icons/Nutrition Myths Yellow.png"),
+      image: require("../img/icons/Nutrition Myths White.png"),
     },
   ],
   Education: [
     {
       name: "Career",
-      image: require("../img/icons/Career Yellow.png"),
+      image: require("../img/icons/Career White.png"),
     },
     {
       name: "Skills",
-      image: require("../img/icons/Skills Yellow.png"),
+      image: require("../img/icons/Skills White.png"),
     },
   ],
   Psychology: [
     {
       name: "Sex",
-      image: require("../img/icons/Sex Yellow.png"),
+      image: require("../img/icons/Sex White.png"),
     },
     {
       name: "Relationships",
-      image: require("../img/icons/Relationships Yellow.png"),
+      image: require("../img/icons/Relationships White.png"),
     },
     {
       name: "Communication",
-      image: require("../img/icons/Communication Yellow.png"),
+      image: require("../img/icons/Communication White.png"),
     },
     {
       name: "Psychology Concepts",
-      image: require("../img/icons/Psychology Concepts Yellow.png"),
+      image: require("../img/icons/Psychology Concepts White.png"),
     },
     {
       name: "Philosophy",
-      image: require("../img/icons/Philosophy Yellow.png"),
+      image: require("../img/icons/Philosophy White.png"),
     },
     {
       name: "Spirituality",
-      image: require("../img/icons/Spirituality Yellow.png"),
+      image: require("../img/icons/Spirituality White.png"),
     },
   ],
   Finance: [
     {
       name: "Taxation",
-      image: require("../img/icons/Taxation Yellow.png"),
+      image: require("../img/icons/Taxation White.png"),
     },
     {
       name: "Investment",
@@ -126,15 +127,15 @@ const blogCatandSub = {
     },
     {
       name: "Business",
-      image: require("../img/icons/Business Yellow.png"),
+      image: require("../img/icons/Business White.png"),
     },
     {
       name: "Commerce",
-      image: require("../img/icons/Commerce Yellow.png"),
+      image: require("../img/icons/Commerce White.png"),
     },
     {
       name: "Economics",
-      image: require("../img/icons/Economics Yellow.png"),
+      image: require("../img/icons/Economics White.png"),
     },
   ],
 };
@@ -207,44 +208,58 @@ const Blogs = () => {
         This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
       </div>
 
-      <div id="notification-area"></div>
       {/* <-- All blogs section starts --> */}
 
       <section className="allBlogsSection">
-        <div className="text-center fo-40 fw-800 mfo-32" id="blogPage_heading">
-          Blogs
-        </div>
-        <div className="text-center fo-20 fw-600">
-          <i className="fas fa-dumbbell bco"></i>
-        </div>
-        <div className="text-center fo-15 txtco mfo-13">Ready, Sweat, go!</div>
-        {/* <-- All blogs section starts --> */}
-        <div className="navbar navbar-expand-sm bg-dark navbar-dark mt-4 p-0">
-          <div className="d-block d-sm-none text-white p-2 pl-4 fw-600 fo-20">
-            TOPICS
-          </div>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleBlogCategories"
-          >
-            <i
-              className="fas fa-chevron-down fo-20 fw-600 pr-4 text-white"
-              onclick="toggleContents(this);"
-              id="handleBlogCategories"
-            ></i>
-          </button>
+        {partnerQuery === null && searchQuery === null && (
+          <>
+            {" "}
+            <div
+              className="text-center fo-40 fw-800 mfo-32"
+              id="blogPage_heading"
+            >
+              Blogs
+            </div>
+            <div className="text-center fo-20 fw-600">
+              <i className="fas fa-dumbbell bco"></i>
+            </div>
+            <div className="text-center fo-15 txtco mfo-13">
+              Ready, Sweat, go!
+            </div>
+          </>
+        )}
 
-          {/* Categories */}
-          <CategoryBar
-            categories={categories}
-            onClick={categoryHandler}
-            resetHandler={categoryResetHandler}
-          />
-        </div>
+        {/* <-- All blogs section starts --> */}
+
+        {partnerQuery === null && searchQuery === null && (
+          <div className="navbar navbar-expand-sm bg-dark navbar-dark mt-4 p-0">
+            <div className="d-block d-sm-none text-white p-2 pl-4 fw-600 fo-20">
+              TOPICS
+            </div>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapsibleBlogCategories"
+            >
+              <i
+                className="fas fa-chevron-down fo-20 fw-600 pr-4 text-white"
+                onclick="toggleContents(this);"
+                id="handleBlogCategories"
+              ></i>
+            </button>
+
+            {/* Categories */}
+            <CategoryBar
+              categories={categories}
+              onClick={categoryHandler}
+              resetHandler={categoryResetHandler}
+            />
+          </div>
+        )}
+
         <div className="position-relative" id="blog_page_cover">
-          {blogsRoot && blogs && blogs.length > 1 && (
+          {(blogsRoot || partnerQuery != null) && blogs && blogs.length > 1 && (
             <div class="position-relative" id="blog_page_cover">
               <img
                 src={blogs && blogs[0].headerImage[0].image}
@@ -338,29 +353,6 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
               </div>
             );
           })}
-      </div>
-    </div>
-  );
-};
-
-const BlogCard = ({ blog }) => {
-  return (
-    <div className="col-6 col-sm-4 mb-4">
-      <Link to={"/blog/" + blog.slug}>
-        <img
-          src={blog.headerImage[0].image}
-          className="w-100"
-          alt={blog.title}
-        />
-      </Link>
-      <Link to={"/blog/" + blog.slug}>
-        <div className="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">
-          {blog.title}
-        </div>
-      </Link>
-
-      <div className="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">
-        {blog.summary}
       </div>
     </div>
   );
