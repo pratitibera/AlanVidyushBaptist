@@ -6,6 +6,15 @@
   font-family: "Exo", sans-serif;
 }
 
+/* @media screen and (max-width: 500px) { */
+.index_0 {
+  z-index: 0;
+}
+.index_99999 {
+  z-index: 99999;
+}
+/* } */
+
 .mont {
   font-family: "Montserrat", sans-serif;
 }
@@ -40,7 +49,7 @@
 @media only screen and (max-width: 576px) {
   .pageContact .footer-bg {
     height: 2vh !important;
-    padding-top: 50px!important;
+    padding-top: 50px !important;
   }
   .pageContact .move-up {
     bottom: 60% !important;
