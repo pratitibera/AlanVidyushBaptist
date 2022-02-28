@@ -25,6 +25,7 @@ const Sidebar = ({ overlay }) => {
     document
       .getElementById(window.location.hash.replace("#", ""))
       .scrollIntoView();
+    closeCollapsibleSidebarHandler();
   };
 
   const searchHandler = () => {
@@ -83,17 +84,29 @@ const Sidebar = ({ overlay }) => {
       </ul>
       <div className="navExtras">
         <div className="pt-2 pl-5">
-          <Link to="partners" className="text-white">
+          <Link
+            to="partners"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Partners
           </Link>
         </div>
         <div className="pt-1 pl-5">
-          <Link to="columnists" className="text-white">
+          <Link
+            to="columnists"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Columnists
           </Link>
         </div>
         <div className="pt-1 pl-5">
-          <Link to="portfolio" className="text-white">
+          <Link
+            to="portfolio"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Portfolio
           </Link>
         </div>

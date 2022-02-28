@@ -141,6 +141,8 @@ const blogCatandSub = {
 };
 
 const Blogs = () => {
+  const limit = 6;
+  const [startIndex, setStartIndex] = useState(0);
   const [categories, setCategories] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const params = useParams();
@@ -156,7 +158,17 @@ const Blogs = () => {
     partnerQuery === null &&
     searchQuery === null;
 
-  console.log(searchQuery, partnerQuery);
+  const getAllBlogs = async () => {
+    try {
+      let url =
+        urlSet.get_blogApi.url + "?index=" + startIndex + "&limit=" + 20;
+
+      const res = await axios.get(encodeURI(url));
+      setBlogs(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -269,7 +281,7 @@ const Blogs = () => {
 
               <div class="imageOverlay">
                 <div class="fo-52 fw-600 text-center mfo-20">
-                  How Ismail Achieved 12% Body Fat
+                  {blogs && blogs[0].title}
                 </div>
                 <div class="text-center mt-3 mt-md-5">
                   <a href="blog.html?id=How_Ismail_Achieved_12_Body_Fat">
@@ -289,10 +301,10 @@ const Blogs = () => {
         </div>
         <div className="partners-section2">
           <div
-            className="text-dark fo-30 p-5 text-center fw-700 mfo-24"
+            className="text-dark fo-30 p-5 text-center fw-700 mfo-24 text-uppercase"
             id="category_heading"
           >
-            BLOGS
+            Blogs {partnerQuery && "by " + partnerQuery}
           </div>
 
           <div className="row m-0 mt-3" id="displayAllBlogs">
@@ -300,14 +312,18 @@ const Blogs = () => {
               <BlogCard blog={blog} />
             ))}
           </div>
-          <div className="text-center mt-5 mb-5" id="readmorebutton">
-            <button
-              className="btn website-button bg-dark text-white"
-              onclick="getAllBlogs();"
-            >
-              READ MORE
-            </button>
-          </div>
+          {blogs && blogs.length > 0 ? (
+            <div className="text-center mt-5 mb-5" id="readmorebutton">
+              <button
+                className="btn website-button bg-dark text-white"
+                onclick={getAllBlogs}
+              >
+                READ MORE
+              </button>
+            </div>
+          ) : (
+            <h3 className="text-center">No blogs found.</h3>
+          )}
         </div>
       </section>
     </main>
