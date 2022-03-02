@@ -125,7 +125,7 @@ const CheckoutModal = ({ classes }) => {
         document.getElementById("coupon_button").innerHTML = "REMOVE COUPON";
         document
           .getElementById("coupon_button")
-          .setAttribute("onclick", `removeCoupon()`);
+          .setAttribute("onClick", `removeCoupon()`);
         document.getElementById(
           "coupon_status"
         ).innerHTML = `<div className="fo-16 text-dark fw-600">${code} Coupon applied</div>
@@ -318,7 +318,7 @@ const CheckoutModal = ({ classes }) => {
               <div className="mt-4 text-right">
                 <div
                   className="fo-14 fw-600 cursorPointer"
-                  onclick="emptyCart();"
+                  onClick={emptyCart}
                   data-dismiss="modal"
                 >
                   EMPTY CART
@@ -350,7 +350,7 @@ const CheckoutModal = ({ classes }) => {
                 <div className="col-6 col-sm-6 pr-0">
                   <button
                     className="btn website-button bg-dark text-white w-100 mfo-12"
-                    onclick={applyCoupon}
+                    onClick={applyCoupon}
                     id="coupon_button"
                   >
                     APPLY COUPON
@@ -370,7 +370,7 @@ const CheckoutModal = ({ classes }) => {
               ></button>
               <button
                 className="btn website-button w-50 bg-dark text-white"
-                onclick={checkout}
+                onClick={checkout}
               >
                 PROCEED TO PAYMENT
               </button>

@@ -24,7 +24,7 @@ const Accordian = ({ title, children }) => {
             ></i>
           </div>
         </div>
-        <hr className="w-100" />
+        {/* <hr className="w-100" /> */}
       </div>
       <div className={styles.accordionContent} aria-expanded={isActive}>
         {children}

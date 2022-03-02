@@ -1,8 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import AOS from "aos";
 import $ from "jquery";
-import { Routes, Route, Navigate } from "react-router-dom";
-
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 //Layout
 import Navbar from "./components/Layout/Navbar";
 
@@ -18,7 +17,14 @@ import Pricing from "./pages/Pricing";
 import Mainservices from "./pages/Mainservices";
 import Services from "./pages/Services";
 import Columnists from "./pages/Columnists";
-import Footer from "./components/Layout/Footer";
+
+const Wrapper = ({ children }) => {
+  const location = useLocation();
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, [location.pathname]);
+  return children;
+};
 
 function App() {
   const overlay = useRef(null);
@@ -44,14 +50,11 @@ function App() {
     AOS.init({
       duration: 2000,
     });
-
-    window.addEventListener("locationchange", function () {
-      console.log("location changed!");
-    });
+    window.addEventListener("popstate", () => console.log("Asd"));
   }, []);
 
   return (
-    <div>
+    <Wrapper>
       <div id="overlay" ref={overlay} onClick={overlayHandler}></div>
       <Navbar overlay={overlay} />
       <Sidebar overlay={overlay} />
@@ -75,7 +78,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </div>
+    </Wrapper>
   );
 }
 

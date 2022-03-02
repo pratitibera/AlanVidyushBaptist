@@ -81,26 +81,28 @@ const Columnists = () => {
       </div>
 
       <section>
-        <div class="partners-cover text-center">
-          <img src={ColumnistsBanner} class="w-100"></img>
+        <div className="partners-cover text-center">
+          <img src={ColumnistsBanner} className="w-100"></img>
         </div>
       </section>
 
-      <section class="partners-section mt-4">
-        <div class="row m-0 d-flex flex-row-reverse">
-          <div class="col-sm-8 p-0 bg-grey">
-            <div class="row m-0 pl-sm-5 pr-sm-5 h-100">
-              <div class="col-5 col-sm-5 m-auto text-right">
-                <img src={PartnerImage7} class="w-70 mow-100"></img>
+      <section className="partners-section mt-4">
+        <div className="row m-0 d-flex flex-row-reverse">
+          <div className="col-sm-8 p-0 bg-grey">
+            <div className="row m-0 pl-sm-5 pr-sm-5 h-100">
+              <div className="col-5 col-sm-5 m-auto text-right">
+                <img src={PartnerImage7} className="w-70 mow-100"></img>
               </div>
-              <div class="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
-                <div class="mid-border"></div>
+              <div className="col-1 col-sm-2 pt-5 pb-5 p-sm-5 text-center m-auto">
+                <div className="mid-border"></div>
               </div>
-              <div class="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
-                <div class="fo-28 mfo-26 fw-800 text-center">Debasmita Das</div>
-                <div class="fo-15 mfo-20 fw-800 text-center">
+              <div className="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
+                <div className="fo-28 mfo-26 fw-800 text-center">
+                  Debasmita Das
+                </div>
+                <div className="fo-15 mfo-20 fw-800 text-center">
                   <a href="achievements.html?partner=Debasmita_Das">
-                    <button class="btn website-button bg-dark mt-3 text-white">
+                    <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
                   </a>
@@ -108,10 +110,10 @@ const Columnists = () => {
               </div>
             </div>
           </div>
-          <div class="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
+          <div className="col-sm-4 p-2 pt-4 pb-4 p-sm-5 text-center bg-dark d-flex">
             <Link to="/blogs?partner=Debasmita Das">
-              <div class="m-auto">
-                <div class="fo-18 text-white fw-600">
+              <div className="m-auto">
+                <div className="fo-18 text-white fw-600">
                   Chief Content Manager, Wellness Influencer
                 </div>
                 <hr></hr>
@@ -120,19 +122,19 @@ const Columnists = () => {
           </div>
         </div>
       </section>
-      <div class="text-dark fo-30 p-5 text-center fw-700">
+      <div className="text-dark fo-30 p-5 text-center fw-700">
         THE LATEST FROM OUR COLUMNISTS
       </div>
       <div className="row m-0 mt-3" id="displayAllBlogs">
-        {blogs.map((blog) => (
-          <BlogCard blog={blog} />
+        {blogs.map((blog, index) => (
+          <BlogCard blog={blog} key={index} />
         ))}
       </div>
 
       {limit * page < blogs.length && (
-        <div class="text-center mt-5 mb-5" id="readmorebutton">
+        <div className="text-center mt-5 mb-5" id="readmorebutton">
           <button
-            class="btn website-button bg-dark text-white"
+            className="btn website-button bg-dark text-white"
             onClick={getNextBlogs}
           >
             READ MORE
@@ -140,8 +142,7 @@ const Columnists = () => {
         </div>
       )}
 
-<Footer />
-
+      <Footer />
     </main>
   );
 };

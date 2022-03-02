@@ -10,6 +10,8 @@ import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
 import Footer from "../components/Layout/Footer";
 
+import $ from "jquery";
+
 const Blog = () => {
   const params = useParams();
 
@@ -45,6 +47,7 @@ const Blog = () => {
       document.getElementById("blogContentProgress").style.width =
         scrollPercentRounded + "%";
     };
+
     window.addEventListener("scroll", setProgress);
 
     return () => {
