@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import urlSet from "../utils/urls";
 import ServiceCard from "../components/Services/ServiceCard";
 import ServicesBanner from "../img/banners/services_banner.png";
+import Footer from "../components/Layout/Footer";
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -45,7 +46,7 @@ const Services = () => {
           <span className="whatsapp_icon_span">1</span>
         </a>
       </div>
-      
+
       <div class="partners-cover text-center">
         <img src={ServicesBanner} className="w-100" alt="Services Banner"></img>
       </div>
@@ -56,6 +57,8 @@ const Services = () => {
             services.map((service) => <ServiceCard service={service} />)}
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };

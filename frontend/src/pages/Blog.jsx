@@ -8,6 +8,7 @@ import BlogGallery from "../components/Blog/BlogGallery";
 import CoachSection from "../components/Blog/CoachSection";
 import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
+import Footer from "../components/Layout/Footer";
 
 const Blog = () => {
   const params = useParams();
@@ -208,6 +209,8 @@ const Blog = () => {
           </div>
         </section>
       )}
+
+      <Footer />
     </main>
   );
 };

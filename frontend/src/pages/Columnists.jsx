@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-import BlogSection from "../components/About/BlogSection";
-
 import PartnerImage7 from "../img/partners/partner_7.png";
 
 import ColumnistsBanner from "../img/banners/columnists_banner.png";
@@ -10,10 +8,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import urlSet from "../utils/urls";
 import BlogCard from "../components/Blog/BlogCard";
+import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Columnists = () => {
+  const limit = 10;
+  const startIndex = 0;
+  const [page, setPage] = useState(0);
   const [blogs, setBlogs] = useState([]);
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -28,6 +31,31 @@ const Columnists = () => {
 
     fetchBlogs();
   }, []);
+
+  const getNextBlogs = async () => {
+    try {
+      let url =
+        urlSet.get_blogApi.url +
+        "?index=" +
+        page * startIndex +
+        "&limit=" +
+        limit;
+
+      const res = await axios.get(encodeURI(url));
+      if (page === 0) {
+        setBlogs(res.data);
+      } else {
+        setBlogs([...blogs, ...res.data]);
+      }
+
+      setPage(page + 1);
+
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <main>
       <div id="overlay"></div>
@@ -100,6 +128,20 @@ const Columnists = () => {
           <BlogCard blog={blog} />
         ))}
       </div>
+
+      {limit * page < blogs.length && (
+        <div class="text-center mt-5 mb-5" id="readmorebutton">
+          <button
+            class="btn website-button bg-dark text-white"
+            onClick={getNextBlogs}
+          >
+            READ MORE
+          </button>
+        </div>
+      )}
+
+<Footer />
+
     </main>
   );
 };

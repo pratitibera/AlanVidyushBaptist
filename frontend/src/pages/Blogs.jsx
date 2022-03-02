@@ -7,6 +7,7 @@ import {
   Link,
 } from "react-router-dom";
 import BlogCard from "../components/Blog/BlogCard";
+import Footer from "../components/Layout/Footer";
 import urlSet from "../utils/urls";
 
 const rootCategories = [
@@ -141,8 +142,10 @@ const blogCatandSub = {
 };
 
 const Blogs = () => {
-  const limit = 6;
-  const [startIndex, setStartIndex] = useState(0);
+  const limit = 10;
+  const startIndex = 0;
+  const [page, setPage] = useState(0);
+
   const [categories, setCategories] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const params = useParams();
@@ -158,13 +161,25 @@ const Blogs = () => {
     partnerQuery === null &&
     searchQuery === null;
 
-  const getAllBlogs = async () => {
+  const getNextBlogs = async () => {
     try {
       let url =
-        urlSet.get_blogApi.url + "?index=" + startIndex + "&limit=" + 20;
+        urlSet.get_blogApi.url +
+        "?index=" +
+        page * startIndex +
+        "&limit=" +
+        limit;
 
       const res = await axios.get(encodeURI(url));
-      setBlogs(res.data);
+      if (page === 0) {
+        setBlogs(res.data);
+      } else {
+        setBlogs([...blogs, ...res.data]);
+      }
+
+      setPage(page + 1);
+
+      console.log(res.data);
     } catch (err) {
       console.log(err);
     }
@@ -195,6 +210,7 @@ const Blogs = () => {
     } else {
       setCategories(rootCategories);
     }
+    setPage(0);
     fetchBlogs();
   }, [params, partnerQuery, searchQuery]);
 
@@ -313,14 +329,18 @@ const Blogs = () => {
             ))}
           </div>
           {blogs && blogs.length > 0 ? (
-            <div className="text-center mt-5 mb-5" id="readmorebutton">
-              <button
-                className="btn website-button bg-dark text-white"
-                onclick={getAllBlogs}
-              >
-                READ MORE
-              </button>
-            </div>
+            <>
+              <div className="text-center mt-5 mb-5" id="readmorebutton">
+                {limit * page < blogs.length && (
+                  <button
+                    className="btn website-button bg-dark text-white"
+                    onClick={getNextBlogs}
+                  >
+                    READ MORE
+                  </button>
+                )}
+              </div>
+            </>
           ) : (
             <h3 className="text-center">No blogs found.</h3>
           )}
@@ -370,6 +390,9 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
             );
           })}
       </div>
+
+      <Footer />
+
     </div>
   );
 };

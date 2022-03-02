@@ -18,6 +18,7 @@ import AboutImage15 from "../img/about/about15.png";
 import AboutImage16 from "../img/about/about16.jpg";
 import AboutImage17 from "../img/about/about17.png";
 import AboutImage18 from "../img/about/about18.png";
+import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const About = () => (
@@ -40,7 +41,11 @@ const About = () => (
     </div>
 
     <section className="site-title site-title-about">
-      <div className="site-background w-100" data-aos="fade-up" data-aos-delay="100"></div>
+      <div
+        className="site-background w-100"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      ></div>
     </section>
 
     <section>
@@ -398,6 +403,8 @@ const About = () => (
         </div>
       </div>
     </section>
+
+    <Footer />
   </main>
 );
 

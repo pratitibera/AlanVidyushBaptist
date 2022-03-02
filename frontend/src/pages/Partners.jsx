@@ -1,6 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import BlogSection from "../components/About/BlogSection";
-
 import PartnerImage1 from "../img/partners/partner_1.png";
 import PartnerImage2 from "../img/partners/partner_2.png";
 import PartnerImage3 from "../img/partners/partner_3.png";
@@ -8,16 +6,18 @@ import PartnerImage4 from "../img/partners/partner_4.png";
 import PartnerImage5 from "../img/partners/partner_5.png";
 import PartnerImage6 from "../img/partners/partner_6.png";
 
-import { Link } from "react-router-dom";
-
 import PartnersBanner from "../img/banners/partners_banner.png";
 import BlogCard from "../components/Blog/BlogCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import urlSet from "../utils/urls";
+import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Partners = () => {
+  const limit = 10;
+  const startIndex = 0;
+  const [page, setPage] = useState(0);
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -33,6 +33,31 @@ const Partners = () => {
 
     fetchBlogs();
   }, []);
+
+  const getNextBlogs = async () => {
+    try {
+      let url =
+        urlSet.get_blogApi.url +
+        "?index=" +
+        page * startIndex +
+        "&limit=" +
+        limit;
+
+      const res = await axios.get(encodeURI(url));
+      if (page === 0) {
+        setBlogs(res.data);
+      } else {
+        setBlogs([...blogs, ...res.data]);
+      }
+
+      setPage(page + 1);
+
+      console.log(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <main>
       <div id="overlay"></div>
@@ -274,10 +299,22 @@ const Partners = () => {
         THE LATEST FROM OUR PARTNERS
       </div>
       <div className="row m-0 mt-3" id="displayAllBlogs">
-        {blogs.map((blog) => (
-          <BlogCard blog={blog} />
+        {blogs.map((blog, index) => (
+          <BlogCard blog={blog} key={index} />
         ))}
       </div>
+      {limit * page < blogs.length && (
+        <div class="text-center mt-5 mb-5" id="readmorebutton">
+          <button
+            class="btn website-button bg-dark text-white"
+            onClick={getNextBlogs}
+          >
+            READ MORE
+          </button>
+        </div>
+      )}
+
+      <Footer />
     </main>
   );
 };

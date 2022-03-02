@@ -12,6 +12,7 @@ import urlSet from "../utils/urls";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
@@ -223,13 +224,25 @@ const Home = () => {
               </div>
               <br />
               <div className="row m-0">
-                <a href="https://www.facebook.com/Optimum-Wellness-100325099229123" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.facebook.com/Optimum-Wellness-100325099229123"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                 </a>
-                <a href="https://www.instagram.com/optimum_wellness_official/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.instagram.com/optimum_wellness_official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-instagram text-white fw-600 m-2"></i>
                 </a>
-                <a href="https://www.linkedin.com/company/optimum-wellness-official/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/optimum-wellness-official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in text-white fw-600 m-2"></i>
                 </a>
               </div>
@@ -397,13 +410,25 @@ const Home = () => {
               </div>
               <br />
               <div className="row m-0">
-                <a href="https://www.facebook.com/letsbefitindia" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.facebook.com/letsbefitindia"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                 </a>
-                <a href="https://www.instagram.com/lets_be_fit_official/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.instagram.com/lets_be_fit_official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-instagram text-white fw-600 m-2"></i>
                 </a>
-                <a href="https://www.linkedin.com/company/let-s-be-fit/about/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/let-s-be-fit/about/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in text-white fw-600 m-2"></i>
                 </a>
               </div>
@@ -476,13 +501,25 @@ const Home = () => {
               </div>
               <br />
               <div className="row m-0">
-                <a href="https://www.facebook.com/zesttnl" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.facebook.com/zesttnl"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                 </a>
-                <a href="https://www.instagram.com/zesttnl/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.instagram.com/zesttnl/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-instagram text-white fw-600 m-2"></i>
                 </a>
-                <a href="https://www.linkedin.com/company/zest-fitness-studio/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.linkedin.com/company/zest-fitness-studio/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in text-white fw-600 m-2"></i>
                 </a>
               </div>
@@ -586,6 +623,8 @@ const Home = () => {
           }}
         ></div>
       </section>
+
+      <Footer />
     </main>
   );
 };

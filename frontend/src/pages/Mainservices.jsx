@@ -3,6 +3,7 @@ import ServiceCard from "../components/Services/ServiceCard";
 import urlSet from "../utils/urls";
 
 import ServicesBanner from "../img/banners/services_banner.png";
+import Footer from "../components/Layout/Footer";
 
 const Mainservices = () => {
   const [services, setServices] = useState([]);
@@ -40,10 +41,14 @@ const Mainservices = () => {
         </a>
       </div>
       <section>
-      <div className="partners-cover text-center">
-        <img src={ServicesBanner} className="w-100" alt="Services Banner"></img>
-      </div>
-    </section>
+        <div className="partners-cover text-center">
+          <img
+            src={ServicesBanner}
+            className="w-100"
+            alt="Services Banner"
+          ></img>
+        </div>
+      </section>
 
       <section className="services-list">
         <div className="row m-0" id="mainServices_section">
@@ -51,6 +56,8 @@ const Mainservices = () => {
             services.map((service) => <ServiceCard service={service} />)}
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
