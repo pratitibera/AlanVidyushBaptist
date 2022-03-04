@@ -19,10 +19,11 @@ const Partners = () => {
   const startIndex = 0;
   const [page, setPage] = useState(0);
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        let url = urlSet.get_blogApi.url;
+        let url = urlSet.get_blogApi.url + "?index=" + 0 + "&limit=" + 10;
 
         const res = await axios.get(encodeURI(url));
         setBlogs(res.data);
@@ -42,7 +43,7 @@ const Partners = () => {
         page * startIndex +
         "&limit=" +
         limit;
-
+      setLoading(true);
       const res = await axios.get(encodeURI(url));
       if (page === 0) {
         setBlogs(res.data);
@@ -52,9 +53,10 @@ const Partners = () => {
 
       setPage(page + 1);
 
-      console.log(res.data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
 

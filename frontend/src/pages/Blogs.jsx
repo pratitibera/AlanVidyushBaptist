@@ -148,6 +148,7 @@ const Blogs = () => {
 
   const [categories, setCategories] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   const params = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
@@ -169,7 +170,7 @@ const Blogs = () => {
         page * startIndex +
         "&limit=" +
         limit;
-
+      setLoading(true);
       const res = await axios.get(encodeURI(url));
       if (page === 0) {
         setBlogs(res.data);
@@ -178,10 +179,10 @@ const Blogs = () => {
       }
 
       setPage(page + 1);
-
-      console.log(res.data);
+      setLoading(false);
     } catch (err) {
       console.log(err);
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -198,10 +199,13 @@ const Blogs = () => {
             `?category=${params.category}&subcategory=${params.subcategory}`;
         else if (params.category) url = url + `?category=${params.category}`;
         console.log(url);
+        setLoading(true);
         const res = await axios.get(encodeURI(url));
         setBlogs(res.data);
+        setLoading(false);
       } catch (err) {
         console.log(err);
+        setLoading(false);
       }
     };
 
@@ -328,7 +332,7 @@ const Blogs = () => {
               <BlogCard blog={blog} />
             ))}
           </div>
-          {blogs && blogs.length > 0 ? (
+          {!loading && blogs && blogs.length > 0 && (
             <>
               <div className="text-center mt-5 mb-5" id="readmorebutton">
                 {limit * page < blogs.length && (
@@ -341,11 +345,15 @@ const Blogs = () => {
                 )}
               </div>
             </>
-          ) : (
-            <h3 className="text-center">No blogs found.</h3>
+          )}
+
+          {!loading && blogs && blogs.length <= 0 && (
+            <h2 className="text-center">No Blogs Found</h2>
           )}
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 };
@@ -390,9 +398,6 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
             );
           })}
       </div>
-
-      <Footer />
-
     </div>
   );
 };
