@@ -1,4 +1,4 @@
-const BlogShareIcons = ({ postTitle, postUrl }) => {
+const BlogShareIcons = ({ postTitle, postUrl, postSummary }) => {
   return (
     <div className="col-sm-1">
       <div className="sticky blogShareIcons" id="sticky">
@@ -10,7 +10,7 @@ const BlogShareIcons = ({ postTitle, postUrl }) => {
           <div className="col-1 d-block d-sm-none"></div>
           <div className="col-2 text-center mb-5">
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${postUrl}"e=${postTitle} ${postUrl}`}
+              href={`https://www.facebook.com/sharer.php?u=${postUrl}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -19,16 +19,16 @@ const BlogShareIcons = ({ postTitle, postUrl }) => {
           </div>
           <div className="col-2 text-center mb-5">
             <a
-              href="https://www.instagram.com/alan_baptist/"
+              href={`https://telegram.me/share/url?url=${postUrl}&text=${postTitle}`}
               target="_blank"
               rel="noreferrer"
             >
-              <i className="fab fa-instagram text-dark fw-600 fo-26 mfo-20"></i>
+              <i className="fab fa-telegram text-dark fw-600 fo-26 mfo-20"></i>
             </a>
           </div>
           <div className="col-2 text-center mb-5">
             <a
-              href={`https://www.linkedin.com/shareArticle/?mini=true&url=${postUrl}&title=${postTitle}?&source=${postUrl}`}
+              href={`https://www.linkedin.com/shareArticle/?mini=true&url=${postUrl}&title=${postTitle}&summary=${postSummary}&source=${postUrl}`}
               target="_blank"
               rel="noreferrer"
             >
@@ -37,16 +37,16 @@ const BlogShareIcons = ({ postTitle, postUrl }) => {
           </div>
           <div className="col-2 text-center mb-5">
             <a
-              href={`https://mail.google.com/mail/u/0/?tf=cm&su=ALAN+BAPTIST&body=${postTitle}+${postUrl}`}
+              href={`https://twitter.com/intent/tweet?text=${postUrl} ${postSummary}`}
               target="_blank"
               rel="noreferrer"
             >
-              <i className="fas fa-envelope text-dark fw-600 fo-26 mfo-20"></i>
+              <i className="fas fa-twitter text-dark fw-600 fo-26 mfo-20"></i>
             </a>
           </div>
           <div className="col-2 text-center mb-5">
             <a
-              href={`https://api.whatsapp.com/send?text=${postTitle} ${postUrl}`}
+              href={`https://api.whatsapp.com/send?text=${postUrl} ${postSummary}`}
               target="_blank"
               rel="noreferrer"
             >

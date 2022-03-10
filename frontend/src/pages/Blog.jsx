@@ -17,7 +17,8 @@ const Blog = () => {
 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [postTitle, setPostTitle] = useState("");
+  const [postTitle, setPostTitle] = useState(null);
+  const [postSummary, setPostSummary] = useState(null);
   const [postUrl, setPostUrl] = useState("");
 
   useEffect(() => {
@@ -25,10 +26,9 @@ const Blog = () => {
       try {
         setLoading(true);
         const res = await axios.get(urlSet.get_blogApi.url + params.id);
-        setPostUrl(
-          `https://alanvidyushbaptist.com/blog.html?id=` + res.data["slug"]
-        );
-        setPostTitle(res.data["summary"]);
+        setPostUrl(window.location.href);
+        setPostTitle(res.data["title"]);
+        setPostSummary(res.data["summary"]);
         setBlog(res.data);
         console.log(res.data);
         setLoading(false);

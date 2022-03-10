@@ -156,10 +156,7 @@ const Blogs = () => {
   const navigate = useNavigate();
   const isSubCategory = params.category;
 
-  const blogsRoot =
-    Object.keys(params).length === 0 &&
-    partnerQuery === null &&
-    searchQuery === null;
+  const blogsRoot = partnerQuery === null && searchQuery === null;
 
   const getNextBlogs = async () => {
     try {
@@ -180,6 +177,8 @@ const Blogs = () => {
       setLoading(false);
     }
   };
+
+  console.log(params);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -187,12 +186,17 @@ const Blogs = () => {
         if (partnerQuery) {
           url = urlSet.get_AuthorblogApi.url + partnerQuery;
         } else if (searchQuery) url = url + "&searchQuery=" + searchQuery;
-        else if (params.category && params.subcategory)
+        else if (params.category && params.subcategory) {
+          console.log("asdakls");
           url =
             url +
             `&category=${params.category}&subcategory=${params.subcategory}`;
-        else if (params.category) url = url + `&category=${params.category}`;
-        console.log(url);
+        } else if (params.category) {
+          url = url + `&category=${params.category}`;
+        } else {
+          console.log("asdakls", url);
+        }
+
         setLoading(true);
         const res = await axios.get(encodeURI(url));
         setBlogs(res.data);
@@ -225,6 +229,12 @@ const Blogs = () => {
     navigate(`/blogs`);
   };
 
+  const imageIconParse = (arr, name) => {
+    const elem = arr.filter((elem) => elem.name === decodeURI(name));
+    console.log(elem[0]);
+    return elem[0].image;
+  };
+
   return (
     <main>
       <div
@@ -245,10 +255,26 @@ const Blogs = () => {
               className="text-center fo-40 fw-800 mfo-32"
               id="blogPage_heading"
             >
-              Blogs
+              {params.category != null && params.subcategory != null
+                ? params.subcategory
+                : params.category != null
+                ? params.category
+                : "Blogs"}
             </div>
             <div className="text-center fo-20 fw-600">
-              <i className="fas fa-dumbbell bco"></i>
+              <img
+                src={
+                  params.category && params.subcategory
+                    ? blogCatandSub[params.category][params.subcategory].image
+                    : params.category
+                    ? imageIconParse(rootCategories, params.category)
+                    : imageIconParse(rootCategories, "Fitness")
+                }
+                alt={"icon"}
+                className="mr-2"
+                height="20px"
+                width="20px"
+              />
             </div>
             <div className="text-center fo-15 txtco mfo-13">
               Ready, Sweat, go!
@@ -286,7 +312,7 @@ const Blogs = () => {
         )}
 
         <div className="position-relative" id="blog_page_cover">
-          {(blogsRoot || partnerQuery != null) && blogs && blogs.length > 1 && (
+          {blogsRoot && blogs && blogs.length > 1 && (
             <div class="position-relative" id="blog_page_cover">
               <img
                 src={blogs && blogs[0].headerImage[0].image}
@@ -319,7 +345,7 @@ const Blogs = () => {
             className="text-dark fo-30 p-5 text-center fw-700 mfo-24 text-uppercase"
             id="category_heading"
           >
-            Blogs {partnerQuery && "by " + partnerQuery}
+            {partnerQuery && "by " + partnerQuery}
           </div>
 
           <div className="row m-0 mt-3" id="displayAllBlogs">
@@ -360,7 +386,6 @@ const Blogs = () => {
 export default Blogs;
 
 const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
-  console.log(require(`../img/about.jpg`));
   return (
     <div
       className="collapse navbar-collapse d-sm-block w-100"
