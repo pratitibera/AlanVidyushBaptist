@@ -6,22 +6,12 @@ import StoryLogo from "../../img/icons/story.png";
 import BlogsLogo from "../../img/icons/blogs.png";
 import ContactLogo from "../../img/icons/contact.png";
 import { Link } from "react-router-dom";
+import CheckoutModal from "./CheckoutModal";
 
 const Navbar = ({ overlay }) => {
   const menuBtn = useRef(null);
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
-  const [cartCount, setCartCount] = useState(0);
-  useEffect(() => {
-    if (
-      sessionStorage.getItem("cart") === null ||
-      sessionStorage.getItem("cart") === undefined
-    ) {
-      setCartCount(0);
-    } else {
-      setCartCount(JSON.parse(sessionStorage.getItem("cart")));
-    }
-  }, []);
 
   const routeToPage = () => {
     document
@@ -41,6 +31,7 @@ const Navbar = ({ overlay }) => {
   const menuHandler = () => {
     if (!menuBtn.current.classList.contains("open")) {
       menuBtn.current.classList.add("open");
+      collapsibleSidebarHandler();
     } else {
       menuBtn.current.classList.remove("open");
     }
@@ -59,8 +50,9 @@ const Navbar = ({ overlay }) => {
       <div
         className="menu-btn navbar-toggler-icon d-sm-none"
         type="button"
+        id="menuBtn-toggle"
         data-toggle="collapse"
-        data-target="#collapsibleNavbar"
+        data-target="#shopCart"
         onClick={menuHandler}
         ref={menuBtn}
       >
@@ -69,13 +61,9 @@ const Navbar = ({ overlay }) => {
       <Link className="navbar-brand d-block d-md-none" to="/">
         ALAN BAPTIST
       </Link>
-      <button className="btn d-sm-none" onClick={() => null}>
-        <i className="fa fa-shopping-cart fo-30 bco">
-          <sup className="cart_count fo-24 bco fw-600" id="cart_count_mobile">
-            {cartCount > 0 ? cartCount : ""}
-          </sup>
-        </i>
-      </button>
+
+      <CheckoutModal classes="d-sm-none" />
+
       <div className="collapse navbar-collapse" id="collapsibleNavbar">
         <div className="row d-none d-sm-flex">
           <div className="col-sm-3 m-auto">
@@ -101,42 +89,35 @@ const Navbar = ({ overlay }) => {
           </div>
         </div>
         <ul className="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-          <li className="nav-item header-nav-pl">
-            <Link
-              className="nav-link exo text-center"
-              to="/#about"
-              onClick={() => routeToPage("about")}
-            >
+          <li
+            className="nav-item header-nav-pl"
+            onClick={() => routeToPage("about")}
+          >
+            <Link className="nav-link exo text-center" to="/#about">
               <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
               ABOUT ALAN
             </Link>
           </li>
-          <li className="nav-item">
-            <Link
-              className="nav-link exo text-center"
-              to="/#success"
-              onClick={() => routeToPage("success")}
-            >
+          <li className="nav-item" onClick={() => routeToPage("success")}>
+            <Link className="nav-link exo text-center" to="/#success">
               <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
               SUCCESS STORIES
             </Link>
           </li>
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => routeToPage("blogs")}>
             <Link
               className="nav-link exo text-center"
               to={{ pathname: "/", hash: "blogs" }}
-              onClick={() => routeToPage("blogs")}
             >
               <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
               BLOGS
             </Link>
           </li>
-          <li className="nav-item header-nav-pr">
-            <Link
-              className="nav-link exo text-center"
-              to="/#contact"
-              onClick={() => routeToPage("contact")}
-            >
+          <li
+            className="nav-item header-nav-pr"
+            onClick={() => routeToPage("contact")}
+          >
+            <Link className="nav-link exo text-center" to="/#contact">
               <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
               CONTACT
             </Link>
@@ -149,16 +130,7 @@ const Navbar = ({ overlay }) => {
             </Link>
           </li>
           <li className="nav-item text-right pr-0 d-none d-sm-block">
-            <button className="btn mr-2" onClick="fetchCart();">
-              <i className="fa fa-shopping-cart fo-30 bco position-relative">
-                <sup
-                  className="cart_count fo-24 bco fw-600"
-                  id="cart_count_desktop"
-                >
-                  {cartCount > 0 ? cartCount : ""}
-                </sup>
-              </i>
-            </button>
+            <CheckoutModal classes="mr-2" />
           </li>
         </ul>
         <div className="navExtras d-block d-sm-none">
@@ -166,7 +138,7 @@ const Navbar = ({ overlay }) => {
             <Link to="/partners">Partners</Link>
           </div>
           <div className="pb-2">
-            <Link to="/columnist">Columnists</Link>
+            <Link to="/columnists">Columnists</Link>
           </div>
           <div className="pb-2">
             <Link to="/portfolio">Portfolio</Link>

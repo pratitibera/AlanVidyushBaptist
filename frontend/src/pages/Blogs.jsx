@@ -6,39 +6,148 @@ import {
   useSearchParams,
   Link,
 } from "react-router-dom";
+import BlogCard from "../components/Blog/BlogCard";
+import Footer from "../components/Layout/Footer";
 import urlSet from "../utils/urls";
 
-var blogCatandSub = {
+const rootCategories = [
+  {
+    name: "Fitness",
+    image: require("../img/icons/Fitness Modelling White.png"),
+  },
+  {
+    name: "Nutrition",
+    image: require("../img/icons/Nutrition Concepts White.png"),
+  },
+  {
+    name: "Education",
+    image: require("../img/icons/Education White.png"),
+  },
+  {
+    name: "Psychology",
+    image: require("../img/icons/Psychology Concepts White.png"),
+  },
+  {
+    name: "Finance",
+    image: require("../img/icons/Taxation White.png"),
+  },
+];
+const blogCatandSub = {
   Fitness: [
-    "Weight Loss",
-    "Muscle Gain",
-    "Body Recomposition",
-    "Sports Performance",
-    "Fitness Modelling",
-    "Fitness Myths",
+    {
+      name: "Weight Loss",
+      image: require("../img/icons/Weight Loss White.png"),
+    },
+    {
+      name: "Muscle Gain",
+      image: require("../img/icons/Muscle Gain White.png"),
+    },
+    {
+      name: "Body Recomposition",
+      image: require("../img/icons/Body Recomposition White.png"),
+    },
+    {
+      name: "Sports Performance",
+      image: require("../img/icons/Sports Performance White.png"),
+    },
+    {
+      name: "Fitness Modelling",
+      image: require("../img/icons/Fitness Modelling White.png"),
+    },
+    {
+      name: "Fitness Myths",
+      image: require("../img/icons/Fitness Myths White.png"),
+    },
   ],
   Nutrition: [
-    "Weight Loss",
-    "Weight Gain",
-    "Nutrition Concepts",
-    "Recipes",
-    "Nutrition Myths",
+    {
+      name: "Weight Loss",
+      image: require("../img/icons/Weight Loss White.png"),
+    },
+    {
+      name: "Weight Gain",
+      image: require("../img/icons/Weight Gain White.png"),
+    },
+    {
+      name: "Nutrition Concepts",
+      image: require("../img/icons/Nutrition Concepts White.png"),
+    },
+    {
+      name: "Recipes",
+      image: require("../img/icons/Recipes White.png"),
+    },
+    {
+      name: "Nutrition Myths",
+      image: require("../img/icons/Nutrition Myths White.png"),
+    },
   ],
-  Education: ["Career", "Skills"],
+  Education: [
+    {
+      name: "Career",
+      image: require("../img/icons/Career White.png"),
+    },
+    {
+      name: "Skills",
+      image: require("../img/icons/Skills White.png"),
+    },
+  ],
   Psychology: [
-    "Sex",
-    "Relationships",
-    "Communication",
-    "Psych Concepts",
-    "Philosophy",
-    "Spirituality",
+    {
+      name: "Sex",
+      image: require("../img/icons/Sex White.png"),
+    },
+    {
+      name: "Relationships",
+      image: require("../img/icons/Relationships White.png"),
+    },
+    {
+      name: "Communication",
+      image: require("../img/icons/Communication White.png"),
+    },
+    {
+      name: "Psychology Concepts",
+      image: require("../img/icons/Psychology Concepts White.png"),
+    },
+    {
+      name: "Philosophy",
+      image: require("../img/icons/Philosophy White.png"),
+    },
+    {
+      name: "Spirituality",
+      image: require("../img/icons/Spirituality White.png"),
+    },
   ],
-  Finance: ["Taxation", "Investment", "Business", "Commerce", "Economics"],
+  Finance: [
+    {
+      name: "Taxation",
+      image: require("../img/icons/Taxation White.png"),
+    },
+    {
+      name: "Investment",
+      image: require("../img/icons/Investment Yellow.png"),
+    },
+    {
+      name: "Business",
+      image: require("../img/icons/Business White.png"),
+    },
+    {
+      name: "Commerce",
+      image: require("../img/icons/Commerce White.png"),
+    },
+    {
+      name: "Economics",
+      image: require("../img/icons/Economics White.png"),
+    },
+  ],
 };
 
 const Blogs = () => {
+  const limit = 6;
+  const [page, setPage] = useState(0);
+
   const [categories, setCategories] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(false);
   const params = useParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
@@ -47,38 +156,64 @@ const Blogs = () => {
   const navigate = useNavigate();
   const isSubCategory = params.category;
 
-  console.log();
+  const blogsRoot = partnerQuery === null && searchQuery === null;
+
+  const getNextBlogs = async () => {
+    try {
+      let url =
+        urlSet.get_blogApi.url + "?index=" + page * limit + "&limit=" + limit;
+      setLoading(true);
+      const res = await axios.get(encodeURI(url));
+      if (page === 0) {
+        setBlogs(res.data);
+      } else {
+        setBlogs([...blogs, ...res.data]);
+      }
+
+      setPage(page + 1);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
+  };
+
+  console.log(params);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        let url = urlSet.get_blogApi.url;
-
-        if (partnerQuery) url = url + "?author=" + partnerQuery;
-        else if (searchQuery) url = url + "?searchQuery=" + searchQuery;
-        else if (params.category && params.subcategory)
+        let url = urlSet.get_blogApi.url + "?limit=6";
+        if (partnerQuery) {
+          url = urlSet.get_AuthorblogApi.url + partnerQuery;
+        } else if (searchQuery) url = url + "&searchQuery=" + searchQuery;
+        else if (params.category && params.subcategory) {
+          console.log("asdakls");
           url =
             url +
-            `?category=${params.category}&subcategory=${params.subcategory}`;
-        else if (params.category) url = url + `?category=${params.category}`;
-        console.log(url);
+            `&category=${params.category}&subcategory=${params.subcategory}`;
+        } else if (params.category) {
+          url = url + `&category=${params.category}`;
+        } else {
+          console.log("asdakls", url);
+        }
+
+        setLoading(true);
         const res = await axios.get(encodeURI(url));
         setBlogs(res.data);
+        setPage(1);
+        setLoading(false);
       } catch (err) {
         console.log(err);
+        setLoading(false);
       }
     };
 
     if (params.category) {
       setCategories(blogCatandSub[params.category]);
     } else {
-      setCategories([
-        "Fitness",
-        "Nutrition",
-        "Education",
-        "Psychology",
-        "Finance",
-      ]);
+      setCategories(rootCategories);
     }
+
     fetchBlogs();
   }, [params, partnerQuery, searchQuery]);
 
@@ -94,6 +229,12 @@ const Blogs = () => {
     navigate(`/blogs`);
   };
 
+  const imageIconParse = (arr, name) => {
+    const elem = arr.filter((elem) => elem.name === decodeURI(name));
+    console.log(elem[0]);
+    return elem[0].image;
+  };
+
   return (
     <main>
       <div
@@ -104,47 +245,107 @@ const Blogs = () => {
         This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
       </div>
 
-      <div id="notification-area"></div>
       {/* <-- All blogs section starts --> */}
-      <section className="allBlogsSection">
-        <div className="text-center fo-40 fw-800 mfo-32" id="blogPage_heading">
-          Blogs
-        </div>
-        <div className="text-center fo-20 fw-600">
-          <i className="fas fa-dumbbell bco"></i>
-        </div>
-        <div className="text-center fo-15 txtco mfo-13">Ready, Sweat, go!</div>
-        <div className="navbar navbar-expand-sm bg-dark navbar-dark mt-4 p-0">
-          <div className="d-block d-sm-none text-white p-2 pl-4 fw-600 fo-20">
-            TOPICS
-          </div>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapsibleBlogCategories"
-          >
-            <i
-              className="fas fa-chevron-down fo-20 fw-600 pr-4 text-white"
-              onclick="toggleContents(this);"
-              id="handleBlogCategories"
-            ></i>
-          </button>
 
-          {/* Categories */}
-          <CategoryBar
-            categories={categories}
-            onClick={categoryHandler}
-            resetHandler={categoryResetHandler}
-          />
+      <section className="allBlogsSection">
+        {partnerQuery === null && searchQuery === null && (
+          <>
+            {" "}
+            <div
+              className="text-center fo-40 fw-800 mfo-32"
+              id="blogPage_heading"
+            >
+              {params.category != null && params.subcategory != null
+                ? params.subcategory
+                : params.category != null
+                ? params.category
+                : "Blogs"}
+            </div>
+            <div className="text-center fo-20 fw-600">
+              <img
+                src={
+                  params.category && params.subcategory
+                    ? blogCatandSub[params.category][params.subcategory].image
+                    : params.category
+                    ? imageIconParse(rootCategories, params.category)
+                    : imageIconParse(rootCategories, "Fitness")
+                }
+                alt={"icon"}
+                className="mr-2"
+                height="20px"
+                width="20px"
+              />
+            </div>
+            <div className="text-center fo-15 txtco mfo-13">
+              Ready, Sweat, go!
+            </div>
+          </>
+        )}
+
+        {/* <-- All blogs section starts --> */}
+
+        {partnerQuery === null && searchQuery === null && (
+          <div className="navbar navbar-expand-sm bg-dark navbar-dark mt-4 p-0">
+            <div className="d-block d-sm-none text-white p-2 pl-4 fw-600 fo-20">
+              TOPICS
+            </div>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#collapsibleBlogCategories"
+            >
+              <i
+                className="fas fa-chevron-down fo-20 fw-600 pr-4 text-white"
+                onclick="toggleContents(this);"
+                id="handleBlogCategories"
+              ></i>
+            </button>
+
+            {/* Categories */}
+            <CategoryBar
+              categories={categories}
+              onClick={categoryHandler}
+              resetHandler={categoryResetHandler}
+            />
+          </div>
+        )}
+
+        <div className="position-relative" id="blog_page_cover">
+          {blogsRoot && blogs && blogs.length > 1 && (
+            <div class="position-relative" id="blog_page_cover">
+              <img
+                src={blogs && blogs[0].headerImage[0].image}
+                class="w-100"
+                alt={blogs && blogs[0].headerImage[0].name}
+              />
+
+              <div class="imageOverlay">
+                <div class="fo-52 fw-600 text-center mfo-20">
+                  {blogs && blogs[0].title}
+                </div>
+                <div class="text-center mt-3 mt-md-5">
+                  <a href="blog.html?id=How_Ismail_Achieved_12_Body_Fat">
+                    <a
+                      class="btn website-button bg-dark text-white"
+                      target="_blank"
+                      href={"/blog/" + blogs[0].slug}
+                      rel="noreferrer"
+                    >
+                      READ MORE
+                    </a>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        <div className="position-relative" id="blog_page_cover"></div>
         <div className="partners-section2">
           <div
-            className="text-dark fo-30 p-5 text-center fw-700 mfo-24"
+            className="text-dark fo-30 p-5 text-center fw-700 mfo-24 text-uppercase"
             id="category_heading"
           >
-            BLOGS
+            {partnerQuery && "by " + partnerQuery}
           </div>
 
           <div className="row m-0 mt-3" id="displayAllBlogs">
@@ -152,16 +353,32 @@ const Blogs = () => {
               <BlogCard blog={blog} />
             ))}
           </div>
-          <div className="text-center mt-5 mb-5" id="readmorebutton">
-            <button
-              className="btn website-button bg-dark text-white"
-              onclick="getAllBlogs();"
-            >
-              READ MORE
-            </button>
-          </div>
+          {!loading && blogs && blogs.length > 0 && (
+            <>
+              <div className="text-center mt-5 mb-5" id="readmorebutton">
+                {limit * page <= blogs.length ? (
+                  <button
+                    className="btn website-button bg-dark text-white"
+                    onClick={getNextBlogs}
+                  >
+                    READ MORE
+                  </button>
+                ) : (
+                  <div class="fo-20 fw-600 text-center">
+                    <p>That's all we have</p>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+
+          {!loading && blogs && blogs.length <= 0 && (
+            <h2 className="text-center">No Blogs Found</h2>
+          )}
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 };
@@ -185,39 +402,25 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
           categories.map((category, index) => {
             return (
               <div
-                id={"category_" + category}
+                id={"category_" + category.name}
                 key={index}
-                onClick={() => onClick(category)}
-                className={category === selected ? "active" : ""}
+                onClick={() => onClick(category.name)}
+                className={category.name === selected ? "active" : ""}
               >
-                <i className="fas fa-dumbbell mr-2"></i>
-                {category}
+                {category && (
+                  <img
+                    src={category.image}
+                    alt={category.name + "_icon"}
+                    className="mr-2"
+                    height="20px"
+                    width="20px"
+                  />
+                )}
+
+                {category.name}
               </div>
             );
           })}
-      </div>
-    </div>
-  );
-};
-
-const BlogCard = ({ blog }) => {
-  return (
-    <div className="col-6 col-sm-4 mb-4">
-      <Link to={"/blog/" + blog.slug}>
-        <img
-          src={blog.headerImage[0].image}
-          className="w-100"
-          alt={blog.title}
-        />
-      </Link>
-      <Link to={"/blog/" + blog.slug}>
-        <div className="partners_latest_blogs_title fo-20 fw-600 text-center mfo-14">
-          {blog.title}
-        </div>
-      </Link>
-
-      <div className="partners_latest_blogs_subtitle fo-14 fw-400 text-center mfo-11">
-        {blog.summary}
       </div>
     </div>
   );

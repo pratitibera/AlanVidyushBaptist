@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 const ServiceCard = ({ service, index }) => {
+  const [hover, setHover] = useState(false);
+  console.log(hover);
   const navigate = useNavigate();
   const mainServiceDetails = () => {
     if (service["offers"].length > 0) {
@@ -11,10 +14,19 @@ const ServiceCard = ({ service, index }) => {
       navigate("/services/" + service["service"].replaceAll(" ", "_"));
     }
   };
+
+  const hoverHandler = () => {
+    setHover(!hover);
+  };
+
   return (
     <div className="col-sm-4">
-      <div className="single-service-item" onClick={mainServiceDetails}>
-        <div className="img-holder">
+      <div className="single-service-item">
+        <div
+          className="img-holder"
+          onMouseEnter={hoverHandler}
+          onMouseLeave={hoverHandler}
+        >
           <figure className="swap-on-hover">
             <img
               className="swap-on-hover__front-image"
@@ -25,7 +37,12 @@ const ServiceCard = ({ service, index }) => {
               src={service["service_image"][1]}
             />
           </figure>
-          <div className="text-holder text-center service-card__description">
+          <div
+            className={
+              "text-holder text-center service-card__description " +
+              (hover ? "index_99999" : "index_0")
+            }
+          >
             <h3>{service["service"]}</h3>
             <p>{service["description"]}</p>
             <div

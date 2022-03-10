@@ -12,17 +12,20 @@ const Sidebar = ({ overlay }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const closeCollapsibleSidebarHandler = () => {
+    console.log("Heere");
     document.querySelector(".menuSidebar").classList.remove("navToggle");
     document.querySelector(".header-nav").classList.add("d-flex");
     document.querySelector(".header-nav").classList.remove("d-none");
     document.querySelector(".header-consult").classList.add("d-block");
     document.querySelector(".header-consult").classList.remove("d-none");
+    document.getElementById("menuBtn-toggle").classList.remove("open");
     overlay.current.style.display = "none";
   };
   const routeToPage = () => {
     document
       .getElementById(window.location.hash.replace("#", ""))
       .scrollIntoView();
+    closeCollapsibleSidebarHandler();
   };
 
   const searchHandler = () => {
@@ -47,42 +50,26 @@ const Sidebar = ({ overlay }) => {
         </i>
       </span>
       <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
-        <li className="nav-item">
-          <Link
-            className="nav-link exo"
-            to="#about"
-            onClick={() => routeToPage("about")}
-          >
+        <li className="nav-item" onClick={() => routeToPage("about")}>
+          <Link className="nav-link exo" to="#about">
             <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
             ABOUT ALAN
           </Link>
         </li>
-        <li className="nav-item">
-          <Link
-            className="nav-link exo"
-            to="/#success"
-            onClick={() => routeToPage("success")}
-          >
+        <li className="nav-item" onClick={() => routeToPage("success")}>
+          <Link className="nav-link exo" to="/#success">
             <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
             SUCCESS STORIES
           </Link>
         </li>
-        <li className="nav-item">
-          <Link
-            className="nav-link exo"
-            to="/#blogs"
-            onClick={() => routeToPage("blogs")}
-          >
+        <li className="nav-item" onClick={() => routeToPage("blogs")}>
+          <Link className="nav-link exo" to="/#blogs">
             <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
             BLOGS
           </Link>
         </li>
-        <li className="nav-item">
-          <Link
-            className="nav-link exo"
-            to="/#contact"
-            onClick={() => routeToPage("contact")}
-          >
+        <li className="nav-item" onClick={() => routeToPage("contact")}>
+          <Link className="nav-link exo" to="/#contact">
             <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
             CONTACT
           </Link>
@@ -97,17 +84,29 @@ const Sidebar = ({ overlay }) => {
       </ul>
       <div className="navExtras">
         <div className="pt-2 pl-5">
-          <Link to="partners" className="text-white">
+          <Link
+            to="partners"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Partners
           </Link>
         </div>
         <div className="pt-1 pl-5">
-          <Link to="columnist" className="text-white">
+          <Link
+            to="columnists"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Columnists
           </Link>
         </div>
         <div className="pt-1 pl-5">
-          <Link to="portfolio" className="text-white">
+          <Link
+            to="portfolio"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Portfolio
           </Link>
         </div>

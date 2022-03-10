@@ -8,13 +8,17 @@ import BlogGallery from "../components/Blog/BlogGallery";
 import CoachSection from "../components/Blog/CoachSection";
 import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
+import Footer from "../components/Layout/Footer";
+
+import $ from "jquery";
 
 const Blog = () => {
   const params = useParams();
 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [postTitle, setPostTitle] = useState("");
+  const [postTitle, setPostTitle] = useState(null);
+  const [postSummary, setPostSummary] = useState(null);
   const [postUrl, setPostUrl] = useState("");
 
   useEffect(() => {
@@ -22,10 +26,9 @@ const Blog = () => {
       try {
         setLoading(true);
         const res = await axios.get(urlSet.get_blogApi.url + params.id);
-        setPostUrl(
-          `https://alanvidyushbaptist.com/blog.html?id=` + res.data["slug"]
-        );
-        setPostTitle(res.data["summary"]);
+        setPostUrl(window.location.href);
+        setPostTitle(res.data["title"]);
+        setPostSummary(res.data["summary"]);
         setBlog(res.data);
         console.log(res.data);
         setLoading(false);
@@ -44,6 +47,7 @@ const Blog = () => {
       document.getElementById("blogContentProgress").style.width =
         scrollPercentRounded + "%";
     };
+
     window.addEventListener("scroll", setProgress);
 
     return () => {
@@ -124,8 +128,31 @@ const Blog = () => {
           </div>
           <div className="blogContentContainer">
             <div className="row m-0 flex-sm-row-reverse">
-              <div className="col-sm-11">
-                <div className="row m-0">
+              <div className="col-sm-11 p-0">
+                <div className="row m-0 flex-sm-row-reverse">
+                  <div className="col-sm-4 blogContents p-0 mt-4 mt-sm-0">
+                    <div className="stickyContents sticky3" id="stickyContents">
+                      <Accordian title="Contents">
+                        <div className="pt-2">
+                          <ul className="pl-2" id="contentList2">
+                            {blog &&
+                              blog.content.map((elem, index) => {
+                                return (
+                                  <li
+                                    className="fo-16 cursor-pointer"
+                                    onClick={() => routeToSection(elem.id)}
+                                  >
+                                    <i className="fas fa-circle fo-6 mr-2 bco fw-600"></i>
+                                    {elem["title"]}
+                                  </li>
+                                );
+                              })}
+                          </ul>
+                        </div>
+                      </Accordian>
+                    </div>
+                  </div>
+
                   <div className="col-sm-8 mt-5 mt-sm-0">
                     <div id="blogContent">
                       {blog &&
@@ -147,29 +174,6 @@ const Blog = () => {
                             </>
                           );
                         })}
-                    </div>
-                  </div>
-
-                  <div className="col-sm-4 blogContents p-0 mt-4 mt-sm-0">
-                    <div className="stickyContents sticky3" id="stickyContents">
-                      <Accordian title="Contents">
-                        <div className="pt-2">
-                          <ul className="pl-2" id="contentList2">
-                            {blog &&
-                              blog.content.map((elem, index) => {
-                                return (
-                                  <li
-                                    className="fo-16 cursor-pointer"
-                                    onClick={() => routeToSection(elem.id)}
-                                  >
-                                    <i className="fas fa-circle fo-6 mr-2 bco fw-600"></i>
-                                    {elem["title"]}
-                                  </li>
-                                );
-                              })}
-                          </ul>
-                        </div>
-                      </Accordian>
                     </div>
                   </div>
 
@@ -208,6 +212,8 @@ const Blog = () => {
           </div>
         </section>
       )}
+
+      <Footer />
     </main>
   );
 };

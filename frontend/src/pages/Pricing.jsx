@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams } from "react-router";
 import Slider from "react-slick";
 import OfferCard from "../components/Services/OfferCard";
+import Footer from "../components/Layout/Footer";
 
 const SampleNextArrow = (props) => {
   const { onClick } = props;
@@ -109,7 +110,7 @@ const Pricing = () => {
           <h2 className="fo-40 fw-700 text-center pt-5 mfo-25">
             {service && "We've Got Plans for " + service.service}
           </h2>
-          <hr className="mb-5"/>
+          <hr className="mb-5" />
           <Slider {...settings}>
             {service &&
               service.offers.map((offer, index) => {
@@ -128,30 +129,10 @@ const Pricing = () => {
         <div className="col-sm-4 mb-5">
           <div className="bg-grey p-4">
             <div className="text-center testimonialsImage">
-              <img src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                className="w-30" alt="Testimonial_1"/>
-            </div>
-            <div className="text-center fo-24 fw-600">John Doe</div>
-            <div className="fo-15">
-              <span className="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum
-              <span className="fo-22 fw-800">"</span>
-            </div>
-            <hr />
-          </div>
-        </div>
-        <div className="col-sm-4 mb-5">
-          <div className="bg-grey p-4">
-            <div className="text-center testimonialsImage">
               <img
                 src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                className="w-30" alt="Testimonial_2"
+                className="w-30"
+                alt="Testimonial_1"
               />
             </div>
             <div className="text-center fo-24 fw-600">John Doe</div>
@@ -174,7 +155,32 @@ const Pricing = () => {
             <div className="text-center testimonialsImage">
               <img
                 src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                className="w-30" alt="Testimonial_3"
+                className="w-30"
+                alt="Testimonial_2"
+              />
+            </div>
+            <div className="text-center fo-24 fw-600">John Doe</div>
+            <div className="fo-15">
+              <span className="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet,
+              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia
+              deserunt mollit anim id est laborum
+              <span className="fo-22 fw-800">"</span>
+            </div>
+            <hr />
+          </div>
+        </div>
+        <div className="col-sm-4 mb-5">
+          <div className="bg-grey p-4">
+            <div className="text-center testimonialsImage">
+              <img
+                src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                className="w-30"
+                alt="Testimonial_3"
               />
             </div>
             <div className="text-center fo-24 fw-600">John Doe</div>
@@ -193,6 +199,7 @@ const Pricing = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
