@@ -12,8 +12,7 @@ import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Columnists = () => {
-  const limit = 10;
-  const startIndex = 0;
+  const limit = 6;
   const [page, setPage] = useState(1);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -21,10 +20,12 @@ const Columnists = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        let url = urlSet.get_blogApi.url + "?index=" + 0 + "&limit=" + 10;
+        let url = urlSet.get_blogApi.url + "?limit=6";
+
         setLoading(true);
         const res = await axios.get(encodeURI(url));
         setBlogs(res.data);
+        setPage(1);
         setLoading(false);
       } catch (err) {
         console.log(err);
@@ -38,11 +39,7 @@ const Columnists = () => {
   const getNextBlogs = async () => {
     try {
       let url =
-        urlSet.get_blogApi.url +
-        "?index=" +
-        page * startIndex +
-        "&limit=" +
-        limit;
+        urlSet.get_blogApi.url + "?index=" + page * limit + "&limit=" + limit;
       setLoading(true);
       const res = await axios.get(encodeURI(url));
       if (page === 0) {
@@ -52,7 +49,6 @@ const Columnists = () => {
       }
 
       setPage(page + 1);
-
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -135,15 +131,27 @@ const Columnists = () => {
         ))}
       </div>
 
-      {limit * page < blogs.length && (
-        <div className="text-center mt-5 mb-5" id="readmorebutton">
-          <button
-            className="btn website-button bg-dark text-white"
-            onClick={getNextBlogs}
-          >
-            READ MORE
-          </button>
-        </div>
+      {!loading && blogs && blogs.length > 0 && (
+        <>
+          <div className="text-center mt-5 mb-5" id="readmorebutton">
+            {limit * page <= blogs.length ? (
+              <button
+                className="btn website-button bg-dark text-white"
+                onClick={getNextBlogs}
+              >
+                READ MORE
+              </button>
+            ) : (
+              <div class="fo-20 fw-600 text-center">
+                <p>That's all we have</p>
+              </div>
+            )}
+          </div>
+        </>
+      )}
+
+      {!loading && blogs && blogs.length <= 0 && (
+        <h2 className="text-center">No Blogs Found</h2>
       )}
 
       <Footer />
