@@ -265,7 +265,10 @@ const Blogs = () => {
               <img
                 src={
                   params.category && params.subcategory
-                    ? blogCatandSub[params.category][params.subcategory].image
+                    ? imageIconParse(
+                        blogCatandSub[params.category],
+                        params.subcategory
+                      )
                     : params.category
                     ? imageIconParse(rootCategories, params.category)
                     : imageIconParse(rootCategories, "Fitness")

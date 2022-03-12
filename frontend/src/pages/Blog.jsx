@@ -40,9 +40,9 @@ const Blog = () => {
         contents.classList.remove("sticky2");
       }
     } else {
-      // navbar.classList.add("fixed-top");
-      // contents.classList.add("sticky3");
-      // contents.classList.remove("sticky2");
+      navbar.classList.add("fixed-top");
+      contents.classList.add("sticky3");
+      contents.classList.remove("sticky2");
     }
   };
 
