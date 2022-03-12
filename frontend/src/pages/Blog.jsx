@@ -10,8 +10,6 @@ import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
 import Footer from "../components/Layout/Footer";
 
-import $ from "jquery";
-
 const Blog = () => {
   const params = useParams();
 
@@ -20,6 +18,33 @@ const Blog = () => {
   const [postTitle, setPostTitle] = useState(null);
   const [postSummary, setPostSummary] = useState(null);
   const [postUrl, setPostUrl] = useState("");
+
+  const resizeHandler = () => {
+    const navbar = document.getElementById("navbar");
+    const contents = document.getElementById("stickyContents");
+    if (!navbar) return;
+    if (!contents) return;
+
+    if (window.innerWidth <= 600) {
+      console.log(
+        contents.parentElement.parentElement.getBoundingClientRect().top,
+        window.pageYOffset
+      );
+      if (
+        contents.parentElement.parentElement.getBoundingClientRect().top < 0
+      ) {
+        navbar.classList.remove("fixed-top");
+        contents.classList.add("sticky2");
+      } else {
+        navbar.classList.add("fixed-top");
+        contents.classList.remove("sticky2");
+      }
+    } else {
+      // navbar.classList.add("fixed-top");
+      // contents.classList.add("sticky3");
+      // contents.classList.remove("sticky2");
+    }
+  };
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -52,11 +77,23 @@ const Blog = () => {
 
     return () => {
       window.removeEventListener("scroll", setProgress);
+
       if (document.getElementById("blogContentProgress")) {
         document.getElementById("blogContentProgress").style.width = "0%";
       }
+      if (!document.getElementById("navbar").classList.contains("fixed-top")) {
+        document.getElementById("navbar").classList.add("fixed-top");
+      }
     };
   }, [params]);
+
+  useEffect(() => {
+    resizeHandler();
+    window.addEventListener("scroll", resizeHandler);
+    return () => {
+      window.removeEventListener("scroll", resizeHandler);
+    };
+  }, []);
 
   const routeToSection = (id) => {
     document.getElementById(id).scrollIntoView();
@@ -90,10 +127,11 @@ const Blog = () => {
             <div className="carousel slide" data-ride="carousel">
               <div className="carousel-inner" id="blogImageContainer">
                 {blog &&
-                  blog.headerImage.map((elem) => (
+                  blog.headerImage.map((elem, index) => (
                     <div
                       className="carousel-item active"
                       data-interval={blog["data_interval"]}
+                      key={index}
                     >
                       <img
                         src={elem["image"]}
@@ -141,6 +179,7 @@ const Blog = () => {
                                   <li
                                     className="fo-16 cursor-pointer"
                                     onClick={() => routeToSection(elem.id)}
+                                    key={index}
                                   >
                                     <i className="fas fa-circle fo-6 mr-2 bco fw-600"></i>
                                     {elem["title"]}
@@ -156,9 +195,9 @@ const Blog = () => {
                   <div className="col-sm-8 mt-5 mt-sm-0">
                     <div id="blogContent">
                       {blog &&
-                        blog.body.map((elem) => {
+                        blog.body.map((elem, index) => {
                           return (
-                            <>
+                            <div key={index}>
                               <div
                                 className="blogContent fw-600 fo-30 mfo-18 mb-3"
                                 id={"topic" + elem["id"]}
@@ -171,7 +210,7 @@ const Blog = () => {
                                   __html: elem["paragraph"],
                                 }}
                               ></div>
-                            </>
+                            </div>
                           );
                         })}
                     </div>

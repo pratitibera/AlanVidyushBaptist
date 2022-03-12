@@ -4,9 +4,9 @@ const CoachSection = ({ coaches }) => {
     <div id="coaches">
       <div className="row m-0 p-300 mt-3">
         {coaches &&
-          coaches.map((elem) => {
+          coaches.map((elem, index) => {
             return (
-              <div className="col-sm-6 p-0">
+              <div className="col-sm-6 p-0" key={index}>
                 <img src={elem["image"]} alt={`${elem["name"]}`} />
                 <div className="mt-3 fw-700 mfo-12">
                   {elem["designation"] === ""

@@ -46,7 +46,7 @@ const Navbar = ({ overlay }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-md bg-dark fixed-top">
+    <nav className="navbar navbar-expand-md bg-dark fixed-top" id="navbar">
       <div
         className="menu-btn navbar-toggler-icon d-sm-none"
         type="button"

@@ -1,6 +1,6 @@
-@media only screen and (min-width: 1800px){
-  #blogSlider{
-    height: 70vh!important;
+@media only screen and (min-width: 1800px) {
+  #blogSlider {
+    height: 70vh !important;
   }
   .associations {
     background: linear-gradient(
@@ -10,16 +10,16 @@
       #000000 2450px,
       #3e205a 3800px,
       #000000 4200px
-    )!important;
+    ) !important;
   }
   .swap-on-hover {
-    max-width: 543.33px!important;
-    height: 543.33px!important;
+    max-width: 543.33px !important;
+    height: 543.33px !important;
   }
 
   .swap-on-hover img {
-    width: 543.33px!important;
-    height: 543.33px!important;
+    width: 543.33px !important;
+    height: 543.33px !important;
   }
 }
 @media only screen and (min-width: 1000px) {
@@ -265,8 +265,8 @@
     padding: 10px 0px 10px 30px;
   }
   .site-title {
-    background: url("../img/cover_image_mobile.jpg")!important;
-    height: 50vh!important;
+    background: url("../img/cover_image_mobile.jpg") !important;
+    height: 50vh !important;
   }
   .about-container {
     padding: 0px 20px 20px 20px;
@@ -296,21 +296,21 @@
     padding: 20px 32px 20px 32px;
   }
   #blogSlider {
-    height: 66vh!important;
+    height: 66vh !important;
   }
   #blogSlider label {
-    width: 50%!important;
+    width: 50% !important;
   }
   .blogcardimage {
-    height: 125px!important;
+    height: 125px !important;
   }
   .blog-body {
-    padding: 20px 16px 10px 16px!important;
-    line-height: 1em!important;
-    height: 180px!important;
+    padding: 20px 16px 10px 16px !important;
+    line-height: 1em !important;
+    height: 180px !important;
   }
   .blogs-handler-icons {
-    margin-top: 380px!important;
+    margin-top: 380px !important;
   }
   .blog-footer {
     padding: 8px 16px;
@@ -345,16 +345,16 @@
     height: 310px;
   }
   .blogImageContainer {
-    max-width: 100%!important;
+    max-width: 100% !important;
   }
   .blogHeading {
-    font-size: 25px!important;
-    line-height: 1.4em!important;
-    padding: 0px 15px!important;
+    font-size: 25px !important;
+    line-height: 1.4em !important;
+    padding: 0px 15px !important;
   }
   .blogWriter {
-    text-align: center!important;
-    padding: 60px 20px 30px 20px!important;
+    text-align: center !important;
+    padding: 60px 20px 30px 20px !important;
   }
   .blogWriter .row {
     padding: 0px;
@@ -373,6 +373,7 @@
     background-color: #fff;
     z-index: 99;
   }
+
   .blogShareIcons .col-2 {
     padding: 0px 1px;
   }
@@ -449,8 +450,8 @@
     right: -3px;
   }
   .min-height {
-    min-height: 45vh!important;
-    margin-top: 65px!important;
+    min-height: 45vh !important;
+    margin-top: 65px !important;
   }
   .checkout .website-button {
     padding-left: 0;
