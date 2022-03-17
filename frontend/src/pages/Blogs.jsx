@@ -187,7 +187,6 @@ const Blogs = () => {
           url = urlSet.get_AuthorblogApi.url + partnerQuery;
         } else if (searchQuery) url = url + "&searchQuery=" + searchQuery;
         else if (params.category && params.subcategory) {
-          console.log("asdakls");
           url =
             url +
             `&category=${params.category}&subcategory=${params.subcategory}`;
@@ -265,13 +264,14 @@ const Blogs = () => {
               <img
                 src={
                   params.category && params.subcategory
-                    ? imageIconParse(
-                        blogCatandSub[params.category],
-                        params.subcategory
+                    ? encodeURI(
+                        `https://alanvidyushbaptist.com/img/icons/${params.subcategory} Yellow.png`
                       )
                     : params.category
-                    ? imageIconParse(rootCategories, params.category)
-                    : imageIconParse(rootCategories, "Fitness")
+                    ? encodeURI(
+                        `https://alanvidyushbaptist.com/img/icons/${params.category} Yellow.png`
+                      )
+                    : `https://alanvidyushbaptist.com/img/icons/Body%20Recomposition Yellow.png`
                 }
                 alt={"icon"}
                 className="mr-2"
@@ -310,6 +310,7 @@ const Blogs = () => {
               categories={categories}
               onClick={categoryHandler}
               resetHandler={categoryResetHandler}
+              selected={params.subcategory || params.category}
             />
           </div>
         )}
@@ -389,6 +390,7 @@ const Blogs = () => {
 export default Blogs;
 
 const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
+  console.log(selected);
   return (
     <div
       className="collapse navbar-collapse d-sm-block w-100"
@@ -412,7 +414,11 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
               >
                 {category && (
                   <img
-                    src={category.image}
+                    src={encodeURI(
+                      `https://alanvidyushbaptist.com/img/icons/${
+                        category.name
+                      } ${category.name === selected ? "White" : "Yellow"}.png`
+                    )}
                     alt={category.name + "_icon"}
                     className="mr-2"
                     height="20px"
