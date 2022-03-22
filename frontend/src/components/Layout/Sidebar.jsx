@@ -49,7 +49,7 @@ const Sidebar = ({ overlay }) => {
           {" "}
         </i>
       </span>
-      <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
+      <ul className="navbar-nav pt-0" id="sidebar-nav">
         <li className="nav-item" onClick={() => routeToPage("about")}>
           <Link className="nav-link exo" to="#about">
             <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
@@ -111,7 +111,7 @@ const Sidebar = ({ overlay }) => {
           </Link>
         </div>
       </div>
-      <div className="searchbox mt-4">
+      <div className="searchbox mt-md-4">
         <i
           className="fa fa-search"
           id="desktopSearch"
