@@ -41,7 +41,7 @@ const BlogShareIcons = ({ postTitle, postUrl, postSummary }) => {
               target="_blank"
               rel="noreferrer"
             >
-              <i className="fas fa-twitter text-dark fw-600 fo-26 mfo-20"></i>
+              <i className="fab fa-twitter text-dark fw-600 fo-26 mfo-20"></i>
             </a>
           </div>
           <div className="col-2 text-center mb-5">
