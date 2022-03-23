@@ -1,11 +1,10 @@
 var service_to_be_edited;
 var servicetype_to_be_edited;
-var editservice_level;
+var editServiceData;
 
 function editMainServices(){
-	editservice_level = 0;
 	var request = new XMLHttpRequest();
-	request.open(urlSet.getMainServiceApi.method, urlSet.getMainServiceApi.url + '?level=' + editservice_level, true);
+	request.open(urlSet.getMainServiceApi.method, urlSet.getMainServiceApi.url + '?level=0', true);
 	request.setRequestHeader("Content-Type", "application/json");
 	request.send();
 	request.onload = function () {
@@ -28,54 +27,77 @@ function editMainServices(){
 	}
 }
 
-function editServices(){
-	editservice_level = 1;
+function editServices(param1){
+	if(param1 == 'service'){
+		mainService = document.getElementById('selected_main_service5').value;
+	}
+	else{
+		mainService = document.getElementById('selected_main_service6').value;
+	}
 	var request = new XMLHttpRequest();
-	request.open(urlSet.getMainServiceApi.method, urlSet.getMainServiceApi.url + '?level=' + editservice_level, true);
+	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + mainService, true);
 	request.setRequestHeader("Content-Type", "application/json");
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		var editServicesData = document.getElementById('editServicesData');
-		editServicesData.innerHTML = "";
-		for(i = 0; i < data.length; i++){
-			editServicesData.innerHTML += `<tr>
-                        <td>${data[i]['service']}</td>
-                        <td class="text-center">
-                           <button class="btn btn-dark" id="editServ_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
-                        </td>
-                        <td class="text-center">
-                           <button class="btn btn-dark" id="deleteServ_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
-                        </td>
-                     </tr>`;
-            document.getElementById('editServicesTable').style.display = "block";
+		editServiceData = data;
+		if(param1 == 'service'){
+			var editServicesData = document.getElementById('editServicesData');
+			editServicesData.innerHTML = "";
+			for(i = 0; i < data['subservices'].length; i++){
+				editServicesData.innerHTML += `<tr>
+	                        <td>${data['subservices'][i]['service']}</td>
+	                        <td class="text-center">
+	                           <button class="btn btn-dark" id="editServ_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+	                        </td>
+	                        <td class="text-center">
+	                           <button class="btn btn-dark" id="deleteServ_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+	                        </td>
+	                     </tr>`;
+	            document.getElementById('editServicesTable').style.display = "block";
+			}
+		}
+		else{
+			var selected_service = document.getElementById('selected_servicee');
+			selected_service.innerHTML = "";
+			console.log(data);
+			for (i = 0; i < data['subservices'].length; i++) {
+				selected_service.innerHTML += `<option value="editsub_${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
+			}
+			editSubservices();
 		}
 	}
 }
 
 function editSubservices(){
-	editservice_level = 2;
+	var selected_service_value = document.getElementById('selected_servicee').value;
+	var data_sub = selected_service_value.split('_')[1];
 	var request = new XMLHttpRequest();
-	request.open(urlSet.getMainServiceApi.method, urlSet.getMainServiceApi.url + '?level=' + editservice_level, true);
+	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + data_sub, true);
 	request.setRequestHeader("Content-Type", "application/json");
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		var editSubservicesData = document.getElementById('editSubservicesData');
-		editSubservicesData.innerHTML = "";
-		for(i = 0; i < data.length; i++){
-			editSubservicesData.innerHTML += `<tr>
-                        <td>${data[i]['service']}</td>
-                        <td class="text-center">
-                           <button class="btn btn-dark" id="editSubserv_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
-                        </td>
-                        <td class="text-center">
-                           <button class="btn btn-dark" id="deleteSubserv_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
-                        </td>
-                     </tr>`;
-            document.getElementById('editSubservicesTable').style.display = "block";
+		if(data['subservices'].length > 0){
+			var editSubservicesData = document.getElementById('editSubservicesData');
+			editSubservicesData.innerHTML = "";
+			for(i = 0; i < data['subservices'].length; i++){
+				editSubservicesData.innerHTML += `<tr>
+	                        <td>${data['subservices'][i]['service']}</td>
+	                        <td class="text-center">
+	                           <button class="btn btn-dark" id="editSubserv_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+	                        </td>
+	                        <td class="text-center">
+	                           <button class="btn btn-dark" id="deleteSubserv_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+	                        </td>
+	                     </tr>`;
+	            document.getElementById('editSubservicesTable').style.display = "block";
+			}
+		}
+		else{
+			alert("No subservices available");
 		}
 	}
 }
@@ -123,7 +145,7 @@ function triggerServiceEditModal(id){
 	}
 
 	var request = new XMLHttpRequest();
-	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + id.split('_')[2], true);
+	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + id.split('_')[1], true);
 	request.setRequestHeader("Content-Type", "application/json");
 	request.send();
 	request.onload = function () {
@@ -166,7 +188,7 @@ function editServicesSave(){
 				editMainServices();
 			}
 			else if(servicetype_to_be_edited == 1){
-				editServices();
+				editServices('service');
 			}
 			else{
 				editSubservices();
