@@ -385,11 +385,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div
-            className="row m-0 mb-9"
-            data-aos="fade-right"
-            data-aos-delay="100"
-          >
+          {/* <div className="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
             <div className="col-sm-5 m-auto">
               <div>
                 <a href="#" target="_blank">
@@ -475,7 +471,7 @@ const Home = () => {
                 respect to health and fitness!
               </div>
             </div>
-          </div>
+          </div> */}
           <div
             className="row m-0 mb-9"
             data-aos="fade-right"

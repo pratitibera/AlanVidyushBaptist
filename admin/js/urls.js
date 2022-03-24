@@ -91,6 +91,10 @@ var urlSet = {
     // Admin offers 
 
 
+    addOffersApi: { // Update offer
+        url: baseUrl + "/api/v1/admin/offer/",
+        method: "POST",
+    },
     editOffersApi: { // Update offer
         url: baseUrl + "/api/v1/admin/offer/",
         method: "PATCH",

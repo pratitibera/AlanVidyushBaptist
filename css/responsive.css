@@ -7,12 +7,12 @@
 		padding: 25px 450px;
 	}
 	.site-title .site-background {
-		padding-top: 10rem!important;
+		padding-top: 5rem!important;
 		text-align: center;
 		color: #fff;
 	}
 	.collabs{
-		margin-top: 85px!important;
+		margin-top: 35px!important;
 	}
 	.collabs .col-sm-4{
 		margin-bottom: 45px!important;
@@ -20,9 +20,15 @@
 	.blogcardimage {
 		height: 300px!important;
 	}
+	.about_labels img{
+		max-width: 1300px;
+	}
 }
 
 @media only screen and (min-width: 577px) {
+	.about_labels img{
+		max-width: 1100px;
+	}
 	.site-title .site-background {
 		padding-top: 5rem;
 		text-align: center;
@@ -121,9 +127,9 @@
 	.blogImageContainer{
 		margin-top: 160px;
 	}
-	#portfolioSection img:hover{
+	/* #portfolioSection img:hover{
 		transform: scale(1.05);
-	}
+	} */
 	.sticky3 {
 		position: sticky;
 		top: 160px;
@@ -285,9 +291,7 @@
 	#blogsSection img, #blogsSection video {
 	    height: 310px;
 	}
-	.min-height{
-		margin-top: 95px;
-	}
+
 	.blogImageContainer {
 		max-width: 100%;
 	}
@@ -394,6 +398,7 @@
 	}
 	.min-height{
 		min-height: 45vh;
+		margin-top: 75px;
 	}
 	.checkout .website-button{
 		padding-left: 0;
@@ -406,5 +411,8 @@
 		top: 0;
 		width: 100%;
 		left: 0;
+	}
+	.about_labels img{
+		max-width: 365px;
 	}
 }

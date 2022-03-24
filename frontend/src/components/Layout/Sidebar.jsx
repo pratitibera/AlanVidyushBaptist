@@ -83,7 +83,7 @@ const Sidebar = ({ overlay }) => {
         </li>
       </ul>
       <div className="navExtras">
-        <div className="pt-2 pl-5">
+        <div className="pt-2">
           <Link
             to="partners"
             className="text-white"
@@ -92,7 +92,7 @@ const Sidebar = ({ overlay }) => {
             Partners
           </Link>
         </div>
-        <div className="pt-1 pl-5">
+        <div className="pt-1">
           <Link
             to="columnists"
             className="text-white"
@@ -101,7 +101,7 @@ const Sidebar = ({ overlay }) => {
             Columnists
           </Link>
         </div>
-        <div className="pt-1 pl-5">
+        <div className="pt-1">
           <Link
             to="portfolio"
             className="text-white"

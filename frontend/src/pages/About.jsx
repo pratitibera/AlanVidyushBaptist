@@ -55,9 +55,12 @@ const About = () => {
 
       <section>
         <div className="container-fluid p-0 pt-5 pr-sm-5 pl-sm-5 pt-sm-5">
-          <div className="text-center fo-30 fw-800 bluetext mfo-16">
-            Achievements in the field of Nutrition
-          </div>
+        <div class="text-center about_labels">
+               <picture>
+                 <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/1.png"></source>
+                 <img src="https://alanvidyushbaptist.com/img/labels/1.png"></img>
+               </picture>
+            </div>
           <div
             className="aboutpage-container"
             data-aos="fade-right"
@@ -130,9 +133,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="text-center fo-30 fw-800 bluetext mfo-16">
-            Achievements in the field of Exercise
-          </div>
+          <div class="text-center about_labels">
+               <picture>
+                 <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/2.png"></source>
+                 <img src="https://alanvidyushbaptist.com/img/labels/2.png"></img>
+               </picture>
+            </div>
           <div
             className="aboutpage-container"
             data-aos="fade-up"
@@ -214,9 +220,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="text-center fo-30 fw-800 bluetext mfo-16">
-            Achievements in the field of Life Saving Skills
-          </div>
+          <div class="text-center about_labels">
+               <picture>
+                 <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/3.png"></source>
+                 <img src="https://alanvidyushbaptist.com/img/labels/3.png"></img>
+               </picture>
+            </div>
           <div
             className="aboutpage-container"
             data-aos="fade-right"
@@ -238,9 +247,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="text-center fo-30 fw-800 bluetext mfo-16">
-            Achievements in the field of Finance
-          </div>
+          <div class="text-center about_labels">
+               <picture>
+                 <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/4.png"></source>
+                 <img src="https://alanvidyushbaptist.com/img/labels/4.png"></img>
+               </picture>
+            </div>
           <div
             className="aboutpage-container"
             data-aos="fade-up"
@@ -337,9 +349,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="text-center fo-30 fw-800 bluetext mfo-16">
-            Achievements in the field of Psychology & Theology
-          </div>
+          <div class="text-center about_labels">
+               <picture>
+                 <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/5.png"></source>
+                 <img src="https://alanvidyushbaptist.com/img/labels/5.png"></img>
+               </picture>
+            </div>
           <div
             className="aboutpage-container"
             data-aos="fade-right"
@@ -368,9 +383,12 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="text-center fo-30 fw-800 bluetext mfo-16">
-            Alma Mater and Schooling Information
-          </div>
+          <div class="text-center about_labels">
+               <picture>
+                 <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/6.png"></source>
+                 <img src="https://alanvidyushbaptist.com/img/labels/6.png"></img>
+               </picture>
+            </div>
           <div
             className="aboutpage-container"
             data-aos="fade-up"

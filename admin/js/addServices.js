@@ -40,7 +40,7 @@ function addService() {
 
 	if (service != '') {
 		var json = {
-			"service": mainService,
+			"service": document.getElementById('selected_main_service').options[document.getElementById('selected_main_service').selectedIndex].text,
 			"service_image": [],
 			"description": "",
 			"level": 1,
@@ -53,16 +53,17 @@ function addService() {
 			],
 			"offers": []
 		}
+
 		console.log(json);
 		var request = new XMLHttpRequest();
-		request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
+		request.open(urlSet.editServicesApi.method, urlSet.editServicesApi.url + mainService, true);
 		request.setRequestHeader("Content-Type", "application/json");
 		request.setRequestHeader("authorization", authtoken);
 		request.send(JSON.stringify(json));
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
-			if (data['message'] == "Serivce has been updated") {
+			if (data['message'] == "Service Updated") {
 				alert("Service successfully added");
 				location.reload();
 			} else {
@@ -115,7 +116,7 @@ function getServices() {
 				var selected_service = document.getElementById('selected_service');
 				selected_service.innerHTML = "";
 				for (i = 0; i < data['subservices'].length; i++) {
-					selected_service.innerHTML += `<option value="${data['subservices'][i]['service']}">${data['subservices'][i]['service']}</option>`;
+					selected_service.innerHTML += `<option value="${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
 				}
 			} else {
 				alert("First enter a service under this main service");
@@ -136,7 +137,7 @@ function addSubservice() {
 	if (selected_service != '') {
 		if (subservice != '') {
 			var json = {
-				"service": selected_service,
+				"service": document.getElementById('selected_service').options[document.getElementById('selected_service').selectedIndex].text,
 				"service_image": [],
 				"description": "",
 				"level": 2,
@@ -151,17 +152,20 @@ function addSubservice() {
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();
-			request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
+			request.open(urlSet.editServicesApi.method, urlSet.editServicesApi.url + selected_service, true);
 			request.setRequestHeader("Content-Type", "application/json");
 			request.setRequestHeader("authorization", authtoken);
 			request.send(JSON.stringify(json));
 			request.onload = function () {
 				var data = JSON.parse(this.response);
 				console.log(data);
-				if (data['message'] == "Serivce has been updated") {
+				if (data['message'] == "Service Updated") {
 					alert("Subservice successfully added");
 					location.reload();
-				} else {
+				} else if(data['message'] == "Already contains Offers"){
+					alert("Already contains Offers");
+				}
+				else {
 					alert("Could not add subservice");
 				}
 			}
