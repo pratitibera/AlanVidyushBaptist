@@ -269,8 +269,8 @@
     height: 50vh !important;
     padding-top: 20px;
     background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
+    background-size: cover;
+    background-position: center;
   }
   .about-container {
     padding: 0px 20px 20px 20px;
@@ -436,7 +436,7 @@
     font-size: 25px;
   }
   .services-list {
-    padding: 25px 0px!important;
+    padding: 25px 0px !important;
   }
   .pricing-cover {
     margin-top: 66px;

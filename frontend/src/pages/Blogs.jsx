@@ -271,12 +271,12 @@ const Blogs = () => {
                     ? encodeURI(
                         `https://alanvidyushbaptist.com/img/icons/${params.category} Yellow.png`
                       )
-                    : `https://alanvidyushbaptist.com/img/icons/Body%20Recomposition Yellow.png`
+                    : `https://alanvidyushbaptist.com/img/icons/Blog_Yellow.png`
                 }
                 alt={"icon"}
                 className="mr-2"
-                height="20px"
-                width="20px"
+                height="60px"
+                width="60px"
               />
             </div>
             <div className="text-center fo-15 txtco mfo-13">
@@ -417,12 +417,12 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
                     src={encodeURI(
                       `https://alanvidyushbaptist.com/img/icons/${
                         category.name
-                      } ${category.name === selected ? "White" : "Yellow"}.png`
+                      } ${category.name !== selected ? "White" : "Yellow"}.png`
                     )}
                     alt={category.name + "_icon"}
                     className="mr-2"
-                    height="20px"
-                    width="20px"
+                    height="30px"
+                    width="30px"
                   />
                 )}
 
