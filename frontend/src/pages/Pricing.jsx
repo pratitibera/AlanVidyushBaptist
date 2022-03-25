@@ -117,7 +117,9 @@ const Pricing = () => {
           <Slider {...settings}>
             {service &&
               service.offers.map((offer, index) => {
-                return <OfferCard dark={index % 2 === 0} offer={offer} />;
+                return (
+                  <OfferCard dark={index % 2 === 0} offer={offer} key={index} />
+                );
               })}
           </Slider>
         </div>

@@ -1,6 +1,10 @@
 const OfferCard = ({ dark, offer }) => {
   const addToCart = () => {
     var shopcart = JSON.parse(sessionStorage.getItem("cart"));
+    if (!shopcart) {
+      shopcart = [];
+      sessionStorage.setItem("cart", JSON.stringify([]));
+    }
 
     if (shopcart.length > 0) {
       for (let y = 0; y < shopcart.length; y++) {
@@ -83,9 +87,9 @@ const OfferCard = ({ dark, offer }) => {
         <div className="text-center mt-5">
           <button
             className="btn"
-            onclick={addToCart}
+            onClick={addToCart}
             id="Salary_+_House_Property_Plan"
-            disabled={!offer.in_stock}
+            // disabled={!offer.in_stock}
           >
             {offer.in_stock ? "CHOOSE PLAN" : "SLOTS FULL"}
           </button>

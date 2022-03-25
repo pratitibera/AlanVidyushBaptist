@@ -128,6 +128,7 @@ const Blog = () => {
               <div className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner" id="blogImageContainer">
                   {blog &&
+                    !loading &&
                     blog.headerImage.map((elem, index) => (
                       <div
                         className="carousel-item active"

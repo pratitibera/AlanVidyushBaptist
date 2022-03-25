@@ -451,9 +451,7 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
                 {category && (
                   <img
                     src={encodeURI(
-                      `https://alanvidyushbaptist.com/img/icons/${
-                        category.name
-                      } ${category.name === selected ? "White" : "Yellow"}.png`
+                      `https://alanvidyushbaptist.com/img/icons/${category.name} White.png`
                     )}
                     alt={category.name + "_icon"}
                     className="mr-2"
