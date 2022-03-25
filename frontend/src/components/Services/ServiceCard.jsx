@@ -6,7 +6,7 @@ const ServiceCard = ({ service, index }) => {
   console.log(hover);
   const navigate = useNavigate();
   const mainServiceDetails = () => {
-    if (service["offers"].length > 0) {
+    if (service["subservices"].length === 0) {
       navigate("/services/" + service["_id"].replaceAll(" ", "_") + "/pricing");
     } else {
       navigate("/services/" + service["_id"].replaceAll(" ", "_"));

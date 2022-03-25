@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import {
   useParams,
   useNavigate,
@@ -235,7 +236,19 @@ const Blogs = () => {
   };
 
   return (
-    <main>
+    <main class="page-body">
+      <Helmet>
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+        ></script>
+      </Helmet>
       <div
         id="contextMenu"
         className="context-menu"
@@ -350,6 +363,7 @@ const Blogs = () => {
             id="category_heading"
           >
             {partnerQuery && "by " + partnerQuery}
+            {searchQuery && "Searched results of " + searchQuery}
           </div>
 
           <div className="row m-0 mt-3" id="displayAllBlogs">
@@ -390,6 +404,7 @@ const Blogs = () => {
 export default Blogs;
 
 const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
+  const params = useParams();
   console.log(selected);
   return (
     <div
@@ -397,11 +412,32 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
       id="collapsibleBlogCategories"
     >
       <div className="row m-0 d-block d-sm-flex">
-        <div id="category_0" className="active d-none d-sm-block">
+        <div
+          id="category_0"
+          className="active d-none d-sm-flex align-items-center"
+        >
           TOPICS
         </div>
         <div id="category_1" className="mo-active" onClick={resetHandler}>
-          <i className="fas fa-dumbbell mr-2"></i>ALL
+          <img
+            src={
+              params.category && params.subcategory
+                ? encodeURI(
+                    `https://alanvidyushbaptist.com/img/icons/${params.subcategory} Yellow.png`
+                  )
+                : params.category
+                ? encodeURI(
+                    `https://alanvidyushbaptist.com/img/icons/${params.category} Yellow.png`
+                  )
+                : `https://alanvidyushbaptist.com/img/icons/Blog_Yellow.png`
+            }
+            alt={"All_Blogs"}
+            className="mr-2"
+            height="30px"
+            width="30px"
+          />
+          {/* {params.category ? params.category : "All"} */}
+          ALL
         </div>
         {categories &&
           categories.map((category, index) => {
@@ -417,7 +453,7 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
                     src={encodeURI(
                       `https://alanvidyushbaptist.com/img/icons/${
                         category.name
-                      } ${category.name !== selected ? "White" : "Yellow"}.png`
+                      } ${category.name === selected ? "White" : "Yellow"}.png`
                     )}
                     alt={category.name + "_icon"}
                     className="mr-2"

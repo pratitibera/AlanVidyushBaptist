@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import AboutLogo from "../../img/icons/about.png";
@@ -12,7 +12,6 @@ const Sidebar = ({ overlay }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const closeCollapsibleSidebarHandler = () => {
-    console.log("Heere");
     document.querySelector(".menuSidebar").classList.remove("navToggle");
     document.querySelector(".header-nav").classList.add("d-flex");
     document.querySelector(".header-nav").classList.remove("d-none");
@@ -22,14 +21,15 @@ const Sidebar = ({ overlay }) => {
     overlay.current.style.display = "none";
   };
   const routeToPage = () => {
+    closeCollapsibleSidebarHandler();
     document
       .getElementById(window.location.hash.replace("#", ""))
       .scrollIntoView();
-    closeCollapsibleSidebarHandler();
   };
 
   const searchHandler = () => {
     console.log("here", searchQuery);
+    closeCollapsibleSidebarHandler();
     navigate("/blogs?search=" + searchQuery);
   };
 
@@ -37,6 +37,21 @@ const Sidebar = ({ overlay }) => {
     console.log(event.target.value);
     setSearchQuery(event.target.value);
   };
+
+  useEffect(() => {
+    const checkSidebar = () => {
+      if (window.outerWidth > 1000) {
+        closeCollapsibleSidebarHandler();
+      }
+    };
+
+    closeCollapsibleSidebarHandler();
+    window.addEventListener("resize", checkSidebar);
+
+    return () => {
+      window.addEventListener("resize", checkSidebar);
+    };
+  }, []);
 
   return (
     <div className="menuSidebar">

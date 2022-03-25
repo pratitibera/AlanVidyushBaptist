@@ -111,6 +111,9 @@ const Pricing = () => {
             {service && "We've Got Plans for " + service.service}
           </h2>
           <hr className="mb-5" />
+          {service && service.offers.length <= 0 && (
+            <h4 className="mb-4 mt-4 text-center">No Offers Currently</h4>
+          )}
           <Slider {...settings}>
             {service &&
               service.offers.map((offer, index) => {
