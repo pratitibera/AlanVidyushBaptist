@@ -104,9 +104,11 @@ const Blog = () => {
     <main class="page-body">
       {blog && (
         <Helmet>
-          <meta name="summary" content={blog.summary} />
-          <meta name="title" content={blog.title} />
-          <meta name="image" content={blog.headerImage[0].image} />
+          <meta name="description" content={blog.summary} />
+          <title>{blog.title}</title>
+          {/* <meta name="title" content={blog.title} /> */}
+          {/* <meta name="image" content={blog.headerImage[0].image} /> */}
+          <link rel="icon" href={blog.headerImage[0].image} type="image/x-icon"></link>
         </Helmet>
       )}
 
