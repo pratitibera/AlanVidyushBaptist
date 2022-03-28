@@ -287,11 +287,11 @@
   }
   .site-title {
     background: url("../img/cover_image_mobile.png") !important;
-    height: 50vh !important;
+    height: 48vh !important;
     padding-top: 20px;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   .about-container {
     padding: 0px 20px 20px 20px;
