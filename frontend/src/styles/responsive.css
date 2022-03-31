@@ -298,11 +298,11 @@
     background-position: center;
     background-size: cover!important;
     background-repeat: no-repeat;
-    height: 34vh!important;
+    height: 30vh!important;
   }
   .about-container {
-    padding: 0px 20px 20px 20px;
-    margin-top: 45px;
+    padding: 0px 20px 20px 20px!important;
+    margin-top: 40px!important;
   }
   .about-quote {
     margin-left: 0px;
@@ -328,8 +328,8 @@
       #000000 2800px,
       #3e205a 3900px,
       #000000 5000px
-    );
-    padding-top: 60px;
+    )!important;
+    padding-top: 80px!important;
   }
   .blog-section {
     padding-top: 60px;
