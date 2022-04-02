@@ -13,6 +13,7 @@ import urlSet from "../utils/urls";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../components/Layout/Footer";
+import { Helmet } from "react-helmet";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
@@ -46,6 +47,9 @@ const Home = () => {
 
   return (
     <main>
+      <Helmet>
+        <meta name="description" content="Best Nutritionist and Fitness Consultant in India!"/>
+      </Helmet>
       <div
         id="contextMenu"
         className="context-menu"

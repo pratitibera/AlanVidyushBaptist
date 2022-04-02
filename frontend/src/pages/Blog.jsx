@@ -105,7 +105,7 @@ const Blog = () => {
     <main className="page-body">
       {blog && (
         <Helmet>
-          <meta name="summary" content={blog.summary} />
+          <meta name="description" content={blog.summary} />
           <meta name="title" content={blog.title} />
           <meta name="image" content={blog.headerImage[0].image} />
         </Helmet>
