@@ -8344,7 +8344,7 @@ button.bg-dark:hover {
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 10000
+	z-index: 100001
 }
 
 .fixed-bottom {
