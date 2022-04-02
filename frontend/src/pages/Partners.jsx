@@ -323,7 +323,7 @@ const Partners = () => {
                 READ MORE
               </button>
             ) : (
-              <div class="fo-20 fw-600 text-center">
+              <div className="fo-20 fw-600 text-center">
                 <p>That's all we have</p>
               </div>
             )}

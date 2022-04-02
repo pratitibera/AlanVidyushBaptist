@@ -14,7 +14,6 @@ import urlSet from "../utils/urls";
 const rootCategories = [
   {
     name: "Fitness",
-    image: require("../img/icons/Fitness Modelling White.png"),
   },
   {
     name: "Nutrition",
@@ -236,7 +235,7 @@ const Blogs = () => {
   };
 
   return (
-    <main class="page-body">
+    <main className="page-body">
       <Helmet>
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -329,22 +328,22 @@ const Blogs = () => {
         )}
 
         <div className="position-relative" id="blog_page_cover">
-          {blogsRoot && blogs && blogs.length > 1 && (
-            <div class="position-relative" id="blog_page_cover">
+          {blogsRoot && blogs && blogs.length > 0 && (
+            <div className="position-relative" id="blog_page_cover">
               <img
                 src={blogs && blogs[0].headerImage[0].image}
-                class="w-100"
+                className="w-100"
                 alt={blogs && blogs[0].headerImage[0].name}
               />
 
-              <div class="imageOverlay">
-                <div class="fo-52 fw-600 text-center mfo-20">
+              <div className="imageOverlay">
+                <div className="fo-52 fw-600 text-center mfo-20">
                   {blogs && blogs[0].title}
                 </div>
-                <div class="text-center mt-3 mt-md-5">
+                <div className="text-center mt-3 mt-md-5">
                   <a href="blog.html?id=How_Ismail_Achieved_12_Body_Fat">
                     <a
-                      class="btn website-button bg-dark text-white"
+                      className="btn website-button bg-dark text-white"
                       target="_blank"
                       href={"/blog/" + blogs[0].slug}
                       rel="noreferrer"
@@ -382,7 +381,7 @@ const Blogs = () => {
                     READ MORE
                   </button>
                 ) : (
-                  <div class="fo-20 fw-600 text-center">
+                  <div className="fo-20 fw-600 text-center">
                     <p>That's all we have</p>
                   </div>
                 )}
@@ -423,13 +422,13 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
             src={
               params.category && params.subcategory
                 ? encodeURI(
-                    `https://alanvidyushbaptist.com/img/icons/${params.subcategory} Yellow.png`
+                    `https://alanvidyushbaptist.com/img/icons/${params.subcategory} White.png`
                   )
                 : params.category
                 ? encodeURI(
-                    `https://alanvidyushbaptist.com/img/icons/${params.category} Yellow.png`
+                    `https://alanvidyushbaptist.com/img/icons/${params.category} White.png`
                   )
-                : `https://alanvidyushbaptist.com/img/icons/Blog_Yellow.png`
+                : `https://alanvidyushbaptist.com/img/icons/Blog_White.png`
             }
             alt={"All_Blogs"}
             className="mr-2"

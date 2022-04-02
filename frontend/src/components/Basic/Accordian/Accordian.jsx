@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 const Accordian = ({ title, children }) => {
   const [isActive, setIsActive] = useState(false);
+  const closeHandler = () => setIsActive(false)
   return (
     <div className={styles.accordian}>
       <div
@@ -26,7 +27,7 @@ const Accordian = ({ title, children }) => {
         </div>
         <hr className={styles.horizontalBar} />
       </div>
-      <div className={styles.accordionContent} aria-expanded={isActive}>
+      <div className={styles.accordionContent} aria-expanded={isActive} onClick={closeHandler}>
         {children}
       </div>
     </div>

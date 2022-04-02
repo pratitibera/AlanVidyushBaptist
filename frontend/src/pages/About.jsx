@@ -55,7 +55,7 @@ const About = () => {
 
       <section>
         <div className="container-fluid p-0 pt-5 pr-sm-5 pl-sm-5 pt-sm-5">
-        <div class="text-center about_labels">
+        <div className="text-center about_labels">
                <picture>
                  <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/1.png"></source>
                  <img src="https://alanvidyushbaptist.com/img/labels/1.png"></img>
@@ -133,7 +133,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="text-center about_labels">
+          <div className="text-center about_labels">
                <picture>
                  <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/2.png"></source>
                  <img src="https://alanvidyushbaptist.com/img/labels/2.png"></img>
@@ -220,7 +220,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="text-center about_labels">
+          <div className="text-center about_labels">
                <picture>
                  <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/3.png"></source>
                  <img src="https://alanvidyushbaptist.com/img/labels/3.png"></img>
@@ -247,7 +247,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="text-center about_labels">
+          <div className="text-center about_labels">
                <picture>
                  <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/4.png"></source>
                  <img src="https://alanvidyushbaptist.com/img/labels/4.png"></img>
@@ -349,7 +349,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="text-center about_labels">
+          <div className="text-center about_labels">
                <picture>
                  <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/5.png"></source>
                  <img src="https://alanvidyushbaptist.com/img/labels/5.png"></img>
@@ -383,7 +383,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div class="text-center about_labels">
+          <div className="text-center about_labels">
                <picture>
                  <source media="(min-width:465px)" srcset="https://alanvidyushbaptist.com/img/labels/6.png"></source>
                  <img src="https://alanvidyushbaptist.com/img/labels/6.png"></img>

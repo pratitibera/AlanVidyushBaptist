@@ -14,7 +14,7 @@ const Blog = () => {
   const params = useParams();
 
   const [blog, setBlog] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [postTitle, setPostTitle] = useState(null);
   const [postSummary, setPostSummary] = useState(null);
   const [postUrl, setPostUrl] = useState("");
@@ -46,7 +46,7 @@ const Blog = () => {
       contents.classList.remove("sticky2");
     }
   };
-
+  console.log(loading)
   useEffect(() => {
     const fetchBlog = async () => {
       try {
@@ -59,6 +59,7 @@ const Blog = () => {
         console.log(res.data);
         setLoading(false);
       } catch (err) {
+        console.log("asd")
         setLoading(false);
       }
     };
@@ -68,7 +69,7 @@ const Blog = () => {
     const setProgress = () => {
       let scrollPercentRounded = Math.round(
         (window.scrollY / (document.body.offsetHeight - window.innerHeight)) *
-          100
+        100
       );
       document.getElementById("blogContentProgress").style.width =
         scrollPercentRounded + "%";
@@ -101,7 +102,7 @@ const Blog = () => {
   };
 
   return (
-    <main class="page-body">
+    <main className="page-body">
       {blog && (
         <Helmet>
           <meta name="summary" content={blog.summary} />
@@ -122,13 +123,12 @@ const Blog = () => {
         }}
       ></div>
       <div style={{ flex: 1 }}>
-        {blog && !loading ? (
+        {!loading && blog && (
           <section className="blogAvailable">
             <div className="blogImageContainer">
               <div className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner" id="blogImageContainer">
-                  {blog &&
-                    !loading &&
+                  {!loading && blog &&
                     blog.headerImage.map((elem, index) => (
                       <div
                         className="carousel-item active"
@@ -241,21 +241,22 @@ const Blog = () => {
               </div>
             </div>
           </section>
-        ) : (
-          <section id="blogNotAvailable">
-            <div className="text-center fw-600 fo-24 mb-4 mt-5">
-              Sorry, this page isn't available.
-            </div>
-            <div className="text-center">
-              The link you followed may be broken, or the page may have been
-              removed.{" "}
-              <Link to="/" className="bco fw-600">
-                {" "}
-                Go back to Home.
-              </Link>
-            </div>
-          </section>
         )}
+
+        {!loading && !blog && (<section id="blogNotAvailable">
+          <div className="text-center fw-600 fo-24 mb-4 mt-5">
+            Sorry, this page isn't available.
+          </div>
+          <div className="text-center">
+            The link you followed may be broken, or the page may have been
+            removed.{" "}
+            <Link to="/" className="bco fw-600">
+              {" "}
+              Go back to Home.
+            </Link>
+          </div>
+        </section>)}
+
       </div>
 
       <Footer />
