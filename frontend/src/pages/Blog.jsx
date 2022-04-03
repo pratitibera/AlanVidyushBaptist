@@ -107,6 +107,19 @@ const Blog = () => {
           <meta name="summary" content={blog.summary} />
           <meta name="title" content={blog.title} />
           <meta name="image" content={blog.headerImage[0].image} />
+          <meta name="description" content={blog.summary}/>
+          <link rel="canonical" href={postUrl}/>
+          <meta property="og:title" content={blog.title}/>
+          <meta property="og:description" content={blog.summary}/>
+          <meta property="og:url" content={postUrl}/>
+          <meta property="og:site_name" content="ALAN VIDYUSH BAPTIST"/>
+          <meta property="og:image" content={blog.headerImage[0].image}/>
+          <meta property="og:image:width" content="1536"/>
+          <meta property="og:image:height" content="750"/>
+          <meta property="og:image:alt" content={blog.title}/>
+          <meta name="twitter:title" content={blog.title}/>
+          <meta name="twitter:description" content={blog.summary}/>
+          <meta name="twitter:image" content={blog.headerImage[0].image}/>
         </Helmet>
       )}
 
@@ -237,7 +250,7 @@ const Blog = () => {
                     </BlogGallery>
                   </div>
                 </div>
-                <BlogShareIcons postTitle={postTitle} postUrl={postUrl} />
+                <BlogShareIcons postTitle={postTitle} postUrl={postUrl} postSummary={postSummary}/>
               </div>
             </div>
           </section>
