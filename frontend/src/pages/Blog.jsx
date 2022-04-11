@@ -9,6 +9,7 @@ import CoachSection from "../components/Blog/CoachSection";
 import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
 import Footer from "../components/Layout/Footer";
+import Slider from "react-slick";
 
 const Blog = () => {
   const params = useParams();
@@ -101,6 +102,14 @@ const Blog = () => {
     document.getElementById(id).scrollIntoView();
   };
 
+  const settings = {
+    // dots: true,
+    autoplay: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   return (
     <main className="page-body">
       {blog && (
@@ -145,25 +154,32 @@ const Blog = () => {
         {!loading && blog && (
           <section className="blogAvailable">
             <div className="blogImageContainer">
-              <div className="carousel slide" data-ride="carousel">
+
+              <Slider {...settings}>
+                {!loading && blog &&
+                      blog.headerImage.map((elem, index) =>{ return (
+                        <div
+                          className={`carousel-item ${index === 0 ? 'active' : ''}`}
+                          data-interval={blog["data_interval"]}
+                          key={index}
+                        >
+                          <img
+                            src={elem["image"]}
+                            alt={elem["title"]}
+                            width="1100"
+                            height="500"
+                          />
+                        </div>
+                      )})}
+              </Slider>
+
+              {/* <div className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner" id="blogImageContainer">
-                  {!loading && blog &&
-                    blog.headerImage.map((elem, index) =>{ return (
-                      <div
-                        className={`carousel-item ${index === 0 ? 'active' : ''}`}
-                        data-interval={blog["data_interval"]}
-                        key={index}
-                      >
-                        <img
-                          src={elem["image"]}
-                          alt={elem["title"]}
-                          width="1100"
-                          height="500"
-                        />
-                      </div>
-                    )})}
+
                 </div>
-              </div>
+              </div> */}
+
+
             </div>
             <div className="blogWriter">
               <div id="blogWriter">
