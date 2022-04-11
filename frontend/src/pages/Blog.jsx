@@ -109,12 +109,28 @@ const Blog = () => {
 <<<<<<< HEAD
           <meta name="title" content={blog.title} />
           <meta name="image" content={blog.headerImage[0].image} />
+<<<<<<< HEAD
 =======
           <title>{blog.title}</title>
           {/* <meta name="title" content={blog.title} /> */}
           {/* <meta name="image" content={blog.headerImage[0].image} /> */}
           <link rel="icon" href={blog.headerImage[0].image} type="image/x-icon"></link>
 >>>>>>> c43681cc7b2eeb9f9c1bad489b9858d9f288b776
+=======
+          <meta name="description" content={blog.summary}/>
+          <link rel="canonical" href={postUrl}/>
+          <meta property="og:title" content={blog.title}/>
+          <meta property="og:description" content={blog.summary}/>
+          <meta property="og:url" content={postUrl}/>
+          <meta property="og:site_name" content="ALAN VIDYUSH BAPTIST"/>
+          <meta property="og:image" content={blog.headerImage[0].image}/>
+          <meta property="og:image:width" content="1536"/>
+          <meta property="og:image:height" content="750"/>
+          <meta property="og:image:alt" content={blog.title}/>
+          <meta name="twitter:title" content={blog.title}/>
+          <meta name="twitter:description" content={blog.summary}/>
+          <meta name="twitter:image" content={blog.headerImage[0].image}/>
+>>>>>>> b1084fe065f997ce21870415e05dda4ff31216eb
         </Helmet>
       )}
 
@@ -244,7 +260,7 @@ const Blog = () => {
                     </BlogGallery>
                   </div>
                 </div>
-                <BlogShareIcons postTitle={postTitle} postUrl={postUrl} />
+                <BlogShareIcons postTitle={postTitle} postUrl={postUrl} postSummary={postSummary}/>
               </div>
             </div>
           </section>
