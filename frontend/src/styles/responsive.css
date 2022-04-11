@@ -149,12 +149,12 @@
   }
   /* Partners */
   .partners-cover {
-    padding: 0px 30px;
+    padding: 0px;
     margin-top: 150px;
     filter: brightness(0.8);
   }
   .partners-cover img {
-    height: 60vh;
+    height: 30vh;
   }
   .partners-section,
   .partners-section2 {
@@ -254,6 +254,9 @@
   }
   .mfo-11 {
     font-size: 11px !important;
+  }
+  .ls-9{
+    letter-spacing: .9px!important;
   }
   .mow-100 {
     width: 100% !important;
@@ -427,11 +430,11 @@
   /* Partners */
   .partners-cover {
     padding: 0px;
-    margin-top: 67px;
+    margin-top: 66px;
     filter: brightness(0.8);
   }
   .partners-cover img {
-    height: 20vh;
+    height: 10vh;
   }
   /* .partners-section img {
 		height: 225px;
@@ -475,6 +478,7 @@
   }
   .services-list {
     padding: 25px 0px !important;
+    min-height: 50vh!important;
   }
   .pricing-cover {
     margin-top: 66px;
