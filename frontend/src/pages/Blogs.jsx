@@ -417,7 +417,7 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
         >
           TOPICS
         </div>
-        <div id="category_1" className="mo-active" onClick={resetHandler}>
+        <div id="category_1" className={ window.location.pathname === '/blogs' ? 'mo-active' : ''} onClick={resetHandler}>
           <img
             src={
               params.category && params.subcategory
@@ -446,6 +446,8 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
                 key={index}
                 onClick={() => onClick(category.name)}
                 className={category.name === selected ? "active" : ""}
+                data-toggle="collapse"
+                data-target="#collapsibleBlogCategories"
               >
                 {category && (
                   <img

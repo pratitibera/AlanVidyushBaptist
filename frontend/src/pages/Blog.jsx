@@ -105,19 +105,15 @@ const Blog = () => {
     <main className="page-body">
       {blog && (
         <Helmet>
-          <meta name="description" content={blog.summary} />
-<<<<<<< HEAD
           <meta name="title" content={blog.title} />
+          <meta name="description" content={blog.summary}/>
           <meta name="image" content={blog.headerImage[0].image} />
-<<<<<<< HEAD
-=======
+
           <title>{blog.title}</title>
           {/* <meta name="title" content={blog.title} /> */}
           {/* <meta name="image" content={blog.headerImage[0].image} /> */}
           <link rel="icon" href={blog.headerImage[0].image} type="image/x-icon"></link>
->>>>>>> c43681cc7b2eeb9f9c1bad489b9858d9f288b776
-=======
-          <meta name="description" content={blog.summary}/>
+          
           <link rel="canonical" href={postUrl}/>
           <meta property="og:title" content={blog.title}/>
           <meta property="og:description" content={blog.summary}/>
@@ -130,7 +126,7 @@ const Blog = () => {
           <meta name="twitter:title" content={blog.title}/>
           <meta name="twitter:description" content={blog.summary}/>
           <meta name="twitter:image" content={blog.headerImage[0].image}/>
->>>>>>> b1084fe065f997ce21870415e05dda4ff31216eb
+          
         </Helmet>
       )}
 
@@ -152,9 +148,9 @@ const Blog = () => {
               <div className="carousel slide" data-ride="carousel">
                 <div className="carousel-inner" id="blogImageContainer">
                   {!loading && blog &&
-                    blog.headerImage.map((elem, index) => (
+                    blog.headerImage.map((elem, index) =>{ return (
                       <div
-                        className="carousel-item active"
+                        className={`carousel-item ${index === 0 ? 'active' : ''}`}
                         data-interval={blog["data_interval"]}
                         key={index}
                       >
@@ -165,7 +161,7 @@ const Blog = () => {
                           height="500"
                         />
                       </div>
-                    ))}
+                    )})}
                 </div>
               </div>
             </div>

@@ -91,7 +91,7 @@ const Sidebar = ({ overlay }) => {
         </li>
         <li className="nav-item text-center">
           <Link to="/services">
-            <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">
+            <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating" onClick={closeCollapsibleSidebarHandler}>
               CONSULT
             </button>
           </Link>
