@@ -29,7 +29,7 @@ const rootCategories = [
   },
   {
     name: "Finance",
-    image: require("../img/icons/Taxation White.png"),
+    image: require("../img/icons/Finance White.png"),
   },
 ];
 const blogCatandSub = {

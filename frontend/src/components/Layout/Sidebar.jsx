@@ -66,7 +66,7 @@ const Sidebar = ({ overlay }) => {
       </span>
       <ul className="navbar-nav pt-0" id="sidebar-nav">
         <li className="nav-item" onClick={() => routeToPage("about")}>
-          <Link className="nav-link exo" to="#about">
+          <Link className="nav-link exo" to="/#about">
             <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
             ABOUT ALAN
           </Link>

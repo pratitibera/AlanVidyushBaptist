@@ -179,7 +179,7 @@
     margin: 150px 80px;
   }
   #collapsibleBlogCategories div {
-    font-size: 12px;
+    font-size: 11px;
   }
   #collapsibleBlogCategories .row {
     justify-content: space-between;
@@ -287,15 +287,22 @@
   }
   .site-title {
     background: url("../img/cover_image_mobile.png") !important;
-    height: 50vh !important;
+    height: 48vh!important;
     padding-top: 20px;
-    background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .site-title-about {
+    background: url("../img/banners/about_banner_mobile.png")!important;
+    background-position: center;
+    background-size: cover!important;
+    background-repeat: no-repeat;
+    height: 30vh!important;
   }
   .about-container {
-    padding: 0px 20px 20px 20px;
-    margin-top: 45px;
+    padding: 0px 20px 20px 20px!important;
+    margin-top: 40px!important;
   }
   .about-quote {
     margin-left: 0px;
@@ -321,8 +328,8 @@
       #000000 2800px,
       #3e205a 3900px,
       #000000 5000px
-    );
-    padding-top: 60px;
+    )!important;
+    padding-top: 80px!important;
   }
   .blog-section {
     padding-top: 60px;
@@ -499,7 +506,7 @@
     width: 100%;
   }
   .about_labels img {
-    max-width: 365px;
+    max-width: 360px;
   }
   .menuSidebar{
     width: 100%!important;

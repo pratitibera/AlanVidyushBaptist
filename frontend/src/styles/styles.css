@@ -671,6 +671,7 @@ nav .navbar-collapse.show {
 }
 .site-title-about {
   background: url("../img/banners/about_banner.png");
+  background-size: cover;
 }
 .site-title .site-background {
   color: #fff;
@@ -706,7 +707,7 @@ nav .navbar-collapse.show {
 .about-container {
   padding: 10px 40px 40px 40px;
   background: rgba(0, 0, 0, 0.5);
-  margin-top: 30px;
+  margin-top: 100px;
   border: 2px solid #000;
 }
 

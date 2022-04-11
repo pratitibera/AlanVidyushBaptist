@@ -18,6 +18,7 @@ import AboutImage15 from "../img/about/about15.png";
 import AboutImage16 from "../img/about/about16.jpg";
 import AboutImage17 from "../img/about/about17.png";
 import AboutImage18 from "../img/about/about18.png";
+import AboutImage19 from "../img/about/about19.png";
 import Footer from "../components/Layout/Footer";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -416,7 +417,7 @@ const About = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <img src={AboutImage18} className="w-100"></img>
+                  <img src={AboutImage19} className="w-100"></img>
                 </a>
               </div>
               <div className="col-10 col-sm-9 m-auto bluetext fw-600 mfo-13">

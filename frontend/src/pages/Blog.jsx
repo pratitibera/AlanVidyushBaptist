@@ -106,8 +106,15 @@ const Blog = () => {
       {blog && (
         <Helmet>
           <meta name="description" content={blog.summary} />
+<<<<<<< HEAD
           <meta name="title" content={blog.title} />
           <meta name="image" content={blog.headerImage[0].image} />
+=======
+          <title>{blog.title}</title>
+          {/* <meta name="title" content={blog.title} /> */}
+          {/* <meta name="image" content={blog.headerImage[0].image} /> */}
+          <link rel="icon" href={blog.headerImage[0].image} type="image/x-icon"></link>
+>>>>>>> c43681cc7b2eeb9f9c1bad489b9858d9f288b776
         </Helmet>
       )}
 
