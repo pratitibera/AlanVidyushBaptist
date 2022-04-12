@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import $ from "jquery";
+import { useState } from "react";
 import urlSet from "../../utils/urls";
-import Helmet from 'react-helmet'
 import { Button, Modal } from 'react-bootstrap'
 
 const CheckoutModal = ({ classes }) => {
@@ -39,13 +37,16 @@ const CheckoutModal = ({ classes }) => {
   };
 
   const emptyCart = () => {
+    closeHandler()
     sessionStorage.clear();
     document.getElementById("cart_count_mobile").innerHTML = "";
     document.getElementById("cart_count_desktop").innerHTML = "";
+ 
   };
 
   const removeCoupon = () => {
     setCouponCode(null);
+    setDiscount(null)
   };
 
   const fetchCart = () => {
@@ -61,11 +62,10 @@ const CheckoutModal = ({ classes }) => {
       cart = JSON.parse(sessionStorage.getItem("cart"));
     }
 
-    console.log(cart.length)
     if (cart.length > 0) {
       for (let i = 0; i < cart.length; i++) {
         offerIds.push(cart[i]["id"]);
-        if (cart[i]["discount"]) {
+        if (cart[i]["discounted_price"]) {
           billAmount = billAmount + parseInt(cart[i]["discounted_price"]);
           console.log(billAmount)
         } else {
@@ -82,10 +82,9 @@ const CheckoutModal = ({ classes }) => {
 
   const applyCoupon = () => {
     const offers = shopCart.map(item => item['_id'])
-    const code = document.getElementById("coupon_code").value;
     var json = {
       offerIds: offers,
-      couponCode: code,
+      couponCode: coupon_code,
     };
     console.log(json);
     var request = new XMLHttpRequest();
@@ -101,18 +100,9 @@ const CheckoutModal = ({ classes }) => {
         ).innerHTML = `<input type="text" placeholder="Coupon code" id="coupon_code">
         <div className="fo-16 text-dark fw-600">Invalid Coupon</div>`;
       } else {
-        setCouponCode(code);
         setDiscount(data["discount"]);
-        document.getElementById("coupon_button").innerHTML = "REMOVE COUPON";
-        document
-          .getElementById("coupon_button")
-          .setAttribute("onClick", `removeCoupon()`);
-        document.getElementById(
-          "coupon_status"
-        ).innerHTML = `<div className="fo-16 text-dark fw-600">${code} Coupon applied</div>
-                              <div className="fo-13 text-dark">Discount: ₹ ${data["discount"]}</div>`;
-        document.getElementById("totalbill").innerHTML =
-          "TOTAL: ₹ " + data["discounted_price"];
+        setDiscount(data['discount']) // Shows Discounted Value
+        setTotalBill(data["discounted_price"]) // Update Total Bill
       }
     };
   };
@@ -241,133 +231,139 @@ const CheckoutModal = ({ classes }) => {
     }
   }
 
-const payNowResponse = (
-  razorpay_payment_id,
-  razorpay_order_id,
-  razorpay_signature,
-  receipt_id
-) => {
-  var json = {
-    razorpay_order_id: razorpay_order_id,
-    razorpay_signature: razorpay_signature,
-    razorpay_payment_id: razorpay_payment_id,
-    receipt_id: receipt_id,
+  const payNowResponse = (
+    razorpay_payment_id,
+    razorpay_order_id,
+    razorpay_signature,
+    receipt_id
+  ) => {
+    var json = {
+      razorpay_order_id: razorpay_order_id,
+      razorpay_signature: razorpay_signature,
+      razorpay_payment_id: razorpay_payment_id,
+      receipt_id: receipt_id,
+    };
+    console.log(json);
+    var request = new XMLHttpRequest();
+    request.open(
+      urlSet.verifyPaymentApi.method,
+      urlSet.verifyPaymentApi.url,
+      true
+    );
+    request.setRequestHeader("Content-Type", "application/json");
+    request.send(JSON.stringify(json));
+    request.onload = function () {
+      var data = JSON.parse(this.response);
+      console.log(data);
+      if (data["message"] === "Order Valid and Successful") {
+        notify("Payment successful");
+        emptyCart();
+      } else {
+        notify("Payment unsuccessful");
+      }
+    };
   };
-  console.log(json);
-  var request = new XMLHttpRequest();
-  request.open(
-    urlSet.verifyPaymentApi.method,
-    urlSet.verifyPaymentApi.url,
-    true
-  );
-  request.setRequestHeader("Content-Type", "application/json");
-  request.send(JSON.stringify(json));
-  request.onload = function () {
-    var data = JSON.parse(this.response);
-    console.log(data);
-    if (data["message"] === "Order Valid and Successful") {
-      notify("Payment successful");
-      emptyCart();
-    } else {
-      notify("Payment unsuccessful");
-    }
-  };
-};
 
-return (
-  <>
-    <div className={"btn " + classes} onClick={fetchCart}>
-      <i className="fa fa-shopping-cart fo-30 bco">
-        <sup
-          className="cart_count fo-24 bco fw-600"
-          id="cart_count_mobile"
-        ></sup>
-      </i>
-    </div>
+  return (
+    <>
+      <div className={"btn " + classes} onClick={fetchCart}>
+        <i className="fa fa-shopping-cart fo-30 bco">
+          <sup
+            className="cart_count fo-24 bco fw-600"
+            id="cart_count_mobile"
+          ></sup>
+        </i>
+      </div>
 
-    <Modal show={show} onHide={closeHandler}>
-      <Modal.Header>
-        <Modal.Title>
-          <h4 className="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
+      <Modal show={show} onHide={closeHandler}>
+        <Modal.Header>
+          <Modal.Title>
+            <h4 className="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
 
-        </Modal.Title>
-        <button
-          type="button"
-          className="close text-dark fw-800"
-          data-dismiss="modal"
-          onClick={closeHandler}
-        >
-          &times;
-        </button>
-      </Modal.Header>
-      <Modal.Body>
-        <div id="particulars">
-          {shopCart && shopCart.map(service => <ParticularCard service={service} />)}
-        </div>
-        <div className="mt-4 text-right">
-          <div
-            className="fo-14 fw-600 cursorPointer"
-            onClick={emptyCart}
+          </Modal.Title>
+          <button
+            type="button"
+            className="close text-dark fw-800"
             data-dismiss="modal"
+            onClick={closeHandler}
           >
-            EMPTY CART
+            &times;
+          </button>
+        </Modal.Header>
+        <Modal.Body>
+          <div id="particulars">
+            {shopCart && shopCart.map(service => <ParticularCard service={service} />)}
           </div>
-        </div>
-        <div className="input-data">
-          <input type="text" required id="customer_name" />
-          <div className="underline"></div>
-          <label>Full Name</label>
-        </div>
-        <div className="input-data mt-5">
-          <input type="text" required id="customer_email" />
-          <div className="underline"></div>
-          <label>Email</label>
-        </div>
-        <div className="input-data mt-5">
-          <input type="text" required id="customer_mobile" />
-          <div className="underline"></div>
-          <label>Contact number</label>
-        </div>
-        <div className="row m-0 couponsection mt-3">
-          <div className="col-6 col-sm-6 pl-0" id="coupon_status">
-            <input
-              type="text"
-              placeholder="Coupon code"
-              id="coupon_code"
-            />
-          </div>
-          <div className="col-6 col-sm-6 pr-0">
-            <button
-              className="btn website-button bg-dark text-white w-100 mfo-12"
-              onClick={applyCoupon}
-              id="coupon_button"
+          <div className="mt-4 text-right">
+            <div
+              className="fo-14 fw-600 cursorPointer"
+              onClick={emptyCart}
+              data-dismiss="modal"
             >
-              APPLY COUPON
-            </button>
-          </div>
-          <div className="col-12 col-sm-12 text-center cash_option">
-            <div className="fo-16 fw-700" onClick={payInCash}>
-              PAY IN CASH
+              EMPTY CART
             </div>
           </div>
-        </div>
+          <div className="input-data">
+            <input type="text" required id="customer_name" />
+            <div className="underline"></div>
+            <label>Full Name</label>
+          </div>
+          <div className="input-data mt-5">
+            <input type="text" required id="customer_email" />
+            <div className="underline"></div>
+            <label>Email</label>
+          </div>
+          <div className="input-data mt-5">
+            <input type="text" required id="customer_mobile" />
+            <div className="underline"></div>
+            <label>Contact number</label>
+          </div>
+          <div className="row m-0 couponsection mt-3">
+            <div className="col-6 col-sm-6 pl-0" id="coupon_status">
+              <input
+                type="text"
+                placeholder="Coupon code"
+                id="coupon_code"
+                onChange={(e) => setCouponCode(e.target.value)}
+                value={coupon_code}
+              />
+              {discount && (<><div className="fo-16 text-dark fw-600">{coupon_code} Coupon applied</div>
+                <div className="fo-13 text-dark">Discount: ₹ {discount}</div></>)}
 
-      </Modal.Body>
-      <Modal.Footer>
-        <button
-          className="btn website-button w-50 bg-white text-dark fo-20 fw-800"
-          id="totalbill"
-        >₹ {totalBill}</button>
-        <button
-          className="btn website-button w-50 bg-dark text-white"
-          onClick={checkout}
-        >
-          PROCEED TO PAYMENT
-        </button>
-      </Modal.Footer>
-    </Modal>
-  </>
-);
+            </div>
+            <div className="col-6 col-sm-6 pr-0">
+              <button
+                className="btn website-button bg-dark text-white w-100 mfo-12"
+                onClick={discount ? removeCoupon : applyCoupon}
+                id="coupon_button"
+              >
+                { discount ? "REMOVE COUPON" : "APPLY COUPON"}
+                
+              </button>
+            </div>
+            <div className="col-12 col-sm-12 text-center cash_option">
+              <div className="fo-16 fw-700" onClick={payInCash}>
+                PAY IN CASH
+              </div>
+            </div>
+          </div>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            className="btn website-button w-50 bg-white text-dark fo-20 fw-800"
+            id="totalbill"
+          >₹ {totalBill}</button>
+          <button
+            className="btn website-button w-50 bg-dark text-white"
+            onClick={checkout}
+          >
+            PROCEED TO PAYMENT
+          </button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 };
 
 export default CheckoutModal;
@@ -391,7 +387,7 @@ const validEmail = (mail) => {
 };
 
 const ParticularCard = ({ service }) => {
-  return !service.discount ? (<div className="row m-0 mb-2">
+  return !service.discounted_price ? (<div className="row m-0 mb-2">
     <div className="col-3 col-sm-2">
       <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100" />
     </div>
@@ -411,7 +407,7 @@ const ParticularCard = ({ service }) => {
       <div className="fo-14 mfo-12">{service["duration"]}</div>
     </div>
     <div className="col-3 col-sm-4 p-0">
-      <div className="fo-26 fw-700 text-right mfo-18">₹  {service["discount"]}</div>
+      <div className="fo-26 fw-700 text-right mfo-18">₹  {service["discounted_price"]}</div>
       <div className="fo-16 text-right mfo-12" style={{ textDecoration: "line-through" }} id="checkout_discount">₹ {service["price"]}</div>
     </div>
   </div>)

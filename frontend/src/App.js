@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, lazy, Suspense } from "react";
 import AOS from "aos";
 import $ from "jquery";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
@@ -6,17 +6,20 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import Navbar from "./components/Layout/Navbar";
 
 // Pages
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Partners from "./pages/Partners";
-import Portfolio from "./pages/Portfolio";
-import Sidebar from "./components/Layout/Sidebar";
-import Blogs from "./pages/Blogs";
-import Blog from "./pages/Blog";
-import Pricing from "./pages/Pricing";
-import Mainservices from "./pages/Mainservices";
-import Services from "./pages/Services";
-import Columnists from "./pages/Columnists";
+// const Home = lazy(() => import("./pages/Home"))
+
+import Sidebar from './components/Layout/Sidebar'
+
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Partners = lazy(() => import("./pages/Partners"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const Blogs = lazy(() => import("./pages/Blogs"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const Mainservices = lazy(() => import("./pages/Mainservices"));
+const Services = lazy(() => import("./pages/Services"));
+const Columnists = lazy(() => import("./pages/Columnists"));
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -84,23 +87,23 @@ function App() {
       <Navbar overlay={overlay} />
       <Sidebar overlay={overlay} />
       <Routes>
-        <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="partners" element={<Partners />} />
-          <Route path="columnists" element={<Columnists />} />
-          <Route path="portfolio" element={<Portfolio />} />
 
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blogs/search" element={<Blogs />} />
-          <Route path="/blogs/:category" element={<Blogs />} />
-          <Route path="/blogs/:category/:subcategory" element={<Blogs />} />
-          <Route path="/blog/:id" element={<Blog />} />
+        <Route path="/" element={<Lazyload element={<Home />}/>} />
+        <Route path="/about" element={<Lazyload element={<About />}/>} />
+        <Route path="/partners" element={<Lazyload element={<Partners />}/>} />
+        <Route path="/columnists" element={<Lazyload element={<Columnists />}/>} />
+        <Route path="/portfolio" element={<Lazyload element={<Portfolio />}/>} />
 
-          <Route path="/services/:serviceId/pricing" element={<Pricing />} />
-          <Route path="/services/:serviceId" element={<Services />} />
-          <Route path="/services" element={<Mainservices />} />
-        </Route>
+        <Route path="/blogs" element={<Lazyload element={<Blogs />}/>} />
+        <Route path="/blogs/search" element={<Lazyload element={<Blogs />}/>} />
+        <Route path="/blogs/:category" element={<Lazyload element={<Blogs />}/>} />
+        <Route path="/blogs/:category/:subcategory" element={<Lazyload element={<Blogs />}/>} />
+        <Route path="/blog/:id" element={<Lazyload element={<Blog />}/>} />
+
+        <Route path="/services/:serviceId/pricing" element={<Lazyload element={<Pricing />}/>} />
+        <Route path="/services/:serviceId" element={<Lazyload element={<Services />}/>} />
+        <Route path="/services" element={<Lazyload element={<Mainservices />}/>} />
+
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Wrapper>
@@ -108,3 +111,13 @@ function App() {
 }
 
 export default App;
+
+
+
+const Lazyload = ({ element }) => {
+  return(
+      <Suspense fallback={<>...</>}>
+        {element}
+      </Suspense>
+  )
+} 
