@@ -27,6 +27,19 @@ const Wrapper = ({ children }) => {
 };
 
 function App() {
+  function loadScript() {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => {
+        console.log("Loaded Razorpay")
+    };
+    script.onerror = () => {
+      console.log("Failed to Load Razorpay")
+    };
+    document.body.appendChild(script);
+  }
+
+  loadScript()
   const overlay = useRef(null);
 
   const overlayHandler = () => {
