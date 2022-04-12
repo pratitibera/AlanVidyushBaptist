@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import Slider from "react-slick";
 import OfferCard from "../components/Services/OfferCard";
 import Footer from "../components/Layout/Footer";
+import PricingBanner from "../img/banners/pricing_banner.png";
 
 const SampleNextArrow = (props) => {
   const { onClick } = props;
@@ -89,17 +90,10 @@ const Pricing = () => {
   return (
     <div>
       {/* <body onload="getPlans();"> */}
-      adasda
       <div id="notification-area"></div>
-      <section className="pricing-cover">
-        <div className="pricing-landing-image"></div>
-        <div className="w-100 pricing-landing">
-          <div
-            className="text-center text-white fo-40 fw-700 mfo-24"
-            id="pricing_heading"
-          >
-            {service && "Pricing for " + service.service}
-          </div>
+      <section>
+        <div className="partners-cover text-center">
+          <img src={PricingBanner} className="w-100"></img>
         </div>
       </section>
       <section className="pricing-section pt-4">
@@ -107,7 +101,7 @@ const Pricing = () => {
           className="d-block pricing-section-container"
           id="pricing-section-container"
         >
-          <h2 className="fo-40 fw-700 text-center pt-5 mfo-25">
+          <h2 className="fo-40 fw-700 text-center pt-3 pr-1 pl-1 mfo-25">
             {service && "We've Got Plans for " + service.service}
           </h2>
           <hr className="mb-5" />

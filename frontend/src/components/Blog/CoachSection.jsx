@@ -8,9 +8,9 @@ const CoachSection = ({ coaches }) => {
         {coaches &&
           coaches.map((elem, index) => {
             return (
-              <div className={`col-sm-${colDivision} p-0`} key={index}>
+              <div className={`col-${colDivision} col-sm-${colDivision} p-0`} key={index}>
                 <img src={elem["image"]} alt={`${elem["name"]}`} />
-                <div className="mt-3 fw-700 mfo-12">
+                <div className="mt-3 fw-700 mfo-11 ls-9">
                   {elem["designation"] === ""
                     ? `${elem["name"]}`
                     : `${elem["designation"]} : ${elem["name"]}`}
