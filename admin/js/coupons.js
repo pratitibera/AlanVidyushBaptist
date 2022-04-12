@@ -7,18 +7,14 @@ function addCoupons(){
 	}
 	var request = new XMLHttpRequest();
 	request.open(urlSet.addCouponsApi.method, urlSet.addCouponsApi.url, true);
+
 	request.setRequestHeader("Content-Type", "application/json");
 	request.setRequestHeader("authorization", authtoken);
 	request.send(JSON.stringify(json));
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
-		if(data['_id'] != undefined){
-			alert("Coupon added");
-		}
-		else{
-			alert("Failed to add coupon");
-		}
+		alert("Coupon added");
 	}
 }
 
@@ -26,6 +22,7 @@ function viewCoupons(){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewCouponsApi.method, urlSet.viewCouponsApi.url, true);
 	request.setRequestHeader("Content-Type", "application/json");
+	request.setRequestHeader("authorization", authtoken);
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
