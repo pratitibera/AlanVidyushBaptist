@@ -269,21 +269,21 @@ const Blogs = () => {
               {params.category != null && params.subcategory != null
                 ? params.subcategory
                 : params.category != null
-                ? params.category
-                : "Blogs"}
+                  ? params.category
+                  : "Blogs"}
             </div>
             <div className="text-center fo-20 fw-600">
               <img
                 src={
                   params.category && params.subcategory
                     ? encodeURI(
-                        `https://alanvidyushbaptist.com/img/icons/${params.subcategory} Yellow.png`
-                      )
+                      `https://alanvidyushbaptist.com/img/icons/${params.subcategory} Yellow.png`
+                    )
                     : params.category
-                    ? encodeURI(
+                      ? encodeURI(
                         `https://alanvidyushbaptist.com/img/icons/${params.category} Yellow.png`
                       )
-                    : `https://alanvidyushbaptist.com/img/icons/Blog_Yellow.png`
+                      : `https://alanvidyushbaptist.com/img/icons/Blog_Yellow.png`
                 }
                 alt={"icon"}
                 className="mr-2"
@@ -370,6 +370,12 @@ const Blogs = () => {
               <BlogCard blog={blog} />
             ))}
           </div>
+
+          {loading && (
+            <div id="preloader">
+              <div class="loader" id="loader"></div>
+            </div>
+          )}
           {!loading && blogs && blogs.length > 0 && (
             <>
               <div className="text-center mt-5 mb-5" id="readmorebutton">
@@ -417,18 +423,18 @@ const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
         >
           TOPICS
         </div>
-        <div id="category_1" className={ window.location.pathname === '/blogs' ? 'mo-active' : ''} onClick={resetHandler}>
+        <div id="category_1" className={window.location.pathname === '/blogs' ? 'mo-active' : ''} onClick={resetHandler}>
           <img
             src={
               params.category && params.subcategory
                 ? encodeURI(
-                    `https://alanvidyushbaptist.com/img/icons/${params.subcategory} White.png`
-                  )
+                  `https://alanvidyushbaptist.com/img/icons/${params.subcategory} White.png`
+                )
                 : params.category
-                ? encodeURI(
+                  ? encodeURI(
                     `https://alanvidyushbaptist.com/img/icons/${params.category} White.png`
                   )
-                : `https://alanvidyushbaptist.com/img/icons/Blog_White.png`
+                  : `https://alanvidyushbaptist.com/img/icons/Blog_White.png`
             }
             alt={"All_Blogs"}
             className="mr-2"

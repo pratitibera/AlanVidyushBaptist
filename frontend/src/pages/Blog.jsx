@@ -10,15 +10,29 @@ import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
 import Footer from "../components/Layout/Footer";
 import Slider from "react-slick";
+import { Button, Modal } from "react-bootstrap";
 
 const Blog = () => {
   const params = useParams();
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [show, setShow] = useState(false)
+
+  const enlargeImage = (index) => {
+    setSelectedImage(index)
+    setShow(true)
+  }
+
+  const closeModal = () => {
+    setSelectedImage(null)
+    setShow(false)
+  }
 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
   const [postTitle, setPostTitle] = useState(null);
   const [postSummary, setPostSummary] = useState(null);
   const [postUrl, setPostUrl] = useState("");
+
 
   const resizeHandler = () => {
     const navbar = document.getElementById("navbar");
@@ -116,27 +130,27 @@ const Blog = () => {
       {blog && (
         <Helmet>
           <meta name="title" content={blog.title} />
-          <meta name="description" content={blog.summary}/>
+          <meta name="description" content={blog.summary} />
           <meta name="image" content={blog.headerImage[0].image} />
 
           <title>{blog.title}</title>
           {/* <meta name="title" content={blog.title} /> */}
           {/* <meta name="image" content={blog.headerImage[0].image} /> */}
           <link rel="icon" href={blog.headerImage[0].image} type="image/x-icon"></link>
-          
-          <link rel="canonical" href={postUrl}/>
-          <meta property="og:title" content={blog.title}/>
-          <meta property="og:description" content={blog.summary}/>
-          <meta property="og:url" content={postUrl}/>
-          <meta property="og:site_name" content="ALAN VIDYUSH BAPTIST"/>
-          <meta property="og:image" content={blog.headerImage[0].image}/>
-          <meta property="og:image:width" content="1536"/>
-          <meta property="og:image:height" content="750"/>
-          <meta property="og:image:alt" content={blog.title}/>
-          <meta name="twitter:title" content={blog.title}/>
-          <meta name="twitter:description" content={blog.summary}/>
-          <meta name="twitter:image" content={blog.headerImage[0].image}/>
-          
+
+          <link rel="canonical" href={postUrl} />
+          <meta property="og:title" content={blog.title} />
+          <meta property="og:description" content={blog.summary} />
+          <meta property="og:url" content={postUrl} />
+          <meta property="og:site_name" content="ALAN VIDYUSH BAPTIST" />
+          <meta property="og:image" content={blog.headerImage[0].image} />
+          <meta property="og:image:width" content="1536" />
+          <meta property="og:image:height" content="750" />
+          <meta property="og:image:alt" content={blog.title} />
+          <meta name="twitter:title" content={blog.title} />
+          <meta name="twitter:description" content={blog.summary} />
+          <meta name="twitter:image" content={blog.headerImage[0].image} />
+
         </Helmet>
       )}
 
@@ -158,20 +172,22 @@ const Blog = () => {
 
               <Slider {...settings}>
                 {!loading && blog &&
-                      blog.headerImage.map((elem, index) =>{ return (
-                        <div
-                          className={`carousel-item ${index === 0 ? 'active' : ''}`}
-                          data-interval={blog["data_interval"]}
-                          key={index}
-                        >
-                          <img
-                            src={elem["image"]}
-                            alt={elem["title"]}
-                            width="1100"
-                            height="500"
-                          />
-                        </div>
-                      )})}
+                  blog.headerImage.map((elem, index) => {
+                    return (
+                      <div
+                        className={`carousel-item ${index === 0 ? 'active' : ''}`}
+                        data-interval={blog["data_interval"]}
+                        key={index}
+                      >
+                        <img
+                          src={elem["image"]}
+                          alt={elem["title"]}
+                          width="1100"
+                          height="500"
+                        />
+                      </div>
+                    )
+                  })}
               </Slider>
 
               {/* <div className="carousel slide" data-ride="carousel">
@@ -256,16 +272,29 @@ const Blog = () => {
                           })}
                       </div>
                     </div>
-
+                    <Modal show={blog && show} onHide={() => setShow(false)} animation={true} size="xl" backdrop={true} onExited={() => setSelectedImage(false)}>
+                      <Modal.Body as="div" bsPrefix="none">
+                        {blog && (
+                          <img
+                            src={blog.gallery[selectedImage || 0].image}
+                            height="300"
+                            className="w-100 h-100 copyright_img"
+                            alt={"image_" + blog.gallery[selectedImage || 0].title}
+                          />
+                        )}
+                      </Modal.Body>
+                    </Modal>
                     <BlogGallery>
                       {blog &&
                         blog.gallery.map((image, index) => {
+                          const clickHandler = () => enlargeImage(index)
                           return (
-                            <div key={index} className="p-4">
+                            <div key={index} className="p-4" onClick={clickHandler}>
                               <img
                                 src={image["image"]}
                                 height="300"
-                                className="w-100 copyright_img"
+                                className="w-100 copyright_img no-outline"
+                                alt={"image_" + image["title"]}
                               />
                             </div>
                           );
@@ -273,7 +302,7 @@ const Blog = () => {
                     </BlogGallery>
                   </div>
                 </div>
-                <BlogShareIcons postTitle={postTitle} postUrl={postUrl} postSummary={postSummary}/>
+                <BlogShareIcons postTitle={postTitle} postUrl={postUrl} postSummary={postSummary} />
               </div>
             </div>
           </section>
