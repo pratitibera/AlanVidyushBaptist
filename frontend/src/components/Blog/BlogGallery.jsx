@@ -15,7 +15,7 @@ const BlogGallery = ({ children }) => {
         breakpoint: 1800,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           arrows: true,
         },
@@ -41,7 +41,6 @@ const BlogGallery = ({ children }) => {
   };
   return (
     <div className="col-12 col-sm-12 p-10 m-10">
-
       <Slider {...settings}>{children}</Slider>
     </div>
   );
@@ -69,7 +68,6 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   console.log(className);
   return (
-
     <div
       className="fas fa-long-arrow-alt-left"
       style={{

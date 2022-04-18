@@ -76,6 +76,9 @@
   .about_labels img {
     max-width: 1300px;
   }
+  .disclaimer{
+    padding: 0px 260px;
+  }
 }
 
 @media only screen and (min-width: 577px) {

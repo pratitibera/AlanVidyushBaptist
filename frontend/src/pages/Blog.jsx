@@ -272,8 +272,9 @@ const Blog = () => {
                           })}
                       </div>
                     </div>
-                    <Modal show={blog && show} onHide={() => setShow(false)} animation={true} size="xl" backdrop={true} onExited={() => setSelectedImage(false)}>
+                    <Modal show={blog && show} onHide={() => setShow(false)} animation={true} size="lg" backdrop={true} onExited={() => setSelectedImage(false)}>
                       <Modal.Body as="div" bsPrefix="none">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                         {blog && (
                           <img
                             src={blog.gallery[selectedImage || 0].image}

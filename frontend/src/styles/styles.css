@@ -1547,15 +1547,35 @@ footer .move-up {
 }
 
 .portfolioSection_desktop {
-  width: 3900px;
-  overflow-x: scroll;
+  width: 4050px;
+  /* overflow-x: scroll; */
 }
-
+.disclaimer{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  text-align: center;
+}
 .portfolioSection_desktop .card {
-  height: 435px;
+  height: 330px;
 }
 
 .portfolioSection_desktop .card img {
-  height: 435px;
+  height: 330px;
   width: auto;
+}
+.close{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 600;
+	background-color: #000!important;
+	padding: 8px 10px!important;
+	opacity: 1!important;
+}
+.close:hover{
+	color: #fff!important;
 }
