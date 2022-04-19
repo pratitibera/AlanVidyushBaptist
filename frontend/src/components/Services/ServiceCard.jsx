@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import { useState } from "react";
 import styles from './ServiceCard.module.css'
 
 const ServiceCard = ({ service, index }) => {

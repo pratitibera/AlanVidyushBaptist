@@ -1,6 +1,6 @@
 .cardContainer {
     width: 100%;
-    max-width: 350px;
+    max-width: max(30vw, 350px);
     position: relative;
     overflow: hidden;
     margin: 1em;
@@ -10,8 +10,8 @@
     position: relative;
     min-width: 350px;
     min-height: 350px;
-    height: 20vw;
-    width: 20vw;
+    height: 30vw;
+    width: 30vw;
     background: red;
 }
 
