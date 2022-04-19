@@ -7,6 +7,7 @@ import Footer from "../components/Layout/Footer";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [ isLoading, setLoading ] = useState(false);
   const params = useParams();
 
   console.log(params);
@@ -15,6 +16,7 @@ const Services = () => {
 
     function getServices() {
       var request = new XMLHttpRequest();
+      setLoading(true)
       request.open(
         urlSet.viewServicesApi.method,
         urlSet.viewServicesApi.url + params.serviceId.replaceAll("_", " "),
@@ -27,6 +29,7 @@ const Services = () => {
         console.log(data);
         mainServicesData = data["subservices"];
         setServices(mainServicesData);
+        setLoading(false)
       };
     }
     getServices();
@@ -40,6 +43,11 @@ const Services = () => {
 
       <section className="services-list">
         <div className="row m-0" id="mainServices_section">
+        {isLoading && (
+            <div id="preloader">
+              <div class="loader" id="loader"></div>
+            </div>
+          )}
           {services &&
             services.map((service) => <ServiceCard service={service} />)}
         </div>

@@ -7,6 +7,16 @@ import OfferCard from "../components/Services/OfferCard";
 import Footer from "../components/Layout/Footer";
 import PricingBanner from "../img/banners/pricing_banner.png";
 
+
+import TImage1 from '../img/testimonials/1.png'
+import TImage2 from '../img/testimonials/2.png'
+import TImage3 from '../img/testimonials/3.png'
+import TImage4 from '../img/testimonials/4.png'
+
+
+
+
+
 const SampleNextArrow = (props) => {
   const { onClick } = props;
   return (
@@ -36,7 +46,7 @@ function SamplePrevArrow(props) {
         right: "53%",
         fontSize: "26px",
       }}
-      onClick={onClick}
+      onClick={() => console.log("Hello")}
     />
   );
 }
@@ -70,25 +80,73 @@ const settings = {
   ],
 };
 
+const testimonialsSettings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 2,
+  autoplay: true,
+  // arrows: true,
+  // nextArrow: <SampleNextArrow />,
+  // prevArrow: <SamplePrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1800,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: true,
+      },
+    },
+    {
+      breakpoint: 1300,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        arrows: false,
+      },
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+      },
+    },
+  ],
+};
+
 const Pricing = () => {
   const [service, setService] = useState(null);
+  const [ isLoading, setLoading ] = useState(false)
   const params = useParams();
   useEffect(() => {
     const getPlans = async () => {
       try {
+        setLoading(true)
         const res = await axios.get(
           urlSet.viewServicesApi.url + params.serviceId.replaceAll("_", " ")
         );
         setService(res.data);
+        setLoading(false)
         console.log(res.data);
       } catch (err) {
         console.log(err);
+        setLoading(false)
       }
     };
     getPlans();
   }, [params.serviceId]);
   return (
     <div>
+              {isLoading && (
+            <div id="preloader">
+              <div class="loader" id="loader"></div>
+            </div>
+          )}
       {/* <body onload="getPlans();"> */}
       <div id="notification-area"></div>
       <section>
@@ -124,80 +182,42 @@ const Pricing = () => {
         Testimonials
       </div>
       <hr style={{ borderBottom: "3px solid #FFE972", maxWidth: "100px" }} />
-      <div className="row m-0 mt-5 testimonials">
-        <div className="col-sm-4 mb-5">
-          <div className="bg-grey p-4">
-            <div className="text-center testimonialsImage">
-              <img
-                src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                className="w-30"
-                alt="Testimonial_1"
-              />
-            </div>
-            <div className="text-center fo-24 fw-600">John Doe</div>
-            <div className="fo-15">
-              <span className="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum
-              <span className="fo-22 fw-800">"</span>
-            </div>
-            <hr />
-          </div>
+
+<div>
+      <Slider {...testimonialsSettings}>
+
+        <div className="p-4">
+          <img
+            src={TImage1}
+            className="w-100 copyright_img no-outline"
+            alt={"image_1"}
+          />
         </div>
-        <div className="col-sm-4 mb-5">
-          <div className="bg-grey p-4">
-            <div className="text-center testimonialsImage">
-              <img
-                src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                className="w-30"
-                alt="Testimonial_2"
-              />
-            </div>
-            <div className="text-center fo-24 fw-600">John Doe</div>
-            <div className="fo-15">
-              <span className="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum
-              <span className="fo-22 fw-800">"</span>
-            </div>
-            <hr />
-          </div>
+        <div className="p-4">
+          <img
+            src={TImage2}
+            className="w-100 copyright_img no-outline"
+            alt={"image_2"}
+          />
         </div>
-        <div className="col-sm-4 mb-5">
-          <div className="bg-grey p-4">
-            <div className="text-center testimonialsImage">
-              <img
-                src="https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8MnwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-                className="w-30"
-                alt="Testimonial_3"
-              />
-            </div>
-            <div className="text-center fo-24 fw-600">John Doe</div>
-            <div className="fo-15">
-              <span className="fo-22 fw-800">"</span>Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia
-              deserunt mollit anim id est laborum
-              <span className="fo-22 fw-800">"</span>
-            </div>
-            <hr />
-          </div>
+        <div className="p-4">
+          <img
+            src={TImage3}
+            className="w-100 copyright_img no-outline"
+            alt={"image_3"}
+          />
         </div>
+        <div className="p-4">
+          <img
+            src={TImage4}
+            className="w-100 copyright_img no-outline"
+            alt={"image_4"}
+          />
+        </div>
+
+      </Slider>
       </div>
+
       <Footer />
     </div>
   );

@@ -101,7 +101,7 @@ const Columnists = () => {
                   Debasmita Das
                 </div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Debasmita_Das">
+                  <a href="/blogs?partner=Debasmita Das">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>

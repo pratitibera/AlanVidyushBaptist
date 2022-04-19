@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-
+import { useEffect } from 'react'
 import BlogGallery from "../components/Blog/BlogGallery";
 
 import PortfolioImage1 from "../img/portfolio/1.jpeg";
@@ -31,8 +31,33 @@ const images = [
 ];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const Portfolio = () => (
-  <main>
+const Portfolio = () => {
+
+  function rightClick(e) {
+    e.preventDefault();
+    if (document.getElementById("contextMenu").style.display === "block")
+      hideMenu();
+    else {
+      var menu = document.getElementById("contextMenu")
+      menu.style.display = 'block';
+      menu.style.left = e.pageX + "px";
+      menu.style.top = e.pageY + "px";
+    }
+  }
+  const hideMenu = () => {
+    document.getElementById("contextMenu").style.display = "none"
+  }
+  useEffect(() => {
+    document.onclick = hideMenu;
+    for (let i = 0; i < document.querySelectorAll(".copyright_img").length; i++) {
+      document.querySelectorAll(".copyright_img")[i].oncontextmenu = rightClick;
+    }
+  }, [])
+
+  return (<main>
+    <div id="contextMenu" class="context-menu" style={{ display: "none" }}>
+      This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
+    </div>
     <div className="whatsapp_icon row">
       <div className="fo-16 bg-gray text-white">
         Talk to Us <span className="borde-gray"></span>
@@ -48,6 +73,7 @@ const Portfolio = () => (
 
     <section>
       <div
+        onContextMenu={() => null}
         className="owl-carousel d-sm-none portfolioSection_mobile"
         id="portfolioSection"
       >
@@ -130,6 +156,7 @@ const Portfolio = () => (
 
     <div className="disclaimer fo-14"><span className="fw-700">Disclaimer -</span> Kindly note that these pictures are representative of the physique I'd maintained during my brief career as a fitness model as per the industry standards in the early 2010's and is by no means an endorsement of a particular body type as an embodiment of holistic well-being. I firmly believe that fitness and wellness as a holistic concept encapsulates much more than maintaining a specific body composition ratio</div>
   </main>
-);
+  )
+};
 
 export default Portfolio;

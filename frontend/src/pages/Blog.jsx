@@ -10,7 +10,7 @@ import Accordian from "../components/Basic/Accordian/Accordian";
 import Helmet from "react-helmet";
 import Footer from "../components/Layout/Footer";
 import Slider from "react-slick";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 const Blog = () => {
   const params = useParams();
@@ -20,11 +20,6 @@ const Blog = () => {
   const enlargeImage = (index) => {
     setSelectedImage(index)
     setShow(true)
-  }
-
-  const closeModal = () => {
-    setSelectedImage(null)
-    setShow(false)
   }
 
   const [blog, setBlog] = useState(null);
@@ -272,9 +267,9 @@ const Blog = () => {
                           })}
                       </div>
                     </div>
-                    <Modal show={blog && show} onHide={() => setShow(false)} animation={true} size="lg" backdrop={true} onExited={() => setSelectedImage(false)}>
+                    <Modal show={blog && show} onHide={() => setShow(false)} animation={true} size="lg" backdrop={true} onExited={() => setSelectedImage(false)} centered>
                       <Modal.Body as="div" bsPrefix="none">
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <button type="button" class="close" data-dismiss="modal" onClick={() => setShow(false)}>&times;</button>
                         {blog && (
                           <img
                             src={blog.gallery[selectedImage || 0].image}

@@ -7,8 +7,10 @@ import Footer from "../components/Layout/Footer";
 
 const Mainservices = () => {
   const [services, setServices] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   useEffect(() => {
     function getMainServices() {
+      setLoading(true)
       var request = new XMLHttpRequest();
       request.open(
         urlSet.getMainServiceApi.method,
@@ -20,6 +22,7 @@ const Mainservices = () => {
       request.onload = function () {
         var data = JSON.parse(this.response);
         setServices(data);
+        setLoading(false);
       };
     }
 
@@ -36,7 +39,7 @@ const Mainservices = () => {
           href="https://wa.me/919836143134?text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make."
           className="position-relative"
         >
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="whatsapp_logo" />
           <span className="whatsapp_icon_span">1</span>
         </a>
       </div>
@@ -52,6 +55,11 @@ const Mainservices = () => {
 
       <section className="services-list">
         <div className="row m-0" id="mainServices_section">
+          {isLoading && (
+            <div id="preloader">
+              <div class="loader" id="loader"></div>
+            </div>
+          )}
           {services &&
             services.map((service) => <ServiceCard service={service} />)}
         </div>

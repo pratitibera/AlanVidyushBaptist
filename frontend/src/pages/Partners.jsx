@@ -108,7 +108,7 @@ const Partners = () => {
                   Neera Katwal
                 </div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Neera_Katwal">
+                  <a href="/blogs?partner=Neera_Katwal">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
@@ -143,7 +143,7 @@ const Partners = () => {
                   Vivek Baptist
                 </div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Vivek_Baptist">
+                  <a href="/blogs?partner=Vivek_Baptist">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
@@ -180,7 +180,7 @@ const Partners = () => {
                   Vinit Baptist
                 </div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Vinit_Baptist">
+                  <a href="/blogs?partner=Vinit_Baptist">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
@@ -215,7 +215,7 @@ const Partners = () => {
                   Minhaj Akhtar Khan
                 </div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Minhaj_Akhtar_Khan">
+                  <a href="/blogs?partner=Minhaj_Akhtar_Khan">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
@@ -249,7 +249,7 @@ const Partners = () => {
               <div className="col-6 col-sm-5 pl-0 pt-sm-5 pr-sm-0 m-auto">
                 <div className="fo-28 mfo-26 fw-800 text-center">Pankaj</div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Pankaj">
+                  <a href="/blogs?partner=Pankaj">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
@@ -283,7 +283,7 @@ const Partners = () => {
                   Rohan Kothari
                 </div>
                 <div className="fo-15 mfo-20 fw-800 text-center">
-                  <a href="achievements.html?partner=Rohan_Kothari">
+                  <a href="/blogs?partner=Rohan_Kothari">
                     <button className="btn website-button bg-dark mt-3 text-white">
                       READ MORE
                     </button>
