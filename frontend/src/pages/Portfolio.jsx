@@ -127,6 +127,8 @@ const Portfolio = () => (
         </div>
       </div>
     </section>
+
+    <div className="disclaimer fo-14"><span className="fw-700">Disclaimer -</span> Kindly note that these pictures are representative of the physique I'd maintained during my brief career as a fitness model as per the industry standards in the early 2010's and is by no means an endorsement of a particular body type as an embodiment of holistic well-being. I firmly believe that fitness and wellness as a holistic concept encapsulates much more than maintaining a specific body composition ratio</div>
   </main>
 );
 

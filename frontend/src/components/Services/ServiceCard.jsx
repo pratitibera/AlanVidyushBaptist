@@ -44,7 +44,7 @@ const ServiceCard = ({ service, index }) => {
             <h3>{service["service"]}</h3>
             <p>{service["description"]}</p>
             <div
-              className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3"
+              className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3 cursorPointer"
               id={`service_${service.id}`}
               onClick={mainServiceDetails}
             >
