@@ -121,7 +121,7 @@ const testimonialsSettings = {
 
 const Pricing = () => {
   const [service, setService] = useState(null);
-  const [ isLoading, setLoading ] = useState(false)
+  const [isLoading, setLoading] = useState(false)
   const params = useParams();
   useEffect(() => {
     const getPlans = async () => {
@@ -142,16 +142,16 @@ const Pricing = () => {
   }, [params.serviceId]);
   return (
     <div>
-              {isLoading && (
-            <div id="preloader">
-              <div class="loader" id="loader"></div>
-            </div>
-          )}
+      {isLoading && (
+        <div id="preloader">
+          <div class="loader" id="loader"></div>
+        </div>
+      )}
       {/* <body onload="getPlans();"> */}
       <div id="notification-area"></div>
       <section>
         <div className="partners-cover text-center">
-          <img src={PricingBanner} className="w-100"></img>
+          <img src={PricingBanner} className="w-100" alt="Pricing Banner"></img>
         </div>
       </section>
       <section className="pricing-section pt-4">
@@ -183,39 +183,39 @@ const Pricing = () => {
       </div>
       <hr style={{ borderBottom: "3px solid #FFE972", maxWidth: "100px" }} />
 
-<div>
-      <Slider {...testimonialsSettings}>
+      <div style={{ overflow: "hidden" }}>
+        <Slider {...testimonialsSettings}>
 
-        <div className="p-4">
-          <img
-            src={TImage1}
-            className="w-100 copyright_img no-outline"
-            alt={"image_1"}
-          />
-        </div>
-        <div className="p-4">
-          <img
-            src={TImage2}
-            className="w-100 copyright_img no-outline"
-            alt={"image_2"}
-          />
-        </div>
-        <div className="p-4">
-          <img
-            src={TImage3}
-            className="w-100 copyright_img no-outline"
-            alt={"image_3"}
-          />
-        </div>
-        <div className="p-4">
-          <img
-            src={TImage4}
-            className="w-100 copyright_img no-outline"
-            alt={"image_4"}
-          />
-        </div>
+          <div className="p-4">
+            <img
+              src={TImage1}
+              className="w-100 copyright_img no-outline"
+              alt={"image_1"}
+            />
+          </div>
+          <div className="p-4">
+            <img
+              src={TImage2}
+              className="w-100 copyright_img no-outline"
+              alt={"image_2"}
+            />
+          </div>
+          <div className="p-4">
+            <img
+              src={TImage3}
+              className="w-100 copyright_img no-outline"
+              alt={"image_3"}
+            />
+          </div>
+          <div className="p-4">
+            <img
+              src={TImage4}
+              className="w-100 copyright_img no-outline"
+              alt={"image_4"}
+            />
+          </div>
 
-      </Slider>
+        </Slider>
       </div>
 
       <Footer />

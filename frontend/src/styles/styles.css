@@ -31,6 +31,13 @@
 
 /* } */
 
+.service-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
 .mont {
   font-family: "Montserrat", sans-serif;
 }
@@ -1185,8 +1192,12 @@ footer .move-up {
   z-index: -1;
 }
 
+.service-grid {
+  display: grid;
+}
+
 .services-list {
-  padding: 80px 100px;
+  /* padding: 80px 100px; */
   /* background-color: #eeeeee; */
   min-height: 19vh;
 }

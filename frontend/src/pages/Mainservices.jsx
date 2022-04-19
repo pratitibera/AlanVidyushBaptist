@@ -54,7 +54,7 @@ const Mainservices = () => {
       </section>
 
       <section className="services-list">
-        <div className="row m-0" id="mainServices_section">
+        <div className="service-grid" id="mainServices_section">
           {isLoading && (
             <div id="preloader">
               <div class="loader" id="loader"></div>

@@ -7,7 +7,7 @@ import Footer from "../components/Layout/Footer";
 
 const Services = () => {
   const [services, setServices] = useState([]);
-  const [ isLoading, setLoading ] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const params = useParams();
 
   console.log(params);
@@ -42,8 +42,8 @@ const Services = () => {
       </div>
 
       <section className="services-list">
-        <div className="row m-0" id="mainServices_section">
-        {isLoading && (
+        <div className="service-grid" id="mainServices_section">
+          {isLoading && (
             <div id="preloader">
               <div class="loader" id="loader"></div>
             </div>
