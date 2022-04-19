@@ -15,6 +15,20 @@
   z-index: 99999;
 }
 
+.portfolio-img {
+  height: 550px;
+  width: 100%;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.portfolio-img img {
+  object-fit: contain;
+}
+
 /* } */
 
 .mont {
@@ -1550,13 +1564,15 @@ footer .move-up {
   width: 4050px;
   /* overflow-x: scroll; */
 }
-.disclaimer{
+
+.disclaimer {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 20px;
   text-align: center;
 }
+
 .portfolioSection_desktop .card {
   height: 330px;
 }
@@ -1565,17 +1581,19 @@ footer .move-up {
   height: 330px;
   width: auto;
 }
-.close{
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	color: #fff;
-	font-size: 20px;
-	font-weight: 600;
-	background-color: #000!important;
-	padding: 8px 10px!important;
-	opacity: 1!important;
+
+.close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: #000 !important;
+  padding: 8px 10px !important;
+  opacity: 1 !important;
 }
-.close:hover{
-	color: #fff!important;
+
+.close:hover {
+  color: #fff !important;
 }
