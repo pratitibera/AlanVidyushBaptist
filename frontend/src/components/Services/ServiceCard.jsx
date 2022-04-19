@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import styles from './ServiceCard.module.css'
 
 const ServiceCard = ({ service, index }) => {
-  const [hover, setHover] = useState(false);
-  console.log(hover);
   const navigate = useNavigate();
   const mainServiceDetails = () => {
     if (service["subservices"].length === 0) {
@@ -13,44 +12,31 @@ const ServiceCard = ({ service, index }) => {
     }
   };
 
-  const hoverHandler = () => {
-    setHover(!hover);
-  };
 
   return (
-    <div className="col-sm-4">
-      <div className="single-service-item">
+    <div className={`${styles.cardContainer}`}>
+      <div className={styles.cardBackground}>
+        <img
+          className={`${styles.backgroundImage} ${styles.firstImage}`}
+          src={service["service_image"][1]}
+          alt="service_image_2"
+        />
+        <img
+          className={`${styles.backgroundImage} ${styles.secondImage}`}
+          src={service["service_image"][0]}
+          alt="service_image_1"
+        />
+
+      </div>
+      <div className={styles.messageBox}>
+        <h5>{service["service"]}</h5>
+        <p>{service["description"]}</p>
         <div
-          className="img-holder"
-          onMouseEnter={hoverHandler}
-          onMouseLeave={hoverHandler}
+          className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3 cursorPointer"
+          id={`service_${service.id}`}
+          onClick={mainServiceDetails}
         >
-          <figure className="swap-on-hover">
-            <img
-              className="swap-on-hover__front-image"
-              src={service["service_image"][0]}
-            />
-            <img
-              className="swap-on-hover__back-image"
-              src={service["service_image"][1]}
-            />
-          </figure>
-          <div
-            className={
-              "text-holder text-center service-card__description " +
-              (hover ? "index_99999" : "index_0")
-            }
-          >
-            <h3>{service["service"]}</h3>
-            <p>{service["description"]}</p>
-            <div
-              className="thm-btn bgclr-1 w-50 ml-auto mr-auto mt-3 cursorPointer"
-              id={`service_${service.id}`}
-              onClick={mainServiceDetails}
-            >
-              Read More
-            </div>
-          </div>
+          Read More
         </div>
       </div>
     </div>
