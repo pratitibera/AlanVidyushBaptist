@@ -51,6 +51,10 @@ const OfferCard = ({ dark, offer }) => {
       }, 5000);
     })();
 
+  const slotsFullNotify = () => {
+    notify("All Slots Filled")
+  }
+
   return (
     <div
       className={dark ? "bg-dark pt-5 pb-5 dark-pricing" : "bg-white pt-5 pb-5"}
@@ -84,7 +88,7 @@ const OfferCard = ({ dark, offer }) => {
         <div className="text-center mt-5">
           <button
             className="btn"
-            onClick={addToCart}
+            onClick={offer.in_stock ? addToCart : slotsFullNotify}
             id="Salary_+_House_Property_Plan"
           // disabled={!offer.in_stock}
           >
