@@ -1,25 +1,25 @@
 const OfferCard = ({ dark, offer }) => {
   const addToCart = () => {
-    var shopcart = JSON.parse(sessionStorage.getItem("cart"));
+    let shopcart = JSON.parse(sessionStorage.getItem("cart"));
     if (!shopcart) {
       shopcart = [];
       sessionStorage.setItem("cart", JSON.stringify([]));
     }
 
     if (shopcart.length > 0) {
-      for (let y = 0; y < shopcart.length; y++) {
-        if (shopcart[y]["id"] === offer["id"]) {
-          notify("Service already added to cart");
-        } else {
-          shopcart.push(offer);
-          notify("Service added to cart");
-          sessionStorage.setItem("cart", JSON.stringify(shopcart));
+      const checkExist = (shopcart.filter(elem => elem['_id'] === offer['_id'])).length === 0
+      if (!checkExist) {
+        notify("Service already added to cart");
+      } else {
+        shopcart.push(offer);
+        notify("Service added to cart");
+        sessionStorage.setItem("cart", JSON.stringify(shopcart));
 
-          shopcart = JSON.parse(sessionStorage.getItem("cart"));
-          document.getElementById("cart_count_mobile").innerHTML =
-            shopcart.length;
-        }
+        shopcart = JSON.parse(sessionStorage.getItem("cart"));
+        document.getElementById("cart_count_mobile").innerHTML =
+          shopcart.length;
       }
+
     } else {
       shopcart.push(offer);
       notify("Service added to cart");
