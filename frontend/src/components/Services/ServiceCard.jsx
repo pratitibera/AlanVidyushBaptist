@@ -5,9 +5,9 @@ const ServiceCard = ({ service, index }) => {
   const navigate = useNavigate();
   const mainServiceDetails = () => {
     if (service["subservices"].length === 0) {
-      navigate("/services/" + service["_id"].replaceAll(" ", "_") + "/pricing");
+      navigate("/services/" + service["service"].replaceAll(" ", "_") + "/pricing");
     } else {
-      navigate("/services/" + service["_id"].replaceAll(" ", "_"));
+      navigate("/services/" + service["service"].replaceAll(" ", "_"));
     }
   };
 

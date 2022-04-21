@@ -18,8 +18,6 @@ const OfferCard = ({ dark, offer }) => {
           shopcart = JSON.parse(sessionStorage.getItem("cart"));
           document.getElementById("cart_count_mobile").innerHTML =
             shopcart.length;
-          document.getElementById("cart_count_desktop").innerHTML =
-            shopcart.length;
         }
       }
     } else {
@@ -29,7 +27,6 @@ const OfferCard = ({ dark, offer }) => {
 
       shopcart = JSON.parse(sessionStorage.getItem("cart"));
       document.getElementById("cart_count_mobile").innerHTML = shopcart.length;
-      document.getElementById("cart_count_desktop").innerHTML = shopcart.length;
     }
   };
 
@@ -89,7 +86,7 @@ const OfferCard = ({ dark, offer }) => {
             className="btn"
             onClick={addToCart}
             id="Salary_+_House_Property_Plan"
-            // disabled={!offer.in_stock}
+          // disabled={!offer.in_stock}
           >
             {offer.in_stock ? "CHOOSE PLAN" : "SLOTS FULL"}
           </button>

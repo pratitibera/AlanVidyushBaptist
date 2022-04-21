@@ -1,6 +1,7 @@
 import { useState } from "react";
 import urlSet from "../../utils/urls";
 import { Button, Modal } from 'react-bootstrap'
+import { useEffect } from "react";
 
 const CheckoutModal = ({ classes }) => {
   const [show, setShow] = useState(false)
@@ -12,7 +13,13 @@ const CheckoutModal = ({ classes }) => {
   const openHandler = () => setShow(true)
   const closeHandler = () => setShow(false)
 
-  const shopCart = JSON.parse(sessionStorage.getItem("cart"));
+  const shopCart = sessionStorage.getItem("cart") ? JSON.parse(sessionStorage.getItem("cart")) : [];
+
+
+  useEffect(() => {
+    setCartCount(shopCart.length > 0 ? shopCart.length : "")
+    document.getElementById("cart_count_mobile").innerHTML = cartCount;
+  }, [cartCount, shopCart.length])
 
   const notify = (message) => {
     (() => {
@@ -27,7 +34,7 @@ const CheckoutModal = ({ classes }) => {
           .getElementById("notification-area")
           .getElementsByClassName("notification");
         for (let i = 0; i < notifications.length; i++) {
-          if (notifications[i].getAttribute("id") == id) {
+          if (notifications[i].getAttribute("id") === id) {
             notifications[i].remove();
             break;
           }
@@ -40,8 +47,6 @@ const CheckoutModal = ({ classes }) => {
     closeHandler()
     sessionStorage.clear();
     document.getElementById("cart_count_mobile").innerHTML = "";
-    document.getElementById("cart_count_desktop").innerHTML = "";
- 
   };
 
   const removeCoupon = () => {
@@ -269,7 +274,7 @@ const CheckoutModal = ({ classes }) => {
       <div className={"btn " + classes} onClick={fetchCart}>
         <i className="fa fa-shopping-cart fo-30 bco">
           <sup
-            className="cart_count fo-24 bco fw-600"
+            className="fo-24 bco fw-600"
             id="cart_count_mobile"
           ></sup>
         </i>
@@ -292,7 +297,7 @@ const CheckoutModal = ({ classes }) => {
         </Modal.Header>
         <Modal.Body>
           <div id="particulars">
-            {shopCart && shopCart.map(service => <ParticularCard service={service} />)}
+            {shopCart && shopCart.map(service => <ParticularCard service={service} key={service['_id']} />)}
           </div>
           <div className="mt-4 text-right">
             <div
@@ -337,8 +342,8 @@ const CheckoutModal = ({ classes }) => {
                 onClick={discount ? removeCoupon : applyCoupon}
                 id="coupon_button"
               >
-                { discount ? "REMOVE COUPON" : "APPLY COUPON"}
-                
+                {discount ? "REMOVE COUPON" : "APPLY COUPON"}
+
               </button>
             </div>
             <div className="col-12 col-sm-12 text-center cash_option">
