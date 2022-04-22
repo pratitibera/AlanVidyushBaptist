@@ -405,7 +405,7 @@ const ParticularCard = ({ service }) => {
     </div>
   </div>) : (<div className="row m-0 mb-2">
     <div className="col-3 col-sm-2">
-      <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100" />
+      <img src="https://pratitibera.github.io/Karan_Khanna_Fitness/img/barbell.png" className="w-100" />
     </div>
     <div className="col-6 col-sm-6 p-0">
       <div className="fo-16 fw-600 mfo-14">{service["service"]}</div>
