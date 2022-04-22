@@ -1598,3 +1598,8 @@ footer .move-up {
 .modal-footer{
   justify-content: space-between!important;
 }
+
+sup {
+  top: -0.8em;
+  left: 0.3em;
+}
