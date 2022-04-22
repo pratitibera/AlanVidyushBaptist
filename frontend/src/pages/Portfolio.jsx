@@ -90,43 +90,67 @@ const Portfolio = () => {
         </BlogGallery>
       </div>
       {/* portfolioSection_desktop  */}
-      <div className="d-none d-sm-flex" style={{ marginTop: '170px', gap: '.5em'}}> 
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage1} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage2} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage3} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage4} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage5} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage6} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage7} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage8} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage9} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage10} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage11} className="w-100 copyright_img"></img>
-        </div>
-        <div className="portfolio-img p-0 border-0">
-          <img src={PortfolioImage12} className="w-100 copyright_img"></img>
-        </div>
+      <div className="portfolioSection_desktop d-none d-sm-flex">
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage1} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage2} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage3} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage4} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage5} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage6} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage7} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage8} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage9} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage10} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage11} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
+        <div className="p-2">
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage12} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
       </div>
     </section>
 

@@ -1481,7 +1481,7 @@ footer .move-up {
 
 /* Checkout */
 .input-data {
-  height: 40px;
+  height: 30px;
   width: 100%;
   position: relative;
 }
@@ -1490,20 +1490,20 @@ footer .move-up {
   height: 100%;
   width: 100%;
   border: none;
-  font-size: 17px;
+  font-size: 13px;
   border-bottom: 2px solid #eeeeee;
 }
 
 .input-data input:focus~label,
 .input-data input:valid~label {
   transform: translateY(-20px);
-  font-size: 15px;
+  font-size: 13px;
   color: #000000;
 }
 
 .input-data label {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 0;
   color: #000000;
   pointer-events: none;
@@ -1543,7 +1543,7 @@ footer .move-up {
   padding-bottom: 12px;
 }
 
-.checkoutfooter {
+.checkoutfooter, .modal-footer {
   background: #fff;
   bottom: 0;
   left: 0;
@@ -1552,7 +1552,7 @@ footer .move-up {
   box-shadow: 0 -1px 4px 0 #0000004d;
 }
 
-.checkoutfooter button {
+.checkoutfooter button, .modal-footer button {
   padding-top: 12px;
   padding-bottom: 12px;
 }
@@ -1568,15 +1568,6 @@ footer .move-up {
   margin: 70px 0px 0px 0px;
 }
 
-.portfolioSection_desktop {
-  margin: 140px 0px 0px 0px;
-}
-
-.portfolioSection_desktop {
-  width: 4050px;
-  /* overflow-x: scroll; */
-}
-
 .disclaimer {
   position: fixed;
   left: 0;
@@ -1584,22 +1575,12 @@ footer .move-up {
   bottom: 20px;
   text-align: center;
 }
-
-.portfolioSection_desktop .card {
-  height: 330px;
-}
-
-.portfolioSection_desktop .card img {
-  height: 330px;
-  width: auto;
-}
-
 .close {
   position: absolute;
   top: 0px;
   right: 0px;
   color: #fff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 600;
   background-color: #000 !important;
   padding: 8px 10px !important;
@@ -1608,4 +1589,12 @@ footer .move-up {
 
 .close:hover {
   color: #fff !important;
+}
+
+.modal-header .close {
+  margin: 0;
+}
+
+.modal-footer{
+  justify-content: space-between!important;
 }
