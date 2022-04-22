@@ -1568,15 +1568,6 @@ footer .move-up {
   margin: 70px 0px 0px 0px;
 }
 
-.portfolioSection_desktop {
-  margin: 140px 0px 0px 0px;
-}
-
-.portfolioSection_desktop {
-  width: 4050px;
-  /* overflow-x: scroll; */
-}
-
 .disclaimer {
   position: fixed;
   left: 0;
@@ -1584,16 +1575,6 @@ footer .move-up {
   bottom: 20px;
   text-align: center;
 }
-
-.portfolioSection_desktop .card {
-  height: 330px;
-}
-
-.portfolioSection_desktop .card img {
-  height: 330px;
-  width: auto;
-}
-
 .close {
   position: absolute;
   top: 0px;
@@ -1612,4 +1593,8 @@ footer .move-up {
 
 .modal-header .close {
   margin: 0;
+}
+
+.modal-footer{
+  justify-content: space-between!important;
 }
