@@ -52,7 +52,7 @@ const OfferCard = ({ dark, offer }) => {
     })();
 
   const slotsFullNotify = () => {
-    notify("All Slots Filled")
+    notify("Unfortunately, no slots are currently available.")
   }
 
   return (
@@ -62,7 +62,11 @@ const OfferCard = ({ dark, offer }) => {
       <div className="pri_offer_heading fw-600 pco text-center">
         {offer.duration}
       </div>
-      <div className="pco fo-20 fw-600 text-center recommend"></div>
+      {offer.recommended == true ? (
+        <div className="pco fo-20 fw-600 text-center recommend">Recommended</div>
+      ) : (
+        <div className="pco fo-20 fw-600 text-center recommend"></div>
+      )}
 
       {offer.discounted_price && offer.discounted_price > 0 ? (
         <div className="text-center fw-600 fo-22">
@@ -76,7 +80,9 @@ const OfferCard = ({ dark, offer }) => {
           {offer.discounted_price}
         </div>
       ) : (
-        <span className="fo-20">₹ {offer.price}</span>
+        <div className="text-center fw-600 fo-22">
+          <span className="pco fo-26 fw-600">₹ </span>{offer.price}
+        </div>
       )}
 
       <ul className="pricing-section-items pl-0 mt-3">

@@ -841,6 +841,7 @@ function saveOffer() {
          var json = {
             "currency": "INR",
             "price": parseInt(actual_price),
+            "discounted_price": 0,
             "duration": duration,
             "recommended": recommendation,
             "features": planfeature_list,

@@ -103,7 +103,7 @@ const CheckoutModal = ({ classes }) => {
         document.getElementById(
           "coupon_status"
         ).innerHTML = `<input type="text" placeholder="Coupon code" id="coupon_code">
-        <div className="fo-16 text-dark fw-600">Invalid Coupon</div>`;
+        <div style="font-weight: 600; font-size: 13px; margin-top: 4px">Invalid Coupon</div>`;
       } else {
         setDiscount(data["discount"]);
         setDiscount(data['discount']) // Shows Discounted Value
@@ -288,7 +288,7 @@ const CheckoutModal = ({ classes }) => {
           </Modal.Title>
           <button
             type="button"
-            className="close text-dark fw-800"
+            className="close fw-800"
             data-dismiss="modal"
             onClick={closeHandler}
           >
@@ -356,11 +356,11 @@ const CheckoutModal = ({ classes }) => {
         </Modal.Body>
         <Modal.Footer>
           <button
-            className="btn website-button w-50 bg-white text-dark fo-20 fw-800"
+            className="btn website-button bg-white text-dark fo-20 fw-800"
             id="totalbill"
           >₹ {totalBill}</button>
           <button
-            className="btn website-button w-50 bg-dark text-white"
+            className="btn website-button bg-dark text-white"
             onClick={checkout}
           >
             PROCEED TO PAYMENT
@@ -394,7 +394,7 @@ const validEmail = (mail) => {
 const ParticularCard = ({ service }) => {
   return !service.discounted_price ? (<div className="row m-0 mb-2">
     <div className="col-3 col-sm-2">
-      <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100" />
+      <img src="https://pratitibera.github.io/Karan_Khanna_Fitness/img/barbell.png" className="w-100" />
     </div>
     <div className="col-6 col-sm-6 p-0">
       <div className="fo-16 fw-600 mfo-14">{service["service"]}</div>
