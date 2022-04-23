@@ -16,7 +16,7 @@ const OfferCard = ({ dark, offer }) => {
         sessionStorage.setItem("cart", JSON.stringify(shopcart));
 
         shopcart = JSON.parse(sessionStorage.getItem("cart"));
-        document.getElementById("cart_count_mobile").innerHTML = shopcart.length;
+        document.querySelectorAll("#cart_count_mobile").forEach(elem => elem.innerHTML = shopcart.length);
       }
 
     } else {
@@ -25,7 +25,7 @@ const OfferCard = ({ dark, offer }) => {
       sessionStorage.setItem("cart", JSON.stringify(shopcart));
 
       shopcart = JSON.parse(sessionStorage.getItem("cart"));
-      document.getElementById("cart_count_mobile").innerHTML = shopcart.length;
+      document.querySelectorAll("#cart_count_mobile").forEach(elem => elem.innerHTML = shopcart.length);
     }
   };
 
