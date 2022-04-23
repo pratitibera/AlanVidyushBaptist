@@ -16,8 +16,7 @@ const OfferCard = ({ dark, offer }) => {
         sessionStorage.setItem("cart", JSON.stringify(shopcart));
 
         shopcart = JSON.parse(sessionStorage.getItem("cart"));
-        document.getElementById("cart_count_mobile").innerHTML =
-          shopcart.length;
+        document.getElementById("cart_count_mobile").innerHTML = shopcart.length;
       }
 
     } else {

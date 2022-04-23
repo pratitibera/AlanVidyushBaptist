@@ -18,7 +18,8 @@ const CheckoutModal = ({ classes }) => {
 
   useEffect(() => {
     setCartCount(shopCart.length > 0 ? shopCart.length : "")
-    document.getElementById("cart_count_mobile").innerHTML = cartCount;
+    document.getElementsByClassName("cart_count_mobile")[0].innerHTML = cartCount;
+    document.getElementsByClassName("cart_count_mobile")[1].innerHTML = cartCount;
   }, [cartCount, shopCart.length])
 
   const notify = (message) => {
@@ -46,7 +47,8 @@ const CheckoutModal = ({ classes }) => {
   const emptyCart = () => {
     closeHandler()
     sessionStorage.clear();
-    document.getElementById("cart_count_mobile").innerHTML = "";
+    document.getElementsByClassName("cart_count_mobile")[0].innerHTML = cartCount;
+    document.getElementsByClassName("cart_count_mobile")[1].innerHTML = "";
   };
 
   const removeCoupon = () => {
@@ -72,16 +74,14 @@ const CheckoutModal = ({ classes }) => {
         offerIds.push(cart[i]["id"]);
         if (cart[i]["discounted_price"]) {
           billAmount = billAmount + parseInt(cart[i]["discounted_price"]);
-          console.log(billAmount)
         } else {
           billAmount = billAmount + parseInt(cart[i]["price"]);
         }
       }
       setTotalBill(billAmount)
-      console.log(billAmount)
       openHandler();
     } else {
-      alert("Cart is empty!");
+      notify("Cart is empty!");
     }
   };
 
@@ -274,7 +274,7 @@ const CheckoutModal = ({ classes }) => {
       <div className={"btn " + classes} onClick={fetchCart}>
         <i className="fa fa-shopping-cart fo-30 bco">
           <sup
-            className="fo-24 bco fw-600"
+            className="fo-24 bco fw-600 cart_count_mobile"
             id="cart_count_mobile"
           ></sup>
         </i>

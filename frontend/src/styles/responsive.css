@@ -41,12 +41,15 @@
   }
   
   .portfolioSection_desktop .card {
-    height: 550px;
+    height: 600px;
   }
   
   .portfolioSection_desktop .card img {
-    height: 550px;
+    height: 600px;
     width: auto;
+  }
+  .disclaimer {
+    padding: 0px 460px;
   }
 }
 
@@ -103,10 +106,6 @@
 
   .about_labels img {
     max-width: 1300px;
-  }
-
-  .disclaimer {
-    padding: 0px 260px;
   }
 }
 
@@ -278,6 +277,9 @@
   .portfolioSection_desktop .card img {
     height: 330px;
     width: auto;
+  }
+  .disclaimer {
+    padding: 0px 260px;
   }
 }
 
