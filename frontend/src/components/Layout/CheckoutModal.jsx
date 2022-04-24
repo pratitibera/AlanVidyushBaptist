@@ -400,7 +400,7 @@ const ParticularCard = ({ service }) => {
       <div className="fo-13 fw-600 mfo-12">{service["offer_name"]} - {service["duration"]}</div>
     </div>
     <div className="col-3 col-sm-4 p-0">
-      <div className="fo-26 fw-700 text-right mfo-18">₹ {service["price"]}</div>
+      <div className="fo-24 fw-700 text-right mfo-18">₹ {service["price"]}</div>
     </div>
   </div>) : (<div className="row m-0 mb-2">
     {/* <div className="col-3 col-sm-2">
@@ -410,7 +410,7 @@ const ParticularCard = ({ service }) => {
       <div className="fo-13 fw-600 mfo-12">{service["offer_name"]} - {service["duration"]}</div>
     </div>
     <div className="col-3 col-sm-4 p-0">
-      <div className="fo-26 fw-700 text-right mfo-18">₹  {service["discounted_price"]}</div>
+      <div className="fo-24 fw-700 text-right mfo-18">₹  {service["discounted_price"]}</div>
       <div className="fo-16 text-right mfo-12" style={{ textDecoration: "line-through" }} id="checkout_discount">₹ {service["price"]}</div>
     </div>
   </div>)
