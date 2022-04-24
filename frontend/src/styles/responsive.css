@@ -41,15 +41,15 @@
   }
   
   .portfolioSection_desktop .card {
-    height: 600px;
+    height: 500px;
   }
   
   .portfolioSection_desktop .card img {
-    height: 600px;
+    height: 500px;
     width: auto;
   }
   .disclaimer {
-    padding: 0px 460px;
+    padding: 0px 550px;
   }
 }
 

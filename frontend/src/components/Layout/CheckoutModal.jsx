@@ -393,23 +393,21 @@ const validEmail = (mail) => {
 
 const ParticularCard = ({ service }) => {
   return !service.discounted_price ? (<div className="row m-0 mb-2">
-    <div className="col-3 col-sm-2">
+    {/* <div className="col-3 col-sm-2">
       <img src="https://pratitibera.github.io/Karan_Khanna_Fitness/img/barbell.png" className="w-100" />
-    </div>
-    <div className="col-6 col-sm-6 p-0">
-      <div className="fo-16 fw-600 mfo-14">{service["service"]}</div>
-      <div className="fo-14 mfo-12">{service["duration"]}</div>
+    </div> */}
+    <div className="col-9 col-sm-8 p-0">
+      <div className="fo-13 fw-600 mfo-12">{service["offer_name"]} - {service["duration"]}</div>
     </div>
     <div className="col-3 col-sm-4 p-0">
       <div className="fo-26 fw-700 text-right mfo-18">₹ {service["price"]}</div>
     </div>
   </div>) : (<div className="row m-0 mb-2">
-    <div className="col-3 col-sm-2">
+    {/* <div className="col-3 col-sm-2">
       <img src="https://pratitibera.github.io/Karan_Khanna_Fitness/img/barbell.png" className="w-100" />
-    </div>
-    <div className="col-6 col-sm-6 p-0">
-      <div className="fo-16 fw-600 mfo-14">{service["service"]}</div>
-      <div className="fo-14 mfo-12">{service["duration"]}</div>
+    </div> */}
+    <div className="col-9 col-sm-8 p-0">
+      <div className="fo-13 fw-600 mfo-12">{service["offer_name"]} - {service["duration"]}</div>
     </div>
     <div className="col-3 col-sm-4 p-0">
       <div className="fo-26 fw-700 text-right mfo-18">₹  {service["discounted_price"]}</div>
