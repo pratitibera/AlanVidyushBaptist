@@ -9,6 +9,7 @@ import Navbar from "./components/Layout/Navbar";
 // const Home = lazy(() => import("./pages/Home"))
 
 import Sidebar from './components/Layout/Sidebar'
+// import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
@@ -20,6 +21,9 @@ const Pricing = lazy(() => import("./pages/Pricing"));
 const Mainservices = lazy(() => import("./pages/Mainservices"));
 const Services = lazy(() => import("./pages/Services"));
 const Columnists = lazy(() => import("./pages/Columnists"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const RefundPolicy = lazy(() => import("./pages/RefundPolicy"));
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -92,6 +96,9 @@ function App() {
         <Route path="/about" element={<Lazyload element={<About />}/>} />
         <Route path="/partners" element={<Lazyload element={<Partners />}/>} />
         <Route path="/columnists" element={<Lazyload element={<Columnists />}/>} />
+        <Route path="/termsAndConditions" element={<Lazyload element={<TermsAndConditions />}/>} />
+        <Route path="/privacyPolicy" element={<Lazyload element={<PrivacyPolicy />}/>} />
+        <Route path="/refundPolicy" element={<Lazyload element={<RefundPolicy />}/>} />
         <Route path="/portfolio" element={<Lazyload element={<Portfolio />}/>} />
 
         <Route path="/blogs" element={<Lazyload element={<Blogs />}/>} />

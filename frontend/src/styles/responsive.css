@@ -107,6 +107,9 @@
   .about_labels img {
     max-width: 1300px;
   }
+  .policy_pages{
+    padding: 190px 90px 50px 90px;
+  }
 }
 
 @media only screen and (min-width: 577px) {
@@ -280,6 +283,9 @@
   }
   .disclaimer {
     padding: 0px 260px;
+  }
+  .policy_pages{
+    padding: 190px 60px 30px 60px;
   }
 }
 
@@ -664,5 +670,8 @@
 
   .menuSidebar {
     width: 100% !important;
+  }
+  .policy_pages{
+    padding: 80px 20px 20px 20px;
   }
 }

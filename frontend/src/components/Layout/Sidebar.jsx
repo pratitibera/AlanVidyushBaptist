@@ -125,6 +125,33 @@ const Sidebar = ({ overlay }) => {
             Portfolio
           </Link>
         </div>
+        <div className="pt-1">
+          <Link
+            to="termsAndConditions"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Terms And Conditions
+          </Link>
+        </div>
+        <div className="pt-1">
+          <Link
+            to="privacyPolicy"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Privacy Policy
+          </Link>
+        </div>
+        <div className="pt-1">
+          <Link
+            to="refundPolicy"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Refund Policy
+          </Link>
+        </div>
       </div>
       <div className="searchbox mt-md-4">
         <i

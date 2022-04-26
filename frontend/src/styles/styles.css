@@ -130,6 +130,12 @@ input:-webkit-autofill:active {
   box-shadow: none;
 }
 
+.text-yellow{
+  color: #ffe972;
+}
+.navExtras a{
+  font-size: 13px;
+}
 /* floating notifications */
 
 #notification-area {
