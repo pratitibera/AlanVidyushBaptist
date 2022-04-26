@@ -29,7 +29,7 @@ const RefundPolicy = () => {
       <section class="bg-dark policy_pages">
          <div class="pr-md-5 pl-md-5">
             <div class="fo-40 fw-700 text-yellow mfo-25 mb-4 text-center">CANCELLATION AND REFUND POLICY</div>
-            <div class="fo-18 text-white p-4 p-md-5 mfo-14 text-justify">Once a consultation is already underway, we have a no-cancellation policy. Further refund requests under special circumstances are entirely under Optimum Wellness’ discretion.</div>
+            <div class="fo-18 text-white p-4 p-md-5 mfo-14 text-justify">Once a consultation is already underway, we have a no-cancellation policy. Further refund requests under special circumstances are entirely under Alan Baptist’s discretion.</div>
          </div>
       </section>
       

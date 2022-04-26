@@ -60,9 +60,7 @@ const PrivacyPolicy = () => {
             <br></br><br></br>
             How do I withdraw my consent?
             <br></br><br></br>
-            If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for
-            the
-            continued collection, use or disclosure of your information, at anytime, by contacting us.
+            If after you opt-in, you change your mind, you may withdraw your consent for us to contact you, for the continued collection, use or disclosure of your information, at anytime, by contacting us at info@alanbaptist.com
             <br></br><br></br>
          </div>
          <div class="fo-14 text-white"><span class="fw-600 fo-16">SECTION 3 –
@@ -216,7 +214,7 @@ const PrivacyPolicy = () => {
             <br></br><br></br>
             If you would like to: access, correct, amend or delete any personal information we have about you,
             register
-            a complaint, or simply want more information contact our Privacy Compliance Officer info@optimumwellness.com
+            a complaint, or simply want more information contact our Privacy Compliance Officer info@alanbaptist.com
             <br></br><br></br>
             [Re:
             Privacy
