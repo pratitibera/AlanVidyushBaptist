@@ -18,7 +18,7 @@ function signin() {
 		console.log(data);
 		if (data['message'] == "User logged in.") {
 			localStorage.setItem("authtoken", data['token']);
-			document.location.href = "admin.html";
+			document.location.href = "index.html";
 		} else {
 			alert("Login failed! Username or Password is wrong.")
 		}
@@ -71,7 +71,7 @@ function checkLoginStatus2() {
 				getBlogSubcategory('Weight Loss_0');
 			}
 		} catch {
-			document.location.href = "admin.html";
+			document.location.href = "index.html";
 		}
 	}
 }
