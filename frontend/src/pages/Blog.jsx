@@ -124,25 +124,25 @@ const Blog = () => {
     <main className="page-body">
       {blog && (
         <Helmet>
-          <title>{blog.title}</title>
-          {/* <meta name="title" content={blog.title} />
-          <meta name="description" content={blog.summary} />
-          <meta name="image" content={blog.headerImage[0].image} /> */}
+        <meta name="title" content={blog.title} />
+        <meta name="description" content={blog.summary} />
+        <meta name="image" content={blog.headerImage[0].image} />
 
-          <meta property="og:title" content="This is the title" />
-          <meta property="og:image" content="https://alanvidyushbaptist.com/assets//blogs/Ismail%20Blog/Alan_Vidyush_Baptist_Nutrition_Fitness_Expert_Transformation_Ismail1.png" />
-          <meta property="og:description" content="This is a short summary" />
-          <meta property="og:url" content="https://google.com/" />
-          <meta property="og:site_name" content="ALAN VIDYUSH BAPTIST" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="627" />
-          <meta property="og:image:alt" content="Image alt" />
-          <meta property="og:type" content="website"/>
-          {/* <meta name="twitter:title" content={blog.title} />
-          <meta name="twitter:description" content={blog.summary} />
-          <meta name="twitter:image" content={blog.headerImage[0].image} /> */}
+        <title>{blog.title}</title>
+        <link rel="canonical" href={postUrl} />
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:description" content={blog.summary} />
+        <meta property="og:url" content={postUrl} />
+        <meta property="og:site_name" content="ALAN VIDYUSH BAPTIST" />
+        <meta property="og:image" content={blog.headerImage[0].image} />
+        <meta property="og:image:width" content="1536" />
+        <meta property="og:image:height" content="750" />
+        <meta property="og:image:alt" content={blog.title} />
+        <meta name="twitter:title" content={blog.title} />
+        <meta name="twitter:description" content={blog.summary} />
+        <meta name="twitter:image" content={blog.headerImage[0].image} />
 
-        </Helmet>
+      </Helmet>
       )}
 
       <div

@@ -91,7 +91,7 @@ const Sidebar = ({ overlay }) => {
         </li>
         <li className="nav-item text-center">
           <Link to="/services">
-            <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating" onClick={closeCollapsibleSidebarHandler}>
+            <button className="btn website-button mt-3 mb-1 ml-4 fo-17 pulsating" onClick={closeCollapsibleSidebarHandler}>
               CONSULT
             </button>
           </Link>
@@ -123,33 +123,6 @@ const Sidebar = ({ overlay }) => {
             onClick={closeCollapsibleSidebarHandler}
           >
             Portfolio
-          </Link>
-        </div>
-        <div className="pt-1">
-          <Link
-            to="termsAndConditions"
-            className="text-white"
-            onClick={closeCollapsibleSidebarHandler}
-          >
-            Terms And Conditions
-          </Link>
-        </div>
-        <div className="pt-1">
-          <Link
-            to="privacyPolicy"
-            className="text-white"
-            onClick={closeCollapsibleSidebarHandler}
-          >
-            Privacy Policy
-          </Link>
-        </div>
-        <div className="pt-1">
-          <Link
-            to="refundPolicy"
-            className="text-white"
-            onClick={closeCollapsibleSidebarHandler}
-          >
-            Refund Policy
           </Link>
         </div>
       </div>
@@ -224,6 +197,31 @@ const Sidebar = ({ overlay }) => {
       </div>
       <div className="text-white fo-12 text-center">
         Chief Content Manager <span className="bco">"Debasmita Das"</span>
+      </div>
+      <div className="text-white fo-11 text-center mt-2">
+      <Link
+            to="termsAndConditions"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Terms And Conditions
+          </Link> 
+          <span className="mr-2 ml-2">|</span>
+          <Link
+            to="privacyPolicy"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Privacy Policy
+          </Link>
+          <span className="mr-2 ml-2">|</span>
+          <Link
+            to="refundPolicy"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Refund Policy
+          </Link>
       </div>
     </div>
   );

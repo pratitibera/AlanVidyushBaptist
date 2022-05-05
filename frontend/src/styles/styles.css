@@ -256,7 +256,9 @@ ul {
 .fo-6 {
   font-size: 6px;
 }
-
+.fo-11{
+  font-size: 11px;
+}
 .fo-12 {
   font-size: 12px;
 }
@@ -658,12 +660,12 @@ nav .navbar-collapse.show {
 }
 
 #sidebar-nav {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #fff;
 }
 
 #sidebar-nav .nav-link {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* 3-bars and cross icon animation */
