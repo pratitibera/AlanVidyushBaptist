@@ -490,9 +490,38 @@ ul {
   top: 0;
   left: 0;
   z-index: 999999;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000;
 }
+.progress_outer{
+  height: 150px;
+  width:150px;
+  border-radius: 50%;
+  background: #FFE972;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.progress_inner{
+  height: 110px;
+  width:110px;
+  background: #000;
+  border-radius: 50%;
+  /* box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+              0.5px 0.5px 0px rgba(0,0,0,0.15),
+              0.5px 12px 10px rgba(0, 0, 0, 0.05); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+
+}
+.progress_inner span{
+  font-size: 18px;
+  color: #fff;
+}
 .loader {
   width: 40px;
   height: 40px;
