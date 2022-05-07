@@ -4,6 +4,7 @@ import urlSet from "../utils/urls";
 
 import ServicesBanner from "../img/banners/services_banner.png";
 import Footer from "../components/Layout/Footer";
+import Loader from "../components/Loader";
 
 const Mainservices = () => {
   const [services, setServices] = useState([]);
@@ -56,9 +57,7 @@ const Mainservices = () => {
       <section className="services-list">
         <div className="service-grid" id="mainServices_section">
           {isLoading && (
-            <div id="preloader">
-              <div class="loader" id="loader"></div>
-            </div>
+            <Loader />
           )}
           {services &&
             services.map((service) => <ServiceCard service={service} />)}

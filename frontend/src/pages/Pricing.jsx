@@ -12,6 +12,7 @@ import TImage1 from '../img/testimonials/1.png'
 import TImage2 from '../img/testimonials/2.png'
 import TImage3 from '../img/testimonials/3.png'
 import TImage4 from '../img/testimonials/4.png'
+import Loader from "../components/Loader";
 
 
 
@@ -143,9 +144,7 @@ const Pricing = () => {
   return (
     <div>
       {isLoading && (
-        <div id="preloader">
-          <div class="loader" id="loader"></div>
-        </div>
+        <Loader />
       )}
       {/* <body onload="getPlans();"> */}
       <div id="notification-area"></div>

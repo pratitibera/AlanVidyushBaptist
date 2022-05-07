@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import BlogCard from "../components/Blog/BlogCard";
 import Footer from "../components/Layout/Footer";
+import Loader from "../components/Loader";
 import urlSet from "../utils/urls";
 
 const rootCategories = [
@@ -372,9 +373,7 @@ const Blogs = () => {
           </div>
 
           {loading && (
-            <div id="preloader">
-              <div class="loader" id="loader"></div>
-            </div>
+            <Loader />
           )}
           {!loading && blogs && blogs.length > 0 && (
             <>
