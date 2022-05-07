@@ -1,22 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const Loader = () => {
   const [progress, setProgress] = useState(1)
   // setProgress(1)
-  const tick = () => {
-    console.log("Hello")
-    setProgress(progress + 1);
-  }
-  const timer = setInterval(tick, 200)
+
+
 
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(progress + 1);
+      if (progress === 100) {
+        clearInterval(timer)
+      }
+    }, 200)
 
-    return () => {
-      setProgress(1)
-      clearInterval(timer)
-    }
-  }, [])
+    return () => clearInterval(timer)
+  })
+
 
   return (
     <div class="preloader">
