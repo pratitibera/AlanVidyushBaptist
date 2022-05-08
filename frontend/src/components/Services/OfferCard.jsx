@@ -75,12 +75,12 @@ const OfferCard = ({ dark, offer }) => {
           >
             ₹ {offer.price}
           </span>
-          <span className="pco fo-26 fw-600">₹ </span>
+          <span className="fo-26 fw-600">₹ </span>
           {offer.discounted_price}
         </div>
       ) : (
         <div className="text-center fw-600 fo-22">
-          <span className="pco fo-26 fw-600">₹ </span>{offer.price}
+          <span className="fo-26 fw-600">₹ </span>{offer.price}
         </div>
       )}
 
