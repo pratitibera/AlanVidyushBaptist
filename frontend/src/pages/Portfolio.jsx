@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-
+import { useEffect } from 'react'
 import BlogGallery from "../components/Blog/BlogGallery";
 
 import PortfolioImage1 from "../img/portfolio/1.jpeg";
@@ -31,8 +31,33 @@ const images = [
 ];
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const Portfolio = () => (
-  <main>
+const Portfolio = () => {
+
+  function rightClick(e) {
+    e.preventDefault();
+    if (document.getElementById("contextMenu").style.display === "block")
+      hideMenu();
+    else {
+      var menu = document.getElementById("contextMenu")
+      menu.style.display = 'block';
+      menu.style.left = e.pageX + "px";
+      menu.style.top = e.pageY + "px";
+    }
+  }
+  const hideMenu = () => {
+    document.getElementById("contextMenu").style.display = "none"
+  }
+  useEffect(() => {
+    document.onclick = hideMenu;
+    for (let i = 0; i < document.querySelectorAll(".copyright_img").length; i++) {
+      document.querySelectorAll(".copyright_img")[i].oncontextmenu = rightClick;
+    }
+  }, [])
+
+  return (<main>
+    <div id="contextMenu" class="context-menu" style={{ display: "none" }}>
+      This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
+    </div>
     <div className="whatsapp_icon row">
       <div className="fo-16 bg-gray text-white">
         Talk to Us <span className="borde-gray"></span>
@@ -48,6 +73,7 @@ const Portfolio = () => (
 
     <section>
       <div
+        onContextMenu={() => null}
         className="owl-carousel d-sm-none portfolioSection_mobile"
         id="portfolioSection"
       >
@@ -63,151 +89,74 @@ const Portfolio = () => (
           })}
         </BlogGallery>
       </div>
-
-      <div className="portfolioSection_desktop row d-none d-sm-flex">
+      {/* portfolioSection_desktop  */}
+      <div className="portfolioSection_desktop d-none d-sm-flex">
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage1} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage1} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage2} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage2} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage3} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage3} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage4} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage4} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage5} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage5} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage6} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage6} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage7} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage7} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage8} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage8} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage9} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage9} className="w-100 copyright_img"></img>
+            </div>  
+        </div> 
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage10} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage10} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage11} className="w-100 copyright_img"></img>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage11} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
         <div className="p-2">
-          <div className="card p-0 border-0">
-            <img src={PortfolioImage12} className="w-100 copyright_img"></img>
-          </div>
-        </div>
-      </div>
-
-      <div className="modal fade" id="checkout">
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header bg-theme">
-              <h4 className="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
-              <button
-                type="button"
-                className="close text-dark fw-800"
-                data-dismiss="modal"
-              >
-                &times;
-              </button>
-            </div>
-
-            <div className="modal-body pt-4">
-              <div id="particulars"></div>
-              <div className="mt-4 text-right">
-                <div
-                  className="fo-14 fw-600 cursorPointer"
-                  onclick="emptyCart();"
-                  data-dismiss="modal"
-                >
-                  EMPTY CART
-                </div>
-              </div>
-              <div className="input-data">
-                <input type="text" required id="customer_name" />
-                <div className="underline"></div>
-                <label>Full Name</label>
-              </div>
-              <div className="input-data mt-5">
-                <input type="text" required id="customer_email" />
-                <div className="underline"></div>
-                <label>Email</label>
-              </div>
-              <div className="input-data mt-5">
-                <input type="text" required id="customer_mobile" />
-                <div className="underline"></div>
-                <label>Contact number</label>
-              </div>
-              <div className="row m-0 couponsection mt-3">
-                <div className="col-6 col-sm-6 pl-0" id="coupon_status">
-                  <input
-                    type="text"
-                    placeholder="Coupon code"
-                    id="coupon_code"
-                  />
-                </div>
-                <div className="col-6 col-sm-6 pr-0">
-                  <button
-                    className="btn website-button bg-dark text-white w-100 mfo-12"
-                    onclick="applyCoupon();"
-                    id="coupon_button"
-                  >
-                    APPLY COUPON
-                  </button>
-                </div>
-                <div className="col-12 col-sm-12 text-center cash_option">
-                  <div className="fo-16 fw-700" onclick="payInCash();">
-                    PAY IN CASH
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="checkoutfooter row m-0">
-              <button
-                className="btn website-button w-50 bg-white text-dark fo-20 fw-800"
-                id="totalbill"
-              ></button>
-              <button
-                className="btn website-button w-50 bg-dark text-white"
-                onclick="checkout();"
-              >
-                PROCEED TO PAYMENT
-              </button>
-            </div>
-          </div>
-        </div>
+            <div className="card p-0 border-0">
+              <img src={PortfolioImage12} className="w-100 copyright_img"></img>
+            </div>  
+        </div>  
       </div>
     </section>
+
+    <div className="disclaimer fo-14"><span className="fw-700">Disclaimer -</span> Kindly note that these pictures are representative of the physique I'd maintained during my brief career as a fitness model as per the industry standards in the early 2010's and is by no means an endorsement of a particular body type as an embodiment of holistic well-being. I firmly believe that fitness and wellness as a holistic concept encapsulates much more than maintaining a specific body composition ratio</div>
   </main>
-);
+  )
+};
 
 export default Portfolio;

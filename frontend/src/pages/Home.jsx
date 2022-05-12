@@ -12,32 +12,22 @@ import urlSet from "../utils/urls";
 
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../components/Layout/Footer";
+import { Helmet } from "react-helmet";
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
 
   const onHashChange = () => {
-    document
-      .getElementById(window.location.hash.replace("#", ""))
-      .scrollIntoView({
+    const elem = document.getElementById(window.location.hash.replace("#", ""));
+    if (elem) {
+      elem.scrollIntoView({
         behavior: "smooth",
         inline: "start",
       });
-    console.log("Here");
-
-    console.log(window.location.hash);
+    }
   };
-
-  useEffect(() => {
-    window.addEventListener("hashchange", () => {
-      console.log("HERERE");
-    });
-    return () =>
-      window.removeEventListener("hashchange", () => {
-        console.log("HERERE");
-      });
-  }, []);
 
   useEffect(() => {
     const getFeaturedBlogs = async () => {
@@ -52,11 +42,14 @@ const Home = () => {
     };
 
     getFeaturedBlogs();
-    // onHashChange();
+    onHashChange();
   }, []);
 
   return (
     <main>
+      <Helmet>
+        <meta name="description" content="Best Nutritionist and Fitness Consultant in India!"/>
+      </Helmet>
       <div
         id="contextMenu"
         className="context-menu"
@@ -235,13 +228,25 @@ const Home = () => {
               </div>
               <br />
               <div className="row m-0">
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.facebook.com/Optimum-Wellness-100325099229123"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.instagram.com/optimum_wellness_official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-instagram text-white fw-600 m-2"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.linkedin.com/company/optimum-wellness-official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in text-white fw-600 m-2"></i>
                 </a>
               </div>
@@ -384,11 +389,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div
-            className="row m-0 mb-9"
-            data-aos="fade-right"
-            data-aos-delay="100"
-          >
+          {/* <div className="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
             <div className="col-sm-5 m-auto">
               <div>
                 <a href="#" target="_blank">
@@ -409,13 +410,25 @@ const Home = () => {
               </div>
               <br />
               <div className="row m-0">
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.facebook.com/letsbefitindia"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.instagram.com/lets_be_fit_official/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-instagram text-white fw-600 m-2"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.linkedin.com/company/let-s-be-fit/about/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in text-white fw-600 m-2"></i>
                 </a>
               </div>
@@ -462,7 +475,7 @@ const Home = () => {
                 respect to health and fitness!
               </div>
             </div>
-          </div>
+          </div> */}
           <div
             className="row m-0 mb-9"
             data-aos="fade-right"
@@ -488,13 +501,25 @@ const Home = () => {
               </div>
               <br />
               <div className="row m-0">
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.facebook.com/zesttnl"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-facebook-f text-white fw-600 m-2"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.instagram.com/zesttnl/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-instagram text-white fw-600 m-2"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="https://www.linkedin.com/company/zest-fitness-studio/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <i className="fab fa-linkedin-in text-white fw-600 m-2"></i>
                 </a>
               </div>
@@ -568,25 +593,38 @@ const Home = () => {
 
         <BlogSection blogs={blogs} />
 
-        <div className="text-center mt-4">
-          <Link to="/services">
-            <button
-              className="btn website-button pulsating fo-30"
-              data-aos="fade-left"
-              data-aos-delay="100"
-            >
-              CONSULT
-            </button>
-          </Link>
-        </div>
+        <section>
+          <div className="text-center mt-4">
+            <Link to="/services">
+              <button
+                className="btn website-button pulsating fo-30"
+                data-aos="fade-left"
+                data-aos-delay="100"
+              >
+                CONSULT
+              </button>
+            </Link>
+          </div>
+          <div
+            className="text-center fo-40 fw-800 bco mfo-35 text-white pt-5"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          >
+            ALAN BAPTIST
+          </div>
+        </section>
         <div
-          className="text-center fo-40 fw-800 bco mfo-35 text-white pt-5"
-          data-aos="fade-left"
-          data-aos-delay="100"
-        >
-          ALAN BAPTIST
-        </div>
+          className="extended_black"
+          style={{
+            height: "170px",
+            width: "100%",
+            background: "black",
+            position: "absolute",
+          }}
+        ></div>
       </section>
+
+      <Footer />
     </main>
   );
 };

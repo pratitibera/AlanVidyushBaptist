@@ -1,171 +1,171 @@
-
 const baseUrl = "https://desolate-retreat-74146.herokuapp.com";
-
+// const baseUrl = "http://localhost:8081";
 
 // http://localhost:8081
 var urlSet = {
-    
-    // Blogs
+  // Blogs
 
-    get_blogApi: { // Get blogs
-        url: baseUrl + "/api/v1/blogs/", 
-        method: "GET",
-    },
-    post_blogApi: { // Add a new blog
-        url: baseUrl + "/api/v1/blogs/",
-        method: "POST",
-    },
-    edit_blogApi: { // Edit blog
-        url: baseUrl + "/api/v1/blogs/",
-        method: "PATCH",
-    },
-    delete_blogApi: { // Delete a blog
-        url: baseUrl + "/api/v1/blogs/",
-        method: "DELETE",
-    },
-    get_AuthorblogApi: { // Get blogs of an author
-        url: baseUrl + "/api/v1/blogs/author/",
-        method: "GET",
-    },
-    get_featuredblogApi: { // Get featured blogs
-        url: baseUrl + "/api/v1/blogs/featured",
-        method: "GET",
-    },
-    data_intervalApi: { // set data interval
-        url: baseUrl + "/api/v1/blogs/updateDataInterval",
-        method: "PATCH",
-    },
+  get_blogApi: {
+    // Get blogs
+    url: baseUrl + "/api/v1/blogs/",
+    method: "GET",
+  },
+  post_blogApi: {
+    // Add a new blog
+    url: baseUrl + "/api/v1/blogs/",
+    method: "POST",
+  },
+  edit_blogApi: {
+    // Edit blog
+    url: baseUrl + "/api/v1/blogs/",
+    method: "PATCH",
+  },
+  delete_blogApi: {
+    // Delete a blog
+    url: baseUrl + "/api/v1/blogs/",
+    method: "DELETE",
+  },
+  get_AuthorblogApi: {
+    // Get blogs of an author
+    url: baseUrl + "/api/v1/blogs/author/",
+    method: "GET",
+  },
+  get_featuredblogApi: {
+    // Get featured blogs
+    url: baseUrl + "/api/v1/blogs/featured",
+    method: "GET",
+  },
+  data_intervalApi: {
+    // set data interval
+    url: baseUrl + "/api/v1/blogs/updateDataInterval",
+    method: "PATCH",
+  },
 
+  // Admin
 
-    // Admin
+  adminLoginApi: {
+    // Admin login
+    url: baseUrl + "/api/v1/auth/api/v1/auth/login",
+    method: "POST",
+  },
+  adminUpdateApi: {
+    // Admin login
+    url: baseUrl + "/api/v1/auth/api/v1/auth/update",
+    method: "PATCH",
+  },
 
-    adminLoginApi: { // Admin login
-        url: baseUrl + "/api/v1/auth/api/v1/auth/login",
-        method: "POST",
-    },
-    adminUpdateApi: { // Admin login
-        url: baseUrl + "/api/v1/auth/api/v1/auth/update",
-        method: "PATCH",
-    },
+  // Admin blogs
 
+  add_blog_to_featuredApi: {
+    // Add to featured blogs
+    url: baseUrl + "/api/v1/admin/featuredBlog/",
+    method: "PATCH",
+  },
+  delete_blog_from_featuredApi: {
+    // Delete from featured blogs
+    url: baseUrl + "/api/v1/admin/featuredBlog/",
+    method: "DELETE",
+  },
 
+  // Admin services
 
-    // Admin blogs 
+  viewServicesApi: {
+    // To get services
+    url: baseUrl + "/api/v1/admin/service/",
+    method: "GET",
+  },
+  getMainServiceApi: {
+    // To get services based on level
+    url: baseUrl + "/api/v1/admin/service",
+    method: "GET",
+  },
+  addServiceApi: {
+    // To add new service
+    url: baseUrl + "/api/v1/admin/service",
+    method: "POST",
+  },
+  deleteServiceApi: {
+    // To delete services
+    url: baseUrl + "/api/v1/admin/service/",
+    method: "DELETE",
+  },
+  editServicesApi: {
+    // Update service names
+    url: baseUrl + "/api/v1/admin/service/",
+    method: "PATCH",
+  },
 
+  // Admin offers
 
-    add_blog_to_featuredApi: { // Add to featured blogs
-        url: baseUrl + "/api/v1/admin/featuredBlog/",
-        method: "PATCH",
-    },
-    delete_blog_from_featuredApi: { // Delete from featured blogs
-        url: baseUrl + "/api/v1/admin/featuredBlog/",
-        method: "DELETE",
-    },
+  editOffersApi: {
+    // Update offer
+    url: baseUrl + "/api/v1/admin/offer/",
+    method: "PATCH",
+  },
+  deleteOffersApi: {
+    // Delete offer
+    url: baseUrl + "/api/v1/admin/offer/",
+    method: "DELETE",
+  },
 
+  // Admin coupons
 
+  viewCouponsApi: {
+    // Get all coupons
+    url: baseUrl + "/api/v1/admin/coupon",
+    method: "GET",
+  },
+  addCouponsApi: {
+    // Add new coupon
+    url: baseUrl + "/api/v1/admin/coupon/",
+    method: "POST",
+  },
+  deleteCouponsApi: {
+    // Delete a coupon
+    url: baseUrl + "/api/v1/admin/coupon/",
+    method: "DELETE",
+  },
 
-    // Admin services
+  // Payments
 
+  applyCouponApi: {
+    // Apply coupon
+    url: baseUrl + "/api/v1/payment/applyCoupon",
+    method: "POST",
+  },
+  paymentApi: {
+    // Create payment order id
+    url: baseUrl + "/api/v1/payment/generateReceipt",
+    method: "POST",
+  },
+  verifyPaymentApi: {
+    // Verify payments status after razorpay
+    url: baseUrl + "/api/v1/payment/verifyPayment",
+    method: "POST",
+  },
 
-    viewServicesApi: { // To get services
-        url: baseUrl + "/api/v1/admin/service/",
-        method: "GET",
-    },
-    getMainServiceApi: { // To get services based on level
-        url: baseUrl + "/api/v1/admin/service",
-        method: "GET",
-    },
-    addServiceApi: { // To add new service
-        url: baseUrl + "/api/v1/admin/service",
-        method: "POST",
-    },
-    deleteServiceApi: { // To delete services
-        url: baseUrl + "/api/v1/admin/service/",
-        method: "DELETE",
-    },
-    editServicesApi: { // Update service names
-        url: baseUrl + "/api/v1/admin/service/",
-        method: "PATCH",
-    },
-    
-    
-    
+  // Admin transactions
 
-    // Admin offers 
-
-
-    editOffersApi: { // Update offer
-        url: baseUrl + "/api/v1/admin/offer/",
-        method: "PATCH",
-    },
-    deleteOffersApi: { // Delete offer
-        url: baseUrl + "/api/v1/admin/offer/",
-        method: "DELETE",
-    },
-
-
-
-
-
-    // Admin coupons 
-
-
-
-    viewCouponsApi: { // Get all coupons
-        url: baseUrl + "/api/v1/admin/coupon",
-        method: "GET",
-    },
-    addCouponsApi: { // Add new coupon
-        url: baseUrl + "/api/v1/admin/coupon/",
-        method: "POST",
-    },
-    deleteCouponsApi: { // Delete a coupon
-        url: baseUrl + "/api/v1/admin/coupon/",
-        method: "DELETE",
-    },
-
-
-
-
-    
-
-
-    // Payments
-
-    applyCouponApi: { // Apply coupon 
-        url: baseUrl + "/api/v1/payment/applyCoupon",
-        method: "POST",
-    },
-    paymentApi: { // Create payment order id
-        url: baseUrl + "/api/v1/payment/generateReceipt",
-        method: "POST",
-    },
-    verifyPaymentApi: { // Verify payments status after razorpay
-        url: baseUrl + "/api/v1/payment/verifyPayment",
-        method: "POST",
-    },
-
-
-
-    // Admin transactions
-
-    viewTransactionsApi: { // View all transactions
-        url: baseUrl + "/api/v1/transaction",
-        method: "GET",
-    },
-    addTransactionsApi: { // Add transactions
-        url: baseUrl + "/api/v1/transaction/",
-        method: "POST",
-    },
-    updateTransactionsApi: { // Update transactions
-        url: baseUrl + "/api/v1/transaction/",
-        method: "PATCH",
-    },
-    deleteTransactionsApi: { // Delete transactions
-        url: baseUrl + "/api/v1/transaction/",
-        method: "DELETE",
-    }
+  viewTransactionsApi: {
+    // View all transactions
+    url: baseUrl + "/api/v1/transaction",
+    method: "GET",
+  },
+  addTransactionsApi: {
+    // Add transactions
+    url: baseUrl + "/api/v1/transaction/",
+    method: "POST",
+  },
+  updateTransactionsApi: {
+    // Update transactions
+    url: baseUrl + "/api/v1/transaction/",
+    method: "PATCH",
+  },
+  deleteTransactionsApi: {
+    // Delete transactions
+    url: baseUrl + "/api/v1/transaction/",
+    method: "DELETE",
+  },
 };
-
 
 export default urlSet;

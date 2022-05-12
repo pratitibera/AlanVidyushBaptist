@@ -1,24 +1,26 @@
-import { useEffect, useState } from "react";
-import $ from "jquery";
+import { useState } from "react";
 import urlSet from "../../utils/urls";
+import { Button, Modal } from 'react-bootstrap'
+import { useEffect } from "react";
 
-const CheckoutModal = () => {
-  const [shopCart, setShopCart] = useState([]);
+const CheckoutModal = ({ classes }) => {
+  const [show, setShow] = useState(false)
+  const [cartCount, setCartCount] = useState([]);
   const [totalBill, setTotalBill] = useState([]);
-  const [offers, setOffers] = useState([]);
   const [coupon_code, setCouponCode] = useState(null);
   const [discount, setDiscount] = useState(null);
 
+  const openHandler = () => setShow(true)
+  const closeHandler = () => setShow(false)
+
+  const shopCart = sessionStorage.getItem("cart") ? JSON.parse(sessionStorage.getItem("cart")) : [];
+
+
   useEffect(() => {
-    if (
-      sessionStorage.getItem("cart") === null ||
-      sessionStorage.getItem("cart") === undefined
-    ) {
-      setShopCart([]);
-    } else {
-      setShopCart(JSON.parse(sessionStorage.getItem("cart")));
-    }
-  }, []);
+    setCartCount(shopCart.length > 0 ? shopCart.length : "")
+    document.getElementsByClassName("cart_count_mobile")[0].innerHTML = cartCount;
+    document.getElementsByClassName("cart_count_mobile")[1].innerHTML = cartCount;
+  }, [cartCount, shopCart.length])
 
   const notify = (message) => {
     (() => {
@@ -33,7 +35,7 @@ const CheckoutModal = () => {
           .getElementById("notification-area")
           .getElementsByClassName("notification");
         for (let i = 0; i < notifications.length; i++) {
-          if (notifications[i].getAttribute("id") == id) {
+          if (notifications[i].getAttribute("id") === id) {
             notifications[i].remove();
             break;
           }
@@ -43,68 +45,51 @@ const CheckoutModal = () => {
   };
 
   const emptyCart = () => {
+    closeHandler()
     sessionStorage.clear();
-    document.getElementById("cart_count_mobile").innerHTML = "";
-    document.getElementById("cart_count_desktop").innerHTML = "";
+    document.getElementsByClassName("cart_count_mobile")[0].innerHTML = cartCount;
+    document.getElementsByClassName("cart_count_mobile")[1].innerHTML = "";
   };
 
   const removeCoupon = () => {
     setCouponCode(null);
+    setDiscount(null)
   };
 
   const fetchCart = () => {
-    if (shopCart.length > 0) {
-      var particulars = document.getElementById("particulars");
-      particulars.innerHTML = "";
-      let totalbill = 0;
-      let offerIds = [];
-      for (let i = 0; i < shopCart.length; i++) {
-        offerIds.push(shopCart[i]["id"]);
-        if (shopCart[i]["discount"] === "undefined") {
-          particulars.innerHTML += `<div className="row m-0 mb-2">
-	                        <div className="col-3 col-sm-2">
-	                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100">
-	                        </div>
-	                        <div className="col-6 col-sm-6 p-0">
-	                           <div className="fo-16 fw-600 mfo-14">${shopCart[i]["service"]}</div>
-	                           <div className="fo-14 mfo-12">${shopCart[i]["duration"]}</div>
-	                        </div>
-	                        <div className="col-3 col-sm-4 p-0">
-	                           <div className="fo-26 fw-700 text-right mfo-18">₹ ${shopCart[i]["price"]}</div>
-	                        </div>
-	                     </div>`;
-          totalbill = totalbill + parseInt(shopCart[i]["price"]);
+    let cart = [];
+    let offerIds = [];
+    let billAmount = 0;
+    if (
+      sessionStorage.getItem("cart") === null ||
+      sessionStorage.getItem("cart") === undefined
+    ) {
+      cart = [];
+    } else {
+      cart = JSON.parse(sessionStorage.getItem("cart"));
+    }
+
+    if (cart.length > 0) {
+      for (let i = 0; i < cart.length; i++) {
+        offerIds.push(cart[i]["id"]);
+        if (cart[i]["discounted_price"]) {
+          billAmount = billAmount + parseInt(cart[i]["discounted_price"]);
         } else {
-          particulars.innerHTML += `<div className="row m-0 mb-2">
-	                        <div className="col-3 col-sm-2">
-	                           <img src="https://images.unsplash.com/photo-1520877745935-616158eb7fcc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Zml0bmVzc3xlbnwwfDJ8MHx8&auto=format&fit=crop&w=500&q=60" className="w-100">
-	                        </div>
-	                        <div className="col-6 col-sm-6 p-0">
-	                           <div className="fo-16 fw-600 mfo-14">${shopCart[i]["service"]}</div>
-	                           <div className="fo-14 mfo-12">${shopCart[i]["duration"]}</div>
-	                        </div>
-	                        <div className="col-3 col-sm-4 p-0">
-	                           <div className="fo-26 fw-700 text-right mfo-18">₹ ${shopCart[i]["discount"]}</div>
-	                           <div className="fo-16 text-right mfo-12" style="text-decoration: line-through" id="checkout_discount">₹ ${shopCart[i]["price"]}</div>
-	                        </div>
-	                     </div>`;
-          totalbill = totalbill + parseInt(shopCart[i]["discount"]);
+          billAmount = billAmount + parseInt(cart[i]["price"]);
         }
       }
-      setOffers(offerIds);
-      document.getElementById("totalbill").innerHTML = "TOTAL: ₹ " + totalbill;
-      $("#checkout").modal();
-      console.log(shopCart);
+      setTotalBill(billAmount)
+      openHandler();
     } else {
-      alert("Cart is empty!");
+      notify("Cart is empty!");
     }
   };
 
   const applyCoupon = () => {
-    const code = document.getElementById("coupon_code").value;
+    const offers = shopCart.map(item => item['_id'])
     var json = {
       offerIds: offers,
-      couponCode: code,
+      couponCode: coupon_code,
     };
     console.log(json);
     var request = new XMLHttpRequest();
@@ -118,141 +103,138 @@ const CheckoutModal = () => {
         document.getElementById(
           "coupon_status"
         ).innerHTML = `<input type="text" placeholder="Coupon code" id="coupon_code">
-        <div className="fo-16 text-dark fw-600">Invalid Coupon</div>`;
+        <div style="font-weight: 600; font-size: 13px; margin-top: 4px">Invalid Coupon</div>`;
       } else {
-        setCouponCode(code);
         setDiscount(data["discount"]);
-        document.getElementById("coupon_button").innerHTML = "REMOVE COUPON";
-        document
-          .getElementById("coupon_button")
-          .setAttribute("onclick", `removeCoupon()`);
-        document.getElementById(
-          "coupon_status"
-        ).innerHTML = `<div className="fo-16 text-dark fw-600">${code} Coupon applied</div>
-                              <div className="fo-13 text-dark">Discount: ₹ ${data["discount"]}</div>`;
-        document.getElementById("totalbill").innerHTML =
-          "TOTAL: ₹ " + data["discounted_price"];
+        setDiscount(data['discount']) // Shows Discounted Value
+        setTotalBill(data["discounted_price"]) // Update Total Bill
       }
     };
   };
 
-  const payInCash = () => {
+  const getOffers = () => shopCart.map(item => item['_id'])
+  const isValid = () => {
     var customer_name = document.getElementById("customer_name").value;
     var customer_mobile = document.getElementById("customer_mobile").value;
     var customer_email = document.getElementById("customer_email").value;
 
-    if (customer_name != "") {
-      if (customer_mobile != "" && isPhoneNumber(customer_mobile) === true) {
-        if (customer_email != "" && validEmail(customer_email) === true) {
-          var json = {
-            offerIds: offers,
-            couponCode: coupon_code,
-            name: customer_name,
-            phone: customer_mobile,
-            email: customer_email,
-            type: "CASH",
-          };
-          console.log(json);
-          var request = new XMLHttpRequest();
-          request.open(urlSet.paymentApi.method, urlSet.paymentApi.url, true);
-          request.setRequestHeader("Content-Type", "application/json");
-          request.send(JSON.stringify(json));
-          request.onload = function () {
-            var data = JSON.parse(this.response);
-            console.log(data);
-            if (data["receipt_id"] != "") {
-              $("#checkout").modal("hide");
-              notify("Order placed successfully");
-              emptyCart();
-            } else {
-              notify("Payment unsuccessful");
-            }
-          };
+    if (customer_name !== "") {
+      if (customer_mobile !== "" && isPhoneNumber(customer_mobile) === true) {
+        if (customer_email !== "" && validEmail(customer_email) === true) {
+          return true;
         } else {
           notify("Please enter a valid email ID");
+          return false;
         }
       } else {
         notify("Please enter a valid phone number");
+        return false;
       }
     } else {
       notify("Please enter your name");
+      return false;
+    }
+  }
+
+  const payInCash = () => {
+    if (isValid()) {
+      const customer_name = document.getElementById("customer_name").value;
+      const customer_mobile = document.getElementById("customer_mobile").value;
+      const customer_email = document.getElementById("customer_email").value;
+
+
+      const json = {
+        offerIds: getOffers(),
+        couponCode: coupon_code,
+        name: customer_name,
+        phone: customer_mobile,
+        email: customer_email,
+        type: "CASH",
+      };
+      console.log(json);
+      const request = new XMLHttpRequest();
+      request.open(urlSet.paymentApi.method, urlSet.paymentApi.url, true);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.send(JSON.stringify(json));
+      request.onload = function () {
+        const data = JSON.parse(this.response);
+        console.log(data);
+        if (data["receipt_id"] !== "") {
+          notify("Order placed successfully");
+          closeHandler()
+          emptyCart();
+        } else {
+          notify("Payment unsuccessful");
+        }
+      };
     }
   };
 
   const checkout = () => {
-    var customer_name = document.getElementById("customer_name").value;
-    var customer_mobile = document.getElementById("customer_mobile").value;
-    var customer_email = document.getElementById("customer_email").value;
+    if (isValid()) {
+      var customer_name = document.getElementById("customer_name").value;
+      var customer_mobile = document.getElementById("customer_mobile").value;
+      var customer_email = document.getElementById("customer_email").value;
 
-    if (customer_name != "") {
-      if (customer_mobile != "" && isPhoneNumber(customer_mobile) === true) {
-        if (customer_email != "" && validEmail(customer_email) === true) {
-          var json = {
-            offerIds: offers,
-            couponCode: coupon_code,
-            name: customer_name,
-            phone: customer_mobile,
-            email: customer_email,
-            type: "ONLINE",
+
+      var json = {
+        offerIds: getOffers(),
+        couponCode: coupon_code,
+        name: customer_name,
+        phone: customer_mobile,
+        email: customer_email,
+        type: "ONLINE",
+      };
+      console.log(json);
+      var request = new XMLHttpRequest();
+      request.open(urlSet.paymentApi.method, urlSet.paymentApi.url, true);
+      request.setRequestHeader("Content-Type", "application/json");
+      request.send(JSON.stringify(json));
+      request.onload = function () {
+        var data = JSON.parse(this.response);
+        console.log(data);
+        if (data["receipt_id"] !== "") {
+          var options = {
+            key: "rzp_test_I4CcsfzCypIJie",
+            amount: data["amount"],
+            currency: "INR",
+            name: "ALAN VIDYUSH BAPTIST",
+            description: "Pay For Your Service",
+            image:
+              "https://alanvidyushbaptist.com/assets/logo/Optimal_Wellness_Logo.png",
+            order_id: data["order_id"],
+            handler: function (response) {
+              payNowResponse(
+                response.razorpay_payment_id,
+                response.razorpay_order_id,
+                response.razorpay_signature,
+                data["receipt_id"]
+              );
+              console.log(response);
+            },
+            prefill: {
+              name: customer_name,
+              email: customer_email,
+              contact: customer_mobile,
+            },
+            notes: {
+              address: "Give an address here",
+            },
+            theme: {
+              color: "#8b1ef1",
+            },
           };
-          console.log(json);
-          var request = new XMLHttpRequest();
-          request.open(urlSet.paymentApi.method, urlSet.paymentApi.url, true);
-          request.setRequestHeader("Content-Type", "application/json");
-          request.send(JSON.stringify(json));
-          request.onload = function () {
-            var data = JSON.parse(this.response);
-            console.log(data);
-            if (data["receipt_id"] != "") {
-              var options = {
-                key: "rzp_test_I4CcsfzCypIJie",
-                amount: data["amount"],
-                currency: "INR",
-                name: "ALAN VIDYUSH BAPTIST",
-                description: "Pay For Your Service",
-                image:
-                  "https://alanvidyushbaptist.com/assets/logo/Optimal_Wellness_Logo.png",
-                order_id: data["order_id"],
-                handler: function (response) {
-                  payNowResponse(
-                    response.razorpay_payment_id,
-                    response.razorpay_order_id,
-                    response.razorpay_signature,
-                    data["receipt_id"]
-                  );
-                  console.log(response);
-                },
-                prefill: {
-                  name: customer_name,
-                  email: customer_email,
-                  contact: customer_mobile,
-                },
-                notes: {
-                  address: "Give an address here",
-                },
-                theme: {
-                  color: "#8b1ef1",
-                },
-              };
-              var rzp1 = new window.Razorpay(options);
-              rzp1.on("payment.failed", function (response) {
-                notify("Sorry! Payment failed due to banks issue");
-              });
-              rzp1.open();
-            } else {
-              notify("Sorry! Could not process your request");
-            }
-          };
+          var rzp1 = new window.Razorpay(options);
+          rzp1.on("payment.failed", function (response) {
+            notify("Sorry! Payment failed due to banks issue");
+          });
+          rzp1.open();
         } else {
-          notify("Please enter a valid email ID");
+          notify("Sorry! Could not process your request");
         }
-      } else {
-        notify("Please enter a valid phone number");
-      }
-    } else {
-      notify("Please enter your name");
+      };
     }
-  };
+  }
 
   const payNowResponse = (
     razorpay_payment_id,
@@ -288,82 +270,104 @@ const CheckoutModal = () => {
   };
 
   return (
-    <div className="modal fade" id="checkout">
-      <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content">
-          {/* <!-- Modal Header --> */}
-          <div className="modal-header bg-theme">
+    <>
+      <div className={"btn " + classes} onClick={fetchCart}>
+        <i className="fa fa-shopping-cart fo-30 bco">
+          <sup
+            className="fo-24 bco fw-600 cart_count_mobile"
+            id="cart_count_mobile"
+          ></sup>
+        </i>
+      </div>
+
+      <Modal show={show} onHide={closeHandler}>
+        <Modal.Header>
+          <Modal.Title>
             <h4 className="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
-            <button
-              type="button"
-              className="close text-dark fw-800"
+
+          </Modal.Title>
+          <button
+            type="button"
+            className="close fw-800"
+            data-dismiss="modal"
+            onClick={closeHandler}
+          >
+            &times;
+          </button>
+        </Modal.Header>
+        <Modal.Body>
+          <div id="particulars">
+            {shopCart && shopCart.map(service => <ParticularCard service={service} key={service['_id']} />)}
+          </div>
+          <div className="mt-4 text-right">
+            <div
+              className="fo-14 fw-600 cursorPointer"
+              onClick={emptyCart}
               data-dismiss="modal"
             >
-              &times;
-            </button>
+              EMPTY CART
+            </div>
           </div>
-          {/* <!-- Modal body --> */}
-          <div className="modal-body pt-4">
-            <div id="particulars"></div>
-            <div className="mt-4 text-right">
-              <div
-                className="fo-14 fw-600 cursorPointer"
-                onclick="emptyCart();"
-                data-dismiss="modal"
+          <div className="input-data">
+            <input type="text" required id="customer_name" />
+            <div className="underline"></div>
+            <label>Full Name</label>
+          </div>
+          <div className="input-data mt-5">
+            <input type="text" required id="customer_email" />
+            <div className="underline"></div>
+            <label>Email</label>
+          </div>
+          <div className="input-data mt-5">
+            <input type="text" required id="customer_mobile" />
+            <div className="underline"></div>
+            <label>Contact number</label>
+          </div>
+          <div className="row m-0 couponsection mt-3">
+            <div className="col-6 col-sm-6 pl-0" id="coupon_status">
+              <input
+                type="text"
+                placeholder="Coupon code"
+                id="coupon_code"
+                onChange={(e) => setCouponCode(e.target.value)}
+                value={coupon_code}
+              />
+              {discount && (<><div className="fo-16 text-dark fw-600">{coupon_code} Coupon applied</div>
+                <div className="fo-13 text-dark">Discount: ₹ {discount}</div></>)}
+
+            </div>
+            <div className="col-6 col-sm-6 pr-0">
+              <button
+                className="btn website-button bg-dark text-white w-100 mfo-12"
+                onClick={discount ? removeCoupon : applyCoupon}
+                id="coupon_button"
               >
-                EMPTY CART
-              </div>
+                {discount ? "REMOVE COUPON" : "APPLY COUPON"}
+
+              </button>
             </div>
-            <div className="input-data">
-              <input type="text" required id="customer_name" />
-              <div className="underline"></div>
-              <label>Full Name</label>
-            </div>
-            <div className="input-data mt-5">
-              <input type="text" required id="customer_email" />
-              <div className="underline"></div>
-              <label>Email</label>
-            </div>
-            <div className="input-data mt-5">
-              <input type="text" required id="customer_mobile" />
-              <div className="underline"></div>
-              <label>Contact number</label>
-            </div>
-            <div className="row m-0 couponsection mt-3">
-              <div className="col-6 col-sm-6 pl-0" id="coupon_status">
-                <input type="text" placeholder="Coupon code" id="coupon_code" />
-              </div>
-              <div className="col-6 col-sm-6 pr-0">
-                <button
-                  className="btn website-button bg-dark text-white w-100 mfo-12"
-                  onclick={applyCoupon}
-                  id="coupon_button"
-                >
-                  APPLY COUPON
-                </button>
-              </div>
-              <div className="col-12 col-sm-12 text-center cash_option">
-                <div className="fo-16 fw-700" onClick={payInCash}>
-                  PAY IN CASH
-                </div>
+            <div className="col-12 col-sm-12 text-center cash_option">
+              <div className="fo-16 fw-700" onClick={payInCash}>
+                PAY IN CASH
               </div>
             </div>
           </div>
-          <div className="checkoutfooter row m-0">
-            <button
-              className="btn website-button w-50 bg-white text-dark fo-20 fw-800"
-              id="totalbill"
-            ></button>
-            <button
-              className="btn website-button w-50 bg-dark text-white"
-              onclick={checkout}
-            >
-              PROCEED TO PAYMENT
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+        </Modal.Body>
+        <Modal.Footer>
+          <button
+            className="btn website-button bg-white text-dark fo-20 fw-800"
+            id="totalbill"
+          >₹ {totalBill}</button>
+          <button
+            className="btn website-button bg-dark text-white"
+            onClick={checkout}
+          >
+            PROCEED TO PAYMENT
+          </button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 };
 
@@ -386,3 +390,28 @@ const validEmail = (mail) => {
     return false;
   }
 };
+
+const ParticularCard = ({ service }) => {
+  return !service.discounted_price ? (<div className="row m-0 mb-2">
+    {/* <div className="col-3 col-sm-2">
+      <img src="https://pratitibera.github.io/Karan_Khanna_Fitness/img/barbell.png" className="w-100" />
+    </div> */}
+    <div className="col-9 col-sm-8 p-0">
+      <div className="fo-13 fw-600 mfo-12">{service["offer_name"]} - {service["duration"]}</div>
+    </div>
+    <div className="col-3 col-sm-4 p-0">
+      <div className="fo-24 fw-700 text-right mfo-18">₹ {service["price"]}</div>
+    </div>
+  </div>) : (<div className="row m-0 mb-2">
+    {/* <div className="col-3 col-sm-2">
+      <img src="https://pratitibera.github.io/Karan_Khanna_Fitness/img/barbell.png" className="w-100" />
+    </div> */}
+    <div className="col-9 col-sm-8 p-0">
+      <div className="fo-13 fw-600 mfo-12">{service["offer_name"]} - {service["duration"]}</div>
+    </div>
+    <div className="col-3 col-sm-4 p-0">
+      <div className="fo-24 fw-700 text-right mfo-18">₹  {service["discounted_price"]}</div>
+      <div className="fo-16 text-right mfo-12" style={{ textDecoration: "line-through" }} id="checkout_discount">₹ {service["price"]}</div>
+    </div>
+  </div>)
+}

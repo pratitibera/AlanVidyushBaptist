@@ -1,488 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>ALAN VIDYUSH BAPTIST</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Best Nutritionist and Fitness Consultant in India!">
-      <link rel="icon" href="https://www.linkpicture.com/q/page_icon.jpg" type="image/x-icon" />
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="css/responsive.css">
-      <link rel="stylesheet" href="css/aos.css">
-      <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesheet" href="css/owl.theme.default.min.css">
-      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-      <style>
-         .footer-bg{
-            padding-top: 50px;
-         }
-      </style>
-   </head>
-   <body onload="getFeaturedBlogs();">
-      <!-- <div id="preloader">
+
+<head>
+   <title>ALAN VIDYUSH BAPTIST</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="Best Nutritionist and Fitness Consultant in India!">
+   <link rel="icon" href="https://www.linkpicture.com/q/page_icon.jpg" type="image/x-icon" />
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+   <link rel="stylesheet" href="css/styles.css">
+   <link rel="stylesheet" href="css/responsive.css">
+   <link rel="stylesheet" href="css/aos.css">
+   <link rel="stylesheet" href="css/owl.carousel.min.css">
+   <link rel="stylesheet" href="css/owl.theme.default.min.css">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+   <style>
+      .footer-bg {
+         padding-top: 50px;
+      }
+   </style>
+</head>
+
+<body onload="getFeaturedBlogs();">
+   <!-- <div id="preloader">
          <div class="loader" id="loader"></div>
       </div> -->
-      <div id="overlay"></div>
-      <div id="contextMenu" class="context-menu" style="display:none">
-         This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
-      </div>
-      <!---Floating button of whatsapp --->
-      <div class="whatsapp_icon row">
-         <div class="fo-16 bg-gray text-white">Talk to Us <span class="borde-gray"></span></div>
-         <a href="https://wa.me/919836143134?text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." class="position-relative">
+   <div id="overlay"></div>
+   <div id="contextMenu" class="context-menu" style="display:none">
+      This photo is Copyright ©️ 2022 Alan Baptist. All rights reserved.
+   </div>
+   <!---Floating button of whatsapp --->
+   <div class="whatsapp_icon row">
+      <div class="fo-16 bg-gray text-white">Talk to Us <span class="borde-gray"></span></div>
+      <a href="https://wa.me/919836143134?text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make."
+         class="position-relative">
          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png">
          <span class="whatsapp_icon_span">1</span>
-         </a> 
+      </a>
+   </div>
+   <div class="menuSidebar">
+      <span class="close-menuSidebar">
+         <i class="fa fa-times cursorPointer bco" id="close_collapsibleSidebar"> </i>
+      </span>
+      <ul class="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
+         <li class="nav-item ml-sm-auto">
+            <a class="nav-link exo" href="#about">
+               <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link exo" href="#success">
+               <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
+            </a>
+         </li>
+         <li class="nav-item">
+            <a class="nav-link exo" href="#blogs">
+               <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
+            </a>
+         </li>
+         <li class="nav-item mr-sm-auto">
+            <a class="nav-link exo" href="#contact">
+               <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
+            </a>
+         </li>
+         <li class="nav-item text-center">
+            <a href="mainservices.html">
+               <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
+            </a>
+         </li>
+      </ul>
+      <div class="navExtras">
+         <div class="pt-3 pl-5">
+            <a href="partners.html" class="text-white">Partners</a>
+         </div>
+         <div class="pt-2 pl-5">
+            <a href="columnist.html" class="text-white">Columnists</a>
+         </div>
+         <div class="pt-2 pl-5">
+            <a href="portfolio.html" class="text-white">Portfolio</a>
+         </div>
       </div>
-      <div class="menuSidebar">
-         <span class="close-menuSidebar">
-            <i class="fa fa-times cursorPointer bco" id="close_collapsibleSidebar"> </i>
-         </span>
-         <ul class="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
-            <li class="nav-item ml-sm-auto">
-               <a class="nav-link exo" href="#about">
+      <div class="searchbox mt-4">
+         <i class="fa fa-search" id="desktopSearch" onclick="search(this.id);"></i>
+         <input type="text" name="" placeholder="Search..." class="searches" id="desktopSearchi">
+      </div>
+      <div class="row m-0 mt-4 justify-content-center mb-4">
+         <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+            <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+         </a>
+         <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+            <i class="fab fa-instagram text-white fw-600 m-2"></i>
+         </a>
+         <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+            <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+         </a>
+         <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+            <i class="fas fa-envelope text-white fw-600 m-2"></i>
+         </a>
+         <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make."
+            target="_blank">
+            <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+         </a>
+      </div>
+      <div class="mt-2 text-white fo-12 text-center">&copy; 2021 Alan Baptist | Website Design by <span
+            class="bco">"Pratiti Bera"</span></div>
+      <div class="text-white fo-12 text-center">Front End Design Conceptualizer <span class="bco">"Hritavash
+            Saha"</span></div>
+      <div class="text-white fo-12 text-center">Chief Content Manager <span class="bco">"Debasmita Das"</span></div>
+   </div>
+   <!---Topmost navbar begins-->
+   <nav class="navbar navbar-expand-md bg-dark fixed-top">
+      <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse"
+         data-target="#collapsibleNavbar">
+         <div class="menu-btn__burger"></div>
+      </div>
+      <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
+      <button class="btn d-sm-none" onclick="fetchCart();">
+         <i class="fa fa-shopping-cart fo-30 bco">
+            <sup class="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
+         </i>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+         <div class="row d-none d-sm-flex">
+            <div class="col-sm-3 m-auto">
+               <i class="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar"></i>
+            </div>
+            <div class="col-sm-6">
+               <div class="owner-name text-center opensans">
+                  <a href="index.html" class="text-white">ALAN BAPTIST</a>
+               </div>
+            </div>
+            <div class="col-sm-3 m-auto">
+               <a href="mainservices.html">
+                  <button class="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
+               </a>
+            </div>
+         </div>
+         <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
+            <li class="nav-item" style="padding-left: 160px">
+               <a class="nav-link exo" href="index.html#about">
                   <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link exo" href="#success">
+               <a class="nav-link exo" href="index.html#success">
                   <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
                </a>
             </li>
             <li class="nav-item">
-               <a class="nav-link exo" href="#blogs">
+               <a class="nav-link exo" href="index.html#blogs">
                   <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
                </a>
             </li>
-            <li class="nav-item mr-sm-auto">
-               <a class="nav-link exo" href="#contact">
+            <li class="nav-item" style="padding-right: 100px">
+               <a class="nav-link exo" href="index.html#contact">
                   <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
                </a>
             </li>
-            <li class="nav-item text-center">
+            <li class="nav-item d-block d-sm-none text-center">
                <a href="mainservices.html">
                   <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
                </a>
             </li>
+            <li class="nav-item text-right pr-0 d-none d-sm-block">
+               <button class="btn mr-2" onclick="fetchCart();">
+                  <i class="fa fa-shopping-cart fo-30 bco position-relative">
+                     <sup class="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
+                  </i>
+               </button>
+            </li>
          </ul>
-         <div class="navExtras">
-            <div class="pt-3 pl-5">
-               <a href="partners.html" class="text-white">Partners</a>
+         <div class="navExtras d-block d-sm-none">
+            <div class="pb-2">
+               <a href="partners.html">Partners</a>
             </div>
-            <div class="pt-2 pl-5">
-               <a href="columnist.html" class="text-white">Columnists</a>
+            <div class="pb-2">
+               <a href="columnist.html">Columnists</a>
             </div>
-            <div class="pt-2 pl-5">
-               <a href="portfolio.html" class="text-white">Portfolio</a>
+            <div class="pb-2">
+               <a href="portfolio.html">Portfolio</a>
             </div>
          </div>
-         <div class="searchbox mt-4">
-            <i class="fa fa-search" id="desktopSearch" onclick="search(this.id);"></i>
-            <input type="text" name="" placeholder="Search..." class="searches" id="desktopSearchi">
+         <div class="searchbox d-flex d-sm-none">
+            <i class="fa fa-search" id="mobileSearch" onclick="search(this.id);"></i>
+            <input type="text" name="" placeholder="Search..." class="searches" id="mobileSearchi">
          </div>
-         <div class="row m-0 mt-4 justify-content-center mb-4">
+         <div class="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
             <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
-            <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+               <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
             </a>
             <a href="https://www.instagram.com/alan_baptist/" target="_blank">
-            <i class="fab fa-instagram text-white fw-600 m-2"></i>
+               <i class="fab fa-instagram text-white fw-600 m-2"></i>
             </a>
             <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
-            <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+               <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
             </a>
             <a href="https://alan.optimumwellness@gmail.com" target="_blank">
-            <i class="fas fa-envelope text-white fw-600 m-2"></i>
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
-            <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
-            </a>
-         </div>
-         <div class="mt-2 text-white fo-12 text-center">&copy; 2021 Alan Baptist | Website Design by <span class="bco">"Pratiti Bera"</span></div>
-         <div class="text-white fo-12 text-center">Front End Design Conceptualizer <span class="bco">"Hritavash Saha"</span></div>
-         <div class="text-white fo-12 text-center">Chief Content Manager <span class="bco">"Debasmita Das"</span></div>
-      </div>
-      <!---Topmost navbar begins-->
-      <nav class="navbar navbar-expand-md bg-dark fixed-top">
-         <div class="menu-btn navbar-toggler-icon d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <div class="menu-btn__burger"></div>
-         </div>
-         <a class="navbar-brand d-block d-md-none" href="index.html">ALAN BAPTIST</a>
-         <button class="btn d-sm-none" onclick="fetchCart();">
-            <i class="fa fa-shopping-cart fo-30 bco">
-               <sup class="cart_count fo-24 bco fw-600" id="cart_count_mobile"></sup>
-            </i>
-         </button>
-         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <div class="row d-none d-sm-flex">
-               <div class="col-sm-3 m-auto">
-                  <i class="fas fa-bars bco fo-30 cursorPointer" id="collapsibleSidebar"></i>
-               </div>
-               <div class="col-sm-6">
-                  <div class="owner-name text-center opensans">
-                     <a href="index.html" class="text-white">ALAN BAPTIST</a>
-                  </div>
-               </div>
-               <div class="col-sm-3 m-auto">
-                  <a href="mainservices.html">
-                     <button class="btn website-button float-right fo-17 header-consult pulsating">CONSULT</button>
-                  </a>
-               </div>
-            </div>
-            <ul class="navbar-nav pt-5 pt-sm-0 header-nav" id="header-nav">
-               <li class="nav-item ml-sm-auto header-nav-pl">
-                  <a class="nav-link exo" href="index.html#about">
-                  <img src="img/icons/about.png" class="w-8 mr-2">ABOUT ALAN
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link exo" href="index.html#success">
-                  <img src="img/icons/story.png" class="w-8 mr-2">SUCCESS STORIES
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link exo" href="index.html#blogs">
-                  <img src="img/icons/blogs.png" class="w-8 mr-2">BLOGS
-                  </a>
-               </li>
-               <li class="nav-item mr-sm-auto header-nav-pr">
-                  <a class="nav-link exo" href="index.html#contact">
-                  <img src="img/icons/contact.png" class="w-8 mr-2">CONTACT
-                  </a>
-               </li>
-               <li class="nav-item d-block d-sm-none text-center">
-                  <a href="mainservices.html">
-                  <button class="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">CONSULT</button>
-                  </a>
-               </li>
-               <li class="nav-item text-right pr-0 d-none d-sm-block">
-                  <button class="btn mr-2" onclick="fetchCart();">
-                     <i class="fa fa-shopping-cart fo-30 bco position-relative">
-                        <sup class="cart_count fo-24 bco fw-600" id="cart_count_desktop"></sup>
-                     </i>
-                  </button>
-               </li>
-            </ul>
-            <div class="navExtras d-block d-sm-none">
-               <div class="pb-2">
-                  <a href="partners.html">Partners</a>
-               </div>
-               <div class="pb-2">
-                  <a href="columnist.html">Columnists</a>
-               </div>
-               <div class="pb-2">
-                  <a href="portfolio.html">Portfolio</a>
-               </div>
-            </div>
-            <div class="searchbox d-flex d-sm-none">
-               <i class="fa fa-search" id="mobileSearch" onclick="search(this.id);"></i>
-               <input type="text" name="" placeholder="Search..." class="searches" id="mobileSearchi">
-            </div>
-            <div class="row m-0 mt-5 justify-content-center mb-4 d-flex d-sm-none">
-               <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
-               <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-               </a>
-               <a href="https://www.instagram.com/alan_baptist/" target="_blank">
-               <i class="fab fa-instagram text-white fw-600 m-2"></i>
-               </a>
-               <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
-               <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-               </a>
-               <a href="https://alan.optimumwellness@gmail.com" target="_blank">
                <i class="fas fa-envelope text-white fw-600 m-2"></i>
-               </a>
-               <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make."
+               target="_blank">
                <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
-               </a>
-            </div>
+            </a>
          </div>
-      </nav>
-      <!---Topmost navbar ends--->
-      <div id="notification-area"></div>
-      <!--- Cover image and text on landing --->
-      <section class="site-title">
-         <div class="site-background w-100" data-aos="fade-up" data-aos-delay="100">
-            <div class="row m-0">
-               <div class="col-8 col-sm-6 text-left">
-                  <div class="font-italic fo-30 mfo-16">Fitness & Nutrition Coach, Therapist, Educator and Entrepreneur.</div>
-                  <div class="fo-20 mfo-12 mt-4 mlh-19">India’s First <span class="bco">Optimum Wellness Coach</span>,  Alan Baptist is a young <span class="bco">entrepreneur</span> with a powerful vision of <span class="bco">empowering</span> individuals by positively <span class="bco">transforming</span> various aspects of their lifestyles ranging from optimum physical and dietary wellness to psychological, financial, social, spiritual and other critical and popular facets of wellness.</div>
-                  <div class="row d-none d-sm-flex mt-4 collabs">
-                     <div class="col-sm-4">
-                        <a href="https://www.gqindia.com/content/how-to-lose-weight-like-this-23-year-old-nutritionist-who-lost-35-kg-in-just-9-months-weight-loss-inspirations" target="_blank">
+      </div>
+   </nav>
+   <!---Topmost navbar ends--->
+   <div id="notification-area"></div>
+   <!--- Cover image and text on landing --->
+   <section class="site-title">
+      <div class="site-background w-100" data-aos="fade-up" data-aos-delay="100">
+         <div class="row m-0">
+            <div class="col-8 col-sm-6 text-left">
+               <div class="font-italic fo-30 mfo-16 lfo-20">Fitness & Nutrition Coach, Therapist, Educator and
+                  Entrepreneur.</div>
+               <div class="fo-20 mfo-12 mt-4 mlh-19 lfo-12">India’s First <span class="bco">Optimum Wellness
+                     Coach</span>, Alan Baptist is a young <span class="bco">entrepreneur</span> with a powerful vision
+                  of <span class="bco">empowering</span> individuals by positively <span class="bco">transforming</span>
+                  various aspects of their lifestyles ranging from optimum physical and dietary wellness to
+                  psychological, financial, social, spiritual and other critical and popular facets of wellness.</div>
+               <div class="row d-none d-sm-flex mt-4 collabs mt-xl-2">
+                  <div class="col-sm-4">
+                     <a href="https://www.gqindia.com/content/how-to-lose-weight-like-this-23-year-old-nutritionist-who-lost-35-kg-in-just-9-months-weight-loss-inspirations"
+                        target="_blank">
                         <img src="img/logos/gq.png" class="w-100">
-                        </a>
-                     </div>
-                     <div class="col-sm-4">
-                        <a href="https://timesofindia.indiatimes.com/life-style/health-fitness/weight-loss/weight-loss-i-was-taunted-by-my-close-friend-for-having-man-boobs/articleshow/67953957.cms" target="_blank">
+                     </a>
+                  </div>
+                  <div class="col-sm-4">
+                     <a href="https://timesofindia.indiatimes.com/life-style/health-fitness/weight-loss/weight-loss-i-was-taunted-by-my-close-friend-for-having-man-boobs/articleshow/67953957.cms"
+                        target="_blank">
                         <img src="img/logos/toi.png" class="w-100">
-                        </a>
-                     </div>
-                     <div class="col-sm-4">
-                        <a href="https://www.rediff.com/getahead/report/fat-to-fit-how-i-lost-30-kg-in-less-than-a-year/20211227.htm" target="_blank">
-                           <img src="img/logos/rediff.png" class="w-100">
-                        </a>
-                     </div>
-                     <div class="col-sm-4">
-                        <a href="https://www.mensxp.com/health/motivation/49170-31-days-of-fitness-alan-lost-30-kgs-got-down-to-9-body-fat-doing-things-the-right-way.html" target="_blank">
+                     </a>
+                  </div>
+                  <div class="col-sm-4">
+                     <a href="https://www.rediff.com/getahead/report/fat-to-fit-how-i-lost-30-kg-in-less-than-a-year/20211227.htm"
+                        target="_blank">
+                        <img src="img/logos/rediff.png" class="w-100">
+                     </a>
+                  </div>
+                  <div class="col-sm-4">
+                     <a href="https://www.mensxp.com/health/motivation/49170-31-days-of-fitness-alan-lost-30-kgs-got-down-to-9-body-fat-doing-things-the-right-way.html"
+                        target="_blank">
                         <img src="img/logos/mxp.png" class="w-100">
-                        </a>
-                     </div>
-                     <div class="col-sm-4">
-                        <a href="https://m.facebook.com/story.php?story_fbid=4354644617962440&id=100002508336418" target="_blank">
+                     </a>
+                  </div>
+                  <div class="col-sm-4">
+                     <a href="https://m.facebook.com/story.php?story_fbid=4354644617962440&id=100002508336418"
+                        target="_blank">
                         <img src="img/logos/fe.png" class="w-100">
-                        </a>
-                     </div>
-                     <div class="col-sm-4">
-                        <a href="https://m.facebook.com/nfna.education/photos/a.370415893855728/949739359256709/" target="_blank">
+                     </a>
+                  </div>
+                  <div class="col-sm-4">
+                     <a href="https://m.facebook.com/nfna.education/photos/a.370415893855728/949739359256709/"
+                        target="_blank">
                         <img src="img/logos/ie.png" class="w-100">
-                        </a>
-                     </div>
+                     </a>
                   </div>
                </div>
-               <div class="col-4 col-sm-6"></div>
             </div>
+            <div class="col-4 col-sm-6"></div>
          </div>
-      </section>
-      <!--- Landing section ends --->
-      <!--- Collabs for mobile view only--->
-      <section class="collabs bg-dark d-block d-sm-none">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-4">
-                  <a href="https://www.gqindia.com/content/how-to-lose-weight-like-this-23-year-old-nutritionist-who-lost-35-kg-in-just-9-months-weight-loss-inspirations" target="_blank">
-                     <img src="img/logos/gq.png" class="w-100">
-                  </a>
-               </div>
-               <div class="col-4">
-                  <a href="https://timesofindia.indiatimes.com/life-style/health-fitness/weight-loss/weight-loss-i-was-taunted-by-my-close-friend-for-having-man-boobs/articleshow/67953957.cms" target="_blank">
-                     <img src="img/logos/toi.png" class="w-100">
-                  </a>
-               </div>
-               <div class="col-4">
-                  <a href="https://www.rediff.com/getahead/report/fat-to-fit-how-i-lost-30-kg-in-less-than-a-year/20211227.htm" target="_blank">
-                     <img src="img/logos/rediff.png" class="w-100">
-                  </a>
-               </div>
-               <div class="col-4">
-                  <a href="https://www.mensxp.com/health/motivation/49170-31-days-of-fitness-alan-lost-30-kgs-got-down-to-9-body-fat-doing-things-the-right-way.html" target="_blank">
-                     <img src="img/logos/mxp.png" class="w-100">
-                  </a>
-               </div>
-               <div class="col-4">
-                  <a href="https://m.facebook.com/story.php?story_fbid=4354644617962440&id=100002508336418" target="_blank">
-                     <img src="img/logos/fe.png" class="w-100">
-                  </a>
-               </div>
-               <div class="col-4">
-                  <a href="https://m.facebook.com/nfna.education/photos/a.370415893855728/949739359256709/" target="_blank">
-                     <img src="img/logos/ie.png" class="w-100">
-                  </a>
-               </div>
+      </div>
+   </section>
+   <!--- Landing section ends --->
+   <!--- Collabs for mobile view only--->
+   <section class="collabs bg-dark d-block d-sm-none">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-4">
+               <a href="https://www.gqindia.com/content/how-to-lose-weight-like-this-23-year-old-nutritionist-who-lost-35-kg-in-just-9-months-weight-loss-inspirations"
+                  target="_blank">
+                  <img src="img/logos/gq.png" class="w-100">
+               </a>
             </div>
-         </div>
-      </section>
-      <!---Collabs for mobile view ends-->
-      <!--About section begins--->
-      <section class="about-section overflow-hidden" id="about">
-         <div class="about-container w-70 mow-90">
-            <div class="bco fw-600 fo-55 mfo-25 text-center m-4" data-aos="fade-left" data-aos-delay="100">ABOUT ALAN</div>
-            <div class="text-white text-justify" data-aos="fade-right" data-aos-delay="130">Alan Baptist, is a highly sought-after lifestyle coach, and the President and the Co-Founder and Head Nutritionist at the National Fitness and Nutrition Academy, the leading Evidence-Based fitness and nutrition educational institution in India. He is also the Managing Director at Let’s Be Fit, a health-based startup that consults clients to achieve their fitness and health goals. He is also an evidence-based practitioner and the CTO(Chief Technological Officer) at Zest Fitness Studios, an elite chain of gyms founded by his family and operational across Kolkata, India. He also is India's first optimum wellness coach.</div>
-            <br>
-            <div class="text-white text-justify" data-aos="fade-right" data-aos-delay="130">Despite having an immensely profound and rich academic and professional background in the field of finance, accounting, and taxation he decided to foray into the domain of fitness and nutrition in his early 20s when he felt the need to lose weight and get fit himself. Conscious about his own body image, Alan began his longstanding fitness journey as a unwaveringly firm New Year’s resolution in 2017 under the guidance of his brother Vinit Baptist, co-founder and CEO of Zest Fitness Studio brand of gyms. He lost around 30 kgs of weight across a grueling period of 9 months and reduced his body fat to 9% by following a rigorous fitness routine and ensuring calorie deficit. He was the modeling subject of several immensely inspiring fitness photoshoots and magazine features that soon followed post his transformation.</div>
-            <br>
-            <div class="text-white text-justify" data-aos="fade-right" data-aos-delay="130">In his quest to get fitter and achieve his desired physique, Alan learned the science behind fitness and weight loss, nutrition, and dieting. This is when he realized that fitness and nutrition are vital aspects of an individual’s life that are currently quite neglected in the modern world, hence considering it his moral duty to solve this challenge, Alan took it upon himself to generate awareness and share his knowledge of the same and co-founded NFNA(National Fitness and Nutrition Academy) that provides evidence-based fitness and nutrition courses.</div>
-            <br>
-            <div class="row m-0">
-               <div class="col-sm-6 p-0" data-aos="fade-right" data-aos-delay="140">
-                  <div class="text-white text-justify">Alan has helped over 3000+ individuals across 5 years in achieving health transformations. He has also actively guided countless budding fitness trainers to successfully launch their careers in this ever-expansive field of fitness and nutrition.</div>
-                  <br>
-                  <div class="text-white text-justify">In addition to being an educationalist, finance professional, and fitness coach, Alan is also a licensed therapist. Furthermore, he has a Master’s degree in Philosophy as well. He wishes to coach and mentor other individuals who are struggling with the various dimensions of their wellness. Being an optimum wellness coach, his life’s objective is to provide education, enlightenment, and inspiration to people and help them achieve optimal and holistic wellness in the different dimensions of their life such as physical, dietary and psychological wellness, financial wellness, spiritual wellness, sexual wellness, intellectual and occupational wellness and social wellness.</div>
-               </div>
-               <div class="col-sm-6 p-0 text-center mt-3 mt-sm-0" data-aos="fade-left" data-aos-delay="140">
-                  <img src="img/about.jpg" class="w-80 copyright_img">
-               </div>
+            <div class="col-4">
+               <a href="https://timesofindia.indiatimes.com/life-style/health-fitness/weight-loss/weight-loss-i-was-taunted-by-my-close-friend-for-having-man-boobs/articleshow/67953957.cms"
+                  target="_blank">
+                  <img src="img/logos/toi.png" class="w-100">
+               </a>
             </div>
-            <br>
-            <div class="about-quote font-italic text-white text-justify" data-aos="fade-up" data-aos-delay="100"><span class="bco fw-600">"</span>The fool is in many ways the precursor to the expert. An individual who's open to humbly accepting their ignorance stands a greater chance at attaining enlightenment than the self-proclaimed intellectual.<span class="bco fw-600">"</span></div>
-            <br>
-            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
-               <a href="about.html">
-               <button class="btn website-button pulsating">KNOW MORE</button>
+            <div class="col-4">
+               <a href="https://www.rediff.com/getahead/report/fat-to-fit-how-i-lost-30-kg-in-less-than-a-year/20211227.htm"
+                  target="_blank">
+                  <img src="img/logos/rediff.png" class="w-100">
+               </a>
+            </div>
+            <div class="col-4">
+               <a href="https://www.mensxp.com/health/motivation/49170-31-days-of-fitness-alan-lost-30-kgs-got-down-to-9-body-fat-doing-things-the-right-way.html"
+                  target="_blank">
+                  <img src="img/logos/mxp.png" class="w-100">
+               </a>
+            </div>
+            <div class="col-4">
+               <a href="https://m.facebook.com/story.php?story_fbid=4354644617962440&id=100002508336418"
+                  target="_blank">
+                  <img src="img/logos/fe.png" class="w-100">
+               </a>
+            </div>
+            <div class="col-4">
+               <a href="https://m.facebook.com/nfna.education/photos/a.370415893855728/949739359256709/"
+                  target="_blank">
+                  <img src="img/logos/ie.png" class="w-100">
                </a>
             </div>
          </div>
-      </section>
-      <!---About section ends --->
-      <!---Associations begins --->
-      <section class="associations overflow-hidden" id="success">
-         <div class="text-white text-center fo-40 fw-600 mfo-20" data-aos="fade-down" data-aos-delay="100">MY ASSOCIATIONS</div>
-         <div class="container-fluid pt-5">
-            <div class="row m-0 mb-9" data-aos="fade-right" data-aos-delay="110">
-               <div class="col-sm-5 m-auto">
-                  <div class="p-4 p-sm-0">
-                     <a href="#" target="_blank">
+      </div>
+   </section>
+   <!---Collabs for mobile view ends-->
+   <!--About section begins--->
+   <section class="about-section overflow-hidden" id="about">
+      <div class="about-container w-70 mow-90">
+         <div class="bco fw-600 fo-55 mfo-25 text-center m-4" data-aos="fade-left" data-aos-delay="100">ABOUT ALAN</div>
+         <div class="text-white text-justify" data-aos="fade-right" data-aos-delay="130">Alan Baptist, is a highly
+            sought-after lifestyle coach, and the President and the Co-Founder and Head Nutritionist at the National
+            Fitness and Nutrition Academy, the leading Evidence-Based fitness and nutrition educational institution in
+            India. He is also the Managing Director at Let’s Be Fit, a health-based startup that consults clients to
+            achieve their fitness and health goals. He is also an evidence-based practitioner and the CTO(Chief
+            Technological Officer) at Zest Fitness Studios, an elite chain of gyms founded by his family and operational
+            across Kolkata, India. He also is India's first optimum wellness coach.</div>
+         <br>
+         <div class="text-white text-justify" data-aos="fade-right" data-aos-delay="130">Despite having an immensely
+            profound and rich academic and professional background in the field of finance, accounting, and taxation he
+            decided to foray into the domain of fitness and nutrition in his early 20s when he felt the need to lose
+            weight and get fit himself. Conscious about his own body image, Alan began his longstanding fitness journey
+            as a unwaveringly firm New Year’s resolution in 2017 under the guidance of his brother Vinit Baptist,
+            co-founder and CEO of Zest Fitness Studio brand of gyms. He lost around 30 kgs of weight across a grueling
+            period of 9 months and reduced his body fat to 9% by following a rigorous fitness routine and ensuring
+            calorie deficit. He was the modeling subject of several immensely inspiring fitness photoshoots and magazine
+            features that soon followed post his transformation.</div>
+         <br>
+         <div class="text-white text-justify" data-aos="fade-right" data-aos-delay="130">In his quest to get fitter and
+            achieve his desired physique, Alan learned the science behind fitness and weight loss, nutrition, and
+            dieting. This is when he realized that fitness and nutrition are vital aspects of an individual’s life that
+            are currently quite neglected in the modern world, hence considering it his moral duty to solve this
+            challenge, Alan took it upon himself to generate awareness and share his knowledge of the same and
+            co-founded NFNA(National Fitness and Nutrition Academy) that provides evidence-based fitness and nutrition
+            courses.</div>
+         <br>
+         <div class="row m-0">
+            <div class="col-sm-6 p-0" data-aos="fade-right" data-aos-delay="140">
+               <div class="text-white text-justify">Alan has helped over 3000+ individuals across 5 years in achieving
+                  health transformations. He has also actively guided countless budding fitness trainers to successfully
+                  launch their careers in this ever-expansive field of fitness and nutrition.</div>
+               <br>
+               <div class="text-white text-justify">In addition to being an educationalist, finance professional, and
+                  fitness coach, Alan is also a licensed therapist. Furthermore, he has a Master’s degree in Philosophy
+                  as well. He wishes to coach and mentor other individuals who are struggling with the various
+                  dimensions of their wellness. Being an optimum wellness coach, his life’s objective is to provide
+                  education, enlightenment, and inspiration to people and help them achieve optimal and holistic
+                  wellness in the different dimensions of their life such as physical, dietary and psychological
+                  wellness, financial wellness, spiritual wellness, sexual wellness, intellectual and occupational
+                  wellness and social wellness.</div>
+            </div>
+            <div class="col-sm-6 p-0 text-center mt-3 mt-sm-0" data-aos="fade-left" data-aos-delay="140">
+               <img src="img/about.jpg" class="w-80 copyright_img">
+            </div>
+         </div>
+         <br>
+         <div class="about-quote font-italic text-white text-justify" data-aos="fade-up" data-aos-delay="100"><span
+               class="bco fw-600">"</span>The fool is in many ways the precursor to the expert. An individual who's open
+            to humbly accepting their ignorance stands a greater chance at attaining enlightenment than the
+            self-proclaimed intellectual.<span class="bco fw-600">"</span></div>
+         <br>
+         <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+            <a href="about.html">
+               <button class="btn website-button pulsating">KNOW MORE</button>
+            </a>
+         </div>
+      </div>
+   </section>
+   <!---About section ends --->
+   <!---Associations begins --->
+   <section class="associations overflow-hidden" id="success">
+      <div class="text-white text-center fo-40 fw-600 mfo-20" data-aos="fade-down" data-aos-delay="100">MY ASSOCIATIONS
+      </div>
+      <div class="container-fluid pt-5">
+         <div class="row m-0 mb-9" data-aos="fade-right" data-aos-delay="110">
+            <div class="col-sm-5 m-auto">
+               <div class="p-4 p-sm-0">
+                  <a href="#" target="_blank">
                      <img src="img/logos/ow.png" class="w-100">
-                     </a>
-                  </div>
-               </div>
-               <div class="col-sm-7 pl-sm-3">
-                  <div class="text-white fo-22 fw-600 mt-1 mt-sm-0">Optimum Wellness</div>
-                  <div class="text-white fo-14 font-italics fw-400 mt-1">CEO and Co-Founder</div>
-                  <div class="text-white fo-13 fw-400 mt-2">Year Established - 2020</div>
-                  <br>
-                  <div class="row m-0">
-                     <a href="#" target="_blank">
-                     <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="#" target="_blank">
-                     <i class="fab fa-instagram text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="#" target="_blank">
-                     <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-                     </a>
-                  </div>
-                  <br>
-                  <div class="text-white fo-16 mt-2">Optimum Wellness is the world’s first and only platform that’s been established to provide research-backed diversified solutions to holistically elevate an individual’s status of wellness.<br><br>An individual’s wellness is influenced by an increasingly broad scope of factors that most lifestyle coaches have an inadequate understanding of and as a consequence of which most people find themselves struggling to find fulfillment in their life.<br><br>Owing to Alan’s wealth of experience owing to his exposure in various fields across and the Optimum Wellness brand was founded to offer phenomenal fine-tuned counseling with respect to various aspects of an individual’s life.<br><br>Optimum Wellness provides integrated lifestyle advice considering all influential factors of a person’s wellness, such as their intellectual wellness, social wellness, financial wellness, dietary wellness, physical wellness, emotional(psychological) wellness, occupational wellness, environmental wellness, spiritual wellness and sexual wellness.</div>
+                  </a>
                </div>
             </div>
-            <div class="row m-0 mb-9" data-aos="fade-left" data-aos-delay="100">
-               <div class="col-sm-5 m-auto">
-                  <div>
-                     <a href="#" target="_blank">
+            <div class="col-sm-7 pl-sm-3">
+               <div class="text-white fo-22 fw-600 mt-1 mt-sm-0">Optimum Wellness</div>
+               <div class="text-white fo-14 font-italics fw-400 mt-1">CEO and Co-Founder</div>
+               <div class="text-white fo-13 fw-400 mt-2">Year Established - 2020</div>
+               <br>
+               <div class="row m-0">
+                  <a href="#" target="_blank">
+                     <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="#" target="_blank">
+                     <i class="fab fa-instagram text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="#" target="_blank">
+                     <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+                  </a>
+               </div>
+               <br>
+               <div class="text-white fo-16 mt-2">Optimum Wellness is the world’s first and only platform that’s been
+                  established to provide research-backed diversified solutions to holistically elevate an individual’s
+                  status of wellness.<br><br>An individual’s wellness is influenced by an increasingly broad scope of
+                  factors that most lifestyle coaches have an inadequate understanding of and as a consequence of which
+                  most people find themselves struggling to find fulfillment in their life.<br><br>Owing to Alan’s
+                  wealth of experience owing to his exposure in various fields across and the Optimum Wellness brand was
+                  founded to offer phenomenal fine-tuned counseling with respect to various aspects of an individual’s
+                  life.<br><br>Optimum Wellness provides integrated lifestyle advice considering all influential factors
+                  of a person’s wellness, such as their intellectual wellness, social wellness, financial wellness,
+                  dietary wellness, physical wellness, emotional(psychological) wellness, occupational wellness,
+                  environmental wellness, spiritual wellness and sexual wellness.</div>
+            </div>
+         </div>
+         <div class="row m-0 mb-9" data-aos="fade-left" data-aos-delay="100">
+            <div class="col-sm-5 m-auto">
+               <div>
+                  <a href="#" target="_blank">
                      <img src="https://www.linkpicture.com/q/nfna.png" class="w-100">
-                     </a>
-                  </div>
+                  </a>
                </div>
-               <div class="col-sm-7 pl-sm-3">
-                  <div class="text-white fo-22 fw-600">National Fitness and Nutrition Academy</div>
-                  <div class="text-white fo-14 font-italics fw-400 mt-1">President and Co-Founder</div>
-                  <div class="text-white fo-13 fw-400 mt-2">Year Established - 2018</div>
-                  <br>
-                  <div class="row m-0">
-                     <a href="https://www.facebook.com/nfna.education" target="_blank">
+            </div>
+            <div class="col-sm-7 pl-sm-3">
+               <div class="text-white fo-22 fw-600">National Fitness and Nutrition Academy</div>
+               <div class="text-white fo-14 font-italics fw-400 mt-1">President and Co-Founder</div>
+               <div class="text-white fo-13 fw-400 mt-2">Year Established - 2018</div>
+               <br>
+               <div class="row m-0">
+                  <a href="https://www.facebook.com/nfna.education" target="_blank">
                      <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="https://instagram.com/nfna.education?utm_medium=copy_link" target="_blank">
+                  </a>
+                  <a href="https://instagram.com/nfna.education?utm_medium=copy_link" target="_blank">
                      <i class="fab fa-instagram text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="https://www.linkedin.com/company/nfna" target="_blank">
+                  </a>
+                  <a href="https://www.linkedin.com/company/nfna" target="_blank">
                      <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="https://www.youtube.com/channel/UCSWw4OmSEoJuusDQFWdPhVQ" target="_blank">
+                  </a>
+                  <a href="https://www.youtube.com/channel/UCSWw4OmSEoJuusDQFWdPhVQ" target="_blank">
                      <i class="fab fa-youtube text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="https://t.me/nfna_education" target="_blank">
+                  </a>
+                  <a href="https://t.me/nfna_education" target="_blank">
                      <i class="fab fa-telegram-plane text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="https://pin.it/3y7YpHM" target="_blank">
+                  </a>
+                  <a href="https://pin.it/3y7YpHM" target="_blank">
                      <i class="fab fa-pinterest text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="https://twitter.com/nfna_education" target="_blank">
+                  </a>
+                  <a href="https://twitter.com/nfna_education" target="_blank">
                      <i class="fab fa-twitter text-white fw-600 m-2"></i>
-                     </a>
-                  </div>
-                  <br>
-                  <div class="text-white fo-16 mt-2">The National Fitness and Nutrition Academy was co-founded by Alan with a vision to create 1,00,000+ extraordinary fitness professionals around the globe by 2025, NFNA is India’s leading evidence-based fitness and nutrition academy. They provide evidence-based fitness and nutrition knowledge to the masses and create extraordinary budding fitness professionals and help them boost their careers in the same. Their scientifically-backed coursework, spear-headed by Alan, is thoroughly researched and absolutely dynamic as it is constantly kept upgraded as per the latest developments in fitness and nutrition sciences. The courses are taught in such a way using relatable examples and simplistic analogies that makes it really easy for the students to comprehend and apply the concepts in real life practical scenarios. They are the first fitness academy to provide lifetime free education support to its students and aid them in their career growth.<br><br>Hundreds of successful careers of several students as fitness and nutrition coaches have launched under Alan’s direct one-on-one guidance and meticulous mentorship. Numerous students of varying age groups and demographics, ranging from college going kids to housewives with an incredible passion to restart their potentially glorious careers, have thoroughly learnt applicable concepts in fitness and nutrition, despite having totally no background in science merely due to Alan's ability to deliver well-structured lectures that cater to even the most basic entry-level scholars.</div>
+                  </a>
                </div>
+               <br>
+               <div class="text-white fo-16 mt-2">The National Fitness and Nutrition Academy was co-founded by Alan with
+                  a vision to create 1,00,000+ extraordinary fitness professionals around the globe by 2025, NFNA is
+                  India’s leading evidence-based fitness and nutrition academy. They provide evidence-based fitness and
+                  nutrition knowledge to the masses and create extraordinary budding fitness professionals and help them
+                  boost their careers in the same. Their scientifically-backed coursework, spear-headed by Alan, is
+                  thoroughly researched and absolutely dynamic as it is constantly kept upgraded as per the latest
+                  developments in fitness and nutrition sciences. The courses are taught in such a way using relatable
+                  examples and simplistic analogies that makes it really easy for the students to comprehend and apply
+                  the concepts in real life practical scenarios. They are the first fitness academy to provide lifetime
+                  free education support to its students and aid them in their career growth.<br><br>Hundreds of
+                  successful careers of several students as fitness and nutrition coaches have launched under Alan’s
+                  direct one-on-one guidance and meticulous mentorship. Numerous students of varying age groups and
+                  demographics, ranging from college going kids to housewives with an incredible passion to restart
+                  their potentially glorious careers, have thoroughly learnt applicable concepts in fitness and
+                  nutrition, despite having totally no background in science merely due to Alan's ability to deliver
+                  well-structured lectures that cater to even the most basic entry-level scholars.</div>
             </div>
-            <div class="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
-               <div class="col-sm-5 m-auto">
-                  <div>
-                     <a href="#" target="_blank">
+         </div>
+         <div class="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-sm-5 m-auto">
+               <div>
+                  <a href="#" target="_blank">
                      <img src="https://www.linkpicture.com/q/lbf.png" class="w-100">
-                     </a>
-                  </div>
-               </div>
-               <div class="col-sm-7 pl-sm-3">
-                  <div class="text-white fo-22 fw-600">Let's Be Fit</div>
-                  <div class="text-white fo-14 font-italics fw-400 mt-1">Managing Director and Co-Founder</div>
-                  <div class="text-white fo-13 fw-400 mt-2">Year Established - 2016</div>
-                  <br>
-                  <div class="row m-0">
-                     <a href="#" target="_blank">
-                     <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="#" target="_blank">
-                     <i class="fab fa-instagram text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="#" target="_blank">
-                     <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-                     </a>
-                  </div>
-                  <br>
-                  <div class="text-white fo-16 mt-2">
-                     Let's Be Fit is an online nutrition and fitness consultancy platform that strives to provide to their clients not only evidence-based solutions to their diet and fitness concerns, but also an experience that makes them happy, confident and strong. They have been working in the field of fitness since the past 5 years and have transformed and positively touched and impacted the lives of 1000+ individuals.<br><br>The key specialty of Let's Be Fit lies in -<br><br>
-                     <ul>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Providing a completely tailor-made and customized experience based on all the personal relevant data of a client pertaining to their fitness and health goals.</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Regular rigorous follow-ups with clients with the aim to enhance accountability towards adhering to the prescribed plan is a core aspect of Let's Be Fit's coaching philosophy!</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Multiple updated video links of recipes of every single low-calorie vegetable, meat, fruit juice, salad, soup and dairy product preparations imaginable are curated and offered to clients to ensure the plan is sustainably followed without it feeling too monotonous!</li>
-                     </ul>
-                     <br>
-                     Marathon runners, famous Bodybuilders, to complete beginners starting their fitness journey from the corporate sector, established entrepreneurs and business owners to even Medical Doctors consider Let’s Be Fit to be their one stop solution with respect to health and fitness!
-                  </div>
+                  </a>
                </div>
             </div>
-            <div class="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
-               <div class="col-sm-5 m-auto">
-                  <div>
-                     <a href="#" target="_blank">
-                     <img src="https://i.postimg.cc/NfkmrrdX/zest.png" class="w-100">
-                     </a>
-                  </div>
-               </div>
-               <div class="col-sm-7 pl-sm-3">
-                  <div class="text-white fo-22 fw-600">Zest Fitness Studio</div>
-                  <div class="text-white fo-14 font-italics fw-400 mt-1">Chief Technology Officer and Head Online Nutritionist</div>
-                  <div class="text-white fo-13 fw-400 mt-2">Year Established - 2015</div>
-                  <br>
-                  <div class="row m-0">
-                     <a href="#" target="_blank">
+            <div class="col-sm-7 pl-sm-3">
+               <div class="text-white fo-22 fw-600">Let's Be Fit</div>
+               <div class="text-white fo-14 font-italics fw-400 mt-1">Managing Director and Co-Founder</div>
+               <div class="text-white fo-13 fw-400 mt-2">Year Established - 2016</div>
+               <br>
+               <div class="row m-0">
+                  <a href="#" target="_blank">
                      <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="#" target="_blank">
+                  </a>
+                  <a href="#" target="_blank">
                      <i class="fab fa-instagram text-white fw-600 m-2"></i>
-                     </a>
-                     <a href="#" target="_blank">
+                  </a>
+                  <a href="#" target="_blank">
                      <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-                     </a>
-                  </div>
+                  </a>
+               </div>
+               <br>
+               <div class="text-white fo-16 mt-2">
+                  Let's Be Fit is an online nutrition and fitness consultancy platform that strives to provide to their
+                  clients not only evidence-based solutions to their diet and fitness concerns, but also an experience
+                  that makes them happy, confident and strong. They have been working in the field of fitness since the
+                  past 5 years and have transformed and positively touched and impacted the lives of 1000+
+                  individuals.<br><br>The key specialty of Let's Be Fit lies in -<br><br>
+                  <ul>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Providing a completely tailor-made and
+                        customized experience based on all the personal relevant data of a client pertaining to their
+                        fitness and health goals.</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Regular rigorous follow-ups with clients with
+                        the aim to enhance accountability towards adhering to the prescribed plan is a core aspect of
+                        Let's Be Fit's coaching philosophy!</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Multiple updated video links of recipes of
+                        every single low-calorie vegetable, meat, fruit juice, salad, soup and dairy product
+                        preparations imaginable are curated and offered to clients to ensure the plan is sustainably
+                        followed without it feeling too monotonous!</li>
+                  </ul>
                   <br>
-                  <div class="text-white fo-16 mt-2">
-                     Zest Fitness Studio, is arguably the finest and the most elite chain of premium gym brands in Kolkata with the highest number of publicly posted client transformations. They have empowered 2500+ people to get fitter and stronger for almost over half a decade! They offer step-by-step Fitness Counseling by formulating the right nutritional diet and training methods in order to achieve one’s fitness goals.<br><br>They specialize in various training methods such as<br><br>
-                     <ul>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>High-Intensity Interval Training (H.I.I.T.)</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Bodybuilding</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>CrossFit training methodologies</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Hypertrophy-oriented training</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Sports Performance Programming</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Flexibility and Mobility drills</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Powerlifting</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Olympic Lifting</li>
-                        <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Calisthenics and all other popular aspects of fitness. </li>
-                     </ul>
-                     <br>
-                     Zest Fitness Studio was founded not only with the grand vision of creating Kolkata the fittest city in the nation, but also with mission of educating their members regarding the scientific fundamentals behind fitness and exercise topics, a process that inspired the creation of rising stellar fitness professionals across the city with highly successful and robust careers that can easily be traced by to their humble roots at Zest. The existence of Zest Fitness Studio thereby has undoubtedly positively improved Kolkata's available quality of fitness coaching!
-                  </div>
+                  Marathon runners, famous Bodybuilders, to complete beginners starting their fitness journey from the
+                  corporate sector, established entrepreneurs and business owners to even Medical Doctors consider Let’s
+                  Be Fit to be their one stop solution with respect to health and fitness!
                </div>
             </div>
          </div>
-         <!---Associations ends--->
-         <!---Blogs section begins--->
-         <div class="blog-section" id="blogs">
-            <div class="fo-52 pt-3 fw-700 text-center text-white mfo-32 d-flex justify-content-center">
-               Check out my 
-               <a href="blogs.html" class="pulsating_text ml-3">Blogs</a>
+         <div class="row m-0 mb-9" data-aos="fade-right" data-aos-delay="100">
+            <div class="col-sm-5 m-auto">
+               <div>
+                  <a href="#" target="_blank">
+                     <img src="https://i.postimg.cc/NfkmrrdX/zest.png" class="w-100">
+                  </a>
+               </div>
             </div>
-            <hr>
-            <div class="pr-lg-4 pl-lg-4">
-               <div class="container-fluid pr-0 pl-0 pl-lg-5 pr-lg-5" id="blogSlider">
-                  <input type="radio" name="blogSlider" id="s1" value="1">
-                  <input type="radio" name="blogSlider" id="s2" value="2">
-                  <input type="radio" name="blogSlider" id="s3" value="3" checked>
-                  <input type="radio" name="blogSlider" id="s4" value="4">
-                  <input type="radio" name="blogSlider" id="s5" value="5">
-                  <!-- <label for="s1" id="slide1">
+            <div class="col-sm-7 pl-sm-3">
+               <div class="text-white fo-22 fw-600">Zest Fitness Studio</div>
+               <div class="text-white fo-14 font-italics fw-400 mt-1">Chief Technology Officer and Head Online
+                  Nutritionist</div>
+               <div class="text-white fo-13 fw-400 mt-2">Year Established - 2015</div>
+               <br>
+               <div class="row m-0">
+                  <a href="#" target="_blank">
+                     <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="#" target="_blank">
+                     <i class="fab fa-instagram text-white fw-600 m-2"></i>
+                  </a>
+                  <a href="#" target="_blank">
+                     <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+                  </a>
+               </div>
+               <br>
+               <div class="text-white fo-16 mt-2">
+                  Zest Fitness Studio, is arguably the finest and the most elite chain of premium gym brands in Kolkata
+                  with the highest number of publicly posted client transformations. They have empowered 2500+ people to
+                  get fitter and stronger for almost over half a decade! They offer step-by-step Fitness Counseling by
+                  formulating the right nutritional diet and training methods in order to achieve one’s fitness
+                  goals.<br><br>They specialize in various training methods such as<br><br>
+                  <ul>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>High-Intensity Interval Training (H.I.I.T.)
+                     </li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Bodybuilding</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>CrossFit training methodologies</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Hypertrophy-oriented training</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Sports Performance Programming</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Flexibility and Mobility drills</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Powerlifting</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Olympic Lifting</li>
+                     <li><i class="fas fa-long-arrow-alt-right mr-2"></i>Calisthenics and all other popular aspects of
+                        fitness. </li>
+                  </ul>
+                  <br>
+                  Zest Fitness Studio was founded not only with the grand vision of creating Kolkata the fittest city in
+                  the nation, but also with mission of educating their members regarding the scientific fundamentals
+                  behind fitness and exercise topics, a process that inspired the creation of rising stellar fitness
+                  professionals across the city with highly successful and robust careers that can easily be traced by
+                  to their humble roots at Zest. The existence of Zest Fitness Studio thereby has undoubtedly positively
+                  improved Kolkata's available quality of fitness coaching!
+               </div>
+            </div>
+         </div>
+      </div>
+      <!---Associations ends--->
+      <!---Blogs section begins--->
+      <div class="blog-section" id="blogs">
+         <div class="fo-52 pt-3 fw-700 text-center text-white mfo-32 d-flex justify-content-center">
+            Check out my
+            <a href="blogs.html" class="pulsating_text ml-3">Blogs</a>
+         </div>
+         <hr>
+         <div class="pr-lg-4 pl-lg-4">
+            <div class="container-fluid pr-0 pl-0 pl-lg-5 pr-lg-5" id="blogSlider">
+               <input type="radio" name="blogSlider" id="s1" value="1">
+               <input type="radio" name="blogSlider" id="s2" value="2">
+               <input type="radio" name="blogSlider" id="s3" value="3" checked>
+               <input type="radio" name="blogSlider" id="s4" value="4">
+               <input type="radio" name="blogSlider" id="s5" value="5">
+               <!-- <label for="s1" id="slide1">
                      <div class="blogcardimage">
                         <a href="blog.html">
                            <img src="https://www.linkpicture.com/q/blog3.png" height="100%" width="100%">
@@ -497,115 +606,127 @@
                      </div>
                      <div class="blog-footer fo-12 mfo-11">May 4, 2021</div>
                   </label> -->
+            </div>
+            <!---Handlers ---->
+            <div class="text-center mt-5">
+               <i class="fas fa-long-arrow-alt-left mr-1 text-white fw-800 fo-20 cursorPointer"
+                  onclick="prevBlog()"></i>
+               <i class="fas fa-long-arrow-alt-right ml-1 text-white fw-800 fo-20 cursorPointer"
+                  onclick="nextBlog()"></i>
+            </div>
+         </div>
+      </div>
+      <!---Blogs section ends--->
+      <!-- The Modal -->
+      <div class="modal fade" id="checkout">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header bg-theme">
+                  <h4 class="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
+                  <button type="button" class="close text-dark fw-800" data-dismiss="modal">&times;</button>
                </div>
-               <!---Handlers ---->
-               <div class="text-center mt-5">
-                  <i class="fas fa-long-arrow-alt-left mr-1 text-white fw-800 fo-20 cursorPointer" onclick="prevBlog()"></i>
-                  <i class="fas fa-long-arrow-alt-right ml-1 text-white fw-800 fo-20 cursorPointer" onclick="nextBlog()"></i>
+               <!-- Modal body -->
+               <div class="modal-body pt-4">
+                  <div id="particulars"></div>
+                  <div class="mt-4 text-right">
+                     <div class="fo-14 fw-600 cursorPointer" onclick="emptyCart();" data-dismiss="modal">EMPTY CART
+                     </div>
+                  </div>
+                  <div class="input-data">
+                     <input type="text" required id="customer_name">
+                     <div class="underline"></div>
+                     <label>Full Name</label>
+                  </div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_email">
+                     <div class="underline"></div>
+                     <label>Email</label>
+                  </div>
+                  <div class="input-data mt-5">
+                     <input type="text" required id="customer_mobile">
+                     <div class="underline"></div>
+                     <label>Contact number</label>
+                  </div>
+                  <div class="row m-0 couponsection mt-3">
+                     <div class="col-6 col-sm-6 pl-0" id="coupon_status">
+                        <input type="text" placeholder="Coupon code" id="coupon_code">
+                     </div>
+                     <div class="col-6 col-sm-6 pr-0">
+                        <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();"
+                           id="coupon_button">APPLY COUPON</button>
+                     </div>
+                     <div class="col-12 col-sm-12 text-center cash_option">
+                        <div class="fo-16 fw-700" onclick="payInCash();">PAY IN CASH</div>
+                     </div>
+                  </div>
+               </div>
+               <div class="checkoutfooter row m-0">
+                  <button class="btn website-button w-50 bg-white text-dark fo-20 fw-800" id="totalbill"></button>
+                  <button class="btn website-button w-50 bg-dark text-white" onclick="checkout();">PROCEED TO
+                     PAYMENT</button>
                </div>
             </div>
          </div>
-         <!---Blogs section ends--->
-         <!-- The Modal -->
-         <div class="modal fade" id="checkout">
-            <div class="modal-dialog modal-dialog-centered">
-               <div class="modal-content">
-                  <!-- Modal Header -->
-                  <div class="modal-header bg-theme">
-                     <h4 class="text-dark fw-700 fo-20 mb-0">CHECKOUT</h4>
-                     <button type="button" class="close text-dark fw-800" data-dismiss="modal">&times;</button>
-                  </div>
-                  <!-- Modal body -->
-                  <div class="modal-body pt-4">
-                     <div id="particulars"></div>
-                     <div class="mt-4 text-right">
-                        <div class="fo-14 fw-600 cursorPointer" onclick="emptyCart();" data-dismiss="modal">EMPTY CART</div>
-                     </div>
-                     <div class="input-data">
-                        <input type="text" required id="customer_name">
-                        <div class="underline"></div>
-                        <label>Full Name</label>
-                     </div>
-                     <div class="input-data mt-5">
-                        <input type="text" required id="customer_email">
-                        <div class="underline"></div>
-                        <label>Email</label>
-                     </div>
-                     <div class="input-data mt-5">
-                        <input type="text" required id="customer_mobile">
-                        <div class="underline"></div>
-                        <label>Contact number</label>
-                     </div>
-                     <div class="row m-0 couponsection mt-3">
-                        <div class="col-6 col-sm-6 pl-0" id="coupon_status">
-                           <input type="text" placeholder="Coupon code" id="coupon_code">
-                        </div>
-                        <div class="col-6 col-sm-6 pr-0">
-                           <button class="btn website-button bg-dark text-white w-100 mfo-12" onclick="applyCoupon();" id="coupon_button">APPLY COUPON</button>
-                        </div>
-                        <div class="col-12 col-sm-12 text-center cash_option">
-                           <div class="fo-16 fw-700" onclick="payInCash();">PAY IN CASH</div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="checkoutfooter row m-0">
-                     <button class="btn website-button w-50 bg-white text-dark fo-20 fw-800" id="totalbill"></button>
-                     <button class="btn website-button w-50 bg-dark text-white" onclick="checkout();">PROCEED TO PAYMENT</button>
-                  </div>
-               </div>
-            </div>
+      </div>
+   </section>
+   <!---Footer section begins --->
+   <footer id="contact">
+      <div class="footer-bg overflow-hidden">
+         <div class="text-center mt-4">
+            <a href="mainservices.html">
+               <button class="btn website-button pulsating fo-30" data-aos="fade-left"
+                  data-aos-delay="100">CONSULT</button>
+            </a>
          </div>
-      </section>
-      <!---Footer section begins --->
-         <footer id="contact">
-            <div class="footer-bg overflow-hidden">
-               <div class="text-center mt-4">
-                  <a href="mainservices.html">
-                     <button class="btn website-button pulsating fo-30" data-aos="fade-left" data-aos-delay="100">CONSULT</button>
-                  </a>
-               </div>
-               <div class="text-center fo-40 fw-800 bco mfo-35 text-white pt-5" data-aos="fade-left" data-aos-delay="100">ALAN BAPTIST</div>
-               <div class="footer-img-container w-100">
-                  <img src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp" class="w-100">
-               </div>
-            </div>
-            <div class="text-center bg-dark pb-5">
-               <div class="text-white fo-24 fw-600 mfo-16">CONTACT</div>
-               <hr>
-               <div class="row justify-content-center m-0 mt-3">
-                  <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
-                  <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://www.instagram.com/alan_baptist/" target="_blank">
-                  <i class="fab fa-instagram text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
-                  <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://alan.optimumwellness@gmail.com" target="_blank">
-                  <i class="fas fa-envelope text-white fw-600 m-2"></i>
-                  </a>
-                  <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make." target="_blank">
-                  <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
-                  </a>
-               </div>
-               <div class="mt-2 text-white mfo-13">&copy; 2021 Alan Baptist | Website Design by <span class="bco">"Pratiti Bera"</span></div>
-               <div class="text-white mfo-13">Front End Design Conceptualizer <span class="bco">"Hritavash Saha"</span></div>
-               <div class="text-white mfo-13">Chief Content Manager <span class="bco">"Debasmita Das"</span></div>
-            </div>
-            <div class="move-up" data-aos="fade-up" data-aos-delay="1800">
-               <span><i class="fas fa-arrow-up fa-2x bco fw-800"></i></span>
-            </div>
-         </footer>
-         <!---Footer section ends --->
-      <!--Script files -->
-      <script src="js/jquery.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/owl.carousel.min.js"></script>
-      <script src="js/aos.js"></script>
-      <script src="js/urls.js" defer></script>
-      <script src="js/main.js"></script>
-      <script src="js/blogs.js"></script>
-      <script src="js/checkout.js"></script>
-   </body>
+         <div class="text-center fo-40 fw-800 bco mfo-35 text-white pt-5" data-aos="fade-left" data-aos-delay="100">ALAN
+            BAPTIST</div>
+         <div class="footer-img-container w-100">
+            <img
+               src="https://static.wixstatic.com/media/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.png/v1/fill/w_1235,h_304,al_c,q_90,usm_0.66_1.00_0.01/bf92a9_c650aa5fcf9e4302b65032a2db35194f~mv2.webp"
+               class="w-100">
+         </div>
+      </div>
+      <div class="text-center bg-dark pb-5">
+         <div class="text-white fo-24 fw-600 mfo-16">CONTACT</div>
+         <hr>
+         <div class="row justify-content-center m-0 mt-3">
+            <a href="https://www.facebook.com/alanvidyushandrew.baptist" target="_blank">
+               <i class="fab fa-facebook-f text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://www.instagram.com/alan_baptist/" target="_blank">
+               <i class="fab fa-instagram text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/alanvidyushbaptist" target="_blank">
+               <i class="fab fa-linkedin-in text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://alan.optimumwellness@gmail.com" target="_blank">
+               <i class="fas fa-envelope text-white fw-600 m-2"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=919836143134&text=Greetings%20good%20sir!%0A%0AI%20found%20your%20website%20online%20and%20had%20an%20enquiry%20to%20make."
+               target="_blank">
+               <i class="fab fa-whatsapp text-white fw-600 m-2"></i>
+            </a>
+         </div>
+         <div class="mt-2 text-white mfo-13">&copy; 2021 Alan Baptist | Website Design by <span class="bco">"Pratiti
+               Bera"</span></div>
+         <div class="text-white mfo-13">Front End Design Conceptualizer <span class="bco">"Hritavash Saha"</span></div>
+         <div class="text-white mfo-13">Chief Content Manager <span class="bco">"Debasmita Das"</span></div>
+      </div>
+      <div class="move-up" data-aos="fade-up" data-aos-delay="1800">
+         <span><i class="fas fa-arrow-up fa-2x bco fw-800"></i></span>
+      </div>
+   </footer>
+   <!---Footer section ends --->
+   <!--Script files -->
+   <script src="js/jquery.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/owl.carousel.min.js"></script>
+   <script src="js/aos.js"></script>
+   <script src="js/urls.js" defer></script>
+   <script src="js/main.js"></script>
+   <script src="js/blogs.js"></script>
+   <script src="js/checkout.js"></script>
+</body>
+
 </html>

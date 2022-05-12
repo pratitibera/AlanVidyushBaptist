@@ -43,8 +43,8 @@
                   </a>
                   <div class="dropdown-menu">
                     <a class="dropdown-item" href="#editMainServices" onclick="editMainServices();">Edit main services</a>
-                    <a class="dropdown-item" href="#editServices" onclick="editServices();">Edit services</a>
-                    <a class="dropdown-item" href="#editSubservices" onclick="editSubservices();">Edit subservices</a>
+                    <a class="dropdown-item" href="#editServices">Edit services</a>
+                    <a class="dropdown-item" href="#editSubservices">Edit subservices</a>
                   </div>
                </li>
                <li class="nav-item dropdown">
@@ -66,7 +66,7 @@
                   </div>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="admin.html#blogbody" target="_blank">Generate blog body</a>
+                  <a class="nav-link" href="index.html#blogbody" target="_blank">Generate blog body</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="#dataInterval">Edit data-interval</a>
@@ -412,6 +412,10 @@
       <section id="editServices" class="mb-5">
          <div class="container">
             <h3 class="mb-5">EDIT SERVICES</h3>
+            <div class="form-group">
+               <label>Choose main service:</label>
+               <select class="form-control" id="selected_main_service5" onchange="editServices('service');"></select>
+            </div>
             <div class="table-responsive" id="editServicesTable">
                <table class="table table-bordered">
                   <thead>
@@ -429,6 +433,14 @@
       <section id="editSubservices" class="mb-5">
          <div class="container">
             <h3 class="mb-5">EDIT SUB-SERVICES</h3>
+            <div class="form-group">
+               <label>Choose main service:</label>
+               <select class="form-control" id="selected_main_service6" onchange="editServices('subservice');"></select>
+            </div>
+            <div class="form-group">
+               <label>Choose service:</label>
+               <select class="form-control" id="selected_servicee" onchange="editSubservices();"></select>
+            </div>
             <div class="table-responsive" id="editSubservicesTable">
                <table class="table table-bordered">
                   <thead>
@@ -501,7 +513,8 @@
                <label>Select main service:</label>
                <select class="form-control" id="selected_main_service4" onchange="getExistingPlansServices();"></select>
             </div>
-            <div id="planform2"></div>
+            <div id="planform4"></div>
+            <div id="planform5"></div>
             <div class="table-responsive" id="offerdetails_table">
                <table class="table table-bordered">
                   <thead>

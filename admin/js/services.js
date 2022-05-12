@@ -16,11 +16,17 @@ function getAllServices() {
 			selected_main_service3.innerHTML = "<option>Select main service</option>";
 			var selected_main_service4 = document.getElementById('selected_main_service4');
 			selected_main_service4.innerHTML = "<option>Select main service</option>";
+			var selected_main_service5 = document.getElementById('selected_main_service5');
+			selected_main_service5.innerHTML = "<option>Select main service</option>";
+			var selected_main_service6 = document.getElementById('selected_main_service6');
+			selected_main_service6.innerHTML = "<option>Select main service</option>";
 			for (i = 0; i < data.length; i++) {
-				selected_main_service.innerHTML += `<option value="${data[i]['service']}">${data[i]['service']}</option>`;
-				selected_main_service2.innerHTML += `<option value="${data[i]['service']}">${data[i]['service']}</option>`;
-				selected_main_service3.innerHTML += `<option value="${data[i]['service']}">${data[i]['service']}</option>`;
-				selected_main_service4.innerHTML += `<option value="${data[i]['service']}">${data[i]['service']}</option>`;
+				selected_main_service.innerHTML += `<option value="${data[i]['_id']}">${data[i]['service']}</option>`;
+				selected_main_service2.innerHTML += `<option value="${data[i]['_id']}">${data[i]['service']}</option>`;
+				selected_main_service3.innerHTML += `<option value="${data[i]['_id']}">${data[i]['service']}</option>`;
+				selected_main_service4.innerHTML += `<option value="${data[i]['_id']}">${data[i]['service']}</option>`;
+				selected_main_service5.innerHTML += `<option value="${data[i]['_id']}">${data[i]['service']}</option>`;
+				selected_main_service6.innerHTML += `<option value="${data[i]['_id']}">${data[i]['service']}</option>`;
 			}
 		}
 	}
@@ -36,7 +42,7 @@ var offer_name_3 = "";
 // After selecting a main service
 function getPlanServices() {
 	var mainService = document.getElementById('selected_main_service3').value;
-	offer_name_1 = mainService;
+	offer_name_1 = document.getElementById('selected_main_service3').options[document.getElementById('selected_main_service3').selectedIndex].text;
 	offer_name_2 = "";
 	offer_name_3 = "";
 	var request = new XMLHttpRequest();
@@ -60,7 +66,7 @@ function getPlanServices() {
 			input1select.setAttribute('id', 'selected_service');
 			input1select.setAttribute('onchange', `getPlanSubservices()`);
 			for (i = 0; i < data['subservices'].length; i++) {
-				input1select.innerHTML += `<option value="${data['subservices'][i]['service']}">${data['subservices'][i]['service']}</option>`;
+				input1select.innerHTML += `<option value="${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
 			}
 			input1.append(input1label);
 			input1.append(input1select);
@@ -120,7 +126,7 @@ function getPlanServices() {
 // After selecting a service
 function getPlanSubservices() {
 	var selected_service = document.getElementById('selected_service').value;
-	offer_name_2 = selected_service;
+	offer_name_2 = document.getElementById('selected_service').options[document.getElementById('selected_service').selectedIndex].text;
 	offer_name_3 = "";
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + selected_service, true);
@@ -143,7 +149,7 @@ function getPlanSubservices() {
 			input1select.setAttribute('id', 'selected_subservice');
 			input1select.setAttribute('onchange', `getPlanOffers`);
 			for (i = 0; i < data['subservices'].length; i++) {
-				input1select.innerHTML += `<option value="${data['subservices'][i]['service']}">${data['subservices'][i]['service']}</option>`;
+				input1select.innerHTML += `<option value="${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
 			}
 			input1.append(input1label);
 			input1.append(input1select);
@@ -204,7 +210,7 @@ function getPlanSubservices() {
 // After selecting a subservice
 function getPlanOffers() {
 	var selected_subservice = document.getElementById('selected_subservice').value;
-	offer_name_3 = selected_subservice;
+	offer_name_3 = document.getElementById('selected_subservice').options[document.getElementById('selected_subservice').selectedIndex].text;
 	var request = new XMLHttpRequest();
 	request.open(urlSet.viewServicesApi.method, urlSet.viewServicesApi.url + selected_subservice, true);
 	request.setRequestHeader("Content-Type", "application/json");
@@ -351,42 +357,32 @@ function addPlan() {
 	if (duration != '' && actual_price != '') {
 		if (discounted_price == "" || discounted_price == "0") {
 			var json = {
-				"service": planService,
-				"level": 3,
-				"subservices": [],
-				"offers": [{
-					"currency": "INR",
-					"price": parseInt(actual_price),
-					"duration": duration,
-					"recommended": recommendation,
-					"features": planfeature_list,
-					"feature_images": planfeatureicon_list,
-					"offer_name": offer_name,
-					"in_stock": availability
-				}]
+				"currency": "INR",
+				"price": parseInt(actual_price),
+				"duration": duration,
+				"recommended": recommendation,
+				"features": planfeature_list,
+				"feature_images": planfeatureicon_list,
+				"offer_name": offer_name,
+				"in_stock": availability
 			}
 		} else {
 			var json = {
-				"service": planService,
-				"level": 3,
-				"subservices": [],
-				"offers": [{
-					"currency": "INR",
-					"price": parseInt(actual_price),
-					"discounted_price": parseInt(discounted_price),
-					"duration": duration,
-					"recommended": recommendation,
-					"features": planfeature_list,
-					"feature_images": planfeatureicon_list,
-					"offer_name": offer_name,
-					"in_stock": availability
-				}]
+				"currency": "INR",
+				"price": parseInt(actual_price),
+				"discounted_price": parseInt(discounted_price),
+				"duration": duration,
+				"recommended": recommendation,
+				"features": planfeature_list,
+				"feature_images": planfeatureicon_list,
+				"offer_name": offer_name,
+				"in_stock": availability
 			}
 		}
 
 		console.log(json);
 		var request = new XMLHttpRequest();
-		request.open(urlSet.addServiceApi.method, urlSet.addServiceApi.url, true);
+		request.open(urlSet.addOffersApi.method, urlSet.addOffersApi.url + planService, true);
 		request.setRequestHeader("Content-Type", "application/json");
 		request.setRequestHeader("authorization", authtoken);
 		request.send(JSON.stringify(json));
@@ -400,7 +396,7 @@ function addPlan() {
 			document.getElementById('planfeatureiconlist').innerHTML = "";
 			planfeature_list = [];
 			planfeatureicon_list = [];
-			if (data['message'] == "Serivce has been updated") {
+			if (data['_id'] != '') {
 				alert("Plan successfully added");
 				location.reload();
 				// getExistingPlansServices();
@@ -499,8 +495,8 @@ function getExistingPlansServices() {
 			}
 			document.getElementById('offerdetails_table').style.display = "block";
 		} else if (data['subservices'].length > 0) {
-			var planform2 = document.getElementById('planform2');
-			planform2.innerHTML = "";
+			var planform4 = document.getElementById('planform4');
+			planform4.innerHTML = "";
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
 
@@ -510,13 +506,13 @@ function getExistingPlansServices() {
 			var input1select = document.createElement('select');
 			input1select.setAttribute('class', 'form-control');
 			input1select.setAttribute('id', 'selected_planservice');
-			input1select.setAttribute('onchange', `getExistingPlanSubservices`);
+			input1select.setAttribute('onchange', `getExistingPlanSubservices()`);
 			for (i = 0; i < data['subservices'].length; i++) {
-				input1select.innerHTML += `<option value="${data['subservices'][i]['service']}">${data['subservices'][i]['service']}</option>`;
+				input1select.innerHTML += `<option value="${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
 			}
 			input1.append(input1label);
 			input1.append(input1select);
-			planform2.append(input1);
+			planform4.append(input1);
 			getExistingPlanSubservices();
 		} else {
 			var planform2 = document.getElementById('planform2');
@@ -601,8 +597,8 @@ function getExistingPlanSubservices() {
 			}
 			document.getElementById('offerdetails_table').style.display = "block";
 		} else if (data['subservices'].length > 0) {
-			var planform2 = document.getElementById('planform2');
-			planform2.innerHTML = "";
+			var planform2 = document.getElementById('planform5');
+			planform5.innerHTML = "";
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
 
@@ -612,13 +608,13 @@ function getExistingPlanSubservices() {
 			var input1select = document.createElement('select');
 			input1select.setAttribute('class', 'form-control');
 			input1select.setAttribute('id', 'selected_plansubservice');
-			input1select.setAttribute('onchange', `getExistingPlanOffers`);
+			input1select.setAttribute('onchange', `getExistingPlanOffers()`);
 			for (i = 0; i < data['subservices'].length; i++) {
-				input1select.innerHTML += `<option value="${data['subservices'][i]['service']}">${data['subservices'][i]['service']}</option>`;
+				input1select.innerHTML += `<option value="${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
 			}
 			input1.append(input1label);
 			input1.append(input1select);
-			planform2.append(input1);
+			planform5.append(input1);
 			getExistingPlanOffers();
 		} else {
 			alert("This service has no data");
@@ -845,6 +841,7 @@ function saveOffer() {
          var json = {
             "currency": "INR",
             "price": parseInt(actual_price),
+            "discounted_price": 0,
             "duration": duration,
             "recommended": recommendation,
             "features": planfeature_list,

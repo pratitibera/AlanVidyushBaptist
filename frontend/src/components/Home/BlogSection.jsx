@@ -1,28 +1,23 @@
-import $ from "jquery";
+import { useState } from 'react'
 import { Link } from "react-router-dom";
 
 const BlogSection = ({ blogs }) => {
+  const [selected, setSelected] = useState(3)
   const prevBlog = () => {
-    let v =
-      parseInt($("#blogSlider input[name='blogSlider']:checked").val()) - 1;
-    if (v < 1) {
-      v = 5;
-    }
-    document.getElementById("s" + v).checked = true;
+    setSelected(selected - 1 < 5 ? 5 : selected - 1)
   };
 
   const nextBlog = () => {
-    let v =
-      parseInt($("#blogSlider input[name='blogSlider']:checked").val()) + 1;
-    if (v > 5) {
-      v = 1;
-    }
-    document.getElementById("s" + v).checked = true;
+    setSelected(selected + 1 > 5 ? 1 : selected + 1)
   };
 
+  const selectHandler = (id) => {
+    setSelected(parseInt(id))
+  }
+
   return (
-    <div className="blog-section vh-175" id="blogs">
-      <div className="fo-52 pt-3 fw-700 text-center text-white mfo-32 d-flex justify-content-center">
+    <div className="blog-section" id="blogs">
+      <div className="fo-52 pt-3 fw-700 mfo-32  text-center text-white d-flex justify-content-center">
         Check out my
         <Link to="/blogs" className="pulsating_text ml-3 ">
           Blogs
@@ -36,18 +31,19 @@ const BlogSection = ({ blogs }) => {
             className="container-fluid pr-0 pl-0 pl-lg-5 pr-lg-5"
             id="blogSlider"
           >
-            <input type="radio" name="blogSlider" id="s1" value="1" />
-            <input type="radio" name="blogSlider" id="s2" value="2" />
-            <input type="radio" name="blogSlider" id="s3" value="3" checked />
-            <input type="radio" name="blogSlider" id="s4" value="4" />
-            <input type="radio" name="blogSlider" id="s5" value="5" />
+            <input type="radio" name="blogSlider" id="s1" value="1" checked={selected === 1}/>
+            <input type="radio" name="blogSlider" id="s2" value="2" checked={selected === 2}/>
+            <input type="radio" name="blogSlider" id="s3" value="3" checked={selected === 3}/>
+            <input type="radio" name="blogSlider" id="s4" value="4" checked={selected === 4}/>
+            <input type="radio" name="blogSlider" id="s5" value="5" checked={selected === 5}/>
 
             {/* Blogs */}
 
             {blogs &&
               blogs.length > 0 &&
               blogs.map((blog, index) => {
-                return <BlogCard blog={blog} index={index + 1} key={index} />;
+                if (index < 5)
+                  return <BlogCard blog={blog} index={index + 1} key={index} selectHandler={selectHandler}/>;
               })}
 
             <div className="text-center blogs-handler-icons">
@@ -69,9 +65,10 @@ const BlogSection = ({ blogs }) => {
 
 export default BlogSection;
 
-const BlogCard = ({ index, blog }) => {
+const BlogCard = ({ index, blog, selectHandler }) => {
+  const clickHandler = () => selectHandler(index)
   return (
-    <label htmlFor={`s${index}`} id={`slide${index}`}>
+    <label htmlFor={`s${index}`} id={`slide${index}`} onClick={clickHandler}> 
       <div className="blogcardimage">
         <Link to={"/blog/" + blog["_id"]}>
           <img

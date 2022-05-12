@@ -1,4 +1,5 @@
 .accordion {
+  position: -webkit-sticky;
   margin: 0;
   border: 1px solid #d8d5db;
   border-width: 0px 1px 1px 1px;
@@ -17,6 +18,8 @@
   color: #3e4e50;
   font-weight: 500;
   display: flex;
+
+  border-bottom: 4px solid;
 }
 
 .accordionTitle:hover {
@@ -46,4 +49,16 @@
 .accordionContent[aria-expanded="false"] {
   max-height: 0px;
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.horizontalBar {
+  background-color: black;
+  display: block;
+}
+
+@media only screen and (max-width: 600px) {
+  .horizontalBar {
+    background-color: transparent;
+    display: none;
+  }
 }

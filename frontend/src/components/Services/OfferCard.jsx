@@ -1,22 +1,87 @@
 const OfferCard = ({ dark, offer }) => {
-  console.log(offer);
+  const addToCart = () => {
+    let shopcart = JSON.parse(sessionStorage.getItem("cart"));
+    if (!shopcart) {
+      shopcart = [];
+      sessionStorage.setItem("cart", JSON.stringify([]));
+    }
+
+    if (shopcart.length > 0) {
+      const checkExist = (shopcart.filter(elem => elem['_id'] === offer['_id'])).length === 0
+      if (!checkExist) {
+        notify("Service already added to cart");
+      } else {
+        shopcart.push(offer);
+        notify("Service added to cart");
+        sessionStorage.setItem("cart", JSON.stringify(shopcart));
+
+        shopcart = JSON.parse(sessionStorage.getItem("cart"));
+        document.querySelectorAll("#cart_count_mobile").forEach(elem => elem.innerHTML = shopcart.length);
+      }
+
+    } else {
+      shopcart.push(offer);
+      notify("Service added to cart");
+      sessionStorage.setItem("cart", JSON.stringify(shopcart));
+
+      shopcart = JSON.parse(sessionStorage.getItem("cart"));
+      document.querySelectorAll("#cart_count_mobile").forEach(elem => elem.innerHTML = shopcart.length);
+    }
+  };
+
+  const notify = (message) =>
+    (() => {
+      let n = document.createElement("div");
+      let id = "show_notification";
+      n.setAttribute("id", id);
+      n.classList.add("notification");
+      n.append(message);
+      document.getElementById("notification-area").appendChild(n);
+      setTimeout(() => {
+        var notifications = document
+          .getElementById("notification-area")
+          .getElementsByClassName("notification");
+        for (let i = 0; i < notifications.length; i++) {
+          if (notifications[i].getAttribute("id") === id) {
+            notifications[i].remove();
+            break;
+          }
+        }
+      }, 5000);
+    })();
+
+  const slotsFullNotify = () => {
+    notify("Unfortunately, no slots are currently available.")
+  }
+
   return (
     <div
       className={dark ? "bg-dark pt-5 pb-5 dark-pricing" : "bg-white pt-5 pb-5"}
     >
-      <div className="fo-52 fw-600 pco text-center">{offer.duration}</div>
-      <div className="pco fo-20 fw-600 text-center recommend"></div>
+      <div className="pri_offer_heading fw-600 pco text-center">
+        {offer.duration}
+      </div>
+      {offer.recommended == true ? (
+        <div className="pco fo-20 fw-600 text-center recommend">Recommended</div>
+      ) : (
+        <div className="pco fo-20 fw-600 text-center recommend"></div>
+      )}
 
       {offer.discounted_price && offer.discounted_price > 0 ? (
-        <div className="text-center fw-600 fo-52">
-          <span className="fo-20" style={{ textDecoration: "line-through" }}>
+        <div className="text-center fw-600 fo-22">
+          <span
+            className="fo-20 mr-2"
+            style={{ textDecoration: "line-through" }}
+          >
             ₹ {offer.price}
           </span>
-          <span className="pco fo-36 fw-600">₹ </span>
+          <span className="fo-26 fw-600">₹ </span>
           {offer.discounted_price}
         </div>
       ) : (
-        <span className="fo-20">₹ {offer.price}</span>
+        <div className="text-center fw-600 fo-22">
+          <span className="fo-26 fw-600">₹ </span>{offer.price}
+        </div>
       )}
 
       <ul className="pricing-section-items pl-0 mt-3">
@@ -28,11 +93,11 @@ const OfferCard = ({ dark, offer }) => {
         <div className="text-center mt-5">
           <button
             className="btn"
-            onclick="addToCart(this.id);"
+            onClick={offer.in_stock ? addToCart : slotsFullNotify}
             id="Salary_+_House_Property_Plan"
-            disabled={!offer.in_stock}
+          // disabled={!offer.in_stock}
           >
-            {offer.in_stock ? "CHOOSE PLAN" : "OUT OF STOCK"}
+            {offer.in_stock ? "CHOOSE PLAN" : "SLOTS FULL"}
           </button>
         </div>
       </div>

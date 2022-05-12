@@ -15,7 +15,7 @@ const BlogGallery = ({ children }) => {
         breakpoint: 1800,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           infinite: true,
           arrows: true,
         },
@@ -55,7 +55,7 @@ const SampleNextArrow = (props) => {
       className="fas fa-long-arrow-alt-right"
       onClick={onClick}
       style={{
-        bottom: "-10px",
+        bottom: "-15px",
         position: "absolute",
         right: "47%",
         fontSize: "26px",
@@ -72,7 +72,7 @@ function SamplePrevArrow(props) {
       className="fas fa-long-arrow-alt-left"
       style={{
         ...style,
-        bottom: "-10px",
+        bottom: "-15px",
         position: "absolute",
         right: "53%",
         fontSize: "26px",

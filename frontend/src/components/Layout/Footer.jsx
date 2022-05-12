@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -63,7 +62,7 @@ const Footer = () => {
         <div className="text-white mfo-12">
           Chief Website Asset Creator <span className="bco">"Rupsha Das"</span>
         </div>
-        <div className="text-white mfo-13">
+        <div className="text-white mfo-13 pb-4 pb-md-0">
           Chief Content Manager <span className="bco">"Debasmita Das"</span>
         </div>
       </div>

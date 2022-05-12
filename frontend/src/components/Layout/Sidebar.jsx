@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import AboutLogo from "../../img/icons/about.png";
@@ -17,11 +17,19 @@ const Sidebar = ({ overlay }) => {
     document.querySelector(".header-nav").classList.remove("d-none");
     document.querySelector(".header-consult").classList.add("d-block");
     document.querySelector(".header-consult").classList.remove("d-none");
+    document.getElementById("menuBtn-toggle").classList.remove("open");
     overlay.current.style.display = "none";
+  };
+  const routeToPage = () => {
+    closeCollapsibleSidebarHandler();
+    document
+      .getElementById(window.location.hash.replace("#", ""))
+      .scrollIntoView();
   };
 
   const searchHandler = () => {
     console.log("here", searchQuery);
+    closeCollapsibleSidebarHandler();
     navigate("/blogs?search=" + searchQuery);
   };
 
@@ -29,6 +37,21 @@ const Sidebar = ({ overlay }) => {
     console.log(event.target.value);
     setSearchQuery(event.target.value);
   };
+
+  useEffect(() => {
+    const checkSidebar = () => {
+      if (window.outerWidth > 1000) {
+        closeCollapsibleSidebarHandler();
+      }
+    };
+
+    closeCollapsibleSidebarHandler();
+    window.addEventListener("resize", checkSidebar);
+
+    return () => {
+      window.addEventListener("resize", checkSidebar);
+    };
+  }, []);
 
   return (
     <div className="menuSidebar">
@@ -41,26 +64,26 @@ const Sidebar = ({ overlay }) => {
           {" "}
         </i>
       </span>
-      <ul className="navbar-nav pt-5 pt-sm-0" id="sidebar-nav">
-        <li className="nav-item">
-          <Link className="nav-link exo" to="#about">
+      <ul className="navbar-nav pt-0" id="sidebar-nav">
+        <li className="nav-item" onClick={() => routeToPage("about")}>
+          <Link className="nav-link exo" to="/#about">
             <img src={AboutLogo} className="w-8 mr-2" alt="About Logo" />
             ABOUT ALAN
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => routeToPage("success")}>
           <Link className="nav-link exo" to="/#success">
             <img src={StoryLogo} className="w-8 mr-2" alt="Story Logo" />
             SUCCESS STORIES
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => routeToPage("blogs")}>
           <Link className="nav-link exo" to="/#blogs">
             <img src={BlogsLogo} className="w-8 mr-2" alt="Blogs Logo" />
             BLOGS
           </Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => routeToPage("contact")}>
           <Link className="nav-link exo" to="/#contact">
             <img src={ContactLogo} className="w-8 mr-2" alt="Contact Logo" />
             CONTACT
@@ -68,30 +91,42 @@ const Sidebar = ({ overlay }) => {
         </li>
         <li className="nav-item text-center">
           <Link to="/services">
-            <button className="btn website-button mt-4 mb-1 ml-4 fo-17 pulsating">
+            <button className="btn website-button mt-3 mb-1 ml-4 fo-17 pulsating" onClick={closeCollapsibleSidebarHandler}>
               CONSULT
             </button>
           </Link>
         </li>
       </ul>
       <div className="navExtras">
-        <div className="pt-2 pl-5">
-          <Link to="partners" className="text-white">
+        <div className="pt-2">
+          <Link
+            to="partners"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Partners
           </Link>
         </div>
-        <div className="pt-1 pl-5">
-          <Link to="columnist" className="text-white">
+        <div className="pt-1">
+          <Link
+            to="columnists"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Columnists
           </Link>
         </div>
-        <div className="pt-1 pl-5">
-          <Link to="portfolio" className="text-white">
+        <div className="pt-1">
+          <Link
+            to="portfolio"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
             Portfolio
           </Link>
         </div>
       </div>
-      <div className="searchbox mt-4">
+      <div className="searchbox mt-md-4">
         <i
           className="fa fa-search"
           id="desktopSearch"
@@ -162,6 +197,31 @@ const Sidebar = ({ overlay }) => {
       </div>
       <div className="text-white fo-12 text-center">
         Chief Content Manager <span className="bco">"Debasmita Das"</span>
+      </div>
+      <div className="text-white fo-11 text-center mt-2">
+      <Link
+            to="termsAndConditions"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Terms And Conditions
+          </Link> 
+          <span className="mr-2 ml-2">|</span>
+          <Link
+            to="privacyPolicy"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Privacy Policy
+          </Link>
+          <span className="mr-2 ml-2">|</span>
+          <Link
+            to="refundPolicy"
+            className="text-white"
+            onClick={closeCollapsibleSidebarHandler}
+          >
+            Refund Policy
+          </Link>
       </div>
     </div>
   );
