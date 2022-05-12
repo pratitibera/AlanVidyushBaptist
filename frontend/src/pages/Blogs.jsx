@@ -229,11 +229,6 @@ const Blogs = () => {
     navigate(`/blogs`);
   };
 
-  const imageIconParse = (arr, name) => {
-    const elem = arr.filter((elem) => elem.name === decodeURI(name));
-    console.log(elem[0]);
-    return elem[0].image;
-  };
 
   return (
     <main className="page-body">
@@ -373,7 +368,9 @@ const Blogs = () => {
           </div>
 
           {loading && (
-            <Loader />
+            <div id="preloader">
+              <div class="loader" id="loader"></div>
+            </div>
           )}
           {!loading && blogs && blogs.length > 0 && (
             <>
