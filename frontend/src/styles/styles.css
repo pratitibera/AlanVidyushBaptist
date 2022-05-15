@@ -65,11 +65,16 @@
   flex: 1;
 }
 
-.opensans {
-  font-family: "Open Sans Condensed", sans-serif;
+.opensans, .opensans a {
+  font-family: "Open Sans Condensed", sans-serif!important;
 }
 
 /* Globacl classes */
+
+hr{
+  margin: 1rem auto;
+  border-top: none;
+}
 
 .cursor-pointer {
   cursor: pointer;
