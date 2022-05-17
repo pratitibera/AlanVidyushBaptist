@@ -98,6 +98,7 @@ function editSubservices(){
 		}
 		else{
 			alert("No subservices available");
+			document.getElementById('editSubservicesTable').innerHTML = '';
 		}
 	}
 }
@@ -116,7 +117,7 @@ function deleteService(id) {
 				editMainServices();
 			}
 			else if(id.split('_')[0] == "deleteServ"){
-				editServices();
+				editServices('service');
 			}
 			else{
 				editSubservices();

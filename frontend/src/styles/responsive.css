@@ -251,7 +251,7 @@
   }
 
   .blogWriter .row.p-500 {
-    padding: 0px 400px;
+    padding: 0px 500px;
   }
 
   #portfolioSection img:hover {
@@ -673,5 +673,8 @@
   }
   .policy_pages{
     padding: 80px 20px 20px 20px;
+  }
+  .blogWriter .row.p-500 {
+    padding: 0px 80px;
   }
 }
