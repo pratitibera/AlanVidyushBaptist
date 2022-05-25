@@ -93,12 +93,14 @@ function editSubservices(){
 	                           <button class="btn btn-dark" id="deleteSubserv_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
 	                        </td>
 	                     </tr>`;
+
 	            document.getElementById('editSubservicesTable').style.display = "block";
 			}
 		}
 		else{
 			alert("No subservices available");
-			document.getElementById('editSubservicesTable').innerHTML = '';
+			document.getElementById('editSubservicesTable').style.display = "none";
+			// document.getElementById('editSubservicesTable').innerHTML = '';
 		}
 	}
 }
