@@ -147,7 +147,7 @@ function getPlanSubservices() {
 			var input1select = document.createElement('select');
 			input1select.setAttribute('class', 'form-control');
 			input1select.setAttribute('id', 'selected_subservice');
-			input1select.setAttribute('onchange', `getPlanOffers`);
+			input1select.setAttribute('onchange', `getPlanOffers()`);
 			for (i = 0; i < data['subservices'].length; i++) {
 				input1select.innerHTML += `<option value="${data['subservices'][i]['_id']}">${data['subservices'][i]['service']}</option>`;
 			}
