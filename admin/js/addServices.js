@@ -66,7 +66,11 @@ function addService() {
 			if (data['message'] == "Service Updated") {
 				alert("Service successfully added");
 				location.reload();
-			} else {
+			} 
+			else if(data['error'] == "Cannot add Subservices to this Server."){
+				alert("This service already has plans under it");
+			}
+			else {
 				alert("Could not add service");
 			}
 		}
@@ -162,8 +166,8 @@ function addSubservice() {
 				if (data['message'] == "Service Updated") {
 					alert("Subservice successfully added");
 					location.reload();
-				} else if(data['message'] == "Already contains Offers"){
-					alert("Already contains Offers");
+				} else if(data['error'] == "Cannot add Subservices to this Server."){
+					alert("This service already has plans under it");
 				}
 				else {
 					alert("Could not add subservice");

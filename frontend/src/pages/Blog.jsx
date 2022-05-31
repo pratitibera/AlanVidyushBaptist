@@ -253,7 +253,7 @@ const Blog = () => {
                                   {elem["heading"]}
                                 </div>
                                 <div
-                                  className="blogContent fo-17 mfo-15"
+                                  className="blogContent fo-19 mfo-15"
                                   dangerouslySetInnerHTML={{
                                     __html: elem["paragraph"],
                                   }}
