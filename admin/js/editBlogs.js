@@ -32,6 +32,7 @@ function saveEditedBlog() {
 	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
 	var blogsubcategory = document.getElementById('blogsubcategory').value;
 	var blogtarget = document.getElementById('blogtarget').value;
+	var blogsequence = document.getElementById('blogsequence').value;
 
 	// Blog body
 	content = [];
@@ -70,38 +71,85 @@ function saveEditedBlog() {
 	var slug = encodeURIComponent(slug);
 
 	if (client != '' && blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
-		var json = {
-			"date": blogdate,
-			"title": blogtitle,
-			"author": author,
-			"headerImage": coverList['cover'],
-			"slug": slug,
-			"summary": blogsummary,
-			"body": blogcontentList['content'],
-			"category": blogcategory,
-			"subcategory": blogsubcategory,
-			"client": client,
-			"brands": brands,
-			"coach": coachList['coach'],
-			"content": listOfContents,
-			"gallery": galleryList['gallery'],
-			"target": blogtarget
-		}
-		console.log(json);
-		var request = new XMLHttpRequest();
-		request.open(urlSet.edit_blogApi.method, urlSet.edit_blogApi.url + blog_data['_id'], true);
-		request.setRequestHeader("Content-Type", "application/json");
-		request.setRequestHeader("authorization", authtoken);
-		request.send(JSON.stringify(json));
-		request.onload = function () {
-			var data = JSON.parse(this.response);
-			console.log(data);
-			if (data['message'] == "Blog has been Updated") {
-				alert("Blog has been Updated");
-				location.reload();
-			} else {
-				alert("Could not add blog");
+		if(blogsequence != '' && blogsequence > 0){
+			var json = {
+				"date": blogdate,
+				"title": blogtitle,
+				"author": author,
+				"headerImage": coverList['cover'],
+				"slug": slug,
+				"summary": blogsummary,
+				"body": blogcontentList['content'],
+				"category": blogcategory,
+				"subcategory": blogsubcategory,
+				"client": client,
+				"brands": brands,
+				"coach": coachList['coach'],
+				"content": listOfContents,
+				"gallery": galleryList['gallery'],
+				"target": blogtarget,
+				"sequence": blogsequence
 			}
+			console.log(json);
+			var request = new XMLHttpRequest();
+			request.open(urlSet.edit_blogApi.method, urlSet.edit_blogApi.url + blog_data['_id'], true);
+			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("authorization", authtoken);
+			request.send(JSON.stringify(json));
+			request.onload = function () {
+				var data = JSON.parse(this.response);
+				console.log(data);
+				if (data['message'] == "Blog has been Updated") {
+					alert("Blog has been Updated");
+					location.reload();
+				} 
+				else if(data['error'] == "Two Blogs cannot have same sequence"){
+					alert("Two Blogs cannot have same sequence");
+				} else {
+					alert("Could not add blog");
+				}
+			}
+		}
+		else if(blogsequence == ''){
+			var json = {
+				"date": blogdate,
+				"title": blogtitle,
+				"author": author,
+				"headerImage": coverList['cover'],
+				"slug": slug,
+				"summary": blogsummary,
+				"body": blogcontentList['content'],
+				"category": blogcategory,
+				"subcategory": blogsubcategory,
+				"client": client,
+				"brands": brands,
+				"coach": coachList['coach'],
+				"content": listOfContents,
+				"gallery": galleryList['gallery'],
+				"target": blogtarget
+			}
+			console.log(json);
+			var request = new XMLHttpRequest();
+			request.open(urlSet.edit_blogApi.method, urlSet.edit_blogApi.url + blog_data['_id'], true);
+			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("authorization", authtoken);
+			request.send(JSON.stringify(json));
+			request.onload = function () {
+				var data = JSON.parse(this.response);
+				console.log(data);
+				if (data['message'] == "Blog has been Updated") {
+					alert("Blog has been Updated");
+					location.reload();
+				} 
+				else if(data['error'] == "Two Blogs cannot have same sequence"){
+					alert("Two Blogs cannot have same sequence");
+				} else {
+					alert("Could not add blog");
+				}
+			}
+		}
+		else{
+			alert("Blog sequence should be greater than 0");
 		}
 	} else {
 		alert("Please fill all details")
@@ -262,6 +310,7 @@ function displayBlogData() {
 
 	// Target url
 	document.getElementById('blogtarget').value = blog_data['target'];
+	document.getElementById('blogsequence').value = blog_data['sequence'];
 }
 
 function edit_addBlogBody() {

@@ -1,3 +1,10 @@
+#galleryList .col-sm-2 div, #headerimageList .col-sm-2 div{
+    overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
 .cursor-pointer{
     cursor: pointer;
 }

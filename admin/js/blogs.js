@@ -10,11 +10,12 @@ function getAllBlogs(){
     var data = JSON.parse(this.response);
     console.log(data);
     if(data.length > 0){
-    	index = data.length;
+    	index = index + data.length;
 	    var allBlogs = document.getElementById('allBlogs');
 	    for (i = 0; i < data.length; i++) {
 	    	if(data[i]['featured'] == true){
 	    		allBlogs.innerHTML += `<tr>
+	    		              <td>${data[i]['sequence']}</td>
 	                      <td>${data[i]['title']}</td>
 	                      <td><button class="btn btn-dark" id="delete_${data[i]['_id']}" onclick="handleFeatures(this.id)">DELETE FROM FEATURED</button></td>
 	                      <td><a href="#editBlog"><button class="btn btn-dark" id="editBlog_${data[i]['_id']}" onclick="editBlog(this.id)">EDIT</button></a></td>
@@ -23,6 +24,7 @@ function getAllBlogs(){
 	    	}
 	    	else{
 	    		allBlogs.innerHTML += `<tr>
+	    		              <td>${data[i]['sequence']}</td>
 	                      <td>${data[i]['title']}</td>
 	                      <td><button class="btn btn-dark" id="add_${data[i]['_id']}" onclick="handleFeatures(this.id)">ADD TO FEATURED</button></td>
 	                      <td><a href="#editBlog"><button class="btn btn-dark" id="editBlog_${data[i]['_id']}" onclick="editBlog(this.id)">EDIT</button></a></td>
@@ -136,5 +138,44 @@ function edit_data_interval(){
 		else{
 			alert("Could not update data interval");
 		}
+	}
+}
+
+
+function swapBlogSequence(){
+	var b_sequence1 = document.getElementById('b_sequence1').value;
+	var b_sequence2 = document.getElementById('b_sequence2').value;
+
+	if(b_sequence1 != '' && b_sequence2 != ''){
+		if(b_sequence1 == b_sequence2){
+			alert("Cannot Swap the Same Blogs")
+		}
+		else if(b_sequence1 < 1 || b_sequence2 < 1){
+			alert("Sequence must be greater than 0")
+		}
+		else{
+			var json = {
+				"firstSequence": parseInt(b_sequence1),
+				"secondSequence": parseInt(b_sequence2)
+			}
+			var request = new XMLHttpRequest();
+			request.open(urlSet.blog_swapApi.method, urlSet.blog_swapApi.url, true);
+			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("authorization", authtoken);
+			request.send(JSON.stringify(json));
+			request.onload = function () {
+				var data = JSON.parse(this.response);
+				console.log(data);
+				if(data['message'] == "Blogs Sequence Swapped."){
+					alert("Blogs Sequence Swapped.");
+				}
+				else{
+					alert("Could not swap blogs");
+				}
+			}
+		}
+	}
+	else{
+		alert("Please enter both sequence values that you want to swap");
 	}
 }

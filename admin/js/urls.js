@@ -32,6 +32,10 @@ var urlSet = {
         url: baseUrl + "/api/v1/blogs/updateDataInterval",
         method: "PATCH",
     },
+    blog_swapApi: { // swap blogs
+        url: baseUrl + "/api/v1/blogs/swapBlogs",
+        method: "PATCH",
+    },
 
 
     // Admin

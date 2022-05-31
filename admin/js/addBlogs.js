@@ -263,44 +263,87 @@ function addBlog() {
 	var blogcategory = (document.getElementById('blogcategory').value).split('_')[0];
 	var blogsubcategory = document.getElementById('blogsubcategory').value;
 	var blogtarget = document.getElementById('blogtarget').value;
+	var blogsequence = document.getElementById('blogsequence').value;
 
 	var slug = blogtitle.replace(/[^a-zA-Z0-9 ]/g, "");
 	var slug = slug.replaceAll(" ", "_");
 	var slug = encodeURIComponent(slug);
 
 	if (blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
-		var json = {
-			"date": blogdate,
-			"title": blogtitle,
-			"author": author,
-			"headerImage": coverList['cover'],
-			"slug": slug,
-			"summary": blogsummary,
-			"body": blogcontentList['content'],
-			"category": blogcategory,
-			"subcategory": blogsubcategory,
-			"client": client,
-			"brands": brands,
-			"coach": coachList['coach'],
-			"content": listOfContents,
-			"gallery": galleryList['gallery'],
-			"target": blogtarget
-		}
-		console.log(json);
-		var request = new XMLHttpRequest();
-		request.open(urlSet.post_blogApi.method, urlSet.post_blogApi.url, true);
-		request.setRequestHeader("Content-Type", "application/json");
-		request.setRequestHeader("authorization", authtoken);
-		request.send(JSON.stringify(json));
-		request.onload = function () {
-			var data = JSON.parse(this.response);
-			console.log(data);
-			if (data['message'] == "Blog has been added") {
-				alert("Blog successfully added");
-				location.reload();
-			} else {
-				alert("Could not add blog");
+		if(blogsequence != '' && blogsequence > 0){
+			var json = {
+				"date": blogdate,
+				"title": blogtitle,
+				"author": author,
+				"headerImage": coverList['cover'],
+				"slug": slug,
+				"summary": blogsummary,
+				"body": blogcontentList['content'],
+				"category": blogcategory,
+				"subcategory": blogsubcategory,
+				"client": client,
+				"brands": brands,
+				"coach": coachList['coach'],
+				"content": listOfContents,
+				"gallery": galleryList['gallery'],
+				"target": blogtarget,
+				"sequence": blogsequence
 			}
+			console.log(json);
+			var request = new XMLHttpRequest();
+			request.open(urlSet.post_blogApi.method, urlSet.post_blogApi.url, true);
+			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("authorization", authtoken);
+			request.send(JSON.stringify(json));
+			request.onload = function () {
+				var data = JSON.parse(this.response);
+				console.log(data);
+				if (data['message'] == "Blog has been added") {
+					alert("Blog successfully added");
+					location.reload();
+				} else {
+					alert("Could not add blog");
+				}
+			}
+		}
+		else if(blogsequence == ''){
+			var json = {
+				"date": blogdate,
+				"title": blogtitle,
+				"author": author,
+				"headerImage": coverList['cover'],
+				"slug": slug,
+				"summary": blogsummary,
+				"body": blogcontentList['content'],
+				"category": blogcategory,
+				"subcategory": blogsubcategory,
+				"client": client,
+				"brands": brands,
+				"coach": coachList['coach'],
+				"content": listOfContents,
+				"gallery": galleryList['gallery'],
+				"target": blogtarget,
+				"sequence": blogsequence
+			}
+			console.log(json);
+			var request = new XMLHttpRequest();
+			request.open(urlSet.post_blogApi.method, urlSet.post_blogApi.url, true);
+			request.setRequestHeader("Content-Type", "application/json");
+			request.setRequestHeader("authorization", authtoken);
+			request.send(JSON.stringify(json));
+			request.onload = function () {
+				var data = JSON.parse(this.response);
+				console.log(data);
+				if (data['message'] == "Blog has been added") {
+					alert("Blog successfully added");
+					location.reload();
+				} else {
+					alert("Could not add blog");
+				}
+			}
+		}
+		else{
+			alert("Blog sequence should be greater than 0");
 		}
 	} else {
 		alert("Please fill all details")
