@@ -43,19 +43,24 @@ function editServices(param1){
 		console.log(data);
 		editServiceData = data;
 		if(param1 == 'service'){
-			var editServicesData = document.getElementById('editServicesData');
-			editServicesData.innerHTML = "";
-			for(i = 0; i < data['subservices'].length; i++){
-				editServicesData.innerHTML += `<tr>
-	                        <td>${data['subservices'][i]['service']}</td>
-	                        <td class="text-center">
-	                           <button class="btn btn-dark" id="editServ_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
-	                        </td>
-	                        <td class="text-center">
-	                           <button class="btn btn-dark" id="deleteServ_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
-	                        </td>
-	                     </tr>`;
-	            document.getElementById('editServicesTable').style.display = "block";
+			if(data['subservices'].length == 0){
+				alert("This service has no subservices");
+			}
+			else{
+				var editServicesData = document.getElementById('editServicesData');
+				editServicesData.innerHTML = "";
+				for(i = 0; i < data['subservices'].length; i++){
+					editServicesData.innerHTML += `<tr>
+		                        <td>${data['subservices'][i]['service']}</td>
+		                        <td class="text-center">
+		                           <button class="btn btn-dark" id="editServ_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
+		                        </td>
+		                        <td class="text-center">
+		                           <button class="btn btn-dark" id="deleteServ_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+		                        </td>
+		                     </tr>`;
+		            document.getElementById('editServicesTable').style.display = "block";
+				}
 			}
 		}
 		else{
