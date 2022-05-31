@@ -4,13 +4,15 @@ function addMainService() {
 	var main_service_desc = document.getElementById('main_service_desc').value;
 	var main_service_cover = document.getElementById('main_service_cover').value;
 	var main_service_hover = document.getElementById('main_service_hover').value;
+	var main_service_sequence = document.getElementById('main_service_sequence').value;
 	var json = {
 		"service": mainService,
 		"service_image": [main_service_cover,main_service_hover],
 		"description": main_service_desc,
 		"level": 0,
 		"subservices": [],
-		"offers": []
+		"offers": [],
+		"sequence": main_service_sequence
 	}
 	console.log(json);
 	var request = new XMLHttpRequest();
@@ -37,6 +39,7 @@ function addService() {
 	var service_desc = document.getElementById('service_desc').value;
 	var service_cover = document.getElementById('service_cover').value;
 	var service_hover = document.getElementById('service_hover').value;
+	var service_sequence = document.getElementById('service_sequence').value;
 
 	if (service != '') {
 		var json = {
@@ -48,7 +51,8 @@ function addService() {
 			    {
 			      "service": service,
 			      "service_image": [service_cover,service_hover],
-			      "description": service_desc
+			      "description": service_desc,
+			      "sequence": service_sequence
 			    }
 			],
 			"offers": []
@@ -112,6 +116,10 @@ function getServices() {
 	            <div class="form-group">
 	               <label>Enter subservice hover image:</label>
 	               <input type="text" class="form-control" id="subservice_hover">
+	            </div> 
+	            <div class="form-group">
+	               <label>Enter subservice sequence:</label>
+	               <input type="text" class="form-control" id="subservice_sequence">
 	            </div>      
 	            <div class="text-center mt-5 mb-5">
 	               <button class="btn btn-dark w-25" onclick="addSubservice();">ADD SUB-SERVICE</button>
@@ -137,6 +145,7 @@ function addSubservice() {
 	var subservice_desc = document.getElementById('subservice_desc').value;
 	var subservice_cover = document.getElementById('subservice_cover').value;
 	var subservice_hover = document.getElementById('subservice_hover').value;
+	var subservice_sequence = document.getElementById('subservice_sequence').value;
 
 	if (selected_service != '') {
 		if (subservice != '') {
@@ -149,7 +158,8 @@ function addSubservice() {
 				    {
 				      "service": subservice,
 				      "service_image": [subservice_cover,subservice_hover],
-				      "description": subservice_desc
+				      "description": subservice_desc,
+				      "sequence": subservice_sequence
 				    }
 				],
 				"offers": []

@@ -14,6 +14,7 @@ function editMainServices(){
 		editMainServicesData.innerHTML = "";
 		for(i = 0; i < data.length; i++){
 			editMainServicesData.innerHTML += `<tr>
+			               <td>${data[i]['sequence']}</td>
                         <td>${data[i]['service']}</td>
                         <td class="text-center">
                            <button class="btn btn-dark" id="editMainServ_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
@@ -51,6 +52,7 @@ function editServices(param1){
 				editServicesData.innerHTML = "";
 				for(i = 0; i < data['subservices'].length; i++){
 					editServicesData.innerHTML += `<tr>
+					               <td>${data['subservices'][i]['sequence']}</td>
 		                        <td>${data['subservices'][i]['service']}</td>
 		                        <td class="text-center">
 		                           <button class="btn btn-dark" id="editServ_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
@@ -90,6 +92,7 @@ function editSubservices(){
 			editSubservicesData.innerHTML = "";
 			for(i = 0; i < data['subservices'].length; i++){
 				editSubservicesData.innerHTML += `<tr>
+				               <td>${data['subservices'][i]['sequence']}</td>
 	                        <td>${data['subservices'][i]['service']}</td>
 	                        <td class="text-center">
 	                           <button class="btn btn-dark" id="editSubserv_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
@@ -163,6 +166,7 @@ function triggerServiceEditModal(id){
 		document.getElementById('editServicesDesc').value = data['description'];
 		document.getElementById('editServicesCover').value = data['service_image'][0];
 		document.getElementById('editServicesHover').value = data['service_image'][1];
+		document.getElementById('editServiceSequence').value = data['sequence'];
 	}
 }
 
@@ -171,14 +175,28 @@ function editServicesSave(){
 	var servicesDesc = document.getElementById('editServicesDesc').value;
 	var servicesCover = document.getElementById('editServicesCover').value;
 	var servicesHover = document.getElementById('editServicesHover').value;
+	var servicesSequence = document.getElementById('editServiceSequence').value;
 
-	var json = {
-		"service": new_service,
-		"service_image": [servicesCover, servicesHover],
-		"description": servicesDesc,
-		"level": parseInt(servicetype_to_be_edited),
-		"subservices": [],
-		"offers": []
+	if(servicesSequence == ''){
+		var json = {
+			"service": new_service,
+			"service_image": [servicesCover, servicesHover],
+			"description": servicesDesc,
+			"level": parseInt(servicetype_to_be_edited),
+			"subservices": [],
+			"offers": []
+		}
+	}
+	else{
+		var json = {
+			"service": new_service,
+			"service_image": [servicesCover, servicesHover],
+			"description": servicesDesc,
+			"level": parseInt(servicetype_to_be_edited),
+			"subservices": [],
+			"offers": [],
+			"sequence": servicesSequence
+		}
 	}
 	console.log(json);
 	var request = new XMLHttpRequest();
