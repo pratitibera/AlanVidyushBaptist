@@ -2,6 +2,7 @@ var body_count = 0;
 var deletion_id;
 
 function deleteBlog(id) {
+	id = id.id;
 	var request = new XMLHttpRequest();
 	request.open(urlSet.delete_blogApi.method, urlSet.delete_blogApi.url + id.split('_')[1], true);
 	request.setRequestHeader("authorization", authtoken);
@@ -9,6 +10,7 @@ function deleteBlog(id) {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		$('#confirmDeletion').modal('hide');
 		if (data['message'] == "Blog has been deleted") {
 			alert("Blog has been deleted");
 			location.reload();
@@ -88,7 +90,7 @@ function saveEditedBlog() {
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
 				"target": blogtarget,
-				"sequence": blogsequence
+				"sequence": parseInt(blogsequence)
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();

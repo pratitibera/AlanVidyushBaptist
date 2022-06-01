@@ -19,7 +19,7 @@ function getAllBlogs(){
 	                      <td>${data[i]['title']}</td>
 	                      <td><button class="btn btn-dark" id="delete_${data[i]['_id']}" onclick="handleFeatures(this.id)">DELETE FROM FEATURED</button></td>
 	                      <td><a href="#editBlog"><button class="btn btn-dark" id="editBlog_${data[i]['_id']}" onclick="editBlog(this.id)">EDIT</button></a></td>
-	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteBlog(this.id)">DELETE</button></td>
+	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button></td>
 	                    </tr>`;
 	    	}
 	    	else{
@@ -28,7 +28,7 @@ function getAllBlogs(){
 	                      <td>${data[i]['title']}</td>
 	                      <td><button class="btn btn-dark" id="add_${data[i]['_id']}" onclick="handleFeatures(this.id)">ADD TO FEATURED</button></td>
 	                      <td><a href="#editBlog"><button class="btn btn-dark" id="editBlog_${data[i]['_id']}" onclick="editBlog(this.id)">EDIT</button></a></td>
-	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteBlog(this.id)">DELETE</button></td>
+	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button></td>
 	                    </tr>`;
 	    	}
 	    }
@@ -98,7 +98,7 @@ function searchBlog() {
 	                      <td>${data[i]['title']}</td>
 	                      <td><button class="btn btn-dark" id="delete_${data[i]['_id']}" onclick="handleFeatures(this.id)">DELETE FROM FEATURED</button></td>
 	                      <td><a href="#editBlog"><button class="btn btn-dark" id="editBlog_${data[i]['_id']}" onclick="editBlog(this.id)">EDIT</button></a></td>
-	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteBlog(this.id)">DELETE</button></td>
+	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button></td>
 	                    </tr>`;
 	    	}
 	    	else{
@@ -106,7 +106,7 @@ function searchBlog() {
 	                      <td>${data[i]['title']}</td>
 	                      <td><button class="btn btn-dark" id="add_${data[i]['_id']}" onclick="handleFeatures(this.id)">ADD TO FEATURED</button></td>
 	                      <td><a href="#editBlog"><button class="btn btn-dark" id="editBlog_${data[i]['_id']}" onclick="editBlog(this.id)">EDIT</button></a></td>
-	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteBlog(this.id)">DELETE</button></td>
+	                      <td><button class="btn btn-dark" id="deleteBlog_${data[i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button></td>
 	                    </tr>`;
 	    	}
 	    }

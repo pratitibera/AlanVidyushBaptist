@@ -481,7 +481,7 @@ function getExistingPlansServices() {
 				td7.innerHTML = `<button class="btn btn-dark" id="${i}_${data['offers'][i]['_id']}" onclick="editPricingDetails(this.id);">Edit</button>`;
 
 				var td8 = document.createElement('td');
-				td8.innerHTML = `<button class="btn btn-dark" id="delete_${data['offers'][i]['_id']}" onclick="deletePricingDetails(this.id);">Delete</button>`;
+				td8.innerHTML = `<button class="btn btn-dark" id="delete_${data['offers'][i]['_id']}" onclick="deleteHandler(this.id);">Delete</button>`;
 
 				tr.append(td1);
 				tr.append(td2);
@@ -497,6 +497,8 @@ function getExistingPlansServices() {
 		} else if (data['subservices'].length > 0) {
 			var planform4 = document.getElementById('planform4');
 			planform4.innerHTML = "";
+			var planform5 = document.getElementById('planform5');
+			planform5.innerHTML = "";
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
 
@@ -583,7 +585,7 @@ function getExistingPlanSubservices() {
 				td7.innerHTML = `<button class="btn btn-dark" id="${i}_${data['offers'][i]['_id']}" onclick="editPricingDetails(this.id);">Edit</button>`;
 
 				var td8 = document.createElement('td');
-				td8.innerHTML = `<button class="btn btn-dark" id="delete_${data['offers'][i]['_id']}" onclick="deletePricingDetails(this.id);">Delete</button>`;
+				td8.innerHTML = `<button class="btn btn-dark" id="delete_${data['offers'][i]['_id']}" onclick="deleteHandler(this.id);">Delete</button>`;
 
 				tr.append(td1);
 				tr.append(td2);
@@ -597,7 +599,7 @@ function getExistingPlanSubservices() {
 			}
 			document.getElementById('offerdetails_table').style.display = "block";
 		} else if (data['subservices'].length > 0) {
-			var planform2 = document.getElementById('planform5');
+			var planform5 = document.getElementById('planform5');
 			planform5.innerHTML = "";
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
@@ -683,7 +685,7 @@ function getExistingPlanOffers() {
 				td7.innerHTML = `<button class="btn btn-dark" id="${i}_${data['offers'][i]['_id']}" onclick="editPricingDetails(this.id);">Edit</button>`;
 
 				var td8 = document.createElement('td');
-				td8.innerHTML = `<button class="btn btn-dark" id="delete_${data['offers'][i]['_id']}" onclick="deletePricingDetails(this.id);">Delete</button>`;
+				td8.innerHTML = `<button class="btn btn-dark" id="delete_${data['offers'][i]['_id']}" onclick="deleteHandler(this.id);">Delete</button>`;
 
 				tr.append(td1);
 				tr.append(td2);
@@ -713,6 +715,7 @@ function getExistingPlanOffers() {
 
 // Delete plans
 function deletePricingDetails(id) {
+	id = id.id;
    var request = new XMLHttpRequest();
    request.open(urlSet.deleteOffersApi.method, urlSet.deleteOffersApi.url + id.split('_')[1], true);
    request.setRequestHeader("Accept", "application/json");
@@ -721,6 +724,7 @@ function deletePricingDetails(id) {
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
+      $('#confirmDeletion').modal('hide');
       if(data['message'] == "Offer Deleted"){
       	alert("Offer Deleted");
       	location.reload();

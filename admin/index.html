@@ -337,7 +337,7 @@
                <table class="table table-bordered">
                   <thead>
                      <tr>
-                        <th>Sequence</th>
+                        <th>Service Sequence</th>
                         <th>Service name</th>
                         <th></th>
                         <th></th>
@@ -359,6 +359,7 @@
                <table class="table table-bordered">
                   <thead>
                      <tr>
+                        <th>Service Sequence</th>
                         <th>Service name</th>
                         <th></th>
                         <th></th>
@@ -384,6 +385,7 @@
                <table class="table table-bordered">
                   <thead>
                      <tr>
+                        <th>Service Sequence</th>
                         <th>Service name</th>
                         <th></th>
                         <th></th>
@@ -423,7 +425,7 @@
                   </div>
                </div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-dark" onclick="editServicesSave();">SAVE</button>
+                  <button type="button" class="btn btn-dark" id="editServiceFeature" onclick="editHandler(this.id);">SAVE</button>
                </div>
             </div>
          </div>
@@ -536,7 +538,7 @@
                </div>
                <!-- Modal footer -->
                <div class="modal-footer">
-                  <button type="button" class="btn btn-dark" onclick="saveOffer();">SAVE</button>
+                  <button type="button" class="btn btn-dark" id="editOffer_" onclick="editHandler(this.id);">SAVE</button>
                </div>
             </div>
          </div>
@@ -715,6 +717,36 @@
             <button type="button" class="btn btn-primary mt-4" onclick="changepassword();">Submit</button>
          </div>
       </section>
+
+
+
+
+      <div class="modal" id="confirmDeletion">
+         <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content p-5">
+               <div class="text-center fo-13 mb-4 fw-600">Are you sure you want to delete?</div>
+               <div class="row m-0 justify-content-around">
+                  <button class="btn btn-dark" id="confirmDeletionButton">CONFIRM</button>
+                  <button class="btn btn-dark" data-dismiss="modal">CANCEL</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+      <div class="modal" id="confirmEditing">
+         <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content p-5">
+               <div class="text-center fo-13 mb-4 fw-600">Are you sure you want to save the changes?</div>
+               <div class="row m-0 justify-content-around">
+                  <button class="btn btn-dark" id="confirmEditButton">CONFIRM</button>
+                  <button class="btn btn-dark" data-dismiss="modal">CANCEL</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
 
 
