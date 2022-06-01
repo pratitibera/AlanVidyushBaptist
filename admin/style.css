@@ -28,6 +28,12 @@ th,td{
 .fo-30{
     font-size: 30px;
 }
+.fo-13{
+    font-size: 13px;
+}
+.fw-600{
+    font-weight: 600;
+}
 #collapsibleNavbar{
     justify-content: space-evenly;
 }

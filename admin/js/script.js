@@ -110,3 +110,36 @@ function logout() {
 	localStorage.removeItem("authtoken");
 	document.location.href = "login.html";
 }
+
+
+function deleteHandler(func_id){
+	$("#confirmDeletion").modal()
+	var r_id = func_id.split('_')[0];
+	if(r_id == "deleteBlog"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteBlog(` + func_id + `)`);
+	}
+	else if(r_id == "deleteMainServ" || r_id == "deleteServ" || r_id == "deleteSubserv_$"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteService(` + func_id + `)`);
+	}
+	else if(r_id == "delete"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deletePricingDetails(` + func_id + `)`);
+	}
+	else if(r_id == "coupon"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteCoupon(` + func_id + `)`);
+	}
+}
+
+
+function editHandler(func_id){
+	$("#confirmEditing").modal()
+	var r_id = func_id.split('_')[0];
+	if(r_id == "saveEditedBlog"){
+		document.getElementById("confirmEditButton").setAttribute('onclick', `saveEditedBlog()`);
+	}
+	else if(r_id == "editServiceFeature"){
+		document.getElementById("confirmEditButton").setAttribute('onclick', `editServicesSave()`);
+	}
+	else if(r_id == "editOffer"){
+		document.getElementById("confirmEditButton").setAttribute('onclick', `saveOffer()`);
+	}
+}

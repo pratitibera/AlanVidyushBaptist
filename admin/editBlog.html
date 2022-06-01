@@ -125,7 +125,7 @@
             </div>
          </div>
          <div class="text-center mt-5 mb-5">
-            <button class="btn btn-dark w-25" onclick="saveEditedBlog();">SAVE BLOG</button>
+            <button class="btn btn-dark w-25" id="saveEditedBlog_" onclick="editHandler(this.id);">SAVE BLOG</button>
          </div>
       </section>
       <hr>
@@ -164,6 +164,19 @@
          </div>
       </div>
       <!-- Blogs sections --->
+
+
+      <div class="modal" id="confirmEditing">
+         <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content p-5">
+               <div class="text-center fo-13 mb-4 fw-600">Are you sure you want to save the changes?</div>
+               <div class="row m-0 justify-content-around">
+                  <button class="btn btn-dark" id="confirmEditButton">CONFIRM</button>
+                  <button class="btn btn-dark" data-dismiss="modal">CANCEL</button>
+               </div>
+            </div>
+         </div>
+      </div>
 
 
 

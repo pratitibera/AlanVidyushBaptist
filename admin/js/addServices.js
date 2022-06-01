@@ -12,7 +12,7 @@ function addMainService() {
 		"level": 0,
 		"subservices": [],
 		"offers": [],
-		"sequence": main_service_sequence
+		"sequence": parseInt(main_service_sequence)
 	}
 	console.log(json);
 	var request = new XMLHttpRequest();
@@ -52,7 +52,7 @@ function addService() {
 			      "service": service,
 			      "service_image": [service_cover,service_hover],
 			      "description": service_desc,
-			      "sequence": service_sequence
+			      "sequence": parseInt(service_sequence)
 			    }
 			],
 			"offers": []
@@ -159,7 +159,7 @@ function addSubservice() {
 				      "service": subservice,
 				      "service_image": [subservice_cover,subservice_hover],
 				      "description": subservice_desc,
-				      "sequence": subservice_sequence
+				      "sequence": parseInt(subservice_sequence)
 				    }
 				],
 				"offers": []

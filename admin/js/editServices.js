@@ -20,7 +20,7 @@ function editMainServices(){
                            <button class="btn btn-dark" id="editMainServ_${data[i]['_id']}_${data[i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
                         </td>
                         <td class="text-center">
-                           <button class="btn btn-dark" id="deleteMainServ_${data[i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+                           <button class="btn btn-dark" id="deleteMainServ_${data[i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button>
                         </td>
                      </tr>`;
             document.getElementById('editMainServicesTable').style.display = "block";
@@ -58,7 +58,7 @@ function editServices(param1){
 		                           <button class="btn btn-dark" id="editServ_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
 		                        </td>
 		                        <td class="text-center">
-		                           <button class="btn btn-dark" id="deleteServ_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+		                           <button class="btn btn-dark" id="deleteServ_${data['subservices'][i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button>
 		                        </td>
 		                     </tr>`;
 		            document.getElementById('editServicesTable').style.display = "block";
@@ -98,7 +98,7 @@ function editSubservices(){
 	                           <button class="btn btn-dark" id="editSubserv_${data['subservices'][i]['_id']}_${data['subservices'][i]['service']}" onclick="triggerServiceEditModal(this.id)">EDIT</button>
 	                        </td>
 	                        <td class="text-center">
-	                           <button class="btn btn-dark" id="deleteSubserv_${data['subservices'][i]['_id']}" onclick="deleteService(this.id)">DELETE</button>
+	                           <button class="btn btn-dark" id="deleteSubserv_${data['subservices'][i]['_id']}" onclick="deleteHandler(this.id)">DELETE</button>
 	                        </td>
 	                     </tr>`;
 
@@ -114,6 +114,7 @@ function editSubservices(){
 }
 
 function deleteService(id) {
+	id = id.id;
 	var request = new XMLHttpRequest();
 	request.open(urlSet.deleteServiceApi.method, urlSet.deleteServiceApi.url + id.split('_')[1], true);
 	request.setRequestHeader("authorization", authtoken);
@@ -121,6 +122,7 @@ function deleteService(id) {
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		$('#confirmDeletion').modal('hide');
 		if(data['message'] == "Service Deleted"){
 			alert("Service Deleted");
 			if(id.split('_')[0] == "deleteMainServ"){
@@ -195,7 +197,7 @@ function editServicesSave(){
 			"level": parseInt(servicetype_to_be_edited),
 			"subservices": [],
 			"offers": [],
-			"sequence": servicesSequence
+			"sequence": parseInt(servicesSequence)
 		}
 	}
 	console.log(json);
@@ -207,6 +209,7 @@ function editServicesSave(){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		$('#confirmEditing').modal('hide');
 		if(data['message'] == "Service Updated"){
 			$("#editServicesModal").modal('hide');
 			alert("Service Updated");

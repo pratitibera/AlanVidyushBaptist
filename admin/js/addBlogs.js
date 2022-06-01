@@ -287,7 +287,7 @@ function addBlog() {
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
 				"target": blogtarget,
-				"sequence": blogsequence
+				"sequence": parseInt(blogsequence)
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();
@@ -322,8 +322,7 @@ function addBlog() {
 				"coach": coachList['coach'],
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
-				"target": blogtarget,
-				"sequence": blogsequence
+				"target": blogtarget
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();

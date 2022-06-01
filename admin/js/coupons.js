@@ -34,7 +34,7 @@ function viewCoupons(){
 	                        <td>${data[i]['code']}</td>
 	                        <td>${data[i]['discount']}</td>
 	                        <td>
-	                           <button class="btn btn-dark" onclick="deleteCoupon(this.id);" id=${data[i]['_id']}>DELETE</button>
+	                           <button class="btn btn-dark" onclick="deleteHandler(this.id)" id="coupon_${data[i]['_id']}">DELETE</button>
 	                        </td>
 	                     </tr>`;
 			}
@@ -47,14 +47,16 @@ function viewCoupons(){
 }
 
 function deleteCoupon(id){
+	id = id.id;
 	var request = new XMLHttpRequest();
-	request.open(urlSet.deleteCouponsApi.method, urlSet.deleteCouponsApi.url + id, true);
+	request.open(urlSet.deleteCouponsApi.method, urlSet.deleteCouponsApi.url + id.split('_')[1], true);
 	request.setRequestHeader("Accept", "application/json");
 	request.setRequestHeader("authorization", authtoken);
 	request.send();
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		$('#confirmDeletion').modal('hide');
 		if(data['message'] == "Coupon Deleted"){
 			alert("Coupon Deleted");
 			viewCoupons();
