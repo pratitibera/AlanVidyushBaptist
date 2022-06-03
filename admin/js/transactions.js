@@ -48,14 +48,14 @@ function viewTransactions(){
 
 			var td9 = document.createElement('td');
 			if(data[i]['status'] != "Successful"){
-				td9.innerHTML = `<button class="btn btn-dark" onclick="editTransaction(this.id);" id="edittrans_${data[i]['_id']}">PAID</button>`;
+				td9.innerHTML = `<button class="btn btn-dark" onclick="editHandler(this.id);" id="edittrans_${data[i]['_id']}">PAID</button>`;
 			}
 			else{
 				td9.innerHeight = "";
 			}
 		
 			var td10 = document.createElement('td');
-			td10.innerHTML = `<button class="btn btn-dark" onclick="deleteTransaction(this.id);" id="deletetrans_${data[i]['_id']}">DELETE</button>`;
+			td10.innerHTML = `<button class="btn btn-dark" onclick="deleteHandler(this.id);" id="deletetrans_${data[i]['_id']}">DELETE</button>`;
 
 			var tr = document.createElement('tr');
 			tr.append(td1);
@@ -75,6 +75,7 @@ function viewTransactions(){
 }
 
 function editTransaction(id){
+	id = id.id;
 	var json = {
 		"razorpay_order_id": "",
 		"razorpay_signature": "",
@@ -90,6 +91,7 @@ function editTransaction(id){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		$('#confirmEditing').modal('hide');
 		if(data['message'] == "Order Successful"){
 			alert("Transaction Updated")
 			viewTransactions();
@@ -101,6 +103,7 @@ function editTransaction(id){
 }
 
 function deleteTransaction(id){
+	id = id.id;
 	var request = new XMLHttpRequest();
 	request.open(urlSet.deleteTransactionsApi.method, urlSet.deleteTransactionsApi.url + id.split('_')[1], true);
 	request.setRequestHeader("Accept", "application/json");
@@ -109,6 +112,7 @@ function deleteTransaction(id){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		$('#confirmDeletion').modal('hide');
 		if(data['message'] == "Transaction has been deleted."){
 			alert("Transaction has been deleted.");
 			viewTransactions();

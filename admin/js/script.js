@@ -127,6 +127,9 @@ function deleteHandler(func_id){
 	else if(r_id == "coupon"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteCoupon(` + func_id + `)`);
 	}
+	else if(r_id == "deletetrans"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteTransaction(` + func_id + `)`);
+	}
 }
 
 
@@ -141,5 +144,8 @@ function editHandler(func_id){
 	}
 	else if(r_id == "editOffer"){
 		document.getElementById("confirmEditButton").setAttribute('onclick', `saveOffer()`);
+	}
+	else if(r_id == "edittrans"){
+		document.getElementById("confirmEditButton").setAttribute('onclick', `editTransaction(` + func_id + `)`);
 	}
 }
