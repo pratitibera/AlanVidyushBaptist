@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import BlogCard from "../components/Blog/BlogCard";
 import Footer from "../components/Layout/Footer";
-import Loader from "../components/Loader";
 import urlSet from "../utils/urls";
 
 const rootCategories = [
@@ -179,7 +178,6 @@ const Blogs = () => {
     }
   };
 
-  console.log(params);
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -308,7 +306,7 @@ const Blogs = () => {
             >
               <i
                 className="fas fa-chevron-down fo-20 fw-600 pr-4 text-white"
-                onclick="toggleContents(this);"
+                // onClick="toggleContents(this);"
                 id="handleBlogCategories"
               ></i>
             </button>
@@ -362,14 +360,14 @@ const Blogs = () => {
           </div>
 
           <div className="row m-0 mt-3" id="displayAllBlogs">
-            {blogs.map((blog) => (
-              <BlogCard blog={blog} />
+            {blogs.map((blog, index) => (
+              <BlogCard blog={blog} key={index}/>
             ))}
           </div>
 
           {loading && (
             <div id="preloader">
-              <div class="loader" id="loader"></div>
+              <div className="loader" id="loader"></div>
             </div>
           )}
           {!loading && blogs && blogs.length > 0 && (
@@ -406,7 +404,6 @@ export default Blogs;
 
 const CategoryBar = ({ categories, onClick, resetHandler, selected }) => {
   const params = useParams();
-  console.log(selected);
   return (
     <div
       className="collapse navbar-collapse d-sm-block w-100"
