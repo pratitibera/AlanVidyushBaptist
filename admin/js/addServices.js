@@ -5,6 +5,8 @@ function addMainService() {
 	var main_service_cover = document.getElementById('main_service_cover').value;
 	var main_service_hover = document.getElementById('main_service_hover').value;
 	var main_service_sequence = document.getElementById('main_service_sequence').value;
+
+	document.getElementById('addMainServiceButton').setAttribute('disabled', true);
 	var json = {
 		"service": mainService,
 		"service_image": [main_service_cover,main_service_hover],
@@ -28,6 +30,7 @@ function addMainService() {
 			location.reload();
 		} else {
 			alert("Could not add main service");
+			document.getElementById('addMainServiceButton').setAttribute('disabled', false);
 		}
 	}
 }
@@ -42,6 +45,7 @@ function addService() {
 	var service_sequence = document.getElementById('service_sequence').value;
 
 	if (service != '') {
+		document.getElementById('addServiceButton').setAttribute('disabled', true);
 		var json = {
 			"service": document.getElementById('selected_main_service').options[document.getElementById('selected_main_service').selectedIndex].text,
 			"service_image": [],
@@ -67,6 +71,7 @@ function addService() {
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
+			document.getElementById('addServiceButton').setAttribute('disabled', false);
 			if (data['message'] == "Service Updated") {
 				alert("Service successfully added");
 				location.reload();
@@ -122,7 +127,7 @@ function getServices() {
 	               <input type="text" class="form-control" id="subservice_sequence">
 	            </div>      
 	            <div class="text-center mt-5 mb-5">
-	               <button class="btn btn-dark w-25" onclick="addSubservice();">ADD SUB-SERVICE</button>
+	               <button class="btn btn-dark w-25" onclick="addSubservice();" id="addSubserviceButton">ADD SUB-SERVICE</button>
 	            </div>`;
 
 				var selected_service = document.getElementById('selected_service');
@@ -149,6 +154,7 @@ function addSubservice() {
 
 	if (selected_service != '') {
 		if (subservice != '') {
+			document.getElementById('addSubserviceButton').setAttribute('disabled', true);
 			var json = {
 				"service": document.getElementById('selected_service').options[document.getElementById('selected_service').selectedIndex].text,
 				"service_image": [],
@@ -173,6 +179,7 @@ function addSubservice() {
 			request.onload = function () {
 				var data = JSON.parse(this.response);
 				console.log(data);
+				document.getElementById('addSubserviceButton').setAttribute('disabled', false);
 				if (data['message'] == "Service Updated") {
 					alert("Subservice successfully added");
 					location.reload();

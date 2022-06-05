@@ -117,7 +117,7 @@ function getPlanServices() {
                   </select>
                </div>
                 <div class="text-center mt-5 mb-5">
-            <button class="btn btn-dark w-25" onclick="addPlan();">ADD PLAN</button>
+            <button class="btn btn-dark w-25" onclick="addPlan();" id="addPlanButton">ADD PLAN</button>
          </div>`;
 		}
 	}
@@ -200,7 +200,7 @@ function getPlanSubservices() {
                   </select>
                </div>
                 <div class="text-center mt-5 mb-5">
-            <button class="btn btn-dark w-25" onclick="addPlan();">ADD PLAN</button>
+            <button class="btn btn-dark w-25" onclick="addPlan();" id="addPlanButton">ADD PLAN</button>
          </div>`;
 		}
 	}
@@ -263,7 +263,7 @@ function getPlanOffers() {
                </select>
             </div>
              <div class="text-center mt-5 mb-5">
-         <button class="btn btn-dark w-25" onclick="addPlan();">ADD PLAN</button>
+         <button class="btn btn-dark w-25" onclick="addPlan();" id="addPlanButton">ADD PLAN</button>
       </div>`;
 	}
 }
@@ -355,6 +355,7 @@ function addPlan() {
 	}
 
 	if (duration != '' && actual_price != '') {
+		document.getElementById('addPlanButton').setAttribute('disabled', true);
 		if (discounted_price == "" || discounted_price == "0") {
 			var json = {
 				"currency": "INR",
@@ -389,6 +390,7 @@ function addPlan() {
 		request.onload = function () {
 			var data = JSON.parse(this.response);
 			console.log(data);
+			document.getElementById('addPlanButton').setAttribute('disabled', false);
 			document.getElementById('duration').value = "";
 			document.getElementById('actual_price').value = "";
 			document.getElementById('discounted_price').value = "";

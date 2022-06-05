@@ -271,6 +271,7 @@ function addBlog() {
 
 	if (blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
 		if(blogsequence != '' && blogsequence > 0){
+			document.getElementById('addBlogButton').setAttribute('disabled', true);
 			var json = {
 				"date": blogdate,
 				"title": blogtitle,
@@ -303,6 +304,7 @@ function addBlog() {
 					location.reload();
 				} else {
 					alert("Could not add blog");
+					document.getElementById('addBlogButton').setAttribute('disabled', false);
 				}
 			}
 		}
