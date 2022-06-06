@@ -118,7 +118,7 @@ function deleteHandler(func_id){
 	if(r_id == "deleteBlog"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteBlog(` + func_id + `)`);
 	}
-	else if(r_id == "deleteMainServ" || r_id == "deleteServ" || r_id == "deleteSubserv_$"){
+	else if(r_id == "deleteMainServ" || r_id == "deleteServ" || r_id == "deleteSubserv"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteService(` + func_id + `)`);
 	}
 	else if(r_id == "delete"){
