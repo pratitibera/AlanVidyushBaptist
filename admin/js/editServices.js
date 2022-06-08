@@ -223,6 +223,9 @@ function editServicesSave(){
 				editSubservices();
 			}
 		}
+		else if(data['error'] == "Weight Loss Program Service already exists"){
+			alert(data['error']);
+		}
 		else{
 			alert("Could not update service");
 		}
