@@ -57,6 +57,7 @@ const OfferCard = ({ dark, offer }) => {
   return (
     <div
       className={dark ? "bg-dark pt-5 pb-5 dark-pricing" : "bg-white pt-5 pb-5"}
+      style={{ maxWidth: '450px', minWidth: '320px'}}
     >
       <div className="pri_offer_heading fw-600 pco text-center">
         {offer.duration}

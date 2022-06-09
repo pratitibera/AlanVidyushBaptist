@@ -35,7 +35,7 @@ const SampleNextArrow = (props) => {
 };
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { className, style } = props;
   console.log(className);
   return (
     <div
@@ -47,39 +47,10 @@ function SamplePrevArrow(props) {
         right: "53%",
         fontSize: "26px",
       }}
-      onClick={() => console.log("Hello")}
     />
   );
 }
 
-const settings = {
-  infinite: true,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 2,
-  arrows: true,
-  nextArrow: <SampleNextArrow />,
-  prevArrow: <SamplePrevArrow />,
-  responsive: [
-    {
-      breakpoint: 1300,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        infinite: true,
-        arrows: false,
-      },
-    },
-    {
-      breakpoint: 900,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-      },
-    },
-  ],
-};
 
 const testimonialsSettings = {
   infinite: true,
@@ -87,9 +58,6 @@ const testimonialsSettings = {
   slidesToShow: 4,
   slidesToScroll: 2,
   autoplay: true,
-  // arrows: true,
-  // nextArrow: <SampleNextArrow />,
-  // prevArrow: <SamplePrevArrow />,
   responsive: [
     {
       breakpoint: 1800,
@@ -124,6 +92,37 @@ const Pricing = () => {
   const [service, setService] = useState(null);
   const [isLoading, setLoading] = useState(false)
   const params = useParams();
+  const settings = {
+    infinite: true,
+    centerPadding: '0px',
+    speed: 500,
+    slidesToShow: service && service.offers.length,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: service && service.offers.length > 1 ? service.offers.length - 1 : 1,
+          slidesToScroll: 1,
+          infinite: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
+  };
+
   useEffect(() => {
     const getPlans = async () => {
       try {
@@ -141,12 +140,12 @@ const Pricing = () => {
     };
     getPlans();
   }, [params.serviceId]);
+
   return (
     <div>
       {isLoading && (
         <Loader />
       )}
-      {/* <body onload="getPlans();"> */}
       <div id="notification-area"></div>
       <section>
         <div className="partners-cover text-center">
@@ -175,8 +174,6 @@ const Pricing = () => {
           </Slider>
         </div>
       </section>
-      {/* <!-- Pricing section ends ---> */}
-      {/* <!--- Testimonials start --> */}
       <div className="fo-34 text-dark text-center fw-700 p-4 mfo-24 mt-sm-3 testimonials-heading pb-2">
         Testimonials
       </div>

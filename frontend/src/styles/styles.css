@@ -3,6 +3,11 @@
 
 /* Font families */
 
+.slider-inner{
+  display: flex;
+  justify-content: center;
+}
+
 .exo {
   font-family: "Exo", sans-serif;
 }
