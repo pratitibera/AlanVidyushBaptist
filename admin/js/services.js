@@ -538,6 +538,8 @@ function getExistingPlanSubservices() {
 		var data = JSON.parse(this.response);
 		console.log(data);
 		offerData = data;
+		var planform5 = document.getElementById('planform5');
+		planform5.innerHTML = "";
 		var offerdetails = document.getElementById('offerdetails');
 		offerdetails.innerHTML = "";
 		if (data['offers'].length > 0) {
@@ -601,8 +603,6 @@ function getExistingPlanSubservices() {
 			}
 			document.getElementById('offerdetails_table').style.display = "block";
 		} else if (data['subservices'].length > 0) {
-			var planform5 = document.getElementById('planform5');
-			planform5.innerHTML = "";
 			var input1 = document.createElement('div');
 			input1.setAttribute('class', 'form-group');
 
