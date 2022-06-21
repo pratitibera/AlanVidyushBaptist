@@ -1,6 +1,7 @@
 var service_to_be_edited;
 var servicetype_to_be_edited;
 var editServiceData;
+var servicename_to_be_edited
 
 function editMainServices(){
 	var request = new XMLHttpRequest();
@@ -164,6 +165,7 @@ function triggerServiceEditModal(id){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		servicename_to_be_edited = data['service'];
 		document.getElementById('editServicesInput').value = data['service'];
 		document.getElementById('editServicesDesc').value = data['description'];
 		document.getElementById('editServicesCover').value = data['service_image'][0];
@@ -179,25 +181,48 @@ function editServicesSave(){
 	var servicesHover = document.getElementById('editServicesHover').value;
 	var servicesSequence = document.getElementById('editServiceSequence').value;
 
-	if(servicesSequence == ''){
-		var json = {
-			"service": new_service,
-			"service_image": [servicesCover, servicesHover],
-			"description": servicesDesc,
-			"level": parseInt(servicetype_to_be_edited),
-			"subservices": [],
-			"offers": []
+	if(servicename_to_be_edited == new_service){
+		if(servicesSequence == ''){
+			var json = {
+				"service_image": [servicesCover, servicesHover],
+				"description": servicesDesc,
+				"level": parseInt(servicetype_to_be_edited),
+				"subservices": [],
+				"offers": []
+			}
+		}
+		else{
+			var json = {
+				"service_image": [servicesCover, servicesHover],
+				"description": servicesDesc,
+				"level": parseInt(servicetype_to_be_edited),
+				"subservices": [],
+				"offers": [],
+				"sequence": parseInt(servicesSequence)
+			}
 		}
 	}
 	else{
-		var json = {
-			"service": new_service,
-			"service_image": [servicesCover, servicesHover],
-			"description": servicesDesc,
-			"level": parseInt(servicetype_to_be_edited),
-			"subservices": [],
-			"offers": [],
-			"sequence": parseInt(servicesSequence)
+		if(servicesSequence == ''){
+			var json = {
+				"service": new_service,
+				"service_image": [servicesCover, servicesHover],
+				"description": servicesDesc,
+				"level": parseInt(servicetype_to_be_edited),
+				"subservices": [],
+				"offers": []
+			}
+		}
+		else{
+			var json = {
+				"service": new_service,
+				"service_image": [servicesCover, servicesHover],
+				"description": servicesDesc,
+				"level": parseInt(servicetype_to_be_edited),
+				"subservices": [],
+				"offers": [],
+				"sequence": parseInt(servicesSequence)
+			}
 		}
 	}
 	console.log(json);
