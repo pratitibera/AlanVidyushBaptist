@@ -156,10 +156,6 @@ function addSubservice() {
 		if (subservice != '') {
 			document.getElementById('addSubserviceButton').setAttribute('disabled', true);
 			var json = {
-				"service": document.getElementById('selected_service').options[document.getElementById('selected_service').selectedIndex].text,
-				"service_image": [],
-				"description": "",
-				"level": 2,
 				"subservices": [
 				    {
 				      "service": subservice,
@@ -167,8 +163,7 @@ function addSubservice() {
 				      "description": subservice_desc,
 				      "sequence": parseInt(subservice_sequence)
 				    }
-				],
-				"offers": []
+				]
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();
@@ -187,7 +182,7 @@ function addSubservice() {
 					alert("This service already has plans under it");
 				}
 				else {
-					alert("Could not add subservice");
+					alert(data['error']);
 				}
 			}
 		} else {
