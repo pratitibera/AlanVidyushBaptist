@@ -303,7 +303,7 @@ function addBlog() {
 					alert("Blog successfully added");
 					location.reload();
 				} else {
-					alert("Could not add blog");
+					alert(data['error']);
 					document.getElementById('addBlogButton').setAttribute('disabled', false);
 				}
 			}
