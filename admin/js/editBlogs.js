@@ -73,7 +73,7 @@ function saveEditedBlog() {
 	var slug = encodeURIComponent(slug);
 
 	if (client != '' && blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
-		if(blogsequence != '' && blogsequence > 0){
+		if(blogsequence != '' && blogsequence > 0 && blogsequence != blog_data['sequence']){
 			var json = {
 				"date": blogdate,
 				"title": blogtitle,
@@ -112,7 +112,7 @@ function saveEditedBlog() {
 				}
 			}
 		}
-		else if(blogsequence == ''){
+		else if(blogsequence == '' || blogsequence == blog_data['sequence']){
 			var json = {
 				"date": blogdate,
 				"title": blogtitle,
