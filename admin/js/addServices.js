@@ -47,10 +47,6 @@ function addService() {
 	if (service != '') {
 		document.getElementById('addServiceButton').setAttribute('disabled', true);
 		var json = {
-			"service": document.getElementById('selected_main_service').options[document.getElementById('selected_main_service').selectedIndex].text,
-			"service_image": [],
-			"description": "",
-			"level": 1,
 			"subservices": [
 			    {
 			      "service": service,
@@ -58,8 +54,7 @@ function addService() {
 			      "description": service_desc,
 			      "sequence": parseInt(service_sequence)
 			    }
-			],
-			"offers": []
+			]
 		}
 
 		console.log(json);
