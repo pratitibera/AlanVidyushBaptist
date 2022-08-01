@@ -150,6 +150,9 @@ function addBlogBody(){
 	blogcontentList = {
 		"content": content
 	}
+
+	addContents(contentheading);
+
 	var contentid = document.getElementById('contentid').value = "";
 	var contentheading = document.getElementById('contentheading').value = "";
 	var contentpara = document.getElementById('contentpara').value = "";
@@ -159,7 +162,7 @@ function addBlogBody(){
 	for (i = 0; i < blogcontentList['content'].length; i++) {
 		document.getElementById('blogcontent').innerHTML += `<div class="col-sm-12 mb-5">
                      <div class="font-weight-bolder">${blogcontentList['content'][i]['id']} - ${blogcontentList['content'][i]['heading']}<span class="ml-3 float-right cursor-pointer" id="content_${i}" onclick="removecontentImage(this.id)">x</span></div>
-                     <div>${blogcontentList['content'][i]['paragraph']}</div>
+                     <div contenteditable="true">${blogcontentList['content'][i]['paragraph']}</div>
                   </div>`
 	}
 }
@@ -177,17 +180,31 @@ function removecontentImage(id) {
 }
 
 // Blog contents
-function addContents() {
-	var content = document.getElementById('content').value;
-	contentList.push(content);
-	document.getElementById('contentList').innerHTML = "";
-	for (i = 0; i < contentList.length; i++) {
-		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
-               <span class="contentsPage">${contentList[i]}</span>
-               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="removeContent(this.id)">x</span>
-            </div>`;
+function addContents(content_text) {
+	if(content_text == undefined){
+		var content = document.getElementById('content').value;
+		contentList.push(content);
+		document.getElementById('contentList').innerHTML = "";
+		for (i = 0; i < contentList.length; i++) {
+			document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+	               <span class="contentsPage">${contentList[i]}</span>
+	               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="removeContent(this.id)">x</span>
+	            </div>`;
+		}
+		document.getElementById('content').value = "";
 	}
-	document.getElementById('content').value = "";
+	else{
+		console.log(content_text);
+		contentList.push(content_text);
+		document.getElementById('contentList').innerHTML = "";
+		for (i = 0; i < contentList.length; i++) {
+			document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+	               <span class="contentsPage">${contentList[i]}</span>
+	               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="removeContent(this.id)">x</span>
+	            </div>`;
+		}
+		document.getElementById('content').value = "";
+	}
 }
 
 function removeContent(id) {

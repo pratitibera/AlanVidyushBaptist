@@ -51,13 +51,16 @@ function changeParas() {
 
 function addImages() {
 	var imageurl = document.getElementById('imageurl').value;
+	var imagelabel = document.getElementById('imageLabel').value;
 	if (imageurl != "") {
 		blogContentBody = document.getElementById('blogContentData').value;
 		blogContentBody += `<div class="text-center mt-4">
             <img src="${imageurl}" class="w-70 mow-100" id="blogBodyImage_${blogBodyImageCount++}">
+            <br><div class="text-center fo-13 mt-2">${imagelabel}</div>
          </div>`;
 		document.getElementById('blogContentData').value = blogContentBody;
 		document.getElementById('imageurl').value = "";
+		document.getElementById('imageLabel').value = "";
 	} else {
 		alert("Enter image url");
 	}
