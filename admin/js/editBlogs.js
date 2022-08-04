@@ -327,6 +327,8 @@ function edit_addBlogBody() {
 	}
 	content.push(dic);
 
+	edit_addContents(contentheading);
+
 	var body = document.createElement('div');
 	body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
 	body.setAttribute('id', 'index_' + body_count);
@@ -467,17 +469,30 @@ function deleteContent(id) {
 	});
 }
 
-function edit_addContents() {
-	var content = document.getElementById('content').value;
-	contentList.push(content);
-	document.getElementById('contentList').innerHTML = "";
-	for (i = 0; i < contentList.length; i++) {
-		document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
-               <span class="contentsPage" contenteditable="true">${contentList[i]}</span>
-               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="edit_removeContent(this.id)">x</span>
-            </div>`;
+function edit_addContents(content_text) {
+	if(content_text == undefined){
+		var content = document.getElementById('content').value;
+		contentList.push(content);
+		document.getElementById('contentList').innerHTML = "";
+		for (i = 0; i < contentList.length; i++) {
+			document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+	               <span class="contentsPage" contenteditable="true">${contentList[i]}</span>
+	               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="edit_removeContent(this.id)">x</span>
+	            </div>`;
+		}
+		document.getElementById('content').value = "";
 	}
-	document.getElementById('content').value = "";
+	else{
+		contentList.push(content_text);
+		document.getElementById('contentList').innerHTML = "";
+		for (i = 0; i < contentList.length; i++) {
+			document.getElementById('contentList').innerHTML += `<div class="bg-dark pt-2 pb-2 pr-3 pl-3 mr-2 mb-2">
+	               <span class="contentsPage" contenteditable="true">${contentList[i]}</span>
+	               <span class="ml-3 cursor-pointer" id="blogContent2_${i}" onclick="edit_removeContent(this.id)">x</span>
+	            </div>`;
+		}
+		document.getElementById('content').value = "";
+	}
 }
 
 function edit_removeContent(id) {

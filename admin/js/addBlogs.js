@@ -194,7 +194,6 @@ function addContents(content_text) {
 		document.getElementById('content').value = "";
 	}
 	else{
-		console.log(content_text);
 		contentList.push(content_text);
 		document.getElementById('contentList').innerHTML = "";
 		for (i = 0; i < contentList.length; i++) {
