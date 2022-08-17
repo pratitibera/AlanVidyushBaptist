@@ -169,5 +169,15 @@ var urlSet = {
     deleteTransactionsApi: { // Delete transactions
         url: baseUrl + "/api/v1/transaction/",
         method: "DELETE",
+    },
+
+    // Messages
+    getMessagesApi: { // Get messages
+        url: baseUrl + "/api/v1/messages/",
+        method: "GET",
+    },
+    deleteMessagesApi: { // Delete messages
+        url: baseUrl + "/api/v1/messages/",
+        method: "DELETE",
     }
 };

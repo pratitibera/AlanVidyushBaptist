@@ -285,6 +285,15 @@ function addBlog() {
 	var slug = slug.replaceAll(" ", "_");
 	var slug = encodeURIComponent(slug);
 
+	var story = document.getElementById('isStory').value;
+	var storyImage = document.getElementById('storyImage').value;
+	if(story == "No"){
+		story = false;
+	}
+	else{
+		story = true;
+	}
+
 	if (blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
 		if(blogsequence != '' && blogsequence > 0){
 			document.getElementById('addBlogButton').disabled = true;
@@ -304,7 +313,9 @@ function addBlog() {
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
 				"target": blogtarget,
-				"sequence": parseInt(blogsequence)
+				"sequence": parseInt(blogsequence),
+				"transformation_story": story,
+				"transformation_image": storyImage
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();
@@ -340,7 +351,9 @@ function addBlog() {
 				"coach": coachList['coach'],
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
-				"target": blogtarget
+				"target": blogtarget,
+				"transformation_story": story,
+				"transformation_image": storyImage
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();

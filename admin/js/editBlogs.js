@@ -72,6 +72,15 @@ function saveEditedBlog() {
 	var slug = slug.replaceAll(" ", "_");
 	var slug = encodeURIComponent(slug);
 
+	var story = document.getElementById('isStory').value;
+	var storyImage = document.getElementById('storyImage').value;
+	if(story == "No"){
+		story = false;
+	}
+	else{
+		story = true;
+	}
+
 	if (blogtitle != '' && blogdate != '' && blogsummary != '' && blogcategory != '' && blogsubcategory != '' && contentList.length > 0 && galleryList['gallery'].length > 0  && coverList['cover'].length > 0 && blogcontentList['content'].length > 0) {
 		if(blogsequence != '' && blogsequence > 0 && blogsequence != blog_data['sequence']){
 			var json = {
@@ -90,7 +99,9 @@ function saveEditedBlog() {
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
 				"target": blogtarget,
-				"sequence": parseInt(blogsequence)
+				"sequence": parseInt(blogsequence),
+				"transformation_story": story,
+				"transformation_image": storyImage
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();
@@ -128,7 +139,9 @@ function saveEditedBlog() {
 				"coach": coachList['coach'],
 				"content": listOfContents,
 				"gallery": galleryList['gallery'],
-				"target": blogtarget
+				"target": blogtarget,
+				"transformation_story": story,
+				"transformation_image": storyImage
 			}
 			console.log(json);
 			var request = new XMLHttpRequest();
@@ -313,6 +326,14 @@ function displayBlogData() {
 	// Target url
 	document.getElementById('blogtarget').value = blog_data['target'];
 	document.getElementById('blogsequence').value = blog_data['sequence'];
+
+	if(blog_data['transformation_story'] == true){
+		document.getElementById('aStory').setAttribute('selected', true);
+		document.getElementById('storyImage').value = blog_data['transformation_image'];
+	}
+	else{
+		document.getElementById('notAStory').setAttribute('selected', true);
+	}
 }
 
 function edit_addBlogBody() {
