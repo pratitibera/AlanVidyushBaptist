@@ -130,6 +130,9 @@ function deleteHandler(func_id){
 	else if(r_id == "deletetrans"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteTransaction(` + func_id + `)`);
 	}
+	else if(r_id == "deleteMessage"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteMessages(` + func_id + `)`);
+	}
 }
 
 

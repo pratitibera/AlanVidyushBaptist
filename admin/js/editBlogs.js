@@ -263,7 +263,7 @@ function displayBlogData() {
 
 		var body = document.createElement('div');
 		body.setAttribute('id', 'para_' + body_count);
-		body.setAttribute('style', 'padding: 15px');
+		body.setAttribute('style', 'padding: 15px')
 		body.setAttribute('contenteditable', true);
 		body.innerHTML = blog_data['body'][j]['paragraph'];
 

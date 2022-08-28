@@ -55,11 +55,11 @@ var urlSet = {
 
 
     add_blog_to_featuredApi: { // Add to featured blogs
-        url: baseUrl + "/api/v1/admin/featuredBlog/",
+        url: baseUrl + "/api/v1/blogs/featuredBlog/",
         method: "PATCH",
     },
     delete_blog_from_featuredApi: { // Delete from featured blogs
-        url: baseUrl + "/api/v1/admin/featuredBlog/",
+        url: baseUrl + "/api/v1/blogs/featuredBlog/",
         method: "DELETE",
     },
 
