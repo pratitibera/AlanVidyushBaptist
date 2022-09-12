@@ -75,8 +75,14 @@
                <li class="nav-item">
                   <a class="nav-link" href="#transactions" onclick="viewTransactions();">View Transactions</a>
                </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="#messages" onclick="viewMessages();">View Messages</a>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Contacts
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="#pw_messages" onclick="viewpwMessages();">Personal Website</a>
+                     <a class="dropdown-item" href="#optimessages" onclick="viewoptiMessages();">Optimum Wellness</a>
+                  </div>
                </li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -719,9 +725,9 @@
 
 
       <!-- All messages --->
-      <section id="messages" class="mb-5">
+      <section id="optimessages" class="mb-5">
          <div class="container">
-            <h3 class="mb-5">MY MESSAGES</h3>
+            <h3 class="mb-5">MY OPTIMUM WELLNESS MESSAGES</h3>
             <div class="table-responsive" id="all_messages">
                <table class="table table-bordered">
                   <thead>
@@ -740,6 +746,30 @@
          </div>
       </section>
       <!-- All messages --->
+
+
+      <!-- All personal messages --->
+      <section id="pw_messages" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">MY PERSONAL MESSAGES</h3>
+            <div class="table-responsive" id="all_messages_pw">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email ID</th>
+                        <th>Message</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="message_list_pw"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
+      <!-- All personal messages --->
 
 
 
