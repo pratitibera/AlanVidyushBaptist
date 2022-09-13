@@ -67,7 +67,7 @@ function deleteMessages(id){
 
 function viewpwMessages(){
 	var request = new XMLHttpRequest();
-	request.open(urlSet.getMessagesApi.method, urlSet.getMessagesApi.url, true);
+	request.open(urlSet.getMessagesPwApi.method, urlSet.getMessagesPwApi.url, true);
 	request.setRequestHeader("Accept", "application/json");
 	request.send();
 	request.onload = function () {
@@ -96,7 +96,7 @@ function viewpwMessages(){
 			td5.append(data[i]['message']);
 
 			var td6 = document.createElement('td');
-			td6.innerHTML = `<button class="btn btn-dark" onclick="deleteHandler(this.id);" id="deleteMessage_${data[i]['_id']}">DELETE</button>`;
+			td6.innerHTML = `<button class="btn btn-dark" onclick="deleteHandler(this.id);" id="deleteMessagePw_${data[i]['_id']}">DELETE</button>`;
 
 			var tr = document.createElement('tr');
 			tr.append(td1);
@@ -107,6 +107,27 @@ function viewpwMessages(){
 			tr.append(td6);
 
 			message_list.append(tr);
+		}
+	}
+}
+
+function deleteMessagesPw(id){
+	id = id.id;
+	var request = new XMLHttpRequest();
+	request.open(urlSet.deleteMessagesPwApi.method, urlSet.deleteMessagesPwApi.url + id.split('_')[1], true);
+	request.setRequestHeader("Accept", "application/json");
+	request.setRequestHeader("authorization", authtoken);
+	request.send();
+	request.onload = function () {
+		var data = JSON.parse(this.response);
+		console.log(data);
+		$('#confirmDeletion').modal('hide');
+		if(data['message'] == "Feedback Deleted"){
+			alert("Message has been deleted.");
+			viewpwMessages();
+		}
+		else{
+			alert("Could not delete this message.");
 		}
 	}
 }

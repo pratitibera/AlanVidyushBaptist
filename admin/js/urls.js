@@ -171,13 +171,23 @@ var urlSet = {
         method: "DELETE",
     },
 
-    // Messages
+    // Messages of Optimum wellness
     getMessagesApi: { // Get messages
         url: baseUrl + "/api/v1/messages/",
         method: "GET",
     },
     deleteMessagesApi: { // Delete messages
         url: baseUrl + "/api/v1/messages/",
+        method: "DELETE",
+    },
+
+    // Messages of portfolio website
+    getMessagesPwApi: { // Get messages
+        url: baseUrl + "/api/v1/feedbacks/",
+        method: "GET",
+    },
+    deleteMessagesPwApi: { // Delete messages
+        url: baseUrl + "/api/v1/feedbacks/",
         method: "DELETE",
     }
 };

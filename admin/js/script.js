@@ -133,6 +133,9 @@ function deleteHandler(func_id){
 	else if(r_id == "deleteMessage"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteMessages(` + func_id + `)`);
 	}
+	else if(r_id == "deleteMessagePw"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteMessagesPw(` + func_id + `)`);
+	}
 }
 
 
