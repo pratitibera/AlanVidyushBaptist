@@ -189,5 +189,30 @@ var urlSet = {
     deleteMessagesPwApi: { // Delete messages
         url: baseUrl + "/api/v1/feedbacks/",
         method: "DELETE",
+    },
+
+
+    
+
+    // Add employees
+    viewEmployeesApi: { // Get all employees
+        url: baseUrl + "/api/v1/employees/",
+        method: "GET",
+    },
+    addEmployeesApi: { // Add employees
+        url: baseUrl + "/api/v1/employees/",
+        method: "POST",
+    },
+    deleteEmployeesApi: { // Delete employees
+        url: baseUrl + "/api/v1/employees/",
+        method: "DELETE",
+    },
+    editEmployeesApi: { // Patch employees
+        url: baseUrl + "/api/v1/employees/",
+        method: "PATCH",
+    },
+    getEmployeesApi: { // Get employee
+        url: baseUrl + "/api/v1/employees/",
+        method: "GET",
     }
 };

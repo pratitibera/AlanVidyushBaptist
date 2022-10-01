@@ -131,3 +131,26 @@ function deleteMessagesPw(id){
 		}
 	}
 }
+
+function filterPwMessages(){
+	var start_date = document.getElementById('start_date').value;
+	var end_date = document.getElementById('end_date').value;
+	if(start_date < end_date){
+		alert("correct");
+	}
+	else{
+		alert("noooooooooo");
+	}
+}
+
+
+function filterOwMessages(){
+	var start_date = document.getElementById('start_date').value;
+	var end_date = document.getElementById('end_date').value;
+	if(start_date < end_date){
+		alert("correct");
+	}
+	else{
+		alert("noooooooooo");
+	}
+}

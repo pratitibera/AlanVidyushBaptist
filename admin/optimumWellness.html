@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>ADMIN PANEL</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+   </head>
+   <body onload="checkLoginStatus(2);">
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+         <!-- <a class="navbar-brand" href="#">Alan Baptist</a> -->
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+               <li class="nav-item dropdown">
+                  <a class="nav-link" href="#optimessages" onclick="viewoptiMessages();">
+                    Messages
+                  </a>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Coaches
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="#viewCoaches" onclick="viewEmployees('Coach');">View coaches</a>
+                     <a class="dropdown-item" href="#addCoaches">Add coaches</a>
+                  </div>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Doctors
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="#viewDoctors" onclick="viewEmployees('Doctor');">View doctors</a>
+                     <a class="dropdown-item" href="#addDoctors">Add doctors</a>
+                  </div>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Interns
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="#viewInterns" onclick="viewEmployees('Intern');">View interns</a>
+                     <a class="dropdown-item" href="#addInterns">Add interns</a>
+                  </div>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Account
+                  </a>
+                  <div class="dropdown-menu">
+                     <a class="dropdown-item" href="#changepassword">Change password</a>
+                     <a class="dropdown-item" href="index.html">Personal Website</a>
+                     <a class="dropdown-item" href="#" onclick="logout();">Logout</a>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <br>
+      <!--- End of navbar -->
+
+
+      <!-- All messages --->
+      <section id="optimessages" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">MY OPTIMUM WELLNESS MESSAGES</h3>
+            <div class="row m-0">
+               <div class="form-group">
+                  <label>Enter start date</label>
+                  <input type="date" class="form-control" id="start_date">
+               </div>
+               <div class="form-group ml-4">
+                  <label>Enter end date</label>
+                  <input type="date" class="form-control" id="end_date">
+               </div>
+               <div class="form-group ml-4" style="margin-top: 31px">
+                  <button class="btn btn-dark" onclick="filterOwMessages();">SUBMIT</button>
+               </div>
+            </div>
+            <div class="table-responsive" id="all_messages">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Mobile Number</th>
+                        <th>Email ID</th>
+                        <th>Message</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="message_list"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
+      <!-- All messages --->
+
+
+
+
+
+      <!-- Add coaches sections --->
+      <section id="addCoaches">
+         <div class="container">
+            <h3 class="mb-5">ADD COACHES</h3>
+            <div class="form-group">
+               <label>Enter name:</label>
+               <input type="text" class="form-control" id="coach_name">
+            </div> 
+            <div class="form-group">
+               <label>Enter description:</label>
+               <input type="text" class="form-control" id="coach_desc">
+            </div> 
+            <div class="form-group">
+               <label>Enter image:</label>
+               <input type="text" class="form-control" id="coach_image">
+            </div>      
+         </div>
+         <div class="text-center mt-5 mb-5">
+            <button class="btn btn-dark w-25" onclick="addCoaches();" id="addCoachButton">ADD COACH</button>
+         </div>
+      </section>
+      <hr>
+
+
+      <!-- All coaches --->
+      <section id="viewCoaches" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">VIEW COACHES</h3>
+            <div class="table-responsive" id="all_coaches">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th></th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="coaches_list"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
+      <!-- All coaches --->
+      <hr>
+
+
+      <!-- Add doctors sections --->
+      <section id="addDoctors">
+         <div class="container">
+            <h3 class="mb-5">ADD DOCTORS</h3>
+            <div class="form-group">
+               <label>Enter name:</label>
+               <input type="text" class="form-control" id="doctor_name">
+            </div> 
+            <div class="form-group">
+               <label>Enter description:</label>
+               <input type="text" class="form-control" id="doctor_desc">
+            </div> 
+            <div class="form-group">
+               <label>Enter image:</label>
+               <input type="text" class="form-control" id="doctor_image">
+            </div>      
+         </div>
+         <div class="text-center mt-5 mb-5">
+            <button class="btn btn-dark w-25" onclick="addDoctors();" id="addDoctorButton">ADD DOCTOR</button>
+         </div>
+      </section>
+      <hr>
+
+
+      <!-- All coaches --->
+      <section id="viewDoctors" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">VIEW DOCTORS</h3>
+            <div class="table-responsive" id="all_doctors">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th></th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="doctors_list"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
+      <!-- All coaches --->
+      <hr>
+
+
+
+
+
+
+      <!-- Add interns sections --->
+      <section id="addInterns">
+         <div class="container">
+            <h3 class="mb-5">ADD INTERNS</h3>
+            <div class="form-group">
+               <label>Enter name:</label>
+               <input type="text" class="form-control" id="intern_name">
+            </div> 
+            <div class="form-group">
+               <label>Enter description:</label>
+               <input type="text" class="form-control" id="intern_desc">
+            </div> 
+            <div class="form-group">
+               <label>Enter image:</label>
+               <input type="text" class="form-control" id="intern_image">
+            </div>      
+         </div>
+         <div class="text-center mt-5 mb-5">
+            <button class="btn btn-dark w-25" onclick="addInterns();" id="addInternButton">ADD INTERN</button>
+         </div>
+      </section>
+      <hr>
+
+
+
+      <!-- All coaches --->
+      <section id="viewInterns" class="mb-5">
+         <div class="container">
+            <h3 class="mb-5">VIEW INTERNS</h3>
+            <div class="table-responsive" id="all_interns">
+               <table class="table table-bordered">
+                  <thead>
+                     <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th></th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody id="interns_list"></tbody>
+               </table>
+            </div>
+         </div>
+      </section>
+      <!-- All coaches --->
+      <hr>
+
+
+
+
+      <!-- Change credentials --->
+      <section id="changepassword" class="mb-5">
+         <div class="container" style="padding: 100px 250px">
+            <div class="form-group">
+               <label>Enter username:</label>
+               <input type="password" class="form-control" id="username" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+               <label>Enter new password:</label>
+               <input type="password" class="form-control" id="password" placeholder="Enter new password">
+            </div>
+            <div class="form-group">
+               <label>Confirm password:</label>
+               <input type="password" class="form-control" id="c_password" placeholder="Enter new password">
+            </div>
+            <button type="button" class="btn btn-primary mt-4" onclick="changepassword();">Submit</button>
+         </div>
+      </section>
+
+
+
+      <div class="modal" id="confirmDeletion">
+         <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content p-5">
+               <div class="text-center fo-13 mb-4 fw-600">Are you sure you want to delete?</div>
+               <div class="row m-0 justify-content-around">
+                  <button class="btn btn-dark" id="confirmDeletionButton">CONFIRM</button>
+                  <button class="btn btn-dark" data-dismiss="modal">CANCEL</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+      <div class="modal" id="confirmEditing">
+         <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content p-5">
+               <div class="text-center fo-13 mb-4 fw-600">Are you sure you want to save the changes?</div>
+               <div class="row m-0 justify-content-around">
+                  <button class="btn btn-dark" id="confirmEditButton">CONFIRM</button>
+                  <button class="btn btn-dark" data-dismiss="modal">CANCEL</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+      <div class="modal" id="editEmployeesModal">
+         <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+               <div class="modal-header bg-dark">
+                  <button type="button" class="close text-white" data-dismiss="modal">&times;</button>
+               </div>
+               <div class="modal-body">
+                  <div class="form-group">
+                     <label>Enter name:</label>
+                     <input type="text" class="form-control" id="employee_name">
+                  </div> 
+                  <div class="form-group">
+                     <label>Enter description:</label>
+                     <input type="text" class="form-control" id="employee_desc">
+                  </div> 
+                  <div class="form-group">
+                     <label>Enter image:</label>
+                     <input type="text" class="form-control" id="employee_image">
+                  </div>     
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-dark" id="editEmployees" onclick="editHandler(this.id);">SAVE</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+
+
+
+
+      <script src="js/urls.js" defer></script>
+      <script src="js/script.js"></script>
+      <script src="js/blogs.js"></script>
+      <script src="js/generateBlogs.js"></script>
+      <script src="js/addBlogs.js"></script>
+      <script src="js/editBlogs.js"></script>
+      <script src="js/services.js"></script>
+      <script src="js/addServices.js"></script>
+      <script src="js/editServices.js"></script>
+      <script src="js/coupons.js"></script>
+      <script src="js/transactions.js"></script>
+      <script src="js/messages.js"></script>
+      <script src="js/employees.js"></script>
+   </body>
+</html>

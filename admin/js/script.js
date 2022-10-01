@@ -25,16 +25,22 @@ function signin() {
 	}
 }
 
-function checkLoginStatus() {
+function checkLoginStatus(num) {
 	var token = localStorage.getItem("authtoken");
 	if (token == null) {
 		document.location.href = "login.html";
 	} else {
-		authtoken = token;
-		getBlogCategory();
-		getBlogSubcategory('Weight Loss_0');
-		getAllBlogs();
-		getAllServices();
+		if(num == 1){
+			authtoken = token;
+			getBlogCategory();
+			getBlogSubcategory('Weight Loss_0');
+			getAllBlogs();
+			getAllServices();
+		}
+		else{
+			authtoken = token;
+			viewoptiMessages();
+		}
 	}
 }
 
@@ -77,6 +83,7 @@ function checkLoginStatus2() {
 }
 
 function changepassword() {
+	var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
 	var c_password = document.getElementById('c_password').value;
 
@@ -136,6 +143,9 @@ function deleteHandler(func_id){
 	else if(r_id == "deleteMessagePw"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteMessagesPw(` + func_id + `)`);
 	}
+	else if(r_id == "deleteEmployees"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteEmployees(` + func_id + `)`);
+	}
 }
 
 
@@ -153,5 +163,8 @@ function editHandler(func_id){
 	}
 	else if(r_id == "edittrans"){
 		document.getElementById("confirmEditButton").setAttribute('onclick', `editTransaction(` + func_id + `)`);
+	}
+	else if(r_id == "editEmployees"){
+		document.getElementById("confirmEditButton").setAttribute('onclick', `editEmployees()`);
 	}
 }

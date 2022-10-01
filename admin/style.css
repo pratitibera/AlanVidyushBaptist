@@ -79,3 +79,7 @@ section{
 #blogcontent img{
     width: 30%;
 }
+
+#confirmEditing{
+    z-index: 1051;
+}
