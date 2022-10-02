@@ -1,3 +1,5 @@
+var pw_msgs;
+
 function viewoptiMessages(){
 	var request = new XMLHttpRequest();
 	request.open(urlSet.getMessagesApi.method, urlSet.getMessagesApi.url, true);
@@ -6,6 +8,7 @@ function viewoptiMessages(){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		pw_msgs = data;
 		var message_list = document.getElementById('message_list');
 		message_list.innerHTML = "";
 
@@ -73,6 +76,7 @@ function viewpwMessages(){
 	request.onload = function () {
 		var data = JSON.parse(this.response);
 		console.log(data);
+		pw_msgs = data;
 		var message_list = document.getElementById('message_list_pw');
 		message_list.innerHTML = "";
 
@@ -153,4 +157,30 @@ function filterOwMessages(){
 	else{
 		alert("noooooooooo");
 	}
+}
+
+
+function exportAsCsv() {
+	JsonFields = ["Date","Name","Mobile Number","Email Id", "Message"];
+
+	var csvStr = JsonFields.join(",") + "\n";
+
+    pw_msgs.forEach(element => {
+    	var istDate = new Date(element.createdAt).toLocaleString(undefined, {
+			timeZone: 'Asia/Kolkata'
+		});
+		date = istDate.split(',')[0];
+	    name = element.name;
+	    phone = "'" + element.phone;
+	    email = element.email;
+	    message = element.message;
+
+	    csvStr += date + ',' + name + ','  + phone + ',' + email +  ',' + message + "\n";
+    })
+
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csvStr);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'Messages.csv';
+    hiddenElement.click();
 }
