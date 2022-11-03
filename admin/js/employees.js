@@ -8,7 +8,7 @@ function addCoaches(){
    var json = {
       "name": coach_name,
       "email": "",
-      "role": "Coach",
+      "role": "coach",
       "phone": "",
       "image": coach_image
    }
@@ -21,12 +21,11 @@ function addCoaches(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      if (data['message'] == "Serivce has been updated") {
-         alert("Main Service successfully added");
-         // location.reload();
+      document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+      if (data['message'] == "Employee Created!") {
+         alert("Coach successfully added");
       } else {
-         alert("Could not add main service");
-         document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+         alert("Could not add coach");
       }
    }
 }
@@ -72,7 +71,7 @@ function addDoctors(){
    var json = {
       "name": coach_name,
       "email": "",
-      "role": "Doctor",
+      "role": "doctor",
       "phone": "",
       "image": coach_image
    }
@@ -85,12 +84,11 @@ function addDoctors(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      if (data['message'] == "Serivce has been updated") {
-         alert("Main Service successfully added");
-         // location.reload();
+      document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+      if (data['message'] == "Employee Created!") {
+         alert("Doctor successfully added");
       } else {
-         alert("Could not add main service");
-         document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+         alert("Could not add doctor");
       }
    }
 }
@@ -109,7 +107,7 @@ function addInterns(){
    var json = {
       "name": coach_name,
       "email": "",
-      "role": "Intern",
+      "role": "intern",
       "phone": "",
       "image": coach_image
    }
@@ -122,12 +120,11 @@ function addInterns(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      if (data['message'] == "Serivce has been updated") {
-         alert("Main Service successfully added");
-         // location.reload();
+      document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+      if (data['message'] == "Employee Created!") {
+         alert("Intern successfully added");
       } else {
-         alert("Could not add main service");
-         document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+         alert("Could not add intern");
       }
    }
 }
@@ -160,7 +157,7 @@ function viewEmployees(type1) {
          var employees_list = document.getElementById('coaches_list');
          employees_list.innerHTML = "";
       }
-      else if(type1 == 'Doctor'){
+      else if(type1 == 'doctor'){
          var employees_list = document.getElementById('doctors_list');
          employees_list.innerHTML = "";
       }
@@ -186,7 +183,7 @@ function viewEmployees(type1) {
             td3.append(data[i]['description']);
 
             var td4 = document.createElement('td');
-            td4.innerHTML = `<button class="btn btn-dark" id="editEmployees_${data[i]['_id']}" onclick="triggerEditEmployee(this.id, type1);">EDIT</button>`;
+            td4.innerHTML = `<button class="btn btn-dark" id="editEmployees_${data[i]['_id']}" onclick="triggerEditEmployee(this.id, '${type1}');">EDIT</button>`;
 
             var td5 = document.createElement('td');
             td5.innerHTML = `<button class="btn btn-dark" onclick="deleteHandler(this.id);" id="deleteEmployees_${type1}_${data[i]['_id']}">DELETE</button>`;
@@ -243,12 +240,12 @@ function deleteEmployees(id){
 
 
 
-
 function triggerEditEmployee(id1, id2) {
    $("#editEmployeesModal").modal();
    employee_to_be_edited = id1.split('_')[1];
 
    employeetype_to_be_edited = id2;
+   console.log(employeetype_to_be_edited);
 
    var request = new XMLHttpRequest();
    request.open(urlSet.getEmployeesApi.method, urlSet.getEmployeesApi.url + employee_to_be_edited, true);
@@ -276,13 +273,14 @@ function editEmployees() {
    var request = new XMLHttpRequest();
    request.open(urlSet.editEmployeesApi.method, urlSet.editEmployeesApi.url + employee_to_be_edited, true);
    request.setRequestHeader("Content-Type", "application/json");
+   request.setRequestHeader("authorization", authtoken);
    request.send(JSON.stringify(json));
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
       $('#confirmEditing').modal('hide');
-      if(data['message'] == "Order Successful"){
-         alert(employeetype_to_be_edited + " Updated")
+      if(data['message'] == "Employee Updated"){
+         alert("Details Updated")
          $('#editEmployeesModal').modal('hide');
          viewCoaches();
       }

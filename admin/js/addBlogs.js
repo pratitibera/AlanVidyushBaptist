@@ -2,7 +2,7 @@
 
 var blogCatandSub = [{
 		"category": "Fitness",
-		"subcategory": ["Weight Loss", "Muscle Gain", "Body Recomposition", "Sports Performance", "Fitness Modelling", "Fitness Myths"]
+		"subcategory": ["Weight Loss", "Muscle Gain", "Body Recomposition", "Sports Performance", "Fitness Modelling", "Fitness Myths", "Postpartum"]
 	},
 	{
 		"category": "Nutrition",
