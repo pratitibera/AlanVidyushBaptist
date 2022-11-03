@@ -10,6 +10,7 @@ function addCoaches(){
       "email": "",
       "role": "coach",
       "phone": "",
+      "description": coach_desc,
       "image": coach_image
    }
    console.log(json);
@@ -73,6 +74,7 @@ function addDoctors(){
       "email": "",
       "role": "doctor",
       "phone": "",
+      "description": coach_desc,
       "image": coach_image
    }
    console.log(json);
@@ -109,6 +111,7 @@ function addInterns(){
       "email": "",
       "role": "intern",
       "phone": "",
+      "description": coach_desc,
       "image": coach_image
    }
    console.log(json);
@@ -222,7 +225,7 @@ function deleteEmployees(id){
          if(id.split('_')[1] == 'coach'){
             alert("Coach has been deleted.");
          }
-         else if(id.split('_')[1] == 'Doctor'){
+         else if(id.split('_')[1] == 'doctor'){
             alert("Doctor has been deleted.");
          }
          else{
@@ -245,8 +248,7 @@ function triggerEditEmployee(id1, id2) {
    employee_to_be_edited = id1.split('_')[1];
 
    employeetype_to_be_edited = id2;
-   console.log(employeetype_to_be_edited);
-
+   
    var request = new XMLHttpRequest();
    request.open(urlSet.getEmployeesApi.method, urlSet.getEmployeesApi.url + employee_to_be_edited, true);
    request.setRequestHeader("Content-Type", "application/json");
@@ -255,7 +257,7 @@ function triggerEditEmployee(id1, id2) {
       var data = JSON.parse(this.response);
       console.log(data);
       document.getElementById('employee_name').value = data['name'];
-      //document.getElementById('employee_desc').value = data['description'][1];
+      document.getElementById('employee_desc').value = data['description'];
       document.getElementById('employee_image').value = data['image'];
    }
 }
@@ -280,9 +282,17 @@ function editEmployees() {
       console.log(data);
       $('#confirmEditing').modal('hide');
       if(data['message'] == "Employee Updated"){
-         alert("Details Updated")
          $('#editEmployeesModal').modal('hide');
-         viewCoaches();
+         if(employeetype_to_be_edited == 'coach'){
+            alert("Coach has been updated.");
+         }
+         else if(employeetype_to_be_edited == 'doctor'){
+            alert("Doctor has been updated.");
+         }
+         else{
+            alert("Intern has been updated.");
+         }
+         viewEmployees(employeetype_to_be_edited);
       }
       else{
          alert("Could not update details");

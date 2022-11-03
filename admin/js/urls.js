@@ -211,8 +211,23 @@ var urlSet = {
         url: baseUrl + "/api/v1/employees/",
         method: "PATCH",
     },
-    getEmployeesApi: { // Get employee
+    getEmployeesApi: { // Get all employees
         url: baseUrl + "/api/v1/employees/",
         method: "GET",
+    },
+
+
+    // Add programs
+    viewProgramsApi: { // Get all reaches
+        url: baseUrl + "/api/v1/program_reaches/",
+        method: "GET",
+    },
+    deleteProgramsApi: { // Delete reaches
+        url: baseUrl + "/api/v1/program_reaches/",
+        method: "DELETE",
+    },
+    editProgramsApi: { // Patch reaches
+        url: baseUrl + "/api/v1/program_reaches/",
+        method: "PATCH",
     }
 };

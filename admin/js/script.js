@@ -146,6 +146,9 @@ function deleteHandler(func_id){
 	else if(r_id == "deleteEmployees"){
 		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteEmployees(` + func_id + `)`);
 	}
+	else if(r_id == "deleteReaches"){
+		document.getElementById("confirmDeletionButton").setAttribute('onclick', `deleteReaches(` + func_id + `)`);
+	}
 }
 
 
