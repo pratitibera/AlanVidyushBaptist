@@ -22,7 +22,7 @@ function addCoaches(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+      document.getElementById('addCoachButton').setAttribute('disabled', false);
       if (data['message'] == "Employee Created!") {
          alert("Coach successfully added");
       } else {
@@ -86,7 +86,7 @@ function addDoctors(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+      document.getElementById('addDoctorButton').setAttribute('disabled', false);
       if (data['message'] == "Employee Created!") {
          alert("Doctor successfully added");
       } else {
@@ -123,7 +123,7 @@ function addInterns(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      document.getElementById('addMainServiceButton').setAttribute('disabled', false);
+      document.getElementById('addInternButton').setAttribute('disabled', false);
       if (data['message'] == "Employee Created!") {
          alert("Intern successfully added");
       } else {
