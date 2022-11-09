@@ -22,9 +22,12 @@ function addCoaches(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      document.getElementById('addCoachButton').setAttribute('disabled', false);
+      document.getElementById('addCoachButton').removeAttribute('disabled');
       if (data['message'] == "Employee Created!") {
          alert("Coach successfully added");
+         document.getElementById('coach_name').value = "";
+         document.getElementById('coach_image').value = "";
+         document.getElementById('coach_desc').value = "";
       } else {
          alert("Could not add coach");
       }
@@ -86,9 +89,12 @@ function addDoctors(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      document.getElementById('addDoctorButton').setAttribute('disabled', false);
+      document.getElementById('addDoctorButton').removeAttribute('disabled');
       if (data['message'] == "Employee Created!") {
          alert("Doctor successfully added");
+         document.getElementById('doctor_name').value = "";
+         document.getElementById('doctor_image').value = "";
+         document.getElementById('doctor_desc').value = "";
       } else {
          alert("Could not add doctor");
       }
@@ -123,9 +129,12 @@ function addInterns(){
    request.onload = function () {
       var data = JSON.parse(this.response);
       console.log(data);
-      document.getElementById('addInternButton').setAttribute('disabled', false);
+      document.getElementById('addInternButton').removeAttribute('disabled');
       if (data['message'] == "Employee Created!") {
          alert("Intern successfully added");
+         document.getElementById('intern_name').value = "";
+         document.getElementById('intern_image').value = "";
+         document.getElementById('intern_desc').value = "";
       } else {
          alert("Could not add intern");
       }
