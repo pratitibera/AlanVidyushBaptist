@@ -183,7 +183,7 @@ function viewEmployees(type1) {
          if(data[i]['role'] == type1){
             var img = document.createElement('img');
             img.src = data[i]['image'];
-            img.setAttribute('class', 'w-100');
+            img.setAttribute('class', 'w-30');
 
             var td1 = document.createElement('td');
             td1.append(img);

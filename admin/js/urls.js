@@ -196,7 +196,7 @@ var urlSet = {
 
     // Add employees
     viewEmployeesApi: { // Get all employees
-        url: baseUrl + "/api/v1/employees/",
+        url: baseUrl + "/api/v1/employees/?index=0&limit=50",
         method: "GET",
     },
     addEmployeesApi: { // Add employees
