@@ -9,7 +9,7 @@ function viewProgramReaches(){
 		var reaches_list = document.getElementById('reaches_list');
 		reaches_list.innerHTML = "";
 
-		for(i = 0; i < data.length; i++){
+		for(i = data.length - 1; i >= 0; i--){
 			var istDate = new Date(data[i]['createdAt']).toLocaleString(undefined, {
 				timeZone: 'Asia/Kolkata'
 			});
