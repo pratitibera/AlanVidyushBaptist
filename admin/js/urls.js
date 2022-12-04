@@ -1,5 +1,4 @@
-const baseUrl = "https://desolate-retreat-74146.herokuapp.com";
-// http://localhost:8081
+const baseUrl = "https://itchy-blue-seagull.cyclic.app"
 var urlSet = {
 
     // Blogs
