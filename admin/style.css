@@ -86,3 +86,12 @@ section{
 #confirmEditing{
     z-index: 1051;
 }
+
+#all_reaches{
+    height: 300px;
+}
+
+#all_reaches .table{
+    height: 300px;
+    overflow-y: scroll;
+}
