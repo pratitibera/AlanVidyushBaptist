@@ -244,7 +244,9 @@ function displayBlogData() {
 	document.getElementById('blogdate').value = blog_data['date'];
 
 	// Blog body
+
 	for (j = 0; j < blog_data['body'].length; j++) {
+
 		var body = document.createElement('div');
 		body.setAttribute('class', 'font-weight-bolder text-danger fo-30');
 		body.setAttribute('id', 'index_' + body_count);
@@ -279,13 +281,20 @@ function displayBlogData() {
 		bodydelete.append('DELETE SECTION');
 
 		var bodybutton = document.createElement('button');
-		bodybutton.setAttribute('class', 'btn btn-dark');
-		bodybutton.setAttribute('id', 'newbody_' + body_count++);
+		bodybutton.setAttribute('class', 'btn btn-dark mr-4');
+		bodybutton.setAttribute('id', 'newbody_' + body_count);
 		bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
 		bodybutton.append('ADD NEW CONTENT');
 
+		var centerbutton = document.createElement('button');
+		centerbutton.setAttribute('class', 'btn btn-dark');
+		centerbutton.setAttribute('id', 'centerbody_' + body_count++);
+		centerbutton.setAttribute('onclick', `centerContent(this.id)`);
+		centerbutton.append('ADD IMAGE TITLE');
+
 		body.append(bodydelete);
 		body.append(bodybutton);
+		body.append(centerbutton);
 
 		document.getElementById('blogcontent').append(body);
 	}
@@ -385,19 +394,38 @@ function edit_addBlogBody() {
 	bodydelete.append('DELETE SECTION');
 
 	var bodybutton = document.createElement('button');
-	bodybutton.setAttribute('class', 'btn btn-dark');
-	bodybutton.setAttribute('id', 'newbody_' + body_count++);
+	bodybutton.setAttribute('class', 'btn btn-dark mr-4');
+	bodybutton.setAttribute('id', 'newbody_' + body_count);
 	bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
 	bodybutton.append('ADD NEW CONTENT');
 
+	var centerbutton = document.createElement('button');
+	centerbutton.setAttribute('class', 'btn btn-dark');
+	centerbutton.setAttribute('id', 'centerbody_' + body_count++);
+	centerbutton.setAttribute('onclick', `centerContent(this.id)`);
+	centerbutton.append('ADD IMAGE TITLE');
+
 	body.append(bodydelete);
 	body.append(bodybutton);
+	body.append(centerbutton);
 
 	document.getElementById('blogcontent').append(body);
 
 	var contentid = document.getElementById('contentid').value = "";
 	var contentheading = document.getElementById('contentheading').value = "";
 	var contentpara = document.getElementById('contentpara').value = "";
+}
+
+function centerContent(id) {
+	$("#centerTextModal").modal();
+
+	$('#saveImageTitle').click(function () {
+		$("#centerTextModal").modal("hide");
+		var imageTitleContent = document.getElementById('imageTitleContent').value;
+		if (imageTitleContent != '') {
+			document.getElementById('para_' + id.split('_')[1]).innerHTML = document.getElementById('para_' + id.split('_')[1]).innerHTML + `<div class='text-center'>` + imageTitleContent + `</div>`;
+		}
+	});
 }
 
 function addNewContent(id) {
@@ -479,12 +507,19 @@ function deleteContent(id) {
 
 			var bodybutton = document.createElement('button');
 			bodybutton.setAttribute('class', 'btn btn-dark');
-			bodybutton.setAttribute('id', 'newbody_' + body_count++);
+			bodybutton.setAttribute('id', 'newbody_' + body_count);
 			bodybutton.setAttribute('onclick', `addNewContent(this.id)`);
 			bodybutton.append('ADD NEW CONTENT');
 
+			var centerbutton = document.createElement('button');
+			centerbutton.setAttribute('class', 'btn btn-dark');
+			centerbutton.setAttribute('id', 'centerbody_' + body_count++);
+			centerbutton.setAttribute('onclick', `centerContent(this.id)`);
+			centerbutton.append('ADD IMAGE TITLE');
+
 			body.append(bodydelete);
 			body.append(bodybutton);
+			body.append(centerbutton);
 
 			document.getElementById('blogcontent').append(body);
 		}
